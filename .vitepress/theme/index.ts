@@ -21,13 +21,29 @@ function updateIcons() {
   if (rb) rb.textContent = right ? '\u25C0' : '\u25B6'
 }
 
+function setVisibility() {
+  const lb = document.getElementById('sb-btn-left')
+  const rb = document.getElementById('sb-btn-right')
+  const sidebar = document.querySelector('aside.VPSidebar') as HTMLElement | null
+  const aside = document.querySelector('.VPDocAsideOutline, .VPDocAside') as HTMLElement | null
+
+  if (lb) {
+    const vp = document.querySelector('.VPDoc.has-sidebar') || sidebar
+    lb.style.display = vp ? '' : 'none'
+  }
+  if (rb) {
+    rb.style.display = aside ? '' : 'none'
+  }
+}
+
 function calcPositions() {
   const lb = document.getElementById('sb-btn-left')
   const rb = document.getElementById('sb-btn-right')
+  setVisibility()
   if (!lb || !rb) return
 
   const sidebar = document.querySelector('aside.VPSidebar') as HTMLElement | null
-  const aside = document.querySelector('aside.VPDocAsideOutline, div.VPDocAside, aside.VPDocAside') as HTMLElement | null
+  const aside = document.querySelector('.VPDocAsideOutline, .VPDocAside') as HTMLElement | null
   const isLeftCollapsed = document.documentElement.classList.contains('sb-left-collapsed')
   const isRightCollapsed = document.documentElement.classList.contains('sb-right-collapsed')
 
@@ -80,9 +96,7 @@ function injectButtons() {
   updateIcons()
   calcPositions()
 
-  // Recalc on resize
   window.addEventListener('resize', calcPositions)
-  // Recalc after scroll (VitePress may lazy-load sidebar)
   window.addEventListener('scroll', calcPositions, { passive: true })
 }
 
@@ -92,27 +106,25 @@ export default {
     if (!inBrowser) return
     applyState()
 
-    const attempts = [100, 300, 500, 800, 1200, 2000]
     let injected = false
 
-    const tryOnce = () => {
+    const doInject = () => {
+      if (injected) return
+      // Only inject when sidebar exists (skip home page)
       const sidebar = document.querySelector('aside.VPSidebar')
-      if (sidebar && !injected) {
-        injected = true
-        injectButtons()
-        return true
-      }
-      return false
+      if (!sidebar) return
+      injected = true
+      injectButtons()
     }
 
+    const attempts = [100, 300, 500, 800, 1200, 2000]
     attempts.forEach(ms => {
       setTimeout(() => {
         if (!injected) {
-          if (tryOnce()) return
-          // fallback observer for last attempt
+          doInject()
           if (ms === attempts[attempts.length - 1]) {
             const obs = new MutationObserver(() => {
-              if (tryOnce()) obs.disconnect()
+              if (doInject()) obs.disconnect()
             })
             obs.observe(document.body, { childList: true, subtree: true })
             setTimeout(() => obs.disconnect(), 8000)
@@ -123,9 +135,9 @@ export default {
 
     if (router) {
       router.onAfterRouteChanged = () => {
-        setTimeout(() => {
-          calcPositions()
-        }, 300)
+        // On route change: inject if not yet, update visibility + positions
+        doInject()
+        setTimeout(() => calcPositions(), 300)
       }
     }
   }
