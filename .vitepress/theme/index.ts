@@ -76,7 +76,9 @@ function injectButtons() {
     const collapsed = document.documentElement.classList.toggle('sb-left-collapsed')
     localStorage.setItem(KEY_LEFT, String(collapsed))
     updateIcons()
-    calcPositions()
+    // 收起：立即到位（left:4px）；展开：等 CSS 过渡完成再重算
+    if (collapsed) { calcPositions() }
+    else { setTimeout(calcPositions, 350) }
   })
 
   const rb = document.createElement('button')
@@ -87,7 +89,8 @@ function injectButtons() {
     const collapsed = document.documentElement.classList.toggle('sb-right-collapsed')
     localStorage.setItem(KEY_RIGHT, String(collapsed))
     updateIcons()
-    calcPositions()
+    if (collapsed) { calcPositions() }
+    else { setTimeout(calcPositions, 350) }
   })
 
   document.body.appendChild(lb)
