@@ -1,121 +1,74 @@
 /* ============================================
-   侧边栏折叠按钮 & 样式
-   左侧：章节导航 | 右侧：本页目录
+   侧边栏折叠按钮 — 固定在屏幕上
    ============================================ */
 
-/* ---------- 切换按钮 ---------- */
-.sidebar-toggle-btn {
+.sb-toggle {
   position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 40;
+  top: calc(50vh - 20px);
+  z-index: 200;
   width: 22px;
-  height: 52px;
+  height: 40px;
   border: 1px solid var(--vp-c-divider);
   background: var(--vp-c-bg-soft);
   color: var(--vp-c-text-2);
   cursor: pointer;
+  font-size: 10px;
+  padding: 0;
+  border-radius: 5px;
+  transition: left 0.25s ease, right 0.25s ease, background 0.15s;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
-  padding: 0;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0;
-  backdrop-filter: blur(4px);
 }
 
-.sidebar-toggle-btn:hover {
-  background: var(--vp-c-brand-soft);
-  color: var(--vp-c-brand);
-  border-color: var(--vp-c-brand-light);
-  opacity: 1;
+.sb-toggle:hover {
+  background: var(--vp-c-brand-1);
+  color: #fff;
+  border-color: var(--vp-c-brand-1);
 }
 
-/* 左侧按钮：依附在侧边栏右边 */
-.sidebar-toggle-left {
-  left: var(--vp-sidebar-width);
-  border-radius: 0 8px 8px 0;
-  border-left: none;
-}
-
-/* 右侧按钮：依附在目录栏左边 */
-.sidebar-toggle-right {
-  right: var(--vp-aside-width);
-  border-radius: 8px 0 0 8px;
-  border-right: none;
-}
-
-/* 鼠标悬停区域显示按钮 */
-@media (min-width: 960px) {
-  .VPSidebar:hover ~ .sidebar-toggle-left,
-  .VPDocAside:hover ~ .sidebar-toggle-right,
-  .sidebar-toggle-btn:hover {
-    opacity: 1;
-  }
-}
-
-/* ---------- 左侧边栏折叠 ---------- */
-.sidebar-left-collapsed .VPSidebar {
+/* ---------- 左侧折叠 ---------- */
+.sb-left-collapsed aside.VPSidebar {
   width: 0 !important;
   min-width: 0 !important;
+  padding: 0 !important;
   overflow: hidden;
   border-right: none !important;
-}
-
-.sidebar-left-collapsed .VPSidebar > * {
   opacity: 0;
-  pointer-events: none;
 }
 
-.sidebar-left-collapsed .sidebar-toggle-left {
-  left: 0;
-  opacity: 1;
-  border-left: 1px solid var(--vp-c-divider);
-  border-radius: 0 8px 8px 0;
-}
-
-/* ---------- 右侧目录折叠 ---------- */
-.sidebar-right-collapsed .VPDocAside {
-  width: 0 !important;
-  min-width: 0 !important;
-}
-
-.sidebar-right-collapsed .VPDocAside > * {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.sidebar-right-collapsed .sidebar-toggle-right {
-  right: 0;
-  opacity: 1;
-  border-right: 1px solid var(--vp-c-divider);
-  border-radius: 8px 0 0 8px;
-}
-
-/* ---------- 主内容区自适应 ---------- */
-.sidebar-left-collapsed .VPContent.has-sidebar {
+/* 折叠后内容填满 */
+.sb-left-collapsed .VPContent.has-sidebar {
   padding-left: 0 !important;
 }
 
-.sidebar-right-collapsed .VPContent {
-  padding-right: 0 !important;
+/* ---------- 右侧折叠 ---------- */
+.sb-right-collapsed aside.VPDocAside,
+.sb-right-collapsed div.VPDocAside,
+.sb-right-collapsed aside.VPDocAsideOutline {
+  width: 0 !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  border-left: none !important;
+  opacity: 0;
 }
 
-/* ---------- 过渡动画 ---------- */
-.VPSidebar,
-.VPDocAside {
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+.sb-right-collapsed .VPDoc .content-container {
+  max-width: 100% !important;
 }
 
-.VPSidebar > *,
-.VPDocAside > * {
-  transition: opacity 0.2s ease;
+/* ---------- 过渡 ---------- */
+aside.VPSidebar,
+aside.VPDocAside,
+div.VPDocAside,
+aside.VPDocAsideOutline {
+  transition: width 0.25s ease, opacity 0.2s ease !important;
 }
 
-/* ---------- 移动端隐藏按钮 ---------- */
+/* ---------- 移动端隐藏 ---------- */
 @media (max-width: 959px) {
-  .sidebar-toggle-btn {
-    display: none;
+  .sb-toggle {
+    display: none !important;
   }
 }
