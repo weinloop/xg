@@ -1,0 +1,13 @@
+{
+  "name": "xitong-guihuashi",
+  "version": "1.0.0",
+  "description": "系统规划与管理师备考知识库",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "^1.0.0"
+  }
+}
