@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: '系统规划与管理师备考',
+  title: 'XG',
   description: '系统规划与管理师考试知识体系与备考方案',
   lang: 'zh-CN',
   base: '/xg/',
