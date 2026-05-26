@@ -3,7 +3,7 @@ layout: home
 hero:
   name: "XG"
   text: "知识库"
-  tagline: 四篇二十四章 · 三科一体 · 地毯式通读
+  tagline: 多知识
   actions:
     - theme: brand
       text: 开始学习
