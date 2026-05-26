@@ -1,8 +1,8 @@
 ---
 layout: home
 hero:
-  name: "系统规划与管理师"
-  text: "2026 备考知识库"
+  name: "XG"
+  text: "知识库"
   tagline: 四篇二十四章 · 三科一体 · 地毯式通读
   actions:
     - theme: brand
@@ -10,7 +10,7 @@ hero:
       link: /01-基础篇/ch01-信息系统与信息技术发展
     - theme: alt
       text: 备考方案
-      link: /附录/备考方案总览
+      link: /附录/方案总览
 
 features:
   - title: 📘 基础篇（第1-3章）
