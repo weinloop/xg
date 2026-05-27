@@ -11,6 +11,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '知识体系', link: '/01-基础篇/ch01-信息系统与信息技术发展' },
+      { text: '综合', link: '/05-综合篇/' },
       { text: '论文', link: '/07-论文篇/' },
       { text: '英语', link: '/08-英语篇/' },
       { text: '备考方案', link: '/附录/备考方案总览' },
