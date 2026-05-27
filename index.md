@@ -9,8 +9,8 @@ hero:
       text: 开始学习
       link: /01-基础篇/ch01-信息系统与信息技术发展
     - theme: alt
-      text: 备考方案
-      link: /附录/方案总览
+      text: 综合篇
+      link: /05-综合篇/
 
 features:
   - title: 📘 基础篇（第1-3章）
