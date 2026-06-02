@@ -55,7 +55,7 @@ function prevCard() {
   }
 }
 
-// Swipe handling
+// ========== 滑动/拖拽处理 ==========
 const deckRef = ref<HTMLElement | null>(null)
 let startX = 0
 let currentX = 0
@@ -106,8 +106,13 @@ function onSwipeEnd(delta: number) {
   }
 }
 
+// 手机触摸处理
+let startY = 0
+
 function onTouchStart(e: TouchEvent) {
+  if (e.touches.length !== 1) return
   startX = e.touches[0].clientX
+  startY = e.touches[0].clientY
   currentX = startX
   isDragging = true
 }
@@ -131,9 +136,9 @@ function onTouchEnd() {
   onSwipeEnd(currentX - startX)
 }
 
+// PC鼠标拖拽
 function onMouseDown(e: MouseEvent) {
-  // Only handle left-click drag on deck area
-  if ((e.target as HTMLElement).closest('.flashcard-answer-content')) return
+  if ((e.target as HTMLElement).closest('.flashcard-answer-scroll')) return
   startX = e.clientX
   currentX = startX
   isDragging = true
@@ -185,13 +190,14 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
       <span class="flashcards-progress">{{ progressText }}</span>
     </div>
 
-    <!-- 卡片区域：PC端有侧按钮，手机端无 -->
+    <!-- 卡片区域 -->
     <div class="flashcards-body">
+      <!-- PC端侧按钮：align-self自适应，不强制拉伸 -->
       <button class="side-btn" @click="prevCard" :disabled="currentIndex === 0" aria-label="上一题">◀</button>
 
       <div class="flashcards-deck" ref="deckRef"
-           @touchstart.passive="onTouchStart"
-           @touchmove.passive="onTouchMove"
+           @touchstart="onTouchStart"
+           @touchmove.prevent="onTouchMove"
            @touchend="onTouchEnd"
            @mousedown="onMouseDown">
 
@@ -224,12 +230,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
       <button class="side-btn" @click="nextCard" :disabled="currentIndex === cards.length - 1" aria-label="下一题">▶</button>
     </div>
 
-    <!-- 提示和进度点 -->
-    <div class="flashcards-hint">
-      <span>← 左右滑动或点击两侧箭头切换 →</span>
-      <span>按 空格键 显示答案 / → 下一题</span>
-    </div>
-
+    <!-- 进度点 -->
     <div class="flashcards-dots">
       <span v-for="(_, i) in cards" :key="i" class="dot"
             :class="{ active: i === currentIndex }"
@@ -269,28 +270,47 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
 
 /* ==================== 主体布局（PC端） ==================== */
 .flashcards-body {
-  display: flex; align-items: stretch; gap: 10px;
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
 }
 .side-btn {
-  display: flex; align-items: center; justify-content: center;
-  width: 44px; min-width: 44px; padding: 0;
-  border: 1px solid var(--fc-border); background: var(--fc-card-bg);
-  color: var(--fc-text); border-radius: 12px; cursor: pointer;
-  transition: all 0.2s ease; font-size: 16px; align-self: stretch;
+  /* 不使用 align-self: stretch，而是用 flex 让它自适应卡片内容高度 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  flex-shrink: 0;
+  padding: 0;
+  border: 1px solid var(--fc-border);
+  background: var(--fc-card-bg);
+  color: var(--fc-text);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 18px;
+  /* 高度由 JS 同步到卡片实际高度，或居中显示 */
+  align-self: center;
+  min-height: 120px;
 }
-.side-btn:hover:not(:disabled) { border-color: var(--fc-brand); color: var(--fc-brand); background: var(--fc-brand-soft); }
-.side-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.side-btn:hover:not(:disabled) {
+  border-color: var(--fc-brand); color: var(--fc-brand); background: var(--fc-brand-soft);
+}
+.side-btn:disabled { opacity: 0.25; cursor: not-allowed; }
 
 /* ==================== 卡片容器 ==================== */
 .flashcards-deck {
   position: relative;
-  /* 使用视口高度，最大化可用空间 */
-  min-height: calc(100vh - 180px);
-  touch-action: pan-y;
+  /* 使用视口高度最大化，但不设固定值 */
+  min-height: calc(100vh - 170px);
+  /* 关键：允许横向手势，纵向交给子元素滚动 */
+  touch-action: pan-y pinch-zoom;
   flex: 1;
+  /* 确保flex容器能被子元素撑开 */
+  overflow: hidden;
 }
 .flashcard {
-  position: absolute; top: 0; left: 0; right: 0;
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
   will-change: transform;
 }
 .flashcard-inner {
@@ -301,15 +321,13 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
   box-shadow: 0 4px 24px rgba(0,0,0,0.06);
   display: flex;
   flex-direction: column;
-  /* 不限制最大高度，让内容撑开 */
   height: 100%;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* ==================== 手机导航（默认隐藏） ==================== */
-.mobile-nav {
-  display: none;
-}
+.mobile-nav { display: none; }
 
 /* ==================== 题型标签 ==================== */
 .flashcard-tag {
@@ -332,7 +350,6 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
   display: flex;
   flex-direction: column;
   min-height: 60px;
-  /* 允许溢出到滚动容器 */
   overflow: hidden;
 }
 .flashcard-reveal-btn {
@@ -349,17 +366,17 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
 }
 .reveal-icon { font-size: 18px; }
 
-/* 答案滚动容器 —— 核心：可滚动 */
+/* 答案滚动容器 */
 .flashcard-answer-scroll {
   background: var(--fc-answer-bg);
   border-radius: 12px;
   padding: 16px 20px;
   animation: fadeSlideDown 0.3s ease;
-  /* 关键：让答案区可独立上下滚动 */
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  /* 自定义滚动条样式 */
+  /* 允许在答案区内正常滚动，不影响外层滑动手势 */
+  touch-action: pan-y;
   scrollbar-width: thin;
   scrollbar-color: #cbd5e1 transparent;
 }
@@ -401,11 +418,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
   border-radius: 0 8px 8px 0; font-size: 13px;
 }
 
-/* ==================== 底部提示 & 进度点 ==================== */
-.flashcards-hint {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-top: 14px; padding: 0 4px; font-size: 12px; color: var(--fc-text-2);
-}
+/* ==================== 进度点 ==================== */
 .flashcards-dots {
   display: flex; justify-content: center; align-items: center;
   gap: 6px; margin-top: 16px; flex-wrap: wrap;
@@ -422,7 +435,6 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
 @media (max-width: 639px) {
   .flashcards-container {
     padding: 6px 0;
-    /* 减小头部间距 */
   }
 
   /* 隐藏PC侧按钮 */
@@ -442,17 +454,21 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
     align-items: center; justify-content: center;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     transition: all 0.2s ease;
+    flex-shrink: 0;
   }
-  .mobile-nav-btn:hover:not(:disabled) { background: var(--fc-brand); color: #fff; }
+  .mobile-nav-btn:active:not(:disabled) {
+    background: var(--fc-brand); color: #fff;
+  }
   .mobile-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
   .mobile-nav-progress {
     font-size: 13px; font-weight: 600; color: var(--fc-text-2);
   }
 
-  /* 手机卡片：使用视口高度最大化 */
+  /* 手机卡片 */
   .flashcards-deck {
-    /* 减去头部+进度点的大致高度 */
-    min-height: calc(100vh - 150px);
+    min-height: calc(100vh - 140px);
+    /* 关键修复：手机deck不限制触摸动作，允许横向滑动 */
+    touch-action: pan-y pinch-zoom;
   }
   .flashcard-inner {
     padding: 16px 18px;
@@ -468,6 +484,8 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
   .flashcard-answer-scroll {
     padding: 12px 14px;
     border-radius: 10px;
+    /* 手机端答案区域也允许纵向滚动 */
+    touch-action: pan-y;
   }
   .flashcard-answer-content {
     font-size: 13px; line-height: 1.75;
@@ -481,8 +499,6 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
   .flashcards-title { font-size: 14px; }
   .flashcards-progress { font-size: 12px; padding: 3px 10px; }
 
-  /* 隐藏提示文字 */
-  .flashcards-hint { display: none; }
   .flashcards-dots { margin-top: 12px; gap: 5px; }
   .dot { width: 6px; height: 6px; }
   .dot.active { width: 16px; }
