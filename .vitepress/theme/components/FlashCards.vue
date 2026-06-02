@@ -270,8 +270,10 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
 .ctrl-btn.primary:hover { background: #2563eb; border-color: #2563eb; }
 @media (max-width: 480px) {
   .flashcards-container { padding: 12px 4px; }
-  .flashcards-layout { gap: 4px; }
-  .side-btn { width: 32px; min-width: 32px; border-radius: 8px; font-size: 12px; }
+  .flashcards-layout { position: relative; }
+  .side-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; width: 36px; height: 36px; min-width: 36px; border-radius: 50%; border: none; background: rgba(255,255,255,0.92); box-shadow: 0 2px 8px rgba(0,0,0,0.12); font-size: 12px; }
+  .side-btn.left { left: 4px; }
+  .side-btn.right { right: 4px; }
   .flashcard-inner { padding: 16px; min-height: 260px; max-height: 520px; }
   .flashcard-question { font-size: 15px; margin-bottom: 12px; }
   .flashcard-answer-content { font-size: 13px; }
