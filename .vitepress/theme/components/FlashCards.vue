@@ -58,9 +58,12 @@ function prevCard() {
 // ========== 滑动/拖拽处理 ==========
 const deckRef = ref<HTMLElement | null>(null)
 let startX = 0
+let startY = 0
 let currentX = 0
 let isDragging = false
 const SWIPE_THRESHOLD = 50
+/* 标记触摸是否始于答案滚动区 —— 如果是，则不触发卡片滑动 */
+let touchStartedInAnswer = false
 
 function resetCard(card: HTMLElement) {
   card.style.transition = 'transform 0.3s ease'
@@ -107,25 +110,33 @@ function onSwipeEnd(delta: number) {
 }
 
 // 手机触摸处理
-let startY = 0
-
 function onTouchStart(e: TouchEvent) {
   if (e.touches.length !== 1) return
   startX = e.touches[0].clientX
   startY = e.touches[0].clientY
   currentX = startX
   isDragging = true
+  /* 判断触摸是否始于答案滚动区 */
+  const target = e.target as HTMLElement
+  touchStartedInAnswer = !!target.closest('.flashcard-answer-scroll')
 }
 
 function onTouchMove(e: TouchEvent) {
   if (!isDragging) return
+  /* 如果触摸始于答案区，完全不干涉 —— 让浏览器原生滚动处理 */
+  if (touchStartedInAnswer) return
   currentX = e.touches[0].clientX
-  const delta = currentX - startX
+  const deltaX = currentX - startX
+  const deltaY = Math.abs((e.touches[0].clientY || 0) - startY)
+  /* 只有水平移动明显大于垂直时才拦截（防止误触） */
+  if (Math.abs(deltaX) > deltaY * 1.2 && Math.abs(deltaX) > 8) {
+    e.preventDefault()
+  }
   if (deckRef.value) {
     const card = deckRef.value.querySelector('.flashcard.is-current') as HTMLElement
     if (card) {
       card.style.transition = 'none'
-      card.style.transform = `translateX(${delta}px) rotate(${delta * 0.02}deg)`
+      card.style.transform = `translateX(${deltaX}px) rotate(${deltaX * 0.02}deg)`
     }
   }
 }
@@ -133,6 +144,7 @@ function onTouchMove(e: TouchEvent) {
 function onTouchEnd() {
   if (!isDragging) return
   isDragging = false
+  touchStartedInAnswer = false
   onSwipeEnd(currentX - startX)
 }
 
@@ -197,7 +209,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
 
       <div class="flashcards-deck" ref="deckRef"
            @touchstart="onTouchStart"
-           @touchmove.prevent="onTouchMove"
+           @touchmove="onTouchMove"
            @touchend="onTouchEnd"
            @mousedown="onMouseDown">
 
@@ -323,7 +335,6 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
   flex-direction: column;
   height: 100%;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 /* ==================== 手机导航（默认隐藏） ==================== */
@@ -349,8 +360,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 60px;
-  overflow: hidden;
+  min-height: 80px;
 }
 .flashcard-reveal-btn {
   display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -366,19 +376,21 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
 }
 .reveal-icon { font-size: 18px; }
 
-/* 答案滚动容器 */
+/* 答案滚动容器 —— 核心可滚动区域 */
 .flashcard-answer-scroll {
   background: var(--fc-answer-bg);
   border-radius: 12px;
-  padding: 16px 20px;
+  padding: 18px 22px;
   animation: fadeSlideDown 0.3s ease;
   flex: 1;
+  min-height: 120px;
   overflow-y: auto;
   overflow-x: hidden;
-  /* 允许在答案区内正常滚动，不影响外层滑动手势 */
+  /* 答案区内完全允许纵向滚动，不干扰外层横向滑动手势 */
   touch-action: pan-y;
+  -webkit-overflow-scrolling: touch; /* iOS 惯性滚动 */
   scrollbar-width: thin;
-  scrollbar-color: #cbd5e1 transparent;
+  scrollbar-color: #94a3b8 transparent;
 }
 .flashcard-answer-scroll::-webkit-scrollbar { width: 6px; }
 .flashcard-answer-scroll::-webkit-scrollbar-track { background: transparent; }
@@ -482,10 +494,12 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
     font-size: 15px; margin-bottom: 14px; line-height: 1.65;
   }
   .flashcard-answer-scroll {
-    padding: 12px 14px;
+    padding: 14px 16px;
     border-radius: 10px;
+    min-height: 150px;
     /* 手机端答案区域也允许纵向滚动 */
     touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
   }
   .flashcard-answer-content {
     font-size: 13px; line-height: 1.75;
