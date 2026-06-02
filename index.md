@@ -11,6 +11,9 @@ hero:
     - theme: alt
       text: 方法篇
       link: /02-方法篇/
+    - theme: alt
+      text: 学习卡片
+      link: /学习卡片/
 
 features:
   - title: 📘 基础篇（第1-3章）
