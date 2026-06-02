@@ -42,6 +42,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { text: '📖 精炼笔记', link: '/02-方法篇/ch04/ch04-信息系统规划' },
+                { text: '🎴 学习卡片', link: '/02-方法篇/ch04/ch04-学习卡片' },
                 { text: '🎤 语音复习脚本', link: '/02-方法篇/ch04/ch04-语音复习脚本' },
               ]
             },

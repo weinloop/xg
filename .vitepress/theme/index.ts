@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { inBrowser } from 'vitepress'
 import './style.css'
+import FlashCards from './components/FlashCards.vue'
 
 const KEY_LEFT = 'vp-sidebar-collapsed'
 const KEY_RIGHT = 'vp-aside-collapsed'
@@ -105,7 +106,8 @@ function injectButtons() {
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({ router }) {
+  enhanceApp({ app, router }) {
+    app.component('FlashCards', FlashCards)
     if (!inBrowser) return
     applyState()
 
