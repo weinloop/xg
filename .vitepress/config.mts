@@ -52,6 +52,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { text: '📖 精炼笔记', link: '/02-方法篇/ch05/ch05-应用系统规划' },
+                { text: '🎴 学习卡片', link: '/02-方法篇/ch05/ch05-学习卡片' },
                 { text: '🎤 语音复习脚本', link: '/02-方法篇/ch05/ch05-语音复习脚本' },
               ]
             },
@@ -61,6 +62,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { text: '📖 精炼笔记', link: '/02-方法篇/ch06/ch06-云资源规划' },
+                { text: '🎴 学习卡片', link: '/02-方法篇/ch06/ch06-学习卡片' },
                 { text: '🎤 语音复习脚本', link: '/02-方法篇/ch06/ch06-语音复习脚本' },
               ]
             },
