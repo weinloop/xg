@@ -10,10 +10,10 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
-      { text: '知识体系', link: '/01-基础篇/ch01-信息系统与信息技术发展' },
-      { text: '综合', link: '/05-综合篇/' },
+      { text: '基础篇', link: '/01-基础篇/ch01-信息系统与信息技术发展' },
+      { text: '方法篇', link: '/02-方法篇/' },
+      { text: '能力篇', link: '/03-能力篇/ch11-信息系统治理' },
       { text: '论文', link: '/07-论文篇/' },
-      { text: '英语', link: '/08-英语篇/' },
       { text: '模拟题', link: '/09-模拟题/' },
       { text: '备考方案', link: '/附录/备考方案总览' },
     ],
@@ -33,11 +33,36 @@ export default defineConfig({
       '/02-方法篇/': [
         {
           text: '📙 第二篇 方法篇',
+          link: '/02-方法篇/',
           collapsed: false,
           items: [
-            { text: '第4章 信息系统规划 ✅', link: '/02-方法篇/ch04-信息系统规划' },
-            { text: '第5章 应用系统规划', link: '/02-方法篇/ch05-应用系统规划' },
-            { text: '第6章 云资源规划', link: '/02-方法篇/ch06-云资源规划' },
+            {
+              text: '第4章 信息系统规划 ✅',
+              link: '/02-方法篇/ch04/',
+              collapsed: true,
+              items: [
+                { text: '📖 精炼笔记', link: '/02-方法篇/ch04/ch04-信息系统规划' },
+                { text: '🎤 语音复习脚本', link: '/02-方法篇/ch04/ch04-语音复习脚本' },
+              ]
+            },
+            {
+              text: '第5章 应用系统规划 ✅',
+              link: '/02-方法篇/ch05/',
+              collapsed: true,
+              items: [
+                { text: '📖 精炼笔记', link: '/02-方法篇/ch05/ch05-应用系统规划' },
+                { text: '🎤 语音复习脚本', link: '/02-方法篇/ch05/ch05-语音复习脚本' },
+              ]
+            },
+            {
+              text: '第6章 云资源规划 ✅',
+              link: '/02-方法篇/ch06/',
+              collapsed: true,
+              items: [
+                { text: '📖 精炼笔记', link: '/02-方法篇/ch06/ch06-云资源规划' },
+                { text: '🎤 语音复习脚本', link: '/02-方法篇/ch06/ch06-语音复习脚本' },
+              ]
+            },
             { text: '第7章 网络环境规划', link: '/02-方法篇/ch07-网络环境规划' },
             { text: '第8章 数据资源规划', link: '/02-方法篇/ch08-数据资源规划' },
             { text: '第9章 信息安全规划', link: '/02-方法篇/ch09-信息安全规划' },
