@@ -6,11 +6,11 @@ hero:
   tagline: 多知识
   actions:
     - theme: brand
-      text: 开始学习
+      text: 基础篇
       link: /01-基础篇/ch01-信息系统与信息技术发展
     - theme: alt
-      text: 综合篇
-      link: /05-综合篇/
+      text: 方法篇
+      link: /02-方法篇/
 
 features:
   - title: 📘 基础篇（第1-3章）
@@ -18,7 +18,7 @@ features:
     link: /01-基础篇/ch01-信息系统与信息技术发展
   - title: 📙 方法篇（第4-10章）
     details: 七大系统规划方法，三科共考核心区。信息系统/应用/云资源/网络/数据/信息安全/云原生规划。
-    link: /02-方法篇/ch04-信息系统规划
+    link: /02-方法篇/
   - title: 📗 能力篇（第11-17章）
     details: 七大管理能力领域，三科共考核心区。治理/服务/人员/规范/技术/资源/项目管理。
     link: /03-能力篇/ch11-信息系统治理
