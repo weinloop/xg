@@ -18,8 +18,28 @@ const title = computed(() => {
 const currentIndex = ref(0)
 const revealed = ref(false)
 
+const tagStyleMap: Record<string, { bg: string; color: string }> = {
+  '否定辨析': { bg: '#fef2f2', color: '#dc2626' },
+  '特征归因': { bg: '#eff6ff', color: '#2563eb' },
+  '排序分级': { bg: '#f5f3ff', color: '#7c3aed' },
+  '场景匹配': { bg: '#ecfdf5', color: '#059669' },
+  '方法匹配': { bg: '#fffbeb', color: '#d97706' },
+  '内容产出物': { bg: '#fdf2f8', color: '#db2777' },
+  '步骤默写': { bg: '#f0f9ff', color: '#0284c7' },
+  '计算应用': { bg: '#fefce8', color: '#ca8a04' },
+  '综合辨析': { bg: '#faf5ff', color: '#9333ea' },
+  '必须掌握': { bg: '#fef2f2', color: '#dc2626' },
+  '高频考点': { bg: '#eff6ff', color: '#2563eb' },
+  '五星重要': { bg: '#fffbeb', color: '#d97706' },
+}
+
 const currentCard = computed(() => cards.value[currentIndex.value])
 const progressText = computed(() => `第 ${currentIndex.value + 1} / ${cards.value.length} 题`)
+
+const tagStyle = computed(() => {
+  const tag = currentCard.value?.tag || ''
+  return tagStyleMap[tag] || { bg: '#f1f5f9', color: '#475569' }
+})
 
 function nextCard() {
   if (currentIndex.value < cards.value.length - 1) {
@@ -148,7 +168,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
 
       <div class="flashcard is-current">
         <div class="flashcard-inner">
-          <div class="flashcard-tag">{{ currentCard?.tag }}</div>
+          <div class="flashcard-tag" :style="{ background: tagStyle.bg, color: tagStyle.color }">{{ currentCard?.tag }}</div>
           <div class="flashcard-question">{{ currentCard?.question }}</div>
           <div class="flashcard-answer-wrapper" :class="{ 'is-revealed': revealed }">
             <button class="flashcard-reveal-btn" @click="revealed = true" v-if="!revealed">
@@ -204,7 +224,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
 .flashcards-deck { position: relative; min-height: 420px; touch-action: pan-y; }
 .flashcard { position: absolute; top: 0; left: 0; right: 0; will-change: transform; }
 .flashcard-inner { background: var(--fc-card-bg); border: 1px solid var(--fc-border); border-radius: var(--fc-radius); padding: 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); min-height: 380px; display: flex; flex-direction: column; }
-.flashcard-tag { display: inline-block; align-self: flex-start; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 8px; background: #fef2f2; color: #dc2626; margin-bottom: 16px; }
+.flashcard-tag { display: inline-block; align-self: flex-start; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 8px; transition: background 0.2s, color 0.2s; margin-bottom: 16px; }
 .flashcard-question { font-size: 17px; font-weight: 600; line-height: 1.7; color: var(--fc-text); margin-bottom: 20px; flex-shrink: 0; }
 .flashcard-answer-wrapper { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 120px; }
 .flashcard-reveal-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 200px; margin: 0 auto; padding: 14px 24px; font-size: 15px; font-weight: 600; color: var(--fc-brand); background: var(--fc-brand-soft); border: 1.5px solid var(--fc-brand); border-radius: 12px; cursor: pointer; transition: all 0.2s ease; }
