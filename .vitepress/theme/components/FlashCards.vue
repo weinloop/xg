@@ -160,8 +160,9 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
       <span class="flashcards-progress">{{ progressText }}</span>
     </div>
 
-    <div class="flashcards-layout">
-      <button class="side-btn left" @click="prevCard" :disabled="currentIndex === 0" aria-label="上一题">
+    <!-- PC端：卡片+两侧按钮 -->
+    <div class="flashcards-layout desktop-only">
+      <button class="side-btn" @click="prevCard" :disabled="currentIndex === 0" aria-label="上一题">
         <span class="side-btn-icon">◀</span>
       </button>
 
@@ -189,9 +190,34 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
         </div>
       </div>
 
-      <button class="side-btn right" @click="nextCard" :disabled="currentIndex === cards.length - 1" aria-label="下一题">
+      <button class="side-btn" @click="nextCard" :disabled="currentIndex === cards.length - 1" aria-label="下一题">
         <span class="side-btn-icon">▶</span>
       </button>
+    </div>
+
+    <!-- 手机端：卡片独占宽度 -->
+    <div class="flashcards-deck mobile-only" ref="deckRef"
+         @touchstart.passive="onTouchStart"
+         @touchmove.passive="onTouchMove"
+         @touchend="onTouchEnd"
+         @mousedown="onMouseDown">
+
+      <div class="flashcard is-current">
+        <div class="flashcard-inner">
+          <div class="flashcard-tag" :style="{ background: tagStyle.bg, color: tagStyle.color }">{{ currentCard?.tag }}</div>
+          <div class="flashcard-question">{{ currentCard?.question }}</div>
+          <div class="flashcard-answer-wrapper" :class="{ 'is-revealed': revealed }">
+            <button class="flashcard-reveal-btn" @click="revealed = true" v-if="!revealed">
+              <span class="reveal-icon">💡</span>
+              <span>显示答案</span>
+            </button>
+            <div class="flashcard-answer" v-else>
+              <div class="flashcard-answer-title">答案</div>
+              <div class="flashcard-answer-content" v-html="currentCard?.answer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="flashcards-hint">
@@ -205,8 +231,16 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
             @click="currentIndex = i; revealed = false" />
     </div>
 
-    <div class="flashcards-controls">
+    <!-- PC端底部：仅显示答案按钮 -->
+    <div class="flashcards-controls desktop-only">
       <button class="ctrl-btn primary" @click="revealed = !revealed">{{ revealed ? '隐藏答案' : '显示答案' }}</button>
+    </div>
+
+    <!-- 手机端底部：三按钮导航 -->
+    <div class="flashcards-controls mobile-controls mobile-only">
+      <button class="ctrl-btn" @click="prevCard" :disabled="currentIndex === 0">◀ 上一题</button>
+      <button class="ctrl-btn primary" @click="revealed = !revealed">{{ revealed ? '隐藏' : '答案' }}</button>
+      <button class="ctrl-btn" @click="nextCard" :disabled="currentIndex === cards.length - 1">下一题 ▶</button>
     </div>
   </div>
 </template>
@@ -263,24 +297,30 @@ onUnmounted(() => window.removeEventListener('keydown', onKeyDown))
 .dot:hover { background: var(--fc-text-2); }
 .dot.active { background: var(--fc-brand); width: 20px; border-radius: 4px; }
 .flashcards-controls { display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 16px; }
+.mobile-controls { gap: 8px; }
+.mobile-controls .ctrl-btn { flex: 1; padding: 10px 8px; font-size: 13px; white-space: nowrap; }
 .ctrl-btn { padding: 10px 20px; font-size: 14px; font-weight: 500; border-radius: 10px; border: 1px solid var(--fc-border); background: var(--fc-card-bg); color: var(--fc-text); cursor: pointer; transition: all 0.2s ease; }
 .ctrl-btn:hover:not(:disabled) { border-color: var(--fc-brand); color: var(--fc-brand); }
 .ctrl-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 .ctrl-btn.primary { background: var(--fc-brand); color: #fff; border-color: var(--fc-brand); }
 .ctrl-btn.primary:hover { background: #2563eb; border-color: #2563eb; }
-@media (max-width: 480px) {
+
+/* Mobile-first: hide desktop elements, show mobile elements */
+.desktop-only { display: none; }
+.mobile-only { display: block; }
+
+@media (min-width: 640px) {
+  .desktop-only { display: flex; }
+  .mobile-only { display: none; }
+}
+
+@media (max-width: 639px) {
   .flashcards-container { padding: 12px 4px; }
-  .flashcards-layout { position: relative; }
-  .side-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; width: 36px; height: 36px; min-width: 36px; border-radius: 50%; border: none; background: rgba(255,255,255,0.92); box-shadow: 0 2px 8px rgba(0,0,0,0.12); font-size: 12px; }
-  .side-btn.left { left: 4px; }
-  .side-btn.right { right: 4px; }
   .flashcard-inner { padding: 16px; min-height: 260px; max-height: 520px; }
   .flashcard-question { font-size: 15px; margin-bottom: 12px; }
   .flashcard-answer-content { font-size: 13px; }
   .flashcard-answer { padding: 12px 14px; }
   .flashcard-tag { margin-bottom: 10px; }
-  .flashcards-controls { gap: 8px; }
-  .ctrl-btn { padding: 8px 14px; font-size: 13px; }
   .flashcards-header { flex-direction: column; align-items: flex-start; gap: 8px; }
   .flashcards-deck { min-height: 260px; }
 }
