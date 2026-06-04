@@ -15,6 +15,7 @@ export default defineConfig({
       { text: '学习卡片', link: '/学习卡片/' },
       { text: '能力篇', link: '/03-能力篇/ch11-信息系统治理' },
       { text: '论文', link: '/07-论文篇/' },
+      { text: '案例', link: '/06-案例篇/' },
       { text: '模拟题', link: '/09-模拟题/' },
       { text: '备考方案', link: '/附录/备考方案总览' },
     ],
@@ -131,6 +132,36 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: '案例分析专题', link: '/06-案例篇/' },
+            { text: '历年案例真题', link: '/06-案例篇/历年案例真题' },
+            {
+              text: '第四章 信息系统规划',
+              collapsed: true,
+              items: [
+                { text: '案例问答题', link: '/06-案例篇/4-第四章信息系统规划/第四章信息系统规划-案例问答题' },
+              ]
+            },
+            {
+              text: '第五章 应用系统规划',
+              collapsed: true,
+              items: [
+                { text: '案例问答题', link: '/06-案例篇/5-第五章应用系统规划/第五章应用系统规划-案例问答题' },
+              ]
+            },
+            {
+              text: '第六章 云资源规划',
+              collapsed: true,
+              items: [
+                { text: '案例问答题', link: '/06-案例篇/6-第六章云资源规划/第六章云资源规划-案例问答题' },
+              ]
+            },
+            {
+              text: '第十二章 信息系统服务管理',
+              collapsed: true,
+              items: [
+                { text: '案例问答题', link: '/06-案例篇/12-第十二章信息系统服务管理/第十二章信息系统服务管理-案例问答题' },
+              ]
+            },
+            { text: '🎯 案例背诵计划（16天速记）', link: '/06-案例篇/案例背诵计划-16天速记手册' },
           ]
         }
       ],
