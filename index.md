@@ -6,6 +6,9 @@ hero:
   tagline: 多知识
   actions:
     - theme: brand
+      text: 核心背诵重点
+      link: /05-综合篇/重点
+    - theme: brand
       text: 基础篇
       link: /01-基础篇/ch01-信息系统与信息技术发展
     - theme: alt
@@ -19,6 +22,9 @@ hero:
       link: /学习卡片/
 
 features:
+  - title: 🧩 核心背诵重点
+    details: 精炼全书核心考点，包含基础篇、方法篇、能力篇、实践篇的必背重点与速记口诀。
+    link: /05-综合篇/重点
   - title: 📝 案例篇章节整理（全20章）
     details: 按教材章节系统整理案例问答要点与速记口诀，覆盖方法篇（第4-10章）、能力篇（第11-17章）、实践篇（第18-23章）。
     link: /06-案例篇/章节整理/

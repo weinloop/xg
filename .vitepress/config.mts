@@ -14,7 +14,7 @@ export default defineConfig({
       { text: '方法篇', link: '/02-方法篇/' },
       { text: '学习卡片', link: '/学习卡片/' },
       { text: '能力篇', link: '/03-能力篇/ch11-信息系统治理' },
-      { text: '综合篇', link: '/05-综合篇/' },
+      { text: '综合篇', link: '/05-综合篇/重点' },
       { text: '论文', link: '/07-论文篇/' },
       {
         text: '案例',
@@ -131,7 +131,6 @@ export default defineConfig({
           text: '🧩 第五篇 综合篇',
           collapsed: false,
           items: [
-            { text: '综合知识整合', link: '/05-综合篇/' },
             { text: '核心背诵重点', link: '/05-综合篇/重点' },
           ]
         }
