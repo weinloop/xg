@@ -15,6 +15,7 @@ export default defineConfig({
       { text: '学习卡片', link: '/学习卡片/' },
       { text: '能力篇', link: '/03-能力篇/ch11-信息系统治理' },
       { text: '综合篇', link: '/05-综合篇/重点' },
+      { text: '小说篇', link: '/10-小说/00-全书目录' },
       { text: '论文', link: '/07-论文篇/' },
       {
         text: '案例',
@@ -132,6 +133,19 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: '核心背诵重点', link: '/05-综合篇/重点' },
+          ]
+        }
+      ],
+      '/10-小说/': [
+        {
+          text: '📖 小说篇 - 小白的系统规划与管理师通关记',
+          collapsed: false,
+          items: [
+            { text: '全书目录', link: '/10-小说/00-全书目录' },
+            { text: '前言', link: '/10-小说/01-前言' },
+            { text: '第01章 困惑的程序员', link: '/10-小说/02-第01章-困惑的程序员' },
+            { text: '第02章 数字中国的召唤', link: '/10-小说/03-第02章-数字中国的召唤' },
+            { text: '第03章 陈工的哲学课', link: '/10-小说/04-第03章-陈工的哲学课' },
           ]
         }
       ],
