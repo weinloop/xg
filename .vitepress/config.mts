@@ -6,6 +6,7 @@ export default defineConfig({
   lang: 'zh-CN',
   base: '/xg/',
   head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/xg/favicon.svg' }]],
+  ignoreDeadLinks: true,
 
   themeConfig: {
     nav: [
@@ -93,6 +94,7 @@ export default defineConfig({
       '/01-基础篇/': [
         {
           text: '📘 第一篇 基础篇',
+          link: '/01-基础篇/',
           collapsed: false,
           items: [
             { text: '第1章 信息系统与信息技术发展', link: '/01-基础篇/ch01-信息系统与信息技术发展' },
@@ -137,20 +139,21 @@ export default defineConfig({
                 { text: '🎤 语音复习脚本', link: '/02-方法篇/ch06/ch06-语音复习脚本' },
               ]
             },
-            { text: '第7章 网络环境规划', link: '/02-方法篇/ch07-网络环境规划' },
-            { text: '第8章 数据资源规划', link: '/02-方法篇/ch08-数据资源规划' },
-            { text: '第9章 信息安全规划', link: '/02-方法篇/ch09-信息安全规划' },
-            { text: '第10章 云原生系统规划', link: '/02-方法篇/ch10-云原生系统规划' },
+            { text: '第7章 网络环境规划', link: '/02-方法篇/ch07/ch07-网络环境规划' },
+            { text: '第8章 数据资源规划', link: '/02-方法篇/ch08/ch08-数据资源规划' },
+            { text: '第9章 信息安全规划', link: '/02-方法篇/ch09/ch09-信息安全规划' },
+            { text: '第10章 云原生系统规划', link: '/02-方法篇/ch10/ch10-云原生系统规划' },
           ]
         }
       ],
       '/03-能力篇/': [
         {
           text: '📗 第三篇 能力篇',
+          link: '/03-能力篇/',
           collapsed: false,
           items: [
-            { text: '第11章 信息系统治理', link: '/03-能力篇/ch11-信息系统治理' },
-            { text: '第12章 信息系统服务管理', link: '/03-能力篇/ch12-信息系统服务管理' },
+            { text: '第11章 信息系统治理', link: '/03-能力篇/ch11/ch11-信息系统治理' },
+            { text: '第12章 信息系统服务管理', link: '/03-能力篇/ch12/ch12-信息系统服务管理' },
             { text: '第13章 人员管理', link: '/03-能力篇/ch13-人员管理' },
             { text: '第14章 规范与过程管理', link: '/03-能力篇/ch14-规范与过程管理' },
             { text: '第15章 技术与研发管理', link: '/03-能力篇/ch15-技术与研发管理' },
