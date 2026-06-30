@@ -9,6 +9,9 @@ hero:
       text: 核心背诵重点
       link: /05-综合篇/重点
     - theme: brand
+      text: 卡片篇
+      link: /00-卡片篇/
+    - theme: brand
       text: 基础篇
       link: /01-基础篇/ch01-信息系统与信息技术发展
     - theme: alt
@@ -22,6 +25,9 @@ hero:
       link: /学习卡片/
 
 features:
+  - title: 📇 卡片篇
+    details: 按知识点卡片化整理，涵盖第四章信息系统规划和第五章应用系统规划的全部核心内容，便于碎片化学习和记忆。
+    link: /00-卡片篇/
   - title: 🧩 核心背诵重点
     details: 精炼全书核心考点，包含基础篇、方法篇、能力篇、实践篇的必背重点与速记口诀。
     link: /05-综合篇/重点
