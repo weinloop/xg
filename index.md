@@ -6,6 +6,9 @@ hero:
   tagline: 多知识
   actions:
     - theme: brand
+      text: 项目篇
+      link: /11-项目篇/
+    - theme: brand
       text: 核心背诵重点
       link: /05-综合篇/重点
     - theme: brand
@@ -25,6 +28,9 @@ hero:
       link: /学习卡片/
 
 features:
+  - title: 📚 项目篇
+    details: 以华航数据资产智能管理平台项目为核心，结合教材20个章节内容，提供论文和案例的实战范文，通过真实项目场景系统掌握考点。
+    link: /11-项目篇/
   - title: 📇 卡片篇
     details: 按知识点卡片化整理，涵盖第四章信息系统规划和第五章应用系统规划的全部核心内容，便于碎片化学习和记忆。
     link: /00-卡片篇/
