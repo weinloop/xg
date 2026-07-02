@@ -7,7 +7,7 @@ head:
       content: "6"
   - - meta
     - name: knowledge-weight
-      content: 8
+      content: "8"
   - - meta
     - name: exam-priority
       content: "🟡 中"
