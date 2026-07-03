@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第5章 应用系统规划 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50;font-size:17px}
+.header{background:linear-gradient(135deg,#2c3e50,#3498db);color:#fff;padding:20px 16px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.85}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:15px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.legend{display:flex;align-items:center;gap:6px;margin-left:10px;font-size:14px;color:#888}
+.legend span{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:4px}
+.container{max-width:900px;margin:0 auto;padding:12px}
+.mindmap{padding:10px 0}
+.branches{display:flex;flex-direction:column;gap:14px}
+.branch-col{width:100%}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:14px 18px;font-weight:700;font-size:18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 14px}
+.branch-body.collapsed{display:none}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:6px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:6px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:6px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:6px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:6px solid #7d3c98}
+.sub-section{margin-bottom:12px}
+.sub-title{font-weight:700;font-size:16px;color:#555;padding:6px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:4px solid #3498db}
+.item-list{list-style:none;padding-left:4px}
+.item-list li{font-size:15px;padding:3px 8px;line-height:1.7;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:3px;font-size:14px;font-weight:700;margin-left:4px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 7px;border-radius:3px;font-size:13px;margin:0 2px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 7px;border-radius:3px;font-size:13px;margin:0 2px}
+.key-point{color:#c0392b;font-weight:600}
+.compact-grid{display:grid;grid-template-columns:1fr;gap:4px}
+.compact-grid li{font-size:15px}
+table{width:100%;font-size:14px;border-collapse:collapse;margin-top:4px}
+table td, table th{padding:5px 8px;border:1px solid #d0d0d0}
+@media(min-width:768px){.compact-grid{grid-template-columns:1fr 1fr}}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+.footer{padding:16px;text-align:center;color:#aaa;font-size:13px}
+.section-divider{text-align:center;padding:8px 0;color:#bbb;font-size:20px;letter-spacing:8px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📋 第5章 应用系统规划 · 核心知识思维脑图</h1>
+  <p>系统规划与管理师（第2版）｜精简背诵版｜基于教材原文 + 2025首考真题风格</p>
+</div>
+
+<div class="toolbar">
+  <button onclick="expandAll()" id="btnExpand">全部展开</button>
+  <button onclick="collapseAll()" id="btnCollapse">全部折叠</button>
+  <button onclick="showMnemonics()" id="btnMnemonic">🟡 高亮口诀</button>
+  <div class="legend">
+    <span style="background:#2471a3"></span>基础知识
+    <span style="background:#b7950b"></span>主要内容
+    <span style="background:#1e8449"></span>主要过程
+    <span style="background:#c0392b"></span>方法&工厂
+    <span style="background:#7d3c98"></span>软件工厂
+  </div>
+</div>
+
+<div class="container">
+<div class="mindmap">
+<div class="branches">
+
+<!-- 5.1 基础知识 -->
+<div class="branch-col">
+<div class="branch-card c1" id="b51">
+<div class="branch-header" onclick="toggleBranch('b51')">
+<span>5.1 基础知识</span>
+<span class="icon">▼</span>
+</div>
+<div class="branch-body" id="b51-body">
+
+<div class="sub-section">
+<div class="sub-title">📌 九大基本概念 <span class="mnemonic">抽体模关模信功求重</span></div>
+<ul class="item-list">
+<li><span class="key-point">① 抽象</span> — 抽共同弃非本质。四类型：<span class="highlight">业务抽象</span>（场景建模）→<span class="highlight">过程抽象</span>（指令序列，如"开门"）→<span class="highlight">数据抽象</span>（数据对象集合，如"门"的属性）→<span class="highlight">技术抽象</span>（可持续技术体系）<span class="tag">选择4已考</span></li>
+<li><span class="key-point">② 体系架构</span> — 系统组成结构+交互方式+数据结构。特性：外部功能 vs 内部架构；模型：框架/动态/过程/功能</li>
+<li><span class="key-point">③ 模式</span> — 最佳实践表达。三类型：<span class="highlight">创建型</span>（工厂/原型/建造者）→<span class="highlight">结构型</span>（组合/桥接/代理）→<span class="highlight">行为型</span>（责任链/状态/指令）</li>
+<li><span class="key-point">④ 关注点分离</span> — 分而治之，复杂问题分解为独立可解的块</li>
+<li><span class="key-point">⑤ 模块化</span> — 单一属性，智能管理。需划分粒度</li>
+<li><span class="key-point">⑥ 信息隐蔽</span> — 模块对内隐藏决策（算法和数据），便于测试维护防错误扩散</li>
+<li><span class="key-point">⑦ 功能独立</span> — <span class="highlight">内聚性</span>（模块内功能强度）vs <span class="highlight">耦合性</span>（模块间相互依赖）。低耦合高内聚</li>
+<li><span class="key-point">⑧ 求精</span> — 自顶向下逐步细化。与抽象互补：抽象隐藏低层→求精揭示低层</li>
+<li><span class="key-point">⑨ 重构</span> — 重新组织，不改变功能。简化冗余/低效/不当结构</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🏗️ 基础架构四种</div>
+<table>
+<tr style="background:#e8f4fd;"><td style="width:20%"><b>架构</b></td><td style="width:40%"><b>核心</b></td><td><b>要点</b></td></tr>
+<tr><td><b>分层体系</b></td><td>界面交互层→业务处理层→数据处理层→数据存储层</td><td>分而治之，可分层构建</td></tr>
+<tr style="background:#e8f4fd;"><td><b>以数据为中心</b></td><td>数据驱动，先设计数据环境再划分子系统</td><td>适合数据处理/统计/汇总</td></tr>
+<tr><td><b>客户机/服务器</b></td><td>两层→三层→B/S。三层=界面+应用+数据库分离</td><td>B/S无专用客户端但安全性↓</td></tr>
+<tr style="background:#e8f4fd;"><td><b>组件分布架构</b></td><td>组件可对称分布。中间件：<span class="highlight">CORBA</span>/<span class="highlight">DCOM</span>/<span class="highlight">EJB</span></td><td>组件可即服务也可请求</td></tr>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- 5.2 主要内容 -->
+<div class="branch-col">
+<div class="branch-card c2" id="b52">
+<div class="branch-header" onclick="toggleBranch('b52')">
+<span>5.2 主要内容 <span class="mnemonic" style="font-size:13px;margin-left:8px;">生构接数件</span></span>
+<span class="icon">▼</span>
+</div>
+<div class="branch-body" id="b52-body">
+
+<div class="sub-section">
+<div class="sub-title">🔄 5.2.1 生命周期选择 <span class="tag2">案例题已考</span></div>
+<table>
+<tr style="background:#fef9e7;"><td style="width:18%"><b>模型</b></td><td style="width:40%"><b>核心特点</b></td><td><b>适用</b></td></tr>
+<tr><td><b>瀑布</b></td><td>顺序依赖、推迟实现、质量评审</td><td>传统大型项目</td></tr>
+<tr style="background:#fef9e7;"><td><b>V模型</b></td><td>瀑布变种：左侧分析设计↔右侧测试维护</td><td>强调测试验证</td></tr>
+<tr><td><b>迭代</b></td><td>演化建设（先完整再完善）<b>vs</b> 增量建设（先部分再增加）</td><td>快速面世</td></tr>
+<tr style="background:#fef9e7;"><td><b class="highlight">敏捷</b></td><td><span class="key-point">4核心价值</span>：个体互动>流程工具、工作软件>详尽文档、客户合作>合同谈判、响应变化>遵循计划<br><span class="key-point">12原则</span>：尽早交付/频繁交付/面对面沟通/自组织团队等<span class="tag">选择已考</span></td><td>快速迭代</td></tr>
+</table>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">📐 5.2.2 体系结构定义</div>
+<ul class="item-list">
+<li><span class="key-point">面向数据流</span>：<span class="highlight">变换型</span>（输入→处理→输出，3步）vs <span class="highlight">事务型</span>（根据类型分发，3步：事务中心/接收/路径）</li>
+<li><span class="key-point">面向数据结构</span>：Jackson（输入+输出，顺序/选择/循环）vs Warnier（仅输入）</li>
+<li><span class="key-point">图形工具</span>：层次图/HIPO图（矩形框+编号）、结构图（空心圆=数据 / 实心圆=控制信息）</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🔌 5.2.3 接口定义 <span class="tag2">案例题已考</span></div>
+<ul class="item-list">
+<li><span class="key-point">三类接口</span>：用户接口（命令/回答）→外部接口（与外界）→内部接口（系统内元素间）</li>
+<li><span class="key-point">内容</span>：通信方法、协议、调用方法、功能、输入/输出参数、错误/例外机制</li>
+<li><span class="key-point">界面定义三原则</span>：①置用户于控制之下 ②减少记忆负担 ③保持界面一致</li>
+<li><span class="key-point">界面四问题</span>：系统响应时间、用户求助机制、出错信息、命令方式</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">💾 5.2.4 数据定义 <span class="mnemonic">需概逻物验</span></div>
+<ul class="item-list">
+<li>①需求分析 → ②概念模型 → ③逻辑模型 → ④物理数据库 → ⑤验证</li>
+<li>程序级（伪代码定义数据结构）+ 应用级（数据库定义5步）</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🧩 5.2.5 构件定义 — 6任务</div>
+<ul class="item-list">
+<li>①标识问题域类 ②确定基础设施域类（GUI/OS/数据管理）③细化非复用类 ④说明持久数据源 ⑤开发行为表示（UML状态图）⑥细化部署图+迭代重构</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- 5.3 主要过程 -->
+<div class="branch-col">
+<div class="branch-card c3" id="b53">
+<div class="branch-header" onclick="toggleBranch('b53')">
+<span>5.3 主要过程 <span class="mnemonic" style="font-size:13px;margin-left:8px;">初可详分设</span></span>
+<span class="icon">▼</span>
+</div>
+<div class="branch-body" id="b53-body">
+
+<div class="sub-section">
+<div class="sub-title">🔍 5.3.1 初步调研</div>
+<ul class="item-list">
+<li><span class="key-point">目标</span>：掌握概况，识别问题，明确初步目标，为可行性研究打基础</li>
+<li><span class="key-point">五内容</span>：组织概况、组织环境、现行系统概况、各方态度、资源情况</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">✅ 5.3.2 可行性研究 <span class="tag2">案例题已考</span> <span class="mnemonic">经技社管</span></div>
+<ul class="item-list">
+<li><span class="key-point">四方面</span>：<span class="highlight">经济</span>（成本/效益，建设+运行成本 vs 直接+间接效益）→<span class="highlight">技术</span>（成熟技术优先，慎重引入先进）→<span class="highlight">社会</span>（政策/法律/道德/操作可行性）→<span class="highlight">管理</span>（领导支持/管理规范/工作变动量）</li>
+<li><span class="key-point">八步骤</span> <span class="mnemonic">复研导重导推草书</span>：复查目标→研究现有系统→导出高层逻辑模型→重新定义问题→导出评价方案→推荐方案→草拟计划→书写文档</li>
+<li><span class="key-point">三结论</span>：可行/基本可行/不可行</li>
+<li><span class="key-point">报告内容</span>：建设任务→系统目标→调研概况→方案比较→四方面分析→结论</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">📋 5.3.3 详细调研 <span class="tag2">案例题已考</span></div>
+<ul class="item-list">
+<li><span class="key-point">目标</span>：完整掌握现行系统现状，发现问题和薄弱环节</li>
+<li><span class="key-point">九方面</span>：组织功能/目标战略/工艺流程/数据/业务流程/管理方式/决策方式/资源限制/现存问题</li>
+<li><span class="key-point">六原则</span>：自顶向下/用户参与/分析改进可能/工程化/全面+重点/主动友善沟通</li>
+<li><span class="key-point">六活动</span> <span class="mnemonic">收模优型案查</span>：收集信息→需求建模→优先级划分→原型检验→产生评估方案→和管理部门复查</li>
+<li><span class="key-point">五方法</span>：收集资料/发调研表/开调研会/访问/深入实践</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">📊 5.3.4 系统分析</div>
+<ul class="item-list">
+<li><span class="key-point">核心</span>：回答"做什么"。产出：系统说明书（需求规格说明书）</li>
+<li><span class="key-point">三阶段</span>：<span class="highlight">问题分析</span>（需求调研，原型法/JAD/观摩法）→<span class="highlight">需求分析</span>（功能性+非功能性。方法：结构化/信息工程/UML/用户故事）→<span class="highlight">需求定义</span></li>
+<li><span class="key-point">说明书六特性</span>：正确/完整/一致/无二义/可修改/可跟踪。内容：引言+概述+实施计划</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🎨 5.3.5 系统设计 <span class="mnemonic">系灵可经管</span></div>
+<ul class="item-list">
+<li><span class="key-point">五目标</span>：可靠性、可变更性、效率、通用性、工作质量</li>
+<li><span class="key-point">五原则</span>：<span class="highlight">系统性</span>（统一全局）→<span class="highlight">灵活性</span>（开放性/模块化）→<span class="highlight">可靠性</span>（安全/纠错/恢复）→<span class="highlight">经济性</span>（满足需求下省开销）→<span class="highlight">管理可接受</span>（用户素质/友好度）</li>
+<li><span class="key-point">内容</span>：总体结构→处理流程→代码→人机界面→输出→输入→数据库→安全保密→物理配置→说明书</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- 5.4 常用方法 -->
+<div class="branch-col">
+<div class="branch-card c4" id="b54">
+<div class="branch-header" onclick="toggleBranch('b54')">
+<span>5.4 常用方法 — APA / TOGAF / SOA</span>
+<span class="icon">▼</span>
+</div>
+<div class="branch-body" id="b54-body">
+
+<div class="sub-section">
+<div class="sub-title">📦 APA 应用系统组合法 <span class="mnemonic">清评分优执监</span> <span class="tag">选择已考</span></div>
+<ul class="item-list">
+<li>评估管理现有应用系统，确定保留/更新/替换/淘汰</li>
+<li><span class="key-point">六步</span>：①清单→②评估（业务价值/技术/成本/风险）→③分析组合→④制定优化策略→⑤实施→⑥监测</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🏛️ TOGAF 开放组架构框架 <span class="mnemonic">预需愿业信技机迁实变</span></div>
+<ul class="item-list">
+<li><span class="key-point">四目标</span>：统一语言/避免锁定/省时省钱/高ROI</li>
+<li><span class="key-point">六组件</span>：ADM→指南技术→内容框架→企业连续体→参考模型→能力框架</li>
+<li><span class="key-point">ADM 10阶段</span>：预备阶段→需求管理→A架构愿景→B业务架构→C信息系统架构(应用+数据)→D技术架构→E机会方案→F迁移规划→G实施治理→H变更治理</li>
+<li><span class="key-point">三级别迭代</span>：整体迭代/多阶段间迭代/阶段内迭代</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🔗 SOA 面向服务架构 <span class="mnemonic">明自粗松互</span> <span class="tag">选择已考</span></div>
+<ul class="item-list">
+<li><span class="key-point">五设计原则</span>：<span class="highlight">明确接口</span>→<span class="highlight">自包含模块化</span>→<span class="highlight">粗粒度</span>→<span class="highlight">松耦合</span>→<span class="highlight">互操作兼容</span></li>
+<li><span class="key-point">六技术内容</span>：服务封装/服务编排/注册与发现/服务治理/服务安全/可靠性可用性</li>
+<li><span class="key-point">五应用场景</span>：组织级集成/业务流程管理/系统扩展重用/云计算微服务/跨平台集成</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- 5.5 软件工厂 -->
+<div class="branch-col">
+<div class="branch-card c5" id="b55">
+<div class="branch-header" onclick="toggleBranch('b55')">
+<span>5.5 软件工厂 <span class="mnemonic" style="font-size:13px;margin-left:8px;">人设工质量</span></span>
+<span class="icon">▼</span>
+</div>
+<div class="branch-body" id="b55-body">
+
+<div class="sub-section">
+<div class="sub-title">🏭 5.5.1 发展现状</div>
+<ul class="item-list">
+<li><span class="key-point">核心思想</span>：软件开发工业化——标准化、流程化、自动化（模板编写→多样化产品）</li>
+<li><span class="key-point">五构成</span> <span class="mnemonic">人设工质量</span>：<span class="highlight">专业人员</span>（开发/测试/PM/产品主管）→<span class="highlight">基础设施硬件</span>（终端/服务器/网络）→<span class="highlight">工具技术</span>（IDE/自动化测试/版本控制）→<span class="highlight">流程规范方法论</span>（DevSecOps/CI/CD）→<span class="highlight">质量管理</span>（测试/代码审查/性能测试）</li>
+<li><span class="key-point">发展历程</span>：70s概念→90s工业化自动化→00s敏捷→10s DevOps/CI/CD→AI/ML集成</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">⚡ 5.5.2 与传统开发对比 — 四方面</div>
+<ul class="item-list">
+<li><span class="key-point">敏捷交付</span>：Scrum/Kanban→用户故事→迭代开发(2~4周)→自动化测试→CI/CD→产品质量反馈→团队协作→可视化</li>
+<li><span class="key-point">流水线作业</span>：环节划分→任务定义→流转规则→并行处理→自动化支持→监控优化</li>
+<li><span class="key-point">安全可靠</span>：安全开发实践（需求分析/设计/编码/测试审计）→数据隐私保护（加密/访问控制/隐私保护）→CI/CD→团队安全培训</li>
+<li><span class="key-point">协同开发</span>：站会/评审会/回顾会→知识库/代码审查/技术分享→协同工具（即时通信/在线文档/代码托管）</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🔧 5.5.3 建设方法 — 四体系</div>
+<ul class="item-list">
+<li><span class="key-point">组织建设</span>：确定组织结构→明确岗位职责→流程规范→沟通协作工具→领导力+文化→人才培养导师制</li>
+<li><span class="key-point">资源部署</span>：项目规划优先级→人员技能匹配→工作量估计→工具设备→项目管理协调→优先级变更管理</li>
+<li><span class="key-point">业务管理 6模块</span>：项目管理/资源管理/质量管理/绩效管理/沟通协作/数据分析报告。6步实现：需求目标→选方案→定制开发→测试验证→部署培训→监控维护</li>
+<li><span class="key-point">体系保障</span>：质量管理体系→流程规范→资源配置→质量控制（审查/单元/集成/系统/验收测试）</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+</div><!-- .branches -->
+</div><!-- .mindmap -->
+</div><!-- .container -->
+
+<!-- 口诀汇总面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 12px 20px">
+<div style="background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+<h3 style="font-size:18px;color:#2c3e50;margin-bottom:14px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记）</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;font-size:15px">
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>九概念</b>：抽体模关模信功求重</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>四抽象</b>：业务→过程→数据→技术</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>四架构</b>：分层/数据中心/C-S/组件分布</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>三模式</b>：创建型/结构型/行为型</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>五步内容</b>：生构接数件</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>四生命周期</b>：瀑布→V→迭代→敏捷</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>敏捷4价值</b>：个体互动/工作软件/客户合作/响应变化</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>数据流二型</b>：变换型/事务型</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>数据定义5步</b>：需概逻物验</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>三接口</b>：用户/外部/内部</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>界面4问题</b>：响应/求助/出错/命令</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>构件6任务</b>：标问/基建/细化/持久/行为/迭代</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>五步过程</b>：初可详分设</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>可行性4面</b>：经技社管</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>可行8步</b>：复研导重导推草书</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>详细调研6活动</b>：收模优型案查</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>详细调研6原则</b>：自顶/用户/改进/工程/重点/沟通</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>需求方法4种</b>：结构化/UML/信息工程/用户故事</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>说明书6特性</b>：正确/完整/一致/无二义/可修改/可跟踪</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>系统设计5目标</b>：可靠性/可变更/效率/通用/质量</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>系统设计5原则</b>：系灵可经管</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>中间件3种</b>：CORBA/DCOM/EJB</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>APA 6步</b>：清评分优执监</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>TOGAF 10阶段</b>：预需愿业信技机迁实变</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>SOA 5原则</b>：明自粗松互</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>SOA 5场景</b>：集成/流程/扩展/云微服务/跨平台</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>软件工厂5构成</b>：人设工质量</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>建设方法4体系</b>：组织/资源/业务/体系保障</div>
+</div>
+</div>
+</div>
+
+<div class="footer">第5章 应用系统规划 · 核心知识思维脑图 | 系统规划与管理师（第2版）</div>
+
+<script>
+function toggleBranch(id) {
+  var body = document.getElementById(id + '-body');
+  var header = document.getElementById(id).querySelector('.branch-header');
+  body.classList.toggle('collapsed');
+  header.classList.toggle('collapsed');
+}
+
+function expandAll() {
+  document.querySelectorAll('.branch-body').forEach(function(b) { b.classList.remove('collapsed'); });
+  document.querySelectorAll('.branch-header').forEach(function(h) { h.classList.remove('collapsed'); });
+}
+
+function collapseAll() {
+  document.querySelectorAll('.branch-body').forEach(function(b) { b.classList.add('collapsed'); });
+  document.querySelectorAll('.branch-header').forEach(function(h) { h.classList.add('collapsed'); });
+}
+
+function showMnemonics() {
+  var btn = document.getElementById('btnMnemonic');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m) {
+    if (btn.classList.contains('active')) {
+      m.style.background = '#ffeb3b';
+      m.style.color = '#333';
+      m.style.fontSize = '18px';
+      m.style.fontWeight = '900';
+      m.style.border = '2px solid #f57f17';
+    } else {
+      m.style.background = '#fff3cd';
+      m.style.color = '#856404';
+      m.style.fontSize = '14px';
+      m.style.fontWeight = '700';
+      m.style.border = 'none';
+    }
+  });
+}
+
+// Keyboard shortcuts
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey && e.key === 'e') { e.preventDefault(); expandAll(); }
+  if (e.ctrlKey && e.key === 'c') { e.preventDefault(); collapseAll(); }
+});
+</script>
+</body>
+</html>

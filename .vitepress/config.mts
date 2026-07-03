@@ -45,6 +45,7 @@ export default defineConfig({
               collapsed: false,
               items: [
                 { text: '第四章 信息系统规划', link: '/00-思维篇/04-第四章/' },
+                { text: '第五章 应用系统规划', link: '/00-思维篇/05-第五章/' },
               ]
             }
           ]
