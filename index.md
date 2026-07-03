@@ -6,6 +6,9 @@ hero:
   tagline: 多知识
   actions:
     - theme: brand
+      text: 思维篇
+      link: /00-思维篇/
+    - theme: brand
       text: 项目篇
       link: /11-项目篇/
     - theme: brand
@@ -25,6 +28,9 @@ hero:
       link: /学习卡片/
 
 features:
+  - title: 🧠 思维篇
+    details: 按教材章节呈现核心知识思维脑图，可视化梳理考点骨架与速记口诀，考前全局复习首选。
+    link: /00-思维篇/
   - title: 📚 项目篇
     details: 以华航数据资产智能管理平台项目为核心，结合教材20个章节内容，提供论文和案例的实战范文，通过真实项目场景系统掌握考点。
     link: /11-项目篇/

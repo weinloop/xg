@@ -11,6 +11,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
+      { text: '思维篇', link: '/00-思维篇/' },
       { text: '项目篇', link: '/11-项目篇/' },
       { text: '基础篇', link: '/01-基础篇/ch01-信息系统与信息技术发展' },
       { text: '方法篇', link: '/02-方法篇/' },
@@ -33,6 +34,22 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/00-思维篇/': [
+        {
+          text: '🧠 思维篇',
+          link: '/00-思维篇/',
+          collapsed: false,
+          items: [
+            {
+              text: '方法篇（第4-10章）',
+              collapsed: false,
+              items: [
+                { text: '第四章 信息系统规划', link: '/00-思维篇/04-第四章/' },
+              ]
+            }
+          ]
+        }
+      ],
       '/11-项目篇/': [
         {
           text: '📚 项目篇',

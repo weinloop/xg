@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第4章 信息系统规划 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50;font-size:17px}
+.header{background:linear-gradient(135deg,#2c3e50,#3498db);color:#fff;padding:20px 16px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.85}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:15px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.legend{display:flex;align-items:center;gap:6px;margin-left:10px;font-size:14px;color:#888}
+.legend span{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:4px}
+.container{max-width:900px;margin:0 auto;padding:12px}
+.mindmap{padding:10px 0}
+/* Branch columns — vertically stacked */
+.branches{display:flex;flex-direction:column;gap:14px}
+.branch-col{width:100%}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:14px 18px;font-weight:700;font-size:18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 14px}
+.branch-body.collapsed{display:none}
+/* Color themes for branches */
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:6px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:6px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:6px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:6px solid #c0392b}
+/* Sub-branches */
+.sub-section{margin-bottom:12px}
+.sub-title{font-weight:700;font-size:16px;color:#555;padding:6px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:4px solid #3498db}
+.item-list{list-style:none;padding-left:4px}
+.item-list li{font-size:15px;padding:3px 8px;line-height:1.7;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:3px;font-size:14px;font-weight:700;margin-left:4px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 7px;border-radius:3px;font-size:13px;margin:0 2px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 7px;border-radius:3px;font-size:13px;margin:0 2px}
+.key-point{color:#c0392b;font-weight:600}
+/* Compact items */
+.compact-grid{display:grid;grid-template-columns:1fr;gap:4px}
+.compact-grid li{font-size:15px}
+/* Tables */
+table{width:100%;font-size:14px;border-collapse:collapse;margin-top:4px}
+table td, table th{padding:5px 8px;border:1px solid #d0d0d0}
+/* Responsive */
+@media(min-width:768px){.compact-grid{grid-template-columns:1fr 1fr}}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+.footer{padding:16px;text-align:center;color:#aaa;font-size:13px}
+/* Section separator */
+.section-divider{text-align:center;padding:8px 0;color:#bbb;font-size:20px;letter-spacing:8px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📋 第4章 信息系统规划 · 核心知识思维脑图</h1>
+  <p>系统规划与管理师（第2版）｜精简背诵版｜基于教材原文 + 2025首考真题风格</p>
+</div>
+
+<div class="toolbar">
+  <button onclick="expandAll()" id="btnExpand">全部展开</button>
+  <button onclick="collapseAll()" id="btnCollapse">全部折叠</button>
+  <button onclick="showMnemonics()" id="btnMnemonic">🟡 高亮口诀</button>
+  <div class="legend">
+    <span style="background:#2471a3"></span>概述
+    <span style="background:#b7950b"></span>7大体系
+    <span style="background:#1e8449"></span>5步法
+    <span style="background:#c0392b"></span>5种方法
+  </div>
+</div>
+
+<div class="container">
+  <div class="mindmap">
+    <div class="branches">
+
+      <!-- 4.1 概述 -->
+      <div class="branch-col">
+        <div class="branch-card c1" id="b41">
+          <div class="branch-header" onclick="toggleBranch('b41')">
+            <span>4.1 概述</span>
+            <span class="icon">▼</span>
+          </div>
+          <div class="branch-body" id="b41-body">
+            <!-- 定义 -->
+            <div class="sub-section">
+              <div class="sub-title">📌 规划定义</div>
+              <ul class="item-list">
+                <li>基于组织战略，明确信息系统发展<span class="key-point">愿景、目标、系统框架</span>及各系统关系、建设模式、实施策略</li>
+              </ul>
+            </div>
+            <!-- 价值意义6点 -->
+            <div class="sub-section">
+              <div class="sub-title">🎯 六大价值与意义 <span class="mnemonic">目路识务标源</span></div>
+              <ul class="item-list">
+                <li><span class="key-point">① 确立数字能力目标</span> — 聚焦建设重点，带动资源综合开发</li>
+                <li><span class="key-point">② 明确建设路径</span> — "总分总"思维，策划关键路径+阶段目标</li>
+                <li><span class="key-point">③ 确保认识一致</span> — 决策层关注愿景/目标/路径；管理层关注变革/分工；执行层关注任务/计划</li>
+                <li><span class="key-point">④ 具象关键任务</span> — 时间计划/资源投入/责任分工/目标成果/依存关系</li>
+                <li><span class="key-point">⑤ 明确标准与措施</span> — 做事方法/评估依据/纠偏控制</li>
+                <li><span class="key-point">⑥ 统筹部署资源</span> — 数据/网络/基础设施/软件 + 人力/管理/技术</li>
+              </ul>
+            </div>
+            <!-- 六大原则 -->
+            <div class="sub-section">
+              <div class="sub-title">⚙️ 六大原则 <span class="mnemonic">战整先指柔遵</span> <span class="tag">选择5已考</span></div>
+              <ul class="item-list">
+                <li><span class="key-point">战略性</span>：从战略视角定义，与组织战略一致，支撑业务目标</li>
+                <li><span class="key-point">整体性</span>：①业务赋能 ②系统框架 ③建设实施 ④集成融合 四整体</li>
+                <li><span class="key-point">先进性</span>：①技术发展趋势 ②内外最佳实践融合</li>
+                <li><span class="key-point">指导性</span>：框架性要求建议，为设计实现提供基本依据</li>
+                <li><span class="key-point">柔性</span>：适应环境变化，明确监测/调整/优化原则</li>
+                <li><span class="key-point">遵从性</span>：①法律法规 ②标准规范 ③组织战略与数字能力需求 <span class="tag2">已考</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4.2 七大体系 -->
+      <div class="branch-col">
+        <div class="branch-card c2" id="b42">
+          <div class="branch-header" onclick="toggleBranch('b42')">
+            <span>4.2 主要内容（七大体系）</span>
+            <span class="icon">▼</span>
+          </div>
+          <div class="branch-body" id="b42-body">
+
+            <!-- 4.2.1 发展战略 -->
+            <div class="sub-section">
+              <div class="sub-title">📐 4.2.1 信息系统发展战略</div>
+              <ul class="item-list">
+                <li><b>战略目标三要素：</b>基本趋势 + 指导思想/战略目标/基本方针 + 目标树（总体→分目标→子目标）</li>
+                <li><b>发展路径四原则</b> <span class="mnemonic">业能基稳</span>：<span class="key-point">业务一致 → 能力主线 → 基础优先 → 稳态先行</span> <span class="tag2">已考</span></li>
+                <li><b>发展路径选择考虑：</b>信息基础设施优先、稳敏分离（稳态先行、敏态后发）</li>
+                <li><b>五级成熟度</b> <span class="mnemonic">基效协决生</span>：</li>
+              </ul>
+              <table>
+                <tr style="background:#fef9e7"><td style="width:12%">一级</td><td>打基础</td><td>业务规范化+数字化意识+局部系统建设</td></tr>
+                <tr><td>二级</td><td>提效率</td><td>以部门职能为基础，提高工作效率</td></tr>
+                <tr style="background:#fef9e7"><td>三级</td><td>做协同</td><td>数据共治共享，优化业务流，跨职能协同</td></tr>
+                <tr><td>四级</td><td>强决策</td><td>数据模型+综合应用，变革治理模式</td></tr>
+                <tr style="background:#fef9e7"><td>五级</td><td>构生态</td><td>跨组织融合，云+互联网模式，广域协同</td></tr>
+              </table>
+            </div>
+
+            <!-- 4.2.2 系统框架 -->
+            <div class="sub-section">
+              <div class="sub-title">🏗️ 4.2.2 主要系统框架 <span class="tag2">案例已考★</span></div>
+              <ul class="item-list">
+                <li><b>总体框架模式：</b>"感·传·智·用·安"</li>
+                <li><b>三种框架演进：</b></li>
+              </ul>
+              <table>
+                <tr style="background:#fef9e7"><td style="width:18%">应用功能型</td><td>"拿来主义"、成套软件、关注功能、统一规划分步实施</td><td style="width:18%">中小型/初级阶段</td></tr>
+                <tr><td>平台能力型</td><td>"竖井式"→"平层化"、弹性敏捷、自主创新、双态IT</td><td>成熟度提升期</td></tr>
+                <tr style="background:#fef9e7"><td>互联网型</td><td>App化/微服务、能力封装、动态编排、适配不同成熟度组织</td><td>产业链/生态链阶段</td></tr>
+              </table>
+              <ul class="item-list">
+                <li><b>分系统划分四原则</b> <span class="mnemonic">技工职数</span>：<span class="key-point">技术一致性 → 工程一致性 → 职能一致性 → 数据一致性</span></li>
+              </ul>
+            </div>
+
+            <!-- 4.2.3 组织体系 -->
+            <div class="sub-section">
+              <div class="sub-title">👥 4.2.3 组织体系优化</div>
+              <ul class="item-list compact-grid">
+                <li><b>中小型：</b>委员会+信息团队（主机/网络/开发/桌面组）</li>
+                <li><b>大型-集中式：</b>专业信息部门，最高管理者挂帅，分工细（架构/质量/测试）</li>
+                <li><b>大型-分权式：</b>各业务单元自行建设，统筹负责人/虚拟团队，快但有集成问题</li>
+                <li><b>大型-平衡矩阵：</b>基础集中+应用分权，稳态集中/敏态分散</li>
+                <li><b>业务领域：</b>两种模式 — ①设"能手/旗手"重点培育 ②全员数字素养培育</li>
+              </ul>
+            </div>
+
+            <!-- 4.2.4 技术体系 -->
+            <div class="sub-section">
+              <div class="sub-title">🔧 4.2.4 技术体系定义</div>
+              <ul class="item-list">
+                <li><b>六原则</b> <span class="mnemonic">可安可灵扩驾</span>：<span class="key-point">可用性→安全性→可靠性→灵活性→可扩展性→可驾驭性</span></li>
+                <li><b>范围9领域：</b>应用软件/网络/数据库/中间件/计算机与存储/数据资源/客户端/容灾/信息安全</li>
+                <li><b>蓝图绘制：</b>逻辑结构图（按框架表达）+ 技术应用图（按技术族表达）</li>
+                <li><b>可靠性三维度：</b>成熟性 · 技术整体性 · 技术风险性</li>
+              </ul>
+            </div>
+
+            <!-- 4.2.5~4.2.7 -->
+            <div class="sub-section">
+              <div class="sub-title">📋 4.2.5 任务体系部署（6步）</div>
+              <ul class="item-list">
+                <li><span class="key-point">拆解→明确目标(SMART)→匹配组织→制定策略→定义计划→监控实施</span></li>
+                <li><b>任务层级：</b>领域 → 工程 → 项目 → 活动</li>
+              </ul>
+            </div>
+            <div class="sub-section">
+              <div class="sub-title">💰 4.2.6 资源体系调度</div>
+              <ul class="item-list">
+                <li><span class="key-point">识别评估 → 关系控制 → 分配调度 → 风险优化</span></li>
+                <li><b>资源识别两维度：</b>①能力要素（人员/技术/流程/软硬件）②任务六要素<span class="mnemonic">人机料法环测</span></li>
+                <li><b>资源分权五级：</b>组织权→所有权→保管权→调度权→使用权</li>
+              </ul>
+            </div>
+            <div class="sub-section">
+              <div class="sub-title">🛡️ 4.2.7 保障体系设定</div>
+              <ul class="item-list">
+                <li><b>六大保障</b> <span class="mnemonic">组人技资数安</span>：</li>
+              </ul>
+              <table>
+                <tr style="background:#fef9e7"><td style="width:12%">组织</td><td>决策层支持变革、全员认识一致、组织架构调整支撑</td></tr>
+                <tr><td>人员</td><td>全员数字能力培育、碎片化时间学习、接受变革意识、新技能建设</td></tr>
+                <tr style="background:#fef9e7"><td>技术</td><td>技术储备+预研、微创新鼓励、创新文化、技术标准化</td></tr>
+                <tr><td>资源</td><td>重视软实力、新型方法获"硬"资源(云)、提升资源优先级、循环利用</td></tr>
+                <tr style="background:#fef9e7"><td>数据</td><td>治理能力、管理体系、数据质量、标准化、开发利用、保值增值</td></tr>
+                <tr><td>安全</td><td>安全意识、知识技能、完善安全管理体系</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4.3 工作要点（5步法） -->
+      <div class="branch-col">
+        <div class="branch-card c3" id="b43">
+          <div class="branch-header" onclick="toggleBranch('b43')">
+            <span>4.3 工作要点（五步法）</span>
+            <span class="icon">▼</span>
+          </div>
+          <div class="branch-body" id="b43-body">
+
+            <!-- 4.3.1 内外部需求挖掘 -->
+            <div class="sub-section">
+              <div class="sub-title">🔍 4.3.1 内外部需求挖掘</div>
+              <ul class="item-list">
+                <li><b>内部需求（5项任务）：</b></li>
+              </ul>
+              <ul class="item-list" style="padding-left:12px">
+                <li>理解组织战略 — 与高层沟通，了解期望定位</li>
+                <li>熟悉业务流程 — 问题/痛点/改进空间</li>
+                <li>收集用户需求 — 访谈/问卷，操作/数据/功能/价值需求</li>
+                <li>评估现有系统 — 容量/功能/性能/稳定性/使用情况</li>
+                <li>感知数字环境 — 数据资产盘点/人才分布/创新/数字素养</li>
+              </ul>
+              <ul class="item-list">
+                <li><b>外部需求（6项任务）：</b></li>
+              </ul>
+              <ul class="item-list" style="padding-left:12px">
+                <li>国家战略导入 · 行业趋势分析 · 技术趋势研究 · 竞争环境分析 · 客户期望调研 · 标准规范引用</li>
+              </ul>
+              <ul class="item-list">
+                <li><b>⚠️ 注意事项：</b>原始信息获取为主、避免直接给方案、谨慎信息交叉、关注隐性需求推演</li>
+                <li><b>整合分析：</b>主要矛盾/需求优先级/干系人内在需求/外部要求/数字环境状态/重大风险</li>
+              </ul>
+            </div>
+
+            <!-- 4.3.2 场景化模型分析 -->
+            <div class="sub-section">
+              <div class="sub-title">🎬 4.3.2 场景化模型分析</div>
+              <ul class="item-list">
+                <li><b>拆解选择6步：</b>价值链拆解→能力链拆解→交叉找融合点→关键价值点→定义场景需求→评估条件形成清单</li>
+                <li><b>场景模型8维构建：</b><span class="key-point">场景定义·角色·业务·数据·技术·组织·风险·政策法律</span></li>
+                <li><b>三阶段应用：</b>规划前(识别需求)→规划中(评估方案)→规划后(监控调整)</li>
+                <li><b>优点：</b>贴近实际·提供指导·提高适应性 | <b>缺点：</b>数据难采集·可行性受限</li>
+              </ul>
+            </div>
+
+            <!-- 4.3.3 深度诊断与评估 -->
+            <div class="sub-section">
+              <div class="sub-title">📊 4.3.3 深度诊断与评估 <span class="tag2">已考</span></div>
+              <ul class="item-list">
+                <li><b>成熟度五级内涵（教材版 vs CMMM版）：</b></li>
+              </ul>
+              <table>
+                <tr style="background:#eafaf1"><td style="width:8%">一级</td><td style="width:18%">规范化</td><td>确立主要工作+数字化转型基本策划</td><td style="width:16%">CMMM:规划级</td></tr>
+                <tr><td>二级</td><td>精细化/流程化</td><td>解决运行效率，部署信息系统</td><td>CMMM:规范级</td></tr>
+                <tr style="background:#eafaf1"><td>三级</td><td>协同一体化</td><td>数据流替代流程、集成平台化、知识沉淀</td><td>CMMM:集成级</td></tr>
+                <tr><td>四级</td><td>敏捷能力</td><td>快速响应、数据模型预测决策、治理改革</td><td>CMMM:优化级</td></tr>
+                <tr style="background:#eafaf1"><td>五级</td><td>生态一体化</td><td>业务/管理/生产/服务自组织</td><td>CMMM:引领级</td></tr>
+              </table>
+              <ul class="item-list">
+                <li><b>打分法：</b><span class="key-point">0分</span>(全不满) · <span class="key-point">0.5分</span>(部分满/系统缺陷) · <span class="key-point">0.8分</span>(大部分满/局部不足) · <span class="key-point">1分</span>(全满足)</li>
+                <li><b>木桶原理：</b>整体能力取决于最短板 → 找到最短板 + 延缓/暂停过度发展能力</li>
+                <li><b>国标引用：</b>GB/T 43439(数字化转型) · GB/T 39116(智能制造) · 数字城市/IT运维/智慧园区</li>
+              </ul>
+            </div>
+
+            <!-- 4.3.4 整体与专项规划 -->
+            <div class="sub-section">
+              <div class="sub-title">📝 4.3.4 整体与专项规划</div>
+              <ul class="item-list">
+                <li><b>需求整合三维度：</b><span class="key-point">业务领域维 · 能力建设维 · 技术发展维</span> <span class="tag2">已考</span></li>
+                <li><b>整体规划：</b>解决宏观问题 — 确保战略一致、提高协同一体化、优化资源配置和ROI</li>
+                <li><b>专项规划(6类)：</b>应用系统/网络环境/云服务/数据中心/信息安全/云原生</li>
+                <li><b>规划模式：</b>"自底向上"(效率为主) vs "自顶向下"(协同敏捷为主)</li>
+                <li><b>一致性检查：</b>需求对应·内容协调·科学可行性·干系人理解</li>
+              </ul>
+            </div>
+
+            <!-- 4.3.5 持续改进 -->
+            <div class="sub-section">
+              <div class="sub-title">🔄 4.3.5 持续改进</div>
+              <ul class="item-list">
+                <li><span class="key-point">①跟踪组织战略</span>（与各部门密切合作，更新规划）</li>
+                <li><span class="key-point">②感知技术发展</span>（供应商交流、行业研讨、培训）</li>
+                <li><span class="key-point">③关注数据管理与信息安全</span>（完整性/可靠性/可用性/泄露防护）</li>
+                <li><span class="key-point">④注重用户体验与参与</span>（调研/测试/反馈/易用性设计）</li>
+                <li><span class="key-point">⑤建立监测评估机制</span>（KPI/满意度/定期评估报告→修订完善）</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4.4 五种方法 -->
+      <div class="branch-col">
+        <div class="branch-card c4" id="b44">
+          <div class="branch-header" onclick="toggleBranch('b44')">
+            <span>4.4 常用方法（五种）</span>
+            <span class="icon">▼</span>
+          </div>
+          <div class="branch-body" id="b44-body">
+
+            <!-- 方法对照总表 -->
+            <div class="sub-section">
+              <div class="sub-title">📊 五法对比速记</div>
+              <table>
+                <tr style="background:#fdedec"><td style="width:10%"><b>方法</b></td><td style="width:16%"><b>提出者</b></td><td style="width:10%"><b>年份</b></td><td><b>核心思想</b></td></tr>
+                <tr><td>SST</td><td>William King</td><td>1978</td><td>组织战略集 → 信息系统战略集</td></tr>
+                <tr style="background:#fdedec"><td>BSP</td><td>IBM</td><td>1970s</td><td>全面调查→分析信息需求→制定总体方案</td></tr>
+                <tr><td>CSF</td><td>Zani→Rockart</td><td>1970→1980</td><td>少数的关键成功因素决定信息需求</td></tr>
+                <tr style="background:#fdedec"><td>VCA</td><td>Michael Porter</td><td>1985</td><td>战略环节优先，价值活动 → 竞争优势</td></tr>
+                <tr><td>Zachman</td><td>John Zachman</td><td>1987</td><td>6行×6列分类框架，多视角描述企业</td></tr>
+              </table>
+            </div>
+
+            <!-- SST -->
+            <div class="sub-section">
+              <div class="sub-title">🔄 SST 战略目标集转移法</div>
+              <ul class="item-list">
+                <li><b>核心公式：</b>组织战略集（使命/目标/战略/组织属性）<span class="key-point">→</span> 信息系统战略集（系统目标/约束/建设战略）</li>
+                <li><b>三步过程：</b>①画利益相关方结构 → ②确定各方要求 → ③定义每个利益方的任务和战略</li>
+                <li><b>验证：</b>送最高管理者审查，收集反馈，判断战略集元素优���次序</li>
+              </ul>
+            </div>
+
+            <!-- BSP -->
+            <div class="sub-section">
+              <div class="sub-title">📐 BSP 企业信息系统规划法</div>
+              <ul class="item-list">
+                <li><b>四步骤</b> <span class="mnemonic">目功数构</span>：</li>
+              </ul>
+              <ol style="padding-left:20px;color:#444;line-height:1.7">
+                <li style="padding:3px 0"><b>定义管理目标</b> — 采访各级管理部门，绘制目标树</li>
+                <li style="padding:3px 0"><b>定义管理功能</b> — 核心！按资源生命周期识别，独立于组织机构</li>
+                <li style="padding:3px 0"><b>定义数据类</b> — 实体法/功能法，10~20个数据类</li>
+                <li style="padding:3px 0"><b>定义信息结构</b> — 功能/数据类矩阵→聚类→子系统划分</li>
+              </ol>
+              <ul class="item-list">
+                <li><b>资源生命周期4阶段：</b>产生 → 获得 → 服务 → 归宿</li>
+                <li><b>核心理念：</b>管理功能<span class="key-point">独立于组织机构</span>，减少体制变动影响</li>
+              </ul>
+            </div>
+
+            <!-- CSF -->
+            <div class="sub-section">
+              <div class="sub-title">🎯 CSF 关键成功因素法</div>
+              <ul class="item-list">
+                <li><b>四来源</b> <span class="mnemonic">产竞环暂</span>：产业结构 · 竞争策略/地位 · 环境因素 · 暂时因素</li>
+                <li><b>四类型</b> <span class="mnemonic">内监外建</span>：内部型 · 监控型 · 外部型 · 建立型</li>
+                <li><b>四步骤：</b>①确定战略目标 → ②逐层分解识别所有成功因素 → ③德尔菲法/模糊评价确定KPI → ④识别绩效指标和衡量数据</li>
+                <li><b>特点：</b>抓住主要矛盾，突出重点，适用于<span class="key-point">高层管理者</span>，简便可行但少涉及IT如何支持目标</li>
+              </ul>
+            </div>
+
+            <!-- VCA -->
+            <div class="sub-section">
+              <div class="sub-title">🔗 VCA 价值链分析法</div>
+              <ul class="item-list">
+                <li><b>4个基本观点：</b>价值是核心 · 基本活动+支持活动 · 相互依存构成系统 · 竞争优势来自价值链优化</li>
+                <li><b>基本活动：</b>进料后勤→生产→发货后勤→销售→售后</li>
+                <li><b>支持活动：</b>人事·财务·计划·研发·采购</li>
+                <li><b>四步骤：</b>①识别价值链 → ②确定关键增值环节 → ③确定关键减值环节 → ④明确IT对关键环节支持</li>
+              </ul>
+            </div>
+
+            <!-- Zachman -->
+            <div class="sub-section">
+              <div class="sub-title">🏛️ Zachman 框架</div>
+              <ul class="item-list">
+                <li><b>6行（纵向/角色）</b> <span class="mnemonic">规企系技详功</span>：规划人员(范围)→系统所有者(企业)→架构师(系统)→构造人员(技术)→集成者(详细)→用户(功能)</li>
+                <li><b>6列（横向/6W）</b> <span class="mnemonic">数功网人时因</span>：What(数据)·How(功能)·Where(网络)·Who(人员)·When(时间)·Why(动机)</li>
+                <li><b>六步骤：</b>①确定愿景原则→②现状描述分析→③目标架构定义→④差距改进分析→⑤制订实施计划→⑥持续改进优化</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 核心记忆口诀汇总 -->
+<div style="max-width:900px;margin:0 auto;padding:0 12px 20px">
+  <div style="background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:18px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记）</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px">
+      <div style="background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:15px"><b>六原则</b>：战整先指柔遵</div>
+      <div style="background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:15px"><b>六价值</b>：目路识务标源</div>
+      <div style="background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:15px"><b>五级成熟度</b>：基效协决生</div>
+      <div style="background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:15px"><b>路径四原则</b>：业能基稳</div>
+      <div style="background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:15px"><b>框架划分</b>：技工职数</div>
+      <div style="background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:15px"><b>技术六原则</b>：可安可灵扩驾</div>
+      <div style="background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:15px"><b>六大保障</b>：组人技资数安</div>
+      <div style="background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:15px"><b>BSP四步</b>：目功数构</div>
+      <div style="background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:15px"><b>CSF四来源</b>：产竞环暂</div>
+      <div style="background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:15px"><b>CSF四类型</b>：内监外建</div>
+      <div style="background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:15px"><b>Zachman行</b>：规企系技详功</div>
+      <div style="background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:15px"><b>Zachman列</b>：数功网人时因</div>
+      <div style="background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:15px"><b>任务六要素</b>：人机料法环测</div>
+      <div style="background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:15px"><b>保障六体系</b>：组人技资数安</div>
+      <div style="background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:15px"><b>资源四步</b>：识控调优</div>
+      <div style="background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:15px"><b>需求整合三维</b>：业务·能力·技术</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  第4章 信息系统规划 ｜ 核心知识思维脑图 ｜ 基于教材第2版原文 + 2025首考真题考点分析 ｜ 精简背诵版
+</div>
+
+<script>
+function toggleBranch(id) {
+  var body = document.getElementById(id + '-body');
+  var header = document.querySelector('#' + id + ' .branch-header');
+  if (body) {
+    body.classList.toggle('collapsed');
+    header.classList.toggle('collapsed');
+  }
+}
+
+function expandAll() {
+  document.querySelectorAll('.branch-body').forEach(function(b) { b.classList.remove('collapsed'); });
+  document.querySelectorAll('.branch-header').forEach(function(h) { h.classList.remove('collapsed'); });
+  document.getElementById('btnExpand').classList.add('active');
+  document.getElementById('btnCollapse').classList.remove('active');
+}
+
+function collapseAll() {
+  document.querySelectorAll('.branch-body').forEach(function(b) { b.classList.add('collapsed'); });
+  document.querySelectorAll('.branch-header').forEach(function(h) { h.classList.add('collapsed'); });
+  document.getElementById('btnCollapse').classList.add('active');
+  document.getElementById('btnExpand').classList.remove('active');
+}
+
+function showMnemonics() {
+  var mnemonics = document.querySelectorAll('.mnemonic');
+  var btn = document.getElementById('btnMnemonic');
+  var isActive = btn.classList.contains('active');
+  mnemonics.forEach(function(m) {
+    m.style.background = isActive ? '#fff3cd' : '#ffeaa7';
+    m.style.color = isActive ? '#856404' : '#d63031';
+    m.style.fontSize = isActive ? '11px' : '14px';
+    m.style.padding = isActive ? '1px 6px' : '3px 10px';
+  });
+  if (isActive) {
+    btn.classList.remove('active');
+    btn.textContent = '🟡 高亮口诀';
+  } else {
+    btn.classList.add('active');
+    btn.textContent = '🔴 高亮口诀(开)';
+  }
+}
+
+// Keyboard shortcuts
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'e' && e.ctrlKey) { e.preventDefault(); expandAll(); }
+  if (e.key === 'c' && e.ctrlKey) { e.preventDefault(); collapseAll(); }
+});
+</script>
+
+</body>
+</html>

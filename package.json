@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "系统规划与管理师备考知识库",
   "scripts": {
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
+    "sync:mindmaps": "sh -c 'find 00-思维篇 -name \"*.html\" | while IFS= read -r f; do d=\"public/$(dirname \"$f\")\"; mkdir -p \"$d\" && cp \"$f\" \"public/$f\"; done'",
+    "docs:dev": "npm run sync:mindmaps && vitepress dev",
+    "docs:build": "npm run sync:mindmaps && vitepress build",
     "docs:preview": "vitepress preview"
   },
   "devDependencies": {
