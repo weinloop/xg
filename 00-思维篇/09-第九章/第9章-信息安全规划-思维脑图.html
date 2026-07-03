@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第9章 信息安全规划 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.container{max-width:900px;margin:0 auto;padding:16px 10px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;margin-bottom:14px;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:12px 16px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 12px 14px}
+.branch-body.collapsed{display:none}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:4px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:4px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:4px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:4px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:4px solid #7d3c98}
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:3px solid #3498db}
+.item-list{list-style:none;padding-left:8px}
+.item-list li{font-size:14px;padding:3px 8px;line-height:1.8;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:4px;font-size:13px;font-weight:700;margin-left:5px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#f4ecf7;color:#7d3c98;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.key-point{color:#c0392b;font-weight:600}
+.exam-mark{display:inline-block;background:#ffe0b2;color:#e65100;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.p0-mark{display:inline-block;background:#fdedec;color:#c0392b;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;margin:0 3px}
+.table-mini{width:100%;font-size:14px;border-collapse:collapse;margin-top:6px}
+.table-mini th{background:#f8f9fa;padding:6px 8px;border:1px solid #e0e0e0;text-align:center;font-weight:700;font-size:13px}
+.table-mini td{padding:5px 8px;border:1px solid #e0e0e0;font-size:13px}
+.table-mini tr:nth-child(even){background:#fafafa}
+.note-box{background:#fff9e6;border-left:4px solid #f39c12;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:14px;color:#7d6608}
+.formula-box{background:#eaf2f8;border:2px solid #3498db;padding:10px 14px;margin:8px 0;border-radius:8px;font-size:14px;color:#1a5276;text-align:center}
+.footer{padding:18px 10px;text-align:center;color:#aaa;font-size:13px}
+.mnemonics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.mnemonics-grid div{background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:14px;border:1px solid #eee}
+.danger-mark{display:inline-block;background:#c0392b;color:#fff;padding:1px 5px;border-radius:3px;font-size:11px;font-weight:700}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🔐 第9章 信息安全规划 · 核心知识思维脑图</h1>
+  <p>基于第2版教材 + 2025年11月首考真题考点 · 9.1~9.4 全节覆盖</p>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <button onclick="toggleAll(true)">📖 全部展开</button>
+  <button onclick="toggleAll(false)">📕 全部折叠</button>
+  <button id="btnHighlight" onclick="toggleMnemonics()">🧠 高亮口诀</button>
+</div>
+
+<div class="container">
+
+<!-- ========== 9.1 概述 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>9.1 概述 <span class="tag">安全定义</span><span class="tag">五大属性</span><span class="tag">17种威胁</span><span class="tag">7原则</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 定义 -->
+    <div class="sub-section">
+      <div class="sub-title">信息安全的定义</div>
+      <ul class="item-list">
+        <li>信息系统（硬件/软件/数据/人/物理环境/基础设施）受保护，不受偶然或恶意破坏/更改/泄露</li>
+        <li>系统连续可靠运行，信息服务不中断，实现<span class="key-point">业务连续性</span></li>
+        <li>还包括：防范商业机密泄露、防范青少年不良信息浏览、防范个人信息泄露</li>
+      </ul>
+    </div>
+    <!-- 五大基本属性 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 五大基本属性 <span class="p0-mark">P0必背</span><span class="mnemonic">保密完可不可</span></div>
+      <table class="table-mini">
+        <tr><th style="width:12%">属性</th><th style="width:30%">含义</th><th style="width:20%">关键词</th><th style="width:38%">场景判断</th></tr>
+        <tr><td><b>保密性</b></td><td>信息只为授权者享用，不泄露给未授权者</td><td>不被看到</td><td>数据加密、权限管理、防止信息泄露</td></tr>
+        <tr><td><b>完整性</b></td><td>真实发信者→真实收信者，传输中不被添加/删除/替换</td><td>不被篡改</td><td>校验和、数字签名、防篡改</td></tr>
+        <tr><td><b>可用性</b></td><td>信息和系统随时为授权者提供服务，不被不合理拒绝</td><td>随时能用</td><td>灾备、冗余、防DoS攻击</td></tr>
+        <tr><td><b>可控性</b></td><td>管理者能对信息实施必要的控制管理，对抗犯罪和侵犯</td><td>管理者管控</td><td>内容审计、访问控制策略</td></tr>
+        <tr><td><b>不可否认性</b></td><td>人要为信息行为负责，提供仲裁信息证据</td><td>使用者负责</td><td>数字签名、操作日志、审计追溯</td></tr>
+      </table>
+    </div>
+    <!-- 易混区分 -->
+    <div class="note-box">🔑 <b>易混区分</b>：保密性=不被看到（泄露）｜完整性=不被改（篡改）｜可控性=管理者能管控｜不可否认性=使用者要负责</div>
+    <!-- 17种威胁 -->
+    <div class="sub-section">
+      <div class="sub-title">🔴 常见安全威胁 <span class="tag2">17种</span><span class="mnemonic">泄完拒非窃业假旁授特陷抵重病渎弃侵窃欺</span></div>
+      <ul class="item-list">
+        <li><b>信息泄露</b> — 信息被泄露给非授权实体</li>
+        <li><b>破坏完整性</b> — 数据被非授权增删/修改/破坏</li>
+        <li><b>拒绝服务</b> — 合法访问被无条件阻止</li>
+        <li><b>非法使用（非授权访问）</b> — 非授权方式使用资源 <span class="tag2">易混</span></li>
+        <li><b>窃听</b> — 搭线监听、电磁泄漏截取信息</li>
+        <li><b>业务流分析</b> — 统计分析通信频率/流向/总量找规律</li>
+        <li><b>假冒</b> — 冒充合法用户或提权用户</li>
+        <li><b>旁路控制</b> — 利用安全缺陷获得非授权特权 <span class="tag2">易混</span></li>
+        <li><b>授权侵犯</b> — 被授权但用于非授权目的（内部攻击）<span class="tag2">易混</span></li>
+        <li><b>特洛伊木马</b> — 含察觉不出的恶意程序段</li>
+        <li><b>陷阱门</b> — 特定输入触发违反安全策略</li>
+        <li><b>抵赖</b> — 否认发布过的消息/伪造对方来信</li>
+        <li><b>重放</b> — 截获合法通信数据重发 <span class="tag2">易混</span></li>
+        <li><b>计算机病毒</b> — 传染+侵害功能程序</li>
+        <li><b>人员渎职</b> — 为利益/粗心泄露信息</li>
+        <li><b>媒体废弃</b> — 从废弃磁盘/存储介质获取信息</li>
+        <li><b>物理侵入</b> — 绕过物理控制访问系统</li>
+      </ul>
+      <div class="note-box">🔑 <b>易混区分</b>：非法使用 vs 授权侵犯 → 前=非授权方式，后=被授权但滥用｜旁路控制 vs 陷阱门 → 前=利用已知缺陷绕过，后=特定输入触发｜重放 vs 抵赖 → 前=截获数据重发（技术），后=否认行为（人）</div>
+    </div>
+    <!-- 七大原则 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 七大规划原则 <span class="p0-mark">P1场景判断</span><span class="mnemonic">系适时确可易合</span></div>
+      <table class="table-mini">
+        <tr><th style="width:12%">原则</th><th style="width:45%">核心内容</th><th style="width:43%">场景判断关键词</th></tr>
+        <tr><td><b>系统性</b></td><td>整体全面体系化，横向到边纵向到底，兼顾当前与长远</td><td>全局视角、不遗漏</td></tr>
+        <tr><td><b>适用性</b></td><td>上承信息化保障、下启系统建设运维，与整体环境融合</td><td>融入环境、衔接</td></tr>
+        <tr><td><b>时效性</b></td><td>短期（方案性）/中长期（1-3年体系化）/远景（3年+战略）</td><td>时间阶段、适时</td></tr>
+        <tr><td><b>确定性</b></td><td>明确无歧义，明确主体和执行对象，不模棱两可</td><td>表述清晰、不歧义</td></tr>
+        <tr><td><b>可行性</b></td><td>具体可落地，与文化/管理/职责/流程不冲突</td><td>能落地执行</td></tr>
+        <tr><td><b>易用性</b></td><td>决策层抓要点、管理层抓要素、执行层流程清晰</td><td>好用/可用/易用</td></tr>
+        <tr><td><b>合规性</b></td><td>满足法律法规/国标/行业监管/内控，整合同类项</td><td>满足法规、满足标准</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：适用性 vs 可行性 → 前=能不能融入环境，后=能不能落地执行｜确定性 vs 合规性 → 前=表述明确不歧义，后=满足法规要求</div>
+    </div>
+    <!-- 注意事项 -->
+    <div class="sub-section">
+      <div class="sub-title">四项注意事项 <span class="exam-mark">已考</span></div>
+      <ul class="item-list">
+        <li><b>1.追求高效益的安全</b> — "有效益的安全"非"为安全而安全"；安全=价值/增值；信息安全减少损失=间接经济效益</li>
+        <li><b>2.信息安全战略的校准</b> — 信息安全 ⊆ 信息系统安全；信息安全早于信息系统存在；信息安全战略与IT战略与组织战略保持一致 <span class="p0-mark">核心论断</span></li>
+        <li><b>3.基于业务的风险理解</b> — 关键风险区域识别 + 风险偏好（不同情境表现不一致）</li>
+        <li><b>4.识别出合规性要求</b> — 外部合规（法律/法规/监管）+ 内部合规（与内部制度一致）</li>
+      </ul>
+      <div class="note-box">🔑 <b>核心论断：技术随着制度跑</b>。信息系统=制度随技术跑；信息安全=技术随制度跑。IT系统只是实现管理要求的控制措施。</div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#e67e22">风险管理七过程 <span class="mnemonic">识分应监沟急审</span></div>
+        <ul class="item-list">
+          <li>风险识别 → 风险分析 → 风险应对 → 风险监控 → 沟通与培训 → 应急准备 → 审计与改进</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 9.2 信息安全架构 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>9.2 信息安全架构 <span class="tag">三道防线</span><span class="tag">SABSA</span><span class="tag">保障模型</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 三道防线 -->
+    <div class="sub-section">
+      <div class="sub-title">9.2.1 三道防线 <span class="p0-mark">P1</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">防线</th><th style="width:42%">目标</th><th style="width:40%">关键描述</th></tr>
+        <tr><td><b>系统安全架构</b></td><td>从源头打造自身安全</td><td>不依赖外部防御，构建信息系统安全质量属性</td></tr>
+        <tr><td><b>安全技术体系架构</b></td><td>构建通用安全技术基础设施</td><td>安全基础设施+工具+组件+NFR，系统性增强防御</td></tr>
+        <tr><td><b>审计架构</b></td><td>独立风险发现能力</td><td>独立审计部门，审计范围包含安全风险在内的所有风险</td></tr>
+      </table>
+    </div>
+    <!-- SABSA -->
+    <div class="sub-section">
+      <div class="sub-title">9.2.2 SABSA 商业应用安全架构 <span class="p0-mark">P1</span><span class="exam-mark">已考</span></div>
+      <ul class="item-list">
+        <li>以<b>业务视角</b>为起点，6层模型提供完整安全架构方案，可整合TOGAF/ITIL</li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">六层模型 <span class="mnemonic">情境←业务→服务管理</span></div>
+        <table class="table-mini">
+          <tr><th style="width:15%">视图</th><th style="width:28%">安全架构</th><th style="width:28%">对应角色</th><th style="width:29%">关键词</th></tr>
+          <tr><td>业务视图</td><td><b>情境安全架构</b></td><td>业务所有者</td><td>业务目标与风险</td></tr>
+          <tr><td>架构视图</td><td><b>概念安全架构</b></td><td>架构师</td><td>控制目标、安全战略分层</td></tr>
+          <tr><td>设计视图</td><td><b>逻辑安全架构</b></td><td>设计师</td><td>安全服务、实体架构</td></tr>
+          <tr><td>构建视图</td><td><b>物理安全架构</b></td><td>构建者</td><td>安全机制、平台基础设施</td></tr>
+          <tr><td>实施视图</td><td><b>组件安全架构</b></td><td>实施者</td><td>安全产品/工具/标准</td></tr>
+          <tr><td>服务管理视图</td><td><b>安全服务管理架构</b></td><td>运营管理者</td><td>运营连续性、管理与支持</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">SABSA矩阵：6列 <span class="mnemonic">资动流人位时</span></div>
+        <ul class="item-list">
+          <li><b>资产</b>(是什么)｜<b>动机</b>(为什么)｜<b>流程</b>(如何)｜<b>人员</b>(谁)｜<b>位置</b>(何处)｜<b>时间</b>(何时) — 每层回答6个问题</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">SABSA生命周期 <span class="mnemonic">战设实管</span></div>
+        <ul class="item-list">
+          <li>战略与规划 → 设计（逻辑/物理/组件/服务管理架构）→ 实施 → 管理与衡量（目标绩效vs实际绩效）</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 保障模型 -->
+    <div class="sub-section">
+      <div class="sub-title">9.2.3 信息系统安全保障模型（GB/T 20274.1）<span class="p0-mark">P1</span></div>
+      <ul class="item-list">
+        <li><b>三维度</b>：保障要素（技术+工程+管理+人员） × 生命周期（5阶段） × 能力成熟度（5级）</li>
+        <li><b>基础与核心</b>：<span class="key-point">风险和策略</span>作为安全保障的基础和核心</li>
+        <li><b>核心理念</b>：贯穿整个生命周期的动态安全，不是某时间点的安全</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:10%">生命周期</th><th style="width:20%">保障要素</th><th style="width:16%">成熟度等级</th><th style="width:54%">特征</th></tr>
+        <tr><td rowspan="5">规划组织<br>开发采购<br>实施交付<br>运行维护<br>废弃</td><td rowspan="5">技术<br>工程<br>管理<br>人员</td><td><b>1.基本执行级</b></td><td>随机被动，依赖个人经验，无法复制</td></tr>
+        <tr><td><b>2.计划跟踪级</b></td><td>主动计划与执行，但未形成体系化</td></tr>
+        <tr><td><b>3.充分定义级</b></td><td>基本实践的规范定义与执行</td></tr>
+        <tr><td><b>4.量化控制级</b></td><td>建立量化目标，能度量与预测</td></tr>
+        <tr><td><b>5.持续优化级</b></td><td>根据组织目标不断改进优化</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 9.3 主要内容 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>9.3 信息安全规划的主要内容 <span class="tag">五大板块</span><span class="tag">组织/管理/技术/运营</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 利益相关方 -->
+    <div class="sub-section">
+      <div class="sub-title">9.3.1 利益相关方安全诉求</div>
+      <ul class="item-list">
+        <li>内部：不同部门/层级/业务对象；外部：监管单位/客户/用户/公众</li>
+        <li>不同视角的诉求可能相互竞争；识别隐性/口是心非的诉求至关重要</li>
+        <li><b>成功的关键</b>：一件事的成功是众多人的合力</li>
+      </ul>
+    </div>
+    <!-- 组织体系 -->
+    <div class="sub-section">
+      <div class="sub-title">9.3.2 信息安全组织体系规划 <span class="tag2">四要素</span><span class="mnemonic">最协内外</span></div>
+      <table class="table-mini">
+        <tr><th style="width:20%">组成</th><th style="width:80%">内容</th></tr>
+        <tr><td><b>最高管理层</b></td><td>治理者+执行管理者，决策规划层</td></tr>
+        <tr><td><b>协调机构</b></td><td>最高管理层+各部门负责人，统筹协调</td></tr>
+        <tr><td><b>内部组织</b></td><td>主管部门+配合部门，可新增信息安全部门或指定IT部门</td></tr>
+        <tr><td><b>外部联系</b></td><td>消防部门/安全专业组织/政府/地方监管部门，获取资讯</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>核心观点</b>：技术只能有限提高战斗力，<b>组织形式才是基础</b>。同样一群人，组织形式不同，绩效差异可能极大。</div>
+    </div>
+    <!-- 管理体系 -->
+    <div class="sub-section">
+      <div class="sub-title">9.3.3 信息安全管理体系规划 <span class="p0-mark">P0</span></div>
+      <ul class="item-list">
+        <li>系统化/程序化/文件化；基于风险评估；预防控制为主；全过程动态控制</li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">ISO 27001 vs 等保</div>
+        <ul class="item-list">
+          <li><b>ISO 27001</b>：着眼于整体业务风险，通过风险评估建立/实施/运行/监视/评审/保持/改进ISMS</li>
+          <li><b>ISO 27002</b>：配合27001使用，提供安全控制目标和措施</li>
+          <li><b>等保</b>：对国家秘密/专有/公开信息分等级保护，产品按等级管理，事件分等级响应</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">⚡ 等保五级 — 影响递进关系 <span class="p0-mark">P0必背</span></div>
+        <table class="table-mini">
+          <tr><th style="width:15%">等级</th><th style="width:20%">名称</th><th style="width:28%">公民/法人/组织</th><th style="width:20%">社会秩序/公共利益</th><th style="width:17%">国家安全</th></tr>
+          <tr><td><b>第一级</b></td><td>自主保护级</td><td>损害</td><td style="color:#999">—</td><td style="color:#999">—</td></tr>
+          <tr><td><b>第二级</b></td><td>指导保护级</td><td><b>严重</b>损害</td><td>损害</td><td style="color:#999">—</td></tr>
+          <tr><td><b>第三级</b></td><td>监督保护级</td><td><b>特别严重</b>损害</td><td><b>严重</b>损害</td><td>损害</td></tr>
+          <tr><td><b>第四级</b></td><td>强制保护级</td><td style="color:#999">—</td><td><b>特别严重</b>损害</td><td><b>严重</b>损害</td></tr>
+          <tr><td><b>第五级</b></td><td>专控保护级</td><td style="color:#999">—</td><td style="color:#999">—</td><td><b>特别严重</b>损害</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">⚡ 等保基本框架 <span class="p0-mark">P0必背</span> <span class="exam-mark">已考</span></div>
+        <ul class="item-list">
+          <li><span class="key-point">"一个中心三重防御"</span>：安全管理中心 + 安全计算环境 / 安全区域边界 / 安全网络通信</li>
+          <li>等保2.0强化可信计算安全技术要求</li>
+          <li><b>管理要求</b>：安全管理制度/机构/人员/建设管理/运维管理</li>
+          <li><b>技术要求</b>：安全物理环境/网络通信/区域边界/计算环境/安全管理中心</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">等保实施方法6步 <span class="mnemonic">定分系风改实</span></div>
+        <ul class="item-list">
+          <li>安全定级 → 基本安全要求分析 → 系统特定安全要求分析 → 风险评估 → 改进和选择安全措施 → 实施安全保护</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 技术体系 -->
+    <div class="sub-section">
+      <div class="sub-title">9.3.4 信息安全技术体系规划 <span class="p0-mark">P1</span><span class="mnemonic">身访入侵防火墙，网防加密七件套</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">技术类别</th><th style="width:86%">核心内容与考察重点</th></tr>
+        <tr><td><b>1.身份认证</b></td><td>10种措施：VIEID/静态密码/智能卡/短信密码/动态口令/USB Key（冲击响应+PKI）/生物识别（身体+行为）/双因素/Infogo/虹膜。what you have / who you are 方法区分</td></tr>
+        <tr><td><b>2.访问控制</b></td><td><span class="p0-mark">P0必背</span>4种机制：<b>DAC</b>(所有者定义)/<b>RBAC</b>(角色权限)/<b>Rule-BAC</b>(规则条件)/<b>MAC</b>(安全标签) <span class="exam-mark">已考</span></td></tr>
+        <tr><td><b>3.入侵检测</b></td><td>实时入侵检测（在线判断）vs 事后入侵检测（定期分析）。已纳入等保和安全测评范畴</td></tr>
+        <tr><td><b>4.防火墙</b></td><td>内网/外网之间保护屏障，4组成部分：服务访问规则/验证工具/包过滤/应用网关</td></tr>
+        <tr><td><b>5.网闸</b></td><td>网络隔离技术，两套独立系统间信息摆渡，无直接物理通路；分时使用数据通路，交换时防病毒/恶意代码过滤</td></tr>
+        <tr><td><b>6.防病毒</b></td><td>6条防护准则：拒绝访问能力/病毒检测(含未知)/控制传播/清除/恢复/替代操作</td></tr>
+        <tr><td><b>7.数据加密</b></td><td>对称加密(同密钥，快但难分发) vs 非对称加密(公私钥，慢但易管理)；链路加密/节点加密/端到端加密</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：RBAC vs Rule-BAC → 前=基于角色身份，后=基于规则条件｜DAC vs MAC → 前=所有者自主决定，后=系统强制标签管控｜对称 vs 非对称 → 前=同密钥快但分发难，后=公私钥慢但管理简单</div>
+    </div>
+    <!-- 运营体系 -->
+    <div class="sub-section">
+      <div class="sub-title">9.3.5 信息安全运营体系规划 <span class="p0-mark">P1</span><span class="mnemonic">知权分双转假特</span></div>
+      <table class="table-mini">
+        <tr><th style="width:17%">方法</th><th style="width:43%">核心定义</th><th style="width:40%">关键区别</th></tr>
+        <tr><td><b>因需可知</b></td><td>仅授予执行工作所需<b>数据</b>的访问权限</td><td>我能看什么（数据范围）</td></tr>
+        <tr><td><b>最小特权</b></td><td>仅授予执行工作所需的<b>特权</b>（读+写+创建+改+删）</td><td>我能做什么（操作权限）</td></tr>
+        <tr><td><b>职责分离</b></td><td>确保无人可单独控制关键功能，需两人以上串通才行</td><td>制衡系统，预防欺诈</td></tr>
+        <tr><td><b>双人控制</b></td><td>两人批准后才能执行关键任务</td><td>同行评审，减少串通欺诈</td></tr>
+        <tr><td><b>岗位轮换</b></td><td>计划性轮岗，交叉培训，减少对个体的依赖</td><td>检测+威慑，接管可发现欺诈 <span class="tag2">易混</span></td></tr>
+        <tr><td><b>强制休假</b></td><td>突然实施，强制休假1-2周</td><td>接管岗位可发现欺诈 <span class="tag2">易混</span></td></tr>
+        <tr><td><b>特权账户管理</b></td><td>限制管理员账户，检测提升特权行为</td><td>长期持续检测监控</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：岗位轮换 vs 强制休假 → 前=计划性轮岗，后=突然强制｜因需可知 vs 最小特权 → 前=我能看什么（数据范围），后=我能做什么（操作权限）</div>
+      <!-- 培训与应急 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">安全培训四方面 + 应急响应五步</div>
+        <ul class="item-list">
+          <li><b>培训四方面</b>：基础知识培训 / 操作规范培训 / 模拟演练培训 / 持续宣传教育</li>
+          <li><b>应急响应五步</b>：制定应急策略 → 建立紧急联系渠道 → 制定应急响应流程 → 进行应急演练 → 应急响应报告和记录</li>
+          <li><b>事后总结改进五步</b>：收集数据信息 → 分析和评估 → 制定改进措施 → 实施改进措施 → 监控评估改进效果</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 9.4 规划案例 ========== -->
+<div class="branch-card c4">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>9.4 信息安全规划案例 <span class="p0-mark">P0必背</span><span class="exam-mark">首考双考</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">⚡ 三步骤 · 三报告 · 三评审 <span class="p0-mark">P0必背</span><span class="exam-mark">首考出2题</span></div>
+      <table class="table-mini">
+        <tr><th style="width:12%">步骤</th><th style="width:28%">内容</th><th style="width:28%">产出报告</th><th style="width:32%">评审内容</th></tr>
+        <tr><td><b>步骤一</b></td><td>现状调研与需求分析<br><small>风险评估+合规差距+组织需求+行业实践+外部威胁</small></td><td>现状调研与需求分析报告</td><td><b>安全需求评审</b></td></tr>
+        <tr><td><b>步骤二</b></td><td>总体架构与蓝图设计<br><small>构建总体架构+基础架构+建设重点及蓝图</small></td><td>信息安全体系架构设计报告</td><td><b>体系架构评审</b></td></tr>
+        <tr><td><b>步骤三</b></td><td>项目规划与实施设计<br><small>差距分析+改进措施+关键项目+优先级+实施计划</small></td><td>信息安全体系实施规划报告</td><td><b>实施规划评审</b></td></tr>
+      </table>
+      <div class="note-box">🔑 <b>首考双考陷阱</b>：<b>不含</b>等级保护评审、安全实现评审。三评审 = 安全需求评审 + 体系架构评审 + 实施规划评审。这是第9章最容易出的考点！</div>
+    </div>
+    <!-- 四个案例 -->
+    <div class="sub-section">
+      <div class="sub-title">典型案例</div>
+      <ul class="item-list">
+        <li><b>某大型金融公司</b>：遭受网络攻击后→风险评估→防火墙+IDS+加密+多因素认证</li>
+        <li><b>某大型房产公司</b>：数字化转型+多城市海外→按等保标准建立主动全面防护体系+安全宣传</li>
+        <li><b>某大学</b>：黑客攻击专业化→组织人员+安全管理+技术保障三方面→网络安全管理/运维平台</li>
+        <li><b>A公司B系统</b>：IT规划+IT治理+信息安全规划，按三大步骤持续完善</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 本章小结 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>📋 本章考察规律总结 · 9.1考概念区分 · 9.2考架构层次 · 9.3考分类框架 · 9.4考评审内容</span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <table class="table-mini">
+      <tr><th>优先级</th><th>考点</th><th>掌握要求</th></tr>
+      <tr><td>🔴P0</td><td>三阶段评审内容（不含等级保护/安全实现）</td><td>必须背熟</td></tr>
+      <tr><td>🔴P0</td><td>五大基本属性（保密完整可用可控不可否）</td><td>必须能默写+场景判断</td></tr>
+      <tr><td>🔴P0</td><td>等保五级+一个中心三重防御</td><td>必须能默写</td></tr>
+      <tr><td>🟡P1</td><td>七大原则 + SABSA六层 + 访问控制四种 + 五级成熟度 + 运营控制七法</td><td>会场景判断和区分</td></tr>
+      <tr><td>🟢P2</td><td>17种威胁 + 组织四要素 + 技术七大类</td><td>了解即可</td></tr>
+    </table>
+  </div>
+</div>
+
+</div><!-- container -->
+
+<!-- 口诀面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 10px 16px">
+  <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:17px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记·28条）</h3>
+    <div class="mnemonics-grid">
+      <div><b>五属性</b>：保密完可不可（保密/完整/可用/可控/不可否认）</div>
+      <div><b>七原则</b>：系适时确可易合</div>
+      <div><b>七风险过程</b>：识分应监沟急审</div>
+      <div><b>三道防线</b>：系安技审（系统安全/安全技术/审计）</div>
+      <div><b>SABSA六层</b>：情境→概念→逻辑→物理→组件→服务管理</div>
+      <div><b>SABSA六列</b>：资动流人位时</div>
+      <div><b>SABSA周期</b>：战设实管</div>
+      <div><b>模型三维</b>：要素×周期×成熟度</div>
+      <div><b>五级成熟度</b>：基计定量优（基本执行/计划跟踪/充分定义/量化控制/持续优化）</div>
+      <div><b>组织四要素</b>：最协内外</div>
+      <div><b>等保五级</b>：自指监强专</div>
+      <div><b>一中三防</b>：安全计算环境/安全区域边界/安全网络通信</div>
+      <div><b>等保6步</b>：定分系风改实</div>
+      <div><b>七技术</b>：身访入侵防火墙，网防加密（身份/访问/入侵/防火/网闸/防毒/加密）</div>
+      <div><b>4种访问控制</b>：DAC/RBAC/Rule-BAC/MAC</div>
+      <div><b>防毒6准则</b>：拒检控清恢替</div>
+      <div><b>运营7方法</b>：知权分双转假特（因需可知/最小特权/职责分离/双人控制/岗位轮换/强制休假/特权账户）</div>
+      <div><b>培训4方面</b>：基操演宣</div>
+      <div><b>应急5步</b>：策系流演练告</div>
+      <div><b>事后5步</b>：收评制实监</div>
+      <div><b>三步骤</b>：现状调研→架构设计→实施规划</div>
+      <div><b>三报告</b>：需求报告/架构报告/实施报告</div>
+      <div><b>三评审</b>：需求评审/架构评审/实施评审（不含等级保护/安全实现）<span class="p0-mark">P0</span></div>
+      <div><b>对称vs非对称</b>：同密钥快分难 vs 公私钥慢管简</div>
+      <div><b>网闸</b>：两套系统间信息摆渡，无直接物理通路</div>
+      <div><b>核心论断</b>：技术随着制度跑（信息安全）≠ 制度随着技术跑（信息系统）</div>
+      <div><b>防火墙4组成</b>：服务访问规则/验证工具/包过滤/应用网关</div>
+      <div><b>5大属性场景</b>：加密=保密｜签名=完整｜灾备=可用｜审计=可控｜日志=不可否</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">第9章 信息安全规划 · 核心知识思维脑图 | 基于第2版教材 + 2025年11月首考真题考点 | Ctrl+E 全展开 · Ctrl+C 全折叠</div>
+
+<script>
+function toggleBranch(header){header.classList.toggle('collapsed');var body=header.nextElementSibling;body.classList.toggle('collapsed')}
+function toggleAll(expand){
+  document.querySelectorAll('.branch-header').forEach(function(h){
+    if(expand){h.classList.remove('collapsed');h.nextElementSibling.classList.remove('collapsed')}
+    else{h.classList.add('collapsed');h.nextElementSibling.classList.add('collapsed')}
+  })
+}
+function toggleMnemonics(){
+  var btn=document.getElementById('btnHighlight');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m){
+    m.style.background=btn.classList.contains('active')?'#ffc107':'#fff3cd';
+    m.style.color=btn.classList.contains('active')?'#000':'#856404'
+  })
+}
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && e.key==='e'){e.preventDefault();toggleAll(true)}
+  if(e.ctrlKey && e.key==='c'){e.preventDefault();toggleAll(false)}
+})
+</script>
+
+</body>
+</html>

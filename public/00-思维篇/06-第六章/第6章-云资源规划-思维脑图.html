@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第6章 云资源规划 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50;font-size:17px}
+.header{background:linear-gradient(135deg,#2c3e50,#3498db);color:#fff;padding:20px 16px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.85}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:15px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.legend{display:flex;align-items:center;gap:6px;margin-left:10px;font-size:14px;color:#888}
+.legend span{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:4px}
+.container{max-width:900px;margin:0 auto;padding:12px}
+.mindmap{padding:10px 0}
+.branches{display:flex;flex-direction:column;gap:14px}
+.branch-col{width:100%}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:14px 18px;font-weight:700;font-size:18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 14px}
+.branch-body.collapsed{display:none}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:6px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:6px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:6px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:6px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:6px solid #7d3c98}
+.sub-section{margin-bottom:12px}
+.sub-title{font-weight:700;font-size:16px;color:#555;padding:6px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:4px solid #3498db}
+.item-list{list-style:none;padding-left:4px}
+.item-list li{font-size:15px;padding:3px 8px;line-height:1.7;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:3px;font-size:14px;font-weight:700;margin-left:4px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 7px;border-radius:3px;font-size:13px;margin:0 2px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 7px;border-radius:3px;font-size:13px;margin:0 2px}
+.key-point{color:#c0392b;font-weight:600}
+.compact-grid{display:grid;grid-template-columns:1fr;gap:4px}
+.compact-grid li{font-size:15px}
+table{width:100%;font-size:14px;border-collapse:collapse;margin-top:4px}
+table td, table th{padding:5px 8px;border:1px solid #d0d0d0}
+@media(min-width:768px){.compact-grid{grid-template-columns:1fr 1fr}}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+.footer{padding:16px;text-align:center;color:#aaa;font-size:13px}
+.section-divider{text-align:center;padding:8px 0;color:#bbb;font-size:20px;letter-spacing:8px}
+.formula{background:#eaf2f8;padding:6px 12px;border-radius:4px;font-family:monospace;font-size:15px;text-align:center;margin:6px 0;border:1px dashed #3498db}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>☁️ 第6章 云资源规划 · 核心知识思维脑图</h1>
+  <p>系统规划与管理师（第2版）｜精简背诵版｜基于教材原文 + 2025首考真题风格｜含计算题公式</p>
+</div>
+
+<div class="toolbar">
+  <button onclick="expandAll()" id="btnExpand">全部展开</button>
+  <button onclick="collapseAll()" id="btnCollapse">全部折叠</button>
+  <button onclick="showMnemonics()" id="btnMnemonic">🟡 高亮口诀</button>
+  <div class="legend">
+    <span style="background:#2471a3"></span>6.1概述
+    <span style="background:#b7950b"></span>6.2架构
+    <span style="background:#1e8449"></span>6.3计算
+    <span style="background:#c0392b"></span>6.4存储
+    <span style="background:#7d3c98"></span>6.5数据中心
+  </div>
+</div>
+
+<div class="container">
+<div class="mindmap">
+<div class="branches">
+
+<!-- 6.1 云资源规划概述 -->
+<div class="branch-col">
+<div class="branch-card c1" id="b61">
+<div class="branch-header" onclick="toggleBranch('b61')">
+<span>6.1 云资源规划概述</span>
+<span class="icon">▼</span>
+</div>
+<div class="branch-body" id="b61-body">
+
+<div class="sub-section">
+<div class="sub-title">📌 定义：对云环境中计算/存储/网络等资源进行合理有效的管理和分配</div>
+<ul class="item-list">
+<li>最佳性能 + 最高安全性 + 最优成本。持续过程，定期审查优化</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🎯 6.1.1 五大目标 <span class="mnemonic">效本展靠需</span> <span class="tag">选择高频</span></div>
+<ul class="item-list">
+<li><span class="key-point">① 提高效率</span> — 避免资源浪费和过度购买，避免瓶颈</li>
+<li><span class="key-point">② 降低成本</span> — 优化配置、成本效益高的方案、精确预测控制</li>
+<li><span class="key-point">③ 确保可扩展性</span> — 满足业务快速增长，防止过度/不足投入</li>
+<li><span class="key-point">④ 提高可靠性和弹性</span> — 冗余资源、高可用性和容灾策略</li>
+<li><span class="key-point">⑤ 支持业务需求</span> — 满足资源类型/性能/安全性/可靠性要求</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🔑 6.1.2 七大关键要素 <span class="mnemonic">需评预安弹优监</span> <span class="tag">选择高频</span></div>
+<ul class="item-list">
+<li><span class="key-point">① 业务需求分析</span> — 确定目标、预测需求、评估性能、考虑安全合规</li>
+<li><span class="key-point">② 资源评估和规划</span> — 核心！确定计算/存储/网络的数量/类型/规模</li>
+<li><span class="key-point">③ 预算管理</span> — 预算计划、成本预测、优化配置、费用控制</li>
+<li><span class="key-point">④ 安全和合规性</span> — 数据保护、访问控制、身份验证、合规标准</li>
+<li><span class="key-point">⑤ 弹性和可扩展性</span> — 评估弹性需求、设计弹性架构、扩展能力准备</li>
+<li><span class="key-point">⑥ 性能优化</span> — 评估计算/存储性能、选合适服务商和配置</li>
+<li><span class="key-point">⑦ 监控和管理</span> — 制定监控策略、选工具技术、建管理流程</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🔄 6.1.3 五步基本流程 <span class="mnemonic">收评预</span>设优 <span class="tag">案例简答重点</span></div>
+<ul class="item-list">
+<li><span class="key-point">① 需求收集</span> — 理解业务目标+预测增长 → 收集业务数据(系统架构/用户量/交易量/存储) → 调研利益相关者期望</li>
+<li><span class="key-point">② 资源评估和规划</span> — 评估当前资源(性能/可用/成本) → 预测未来需求 → 确定云服务模型<span class="highlight">(IaaS/PaaS/SaaS/FaaS)</span></li>
+<li><span class="key-point">③ 预算管理</span> — 预算计划(采购+运营+维护) → 定价模型评估+成本效益分析 → 费用控制和预算监控</li>
+<li><span class="key-point">④ 设计与实施</span> — 云架构+系统配置 → 选服务商+部署 → 数据迁移+安全保障</li>
+<li><span class="key-point">⑤ 持续优化</span> — 监控性能/可用/成本 → 调整优化 → 定期审查更新</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- 6.2 云计算架构 -->
+<div class="branch-col">
+<div class="branch-card c2" id="b62">
+<div class="branch-header" onclick="toggleBranch('b62')">
+<span>6.2 云计算架构 <span class="mnemonic" style="font-size:13px;margin-left:8px;">部内服外</span></span>
+<span class="icon">▼</span>
+</div>
+<div class="branch-body" id="b62-body">
+
+<div class="sub-section">
+<div class="sub-title">☁️ 6.2.1 云计算部署类型（3种） <span class="tag">选择高频</span></div>
+<table>
+<tr style="background:#fef9e7;"><td style="width:12%"><b>类型</b></td><td style="width:43%"><b>核心特征</b></td><td><b>适用</b></td></tr>
+<tr><td><b>公有云</b></td><td>共享资源服务、成本低扩展好、基础设施属服务商、<span class="highlight">无须运维底层</span></td><td>个人/互联网企业/大部分客户</td></tr>
+<tr style="background:#fef9e7;"><td><b>私有云</b></td><td>专有资源池、<span class="highlight">数据安全高/服务质保完善</span>、需大规模投资（3-5年回收）</td><td>大型企业/数据敏感</td></tr>
+<tr><td><b>混合云</b></td><td>公有+私有协同，<span class="highlight">统一服务体验</span>（门户/监控/权限统一）；稳态→私有云，敏态→公有云</td><td>既要安全又要弹性</td></tr>
+</table>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">⚙️ 6.2.2 五大内部特征 <span class="mnemonic">虚弹自多资</span></div>
+<ul class="item-list">
+<li><span class="key-point">① 虚拟化</span> — 核心概念，物理资源抽象为虚拟资源（VM）</li>
+<li><span class="key-point">② 弹性扩展</span> — 根据流量/负载动态增减资源，自动负载均衡+弹性自动缩放</li>
+<li><span class="key-point">③ 自动化管理</span> — 自动执行配置/监控/部署/备份/恢复。工具：编排/配置管理/容器编排</li>
+<li><span class="key-point">④ 多租户支持</span> — 多用户共享资源，需强隔离：虚拟化/网络隔离/认证/访问控制</li>
+<li><span class="key-point">⑤ 资源编排和管理</span> — 定义部署应用/配置网络存储 + 监控/容量规划/优化分配</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🌐 6.2.3 四大外部特征 <span class="mnemonic">可安网成</span></div>
+<ul class="item-list">
+<li><span class="key-point">① 可靠性和可用性</span> — 多地冗余、数据备份镜像</li>
+<li><span class="key-point">② 安全性</span> — 多层次：数据加密/身份认证/访问控制/漏洞管理/监控</li>
+<li><span class="key-point">③ 网络连接性</span> — 高带宽/低延迟/负载均衡/CDN</li>
+<li><span class="key-point">④ 成本效益</span> — 按需付费、资源利用优化、自动化管理</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🏗️ 6.2.4 四大服务模式 — I/P/S/F <span class="tag">选择必考</span></div>
+<table>
+<tr style="background:#fef9e7;"><td style="width:10%"><b>模式</b></td><td style="width:18%"><b>主要用户</b></td><td style="width:30%"><b>提供内容</b></td><td><b>典型代表+关键词</b></td></tr>
+<tr><td><b>IaaS</b></td><td>系统管理员</td><td>虚拟化基础设施（服务器/存储/网络）</td><td>AWS EC2、阿里云ECS<span class="tag">灵活/可扩展/按需</span></td></tr>
+<tr style="background:#fef9e7;"><td><b>PaaS</b></td><td>开发人员</td><td>中间件开发平台（运行时/数据库/缓存）</td><td>Google App Engine、Heroku<span class="tag">简化部署/弹性</span></td></tr>
+<tr><td><b>SaaS</b></td><td>普通用户</td><td>完整应用软件（浏览器访问）</td><td>Salesforce、钉钉、在线文档<span class="tag">方便/无需安装</span></td></tr>
+<tr style="background:#fef9e7;"><td><b>FaaS</b></td><td>开发人员</td><td>独立可复用函数，事件触发按需执行</td><td>AWS Lambda<span class="tag">微服务/事件驱动/云原生</span></td></tr>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- 6.3 计算资源规划 -->
+<div class="branch-col">
+<div class="branch-card c3" id="b63">
+<div class="branch-header" onclick="toggleBranch('b63')">
+<span>6.3 计算资源规划 <span class="mnemonic" style="font-size:13px;margin-left:8px;">形范法程</span> <span class="tag2">案例题已考(25分)</span></span>
+<span class="icon">▼</span>
+</div>
+<div class="branch-body" id="b63-body">
+
+<div class="sub-section">
+<div class="sub-title">💻 6.3.1 五种计算资源形态 <span class="mnemonic">虚容裸G弹</span></div>
+<ul class="item-list">
+<li><span class="key-point">① 虚拟机(VM)</span> — 仿真的计算环境，独立OS和应用</li>
+<li><span class="key-point">② 容器(Container)</span> — 轻量级虚拟化，打包应用+依赖独立运行</li>
+<li><span class="key-point">③ 裸金属(Bare Metal)</span> — 物理机形态，面向数据库/大数据/AI高性能场景</li>
+<li><span class="key-point">④ GPU</span> — 图形渲染/深度学习/科学计算</li>
+<li><span class="key-point">⑤ 弹性计算资源(ECR)</span> — 动态分配释放，自动扩展收缩</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">📐 6.3.1 规划六大范围 <span class="mnemonic">硬虚容弹容资</span></div>
+<ul class="item-list">
+<li>① 硬件资源规划（服务器/网络设备规格配置）→ ② 虚拟化（物理→虚拟资源池）→ ③ 容器化（应用+依赖打包）→ ④ 弹性扩展+负载均衡 → ⑤ 容量规划和预测 → ⑥ 资源管理和调度</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🛠️ 6.3.2 七大方法和技术 <span class="mnemonic">容性均伸虚自云</span></div>
+<ul class="item-list">
+<li><span class="key-point">① 容量规划</span> — 历史数据+趋势分析，预测未来需求</li>
+<li><span class="key-point">② 性能优化</span> — 调整资源分配/优化算法/改进网络存储</li>
+<li><span class="key-point">③ 负载均衡</span> — 分发到多节点，减轻单个负荷</li>
+<li><span class="key-point">④ 弹性伸缩</span> — 基于预设规则阈值自动扩展收缩</li>
+<li><span class="key-point">⑤ 虚拟化和容器化</span> — 提升利用率+灵活性</li>
+<li><span class="key-point">⑥ 自动化管理</span> — 自动部署/配置/监控/报警/修复</li>
+<li><span class="key-point">⑦ 云资源管理平台</span> — 可视化+自动调整+成本优化</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">📋 6.3.3 七步关键过程 <span class="mnemonic">需容服虚安本监</span> <span class="tag2">案例简答必背</span></div>
+<ul class="item-list">
+<li><span class="key-point">① 需求分析</span> — 评估CPU/内存/存储/带宽需求，性能测试+基准测试</li>
+<li><span class="key-point">② 容量规划</span> — 确定能处理多少负载、需要多少资源</li>
+<li><span class="key-point">③ 云服务选择</span> — 选I/P/S合适服务类型</li>
+<li><span class="key-point">④ 虚拟化策略</span> — 是否采用虚拟化提高利用率</li>
+<li><span class="key-point">⑤ 安全性考虑</span> — 数据加密/访问控制/安全审计</li>
+<li><span class="key-point">⑥ 成本效益分析</span> — 比较不同方案的成本和效益</li>
+<li><span class="key-point">⑦ 持续监控和维护</span> — 监控使用/检测瓶颈/定期维护更新</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🧮 ⭐ vCPU容量计算公式 <span class="tag2">首考案例二·必考计算题</span></div>
+<div class="formula">总vCPU = 峰值QPS × 单请求CPU耗时(秒) × 冗余系数</div>
+<div class="formula">实例数 = ⌈ 总vCPU ÷ 单实例vCPU ⌉（向上取整）</div>
+<ul class="item-list">
+<li><span class="key-point">实战</span>：5000(QPS)×0.2(秒)×1.5(冗余)=<span class="highlight">1500 vCPU</span> → ⌈1500÷16⌉=<span class="highlight">94个实例</span></li>
+<li><span class="key-point">注意</span>：若给毫秒→÷1000；冗余系数默认1.3~1.5；实例数向上取整</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- 6.4 存储资源规划 -->
+<div class="branch-col">
+<div class="branch-card c4" id="b64">
+<div class="branch-header" onclick="toggleBranch('b64')">
+<span>6.4 存储资源规划 <span class="mnemonic" style="font-size:13px;margin-left:8px;">面术程</span></span>
+<span class="icon">▼</span>
+</div>
+<div class="branch-body" id="b64-body">
+
+<div class="sub-section">
+<div class="sub-title">💾 6.4.1 存储规划六大方面 <span class="mnemonic">类容备性安调</span></div>
+<ul class="item-list">
+<li><span class="key-point">① 存储类型选择</span> — 块/文件/对象存储，按访问模式选</li>
+<li><span class="key-point">② 存储容量规划</span> — 数据量+增长趋势+预测模型</li>
+<li><span class="key-point">③ 数据备份和冗余</span> — 备份机制/冗余存储/灾难恢复</li>
+<li><span class="key-point">④ 存储性能优化</span> — 高IOPS/低延迟/缓存/负载均衡/数据分区</li>
+<li><span class="key-point">⑤ 数据安全和隔离</span> — 加密/访问控制/认证/权限管理</li>
+<li><span class="key-point">⑥ 存储管理和调度</span> — 分配/监控/容量管理/调整</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🗄️ 6.4.2 七大存储技术类型 <span class="tag">选择高频辨析</span></div>
+<table>
+<tr style="background:#fdedec;"><td style="width:16%"><b>类型</b></td><td style="width:14%"><b>访问级</b></td><td style="width:26%"><b>协议/方式</b></td><td><b>关键词</b></td></tr>
+<tr><td><b>DAS</b></td><td>块级</td><td>SATA/SAS/NVMe</td><td>本地直连、高性能、单机</td></tr>
+<tr style="background:#fdedec;"><td><b>NAS</b></td><td>文件级</td><td>NFS/CIFS/SMB</td><td>文件共享、网络访问、备份</td></tr>
+<tr><td><b>SAN</b></td><td>块级</td><td>FC/iSCSI</td><td>企业数据库、高IOPS、低延迟</td></tr>
+<tr style="background:#fdedec;"><td><b>对象存储</b></td><td>对象级</td><td>S3/Swift</td><td>海量非结构化、图片/视频/日志</td></tr>
+<tr><td><b>云存储</b></td><td>—</td><td>云厂商API</td><td>按需付费、弹性扩容</td></tr>
+<tr style="background:#fdedec;"><td><b>分布式文件</b></td><td>文件级</td><td>HDFS/CephFS</td><td>大数据分析、分布式计算</td></tr>
+<tr><td><b>虚拟化存储</b></td><td>—</td><td>逻辑存储池</td><td>灵活管理、迁移/快照/复制</td></tr>
+</table>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">📋 6.4.3 九步关键过程 <span class="mnemonic">收分选设安容优管评</span> <span class="tag2">案例简答重点</span></div>
+<ul class="item-list">
+<li><span class="key-point">① 收集需求</span> — 数据量/类型/访问模式/保留期/性能/可用/安全等</li>
+<li><span class="key-point">② 分析和评估</span> — 预测增长趋势、估算性能容量、可用安全分析</li>
+<li><span class="key-point">③ 技术选择</span> — 选DAS/NAS/SAN/对象存储等，考虑兼容集成</li>
+<li><span class="key-point">④ 架构设计</span> — 布局/连接方式/存储协议、集群/冗余/缓存策略</li>
+<li><span class="key-point">⑤ 安全规划</span> — 加密/访问控制/备份恢复/灾难恢复/合规</li>
+<li><span class="key-point">⑥ 容量规划</span> — 数据增长率×保留期×备份快照需求</li>
+<li><span class="key-point">⑦ 性能优化</span> — 性能监控分析、调整参数配置、缓存+负载均衡</li>
+<li><span class="key-point">⑧ 管理和监控</span> — 配置管理/容量管理/性能监控/故障管理/变更管理</li>
+<li><span class="key-point">⑨ 定期评估和调整</span> — 跟踪新技术，持续调整优化</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- 6.5 云数据中心规划 -->
+<div class="branch-col">
+<div class="branch-card c5" id="b65">
+<div class="branch-header" onclick="toggleBranch('b65')">
+<span>6.5 云数据中心规划 <span class="tag">选择重点</span></span>
+<span class="icon">▼</span>
+</div>
+<div class="branch-body" id="b65-body">
+
+<div class="sub-section">
+<div class="sub-title">🏢 6.5.1 基本概念</div>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🎯 四大规划目标 <span class="mnemonic">可扩性安</span></div>
+<ul class="item-list compact-grid">
+<li><span class="key-point">① 可靠性和可用性</span> — 冗余设计/备份/灾难恢复</li>
+<li><span class="key-point">② 可扩展性</span> — 弹性伸缩/负载均衡/容量规划</li>
+<li><span class="key-point">③ 性能和效率</span> — 优化网络/存储/服务器/负载管理</li>
+<li><span class="key-point">④ 安全和合规性</span> — 物理/网络/数据/应用安全+隐私</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">📐 七大设计原则 <span class="mnemonic">可弹性安保灵活绿色存储</span></div>
+<ul class="item-list">
+<li>① 可用性和冗余性 → ② 弹性和可扩展性 → ③ 性能优化 → ④ 安全和隐私 → ⑤ 灵活性和可管理性 → ⑥ 节能和环保 → ⑦ 高度可扩展的存储和网络架构</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🌟 五大要素 <span class="mnemonic">面池智供绿</span> <span class="tag">选择重点</span></div>
+<ul class="item-list">
+<li><span class="key-point">① 面向服务</span> — 以服务为导向，物理资源虚拟化聚合，松耦合提供</li>
+<li><span class="key-point">② 资源池化</span> — 实现途径，各类IT+网络资源统一池，对用户透明</li>
+<li><span class="key-point">③ 高效智能</span> — 虚拟化+分布式计算，低廉硬件高效承载</li>
+<li><span class="key-point">④ 按需供给</span> — 动态供给，智能容量规划</li>
+<li><span class="key-point">⑤ 低碳环保</span> — 虚拟化绿色节能，基于能耗的调度策略</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🔧 6.5.2 六大核心技术</div>
+<ul class="item-list">
+<li><span class="key-point">① 网络架构设计</span> <span class="mnemonic">可多低高模扁绿</span>：可扩展/多路径容错/低时延/高带宽/模块化/扁平化/绿色节能</li>
+<li><span class="key-point">② 网络融合技术</span> — 以太网/存储/高性能计算三网融合（成本降+管理简+安全升）</li>
+<li><span class="key-point">③ 网络性能测试</span> — <span class="highlight">网络层</span>(连通性/带宽/时延/丢包) → <span class="highlight">传输层</span>(丢包率/吞吐量/连接数) → <span class="highlight">应用层</span>(页面丢失率/应答延迟/吞吐量)。主动测试(端到端) + 被动测试(路径吞吐量)</li>
+<li><span class="key-point">④ 虚拟化技术</span> — 4种：<span class="highlight">硬件仿真</span> → <span class="highlight">全虚拟化</span>（兼容好）→ <span class="highlight">半虚拟化</span>（修改硬件抽象）→ <span class="highlight">硬件辅助虚拟化</span>（CPU/芯片/IO支持）。模型：硬件+VMM+Guest OS</li>
+<li><span class="key-point">⑤ 安全技术</span> — 安全策略+标准规范+防范技术+管理保障+服务支持体系</li>
+<li><span class="key-point">⑥ 节能技术</span> — <span class="highlight">PUE计算</span>（总用电量÷IT设备用电量），越接近1越绿色</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🧮 ⭐ PUE计算公式</div>
+<div class="formula">PUE = 数据中心总用电量 ÷ IT设备总用电量</div>
+<table>
+<tr style="background:#f4ecf7;"><td style="width:18%"><b>PUE值</b></td><td style="width:25%"><b>等级</b></td><td><b>说明</b></td></tr>
+<tr><td>1.0~1.2</td><td>优秀</td><td>Google/Facebook级别</td></tr>
+<tr style="background:#f4ecf7;"><td>1.2~1.5</td><td>良好</td><td>国内领先</td></tr>
+<tr><td>1.5~2.0</td><td>中等</td><td>行业平均</td></tr>
+<tr style="background:#f4ecf7;"><td>2.0+</td><td>较差</td><td>需优化</td></tr>
+</table>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🏗️ 6.5.3 规划与建设</div>
+<ul class="item-list">
+<li><span class="key-point">四大功能定位</span>：城市数据中心(实时弹性化) → 边缘数据中心(计算下沉) → 数据中心与网络协同布局(云网边融合) → 国际化数据中心(自贸区/一带一路)</li>
+<li><span class="key-point">四大建设项目</span>：① 建筑工程(机房楼+动力中心) → ② 机房空调与配电 → ③ 供电系统工程(列头配电/UPS/变配电/油机) → ④ 机房工艺工程(机柜/走线架/布线)</li>
+<li><span class="key-point">分级标准</span>：<span class="highlight">GB 50174</span> (A→B→C三级，由性质/管理/损失影响定) vs <span class="highlight">TIA-942</span> (T4→T3→T2→T1四级，由可用性定)</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">🚀 6.5.4 八大趋势和挑战 <span class="tag">选择/案例新考点</span></div>
+<ul class="item-list">
+<li><span class="key-point">① 多云和混合云</span> — 跨多提供商和本地统一管理</li>
+<li><span class="key-point">② 自动化和智能化</span> — AI自动资源分配/负载均衡/容量规划</li>
+<li><span class="key-point">③ 弹性和可扩展性提升</span> — 更快速灵活调整</li>
+<li><span class="key-point">④ 绿色和可持续发展</span> — 能源效率+可再生能源</li>
+<li><span class="key-point">⑤ 安全和合规性挑战</span> — 更严格的控制和安全措施</li>
+<li><span class="key-point">⑥ 数据治理和隐私保护</span> — 合规性/安全性/隐私技术</li>
+<li><span class="key-point">⑦ 边缘计算的崛起</span> — 灵活的边缘资源和节点管理</li>
+<li><span class="key-point">⑧ AI和机器学习应用</span> — AI预测负载/优化分配/自动化管理</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+</div><!-- .branches -->
+</div><!-- .mindmap -->
+</div><!-- .container -->
+
+<!-- 口诀汇总面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 12px 20px">
+<div style="background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+<h3 style="font-size:18px;color:#2c3e50;margin-bottom:14px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记）</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;font-size:15px">
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>五大目标</b>：效本展靠需</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>七大要素</b>：需评预安弹优监</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>五步流程</b>：收→评→预→设→优</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>三种部署</b>：公有/私有/混合</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>五内部特征</b>：虚弹自多资</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>四外部特征</b>：可安网成</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>四服务模式</b>：I/P/S/F</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>五计算形态</b>：虚容裸G弹</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>六计算范围</b>：硬虚容弹容资</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>七计算方法</b>：容性均伸虚自云</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>七步计算过程</b>：需容服虚安本监</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>vCPU公式</b>：QPS×耗时(秒)×冗余系数</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>六存储方面</b>：类容备性安调</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>七种存储技术</b>：DAS/NAS/SAN/对象/云/分布式/虚拟化</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>九步存储过程</b>：收分选设安容优管评</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>四数据中心目标</b>：可扩性安</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>七设计原则</b>：可弹性安保灵活绿色存储</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>五数据中心要素</b>：面池智供绿</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>PUE公式</b>：总用电量÷IT设备用电量</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>网络七要素</b>：可多低高模扁绿</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>四种虚拟化</b>：硬件仿真/全虚拟化/半虚拟化/硬件辅助</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>三级标准(GB)</b>：A→B→C（损失影响定）</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>四级标准(TIA)</b>：T4→T3→T2→T1（可用性定）</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>三大网络融合</b>：以太网/存储/高性能计算</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>三层测试指标</b>：网(连/带/时/丢)→传(丢/吞/连)→应(页/答/吞)</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>四功能定位</b>：城市/边缘/协同/国际</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>四建设项目</b>：建筑/空调/供电/工艺</div>
+<div style="background:#f8f9fa;padding:12px;border-radius:6px"><b>八大挑战</b>：多云/自动智能/弹性/绿色/安全/数据治理/边缘/AI</div>
+</div>
+</div>
+</div>
+
+<div class="footer">第6章 云资源规划 · 核心知识思维脑图 | 系统规划与管理师（第2版）</div>
+
+<script>
+function toggleBranch(id) {
+  var body = document.getElementById(id + '-body');
+  var header = document.getElementById(id).querySelector('.branch-header');
+  body.classList.toggle('collapsed');
+  header.classList.toggle('collapsed');
+}
+
+function expandAll() {
+  document.querySelectorAll('.branch-body').forEach(function(b) { b.classList.remove('collapsed'); });
+  document.querySelectorAll('.branch-header').forEach(function(h) { h.classList.remove('collapsed'); });
+}
+
+function collapseAll() {
+  document.querySelectorAll('.branch-body').forEach(function(b) { b.classList.add('collapsed'); });
+  document.querySelectorAll('.branch-header').forEach(function(h) { h.classList.add('collapsed'); });
+}
+
+function showMnemonics() {
+  var btn = document.getElementById('btnMnemonic');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m) {
+    if (btn.classList.contains('active')) {
+      m.style.background = '#ffeb3b';
+      m.style.color = '#333';
+      m.style.fontSize = '18px';
+      m.style.fontWeight = '900';
+      m.style.border = '2px solid #f57f17';
+    } else {
+      m.style.background = '#fff3cd';
+      m.style.color = '#856404';
+      m.style.fontSize = '14px';
+      m.style.fontWeight = '700';
+      m.style.border = 'none';
+    }
+  });
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey && e.key === 'e') { e.preventDefault(); expandAll(); }
+  if (e.ctrlKey && e.key === 'c') { e.preventDefault(); collapseAll(); }
+});
+</script>
+</body>
+</html>

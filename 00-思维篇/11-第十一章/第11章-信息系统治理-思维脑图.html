@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第11章 信息系统治理 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.container{max-width:900px;margin:0 auto;padding:16px 10px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;margin-bottom:14px;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:12px 16px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 12px 14px}
+.branch-body.collapsed{display:none}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:4px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:4px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:4px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:4px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:4px solid #7d3c98}
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:3px solid #3498db}
+.item-list{list-style:none;padding-left:8px}
+.item-list li{font-size:14px;padding:3px 8px;line-height:1.8;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:4px;font-size:13px;font-weight:700;margin-left:5px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#f4ecf7;color:#7d3c98;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.key-point{color:#c0392b;font-weight:600}
+.exam-mark{display:inline-block;background:#ffe0b2;color:#e65100;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.p0-mark{display:inline-block;background:#fdedec;color:#c0392b;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;margin:0 3px}
+.table-mini{width:100%;font-size:14px;border-collapse:collapse;margin-top:6px}
+.table-mini th{background:#f8f9fa;padding:6px 8px;border:1px solid #e0e0e0;text-align:center;font-weight:700;font-size:13px}
+.table-mini td{padding:5px 8px;border:1px solid #e0e0e0;font-size:13px}
+.table-mini tr:nth-child(even){background:#fafafa}
+.note-box{background:#fff9e6;border-left:4px solid #f39c12;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:14px;color:#7d6608}
+.formula-box{background:#eaf2f8;border:2px solid #3498db;padding:10px 14px;margin:8px 0;border-radius:8px;font-size:14px;color:#1a5276;text-align:center}
+.footer{padding:18px 10px;text-align:center;color:#aaa;font-size:13px}
+.mnemonics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.mnemonics-grid div{background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:14px;border:1px solid #eee}
+.danger-mark{display:inline-block;background:#c0392b;color:#fff;padding:1px 5px;border-radius:3px;font-size:11px;font-weight:700}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 第11章 信息系统治理 · 核心知识思维脑图</h1>
+  <p>基于第2版教材 + 2025年11月首考真题考点 · 11.1~11.2 全节覆盖</p>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <button onclick="toggleAll(true)">📖 全部展开</button>
+  <button onclick="toggleAll(false)">📕 全部折叠</button>
+  <button id="btnHighlight" onclick="toggleMnemonics()">🧠 高亮口诀</button>
+</div>
+
+<div class="container">
+
+<!-- ========== 11.1 IT治理 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>11.1 IT治理 <span class="tag">驱动因素</span><span class="tag">治理体系</span><span class="tag">5大任务</span><span class="tag">COBIT/ISO</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 11.1.1 IT治理基础 -->
+    <div class="sub-section">
+      <div class="sub-title">11.1.1 IT治理基础 <span class="p0-mark">P0</span><span class="tag2">已考</span></div>
+      <ul class="item-list">
+        <li><b>定义</b>：对IT资源开发利用的平衡机制，明确决策权归属和责任担当，确保IT与战略目标一致 <span class="mnemonic">「治权责一致」</span></li>
+        <li><b>8大驱动因素</b>：高质量投资有效、知识密集价值弹性大、融入各领域、技术发展提供新空间、推动IT价值理解、价值管理+业务融合、高管管理幅度有限、成熟组织实践验证 <span class="mnemonic">「驱高有价技成融」</span></li>
+        <li><b>5大内涵</b>：上层管理组成部分、与战略一致、保护利益相关者、制度机制、多组成部分协同 <span class="p0-mark">P1</span> <span class="mnemonic">「理目保制组」</span></li>
+        <li><b>3大目标</b>：与业务目标一致、有效利用信息数据资源、风险管理 <span class="p0-mark">P0必背</span> <span class="mnemonic">「致用险」</span></li>
+        <li><b>3层管理层次</b>：最高管理层（战略一致/价值交付/指导监督）、执行管理层（目标制定/风险管控/业绩衡量）、业务服务执行层（服务支持/需求响应/设施维护） <span class="p0-mark">P1</span> <span class="mnemonic">「高执业」</span></li>
+      </ul>
+      <div class="note-box">🔑 <b>易混区分</b>：IT治理 vs IT管理 → 治理=做正确的事（董事会/治理层），管理=正确地做事（CIO/管理层）｜COBIT中EDM属于治理，APO/BAI/DSS/MEA属于管理</div>
+    </div>
+    <!-- 11.1.2 IT治理体系 -->
+    <div class="sub-section">
+      <div class="sub-title">11.1.2 IT治理体系 <span class="p0-mark">P0</span><span class="tag2">已考</span></div>
+      <ul class="item-list">
+        <li><b>5项关键决策</b>：IT原则、IT架构、IT基础设施、业务应用需求、IT投资与优先顺序 <span class="p0-mark">P0必背</span> <span class="mnemonic">「原架基需投」</span></li>
+        <li><b>体系框架6部分</b>：IT战略目标、IT治理组织、IT治理机制、IT治理域、IT治理标准、IT绩效目标 <span class="p0-mark">P1</span> <span class="mnemonic">「目组机域准绩」</span></li>
+        <li><b>核心内容6方面</b>：组织职责、战略匹配、资源管理、价值交付、风险管理、绩效管理 <span class="p0-mark">P0必背</span> <span class="exam-mark">高频考点</span> <span class="mnemonic">「组战资价风绩」</span></li>
+        <li><b>机制3原则</b>：简单（明确责任目标）、透明（程序清晰可挑战）、适合（最佳位置决策） <span class="p0-mark">P1</span> <span class="mnemonic">「简透适」</span></li>
+      </ul>
+      <div class="note-box">🔑 <b>易混区分</b>：体系框架6部分 ≠ 核心内容6方面 → 框架=治理部件，核心=治理动作｜框架口诀「目组机域准绩」≠ 核心口诀「组战资价风绩」</div>
+    </div>
+    <!-- 11.1.3 IT治理任务 -->
+    <div class="sub-section">
+      <div class="sub-title">11.1.3 IT治理5大任务 <span class="p0-mark">P0必背</span><span class="exam-mark">案例高发</span></div>
+      <table class="table-mini">
+        <tr><th style="width:20%">任务</th><th style="width:80%">核心内容</th></tr>
+        <tr><td><b>全局统筹</b></td><td>统筹治理目标/技术环境/人员责权，建立治理机构，持续改进创新</td></tr>
+        <tr><td><b>价值导向</b></td><td>建立IT投资价值框架，明确收益问责，权衡成本与效益</td></tr>
+        <tr><td><b>机制保障</b></td><td>建立适合组织的管控机制，防范安全风险，落实责任制</td></tr>
+        <tr><td><b>创新发展</b></td><td>建立创新体系，支撑技术进步/管理提升/业务变革</td></tr>
+        <tr><td><b>文化助推</b></td><td>沟通治理目标策略，营造积极包容的组织文化</td></tr>
+      </table>
+      <div class="mnemonic" style="margin-top:6px">「统价机创文」</div>
+    </div>
+    <!-- 11.1.4 IT治理方法与标准 -->
+    <div class="sub-section">
+      <div class="sub-title">11.1.4 IT治理方法与标准 <span class="p0-mark">P0</span></div>
+      <ul class="item-list">
+        <li><b>ITSS标准</b>：GB/T 34960.1（通用要求）、GB/T 34960.2（实施指南），解决“做什么/如何做/怎么样/如何评价”4大问题 <span class="mnemonic">「ITSS两标」</span></li>
+        <li><b>COBIT框架</b>：
+          <ul class="item-list">
+            <li>治理域：EDM（评估、指导、监督）</li>
+            <li>管理域：APO（调整规划组织）、BAI（内部构建外部采购实施）、DSS（交付服务支持）、MEA（监控评价评估） <span class="p0-mark">P0必背</span> <span class="exam-mark">首考已考</span> <span class="mnemonic">「COBIT五域」</span></li>
+            <li>7大组件：流程、组织结构、原则政策程序、信息、文化道德行为、人员技能胜任能力、服务基础设施应用程序 <span class="p0-mark">P1</span> <span class="mnemonic">「流程组策信文员服」</span></li>
+            <li>11设计因素：组织战略、组织目标、风险概况、IT相关问题、威胁环境、合规性要求、IT角色、IT采购模式、IT实施方法、技术采用战略、组织规模 <span class="mnemonic">「十一设计因素」</span></li>
+          </ul>
+        </li>
+        <li><b>ISO/IEC 38500</b>：6大原则（责任、战略、收购、性能、一致性、人的行为），3大任务（评估、指导、监督） <span class="p0-mark">P1</span> <span class="mnemonic">「责战收性一行为」</span></li>
+      </ul>
+      <div class="note-box">🔑 <b>易混区分</b>：ISO 38500三任务 vs IT治理四活动 → ISO少「统筹」环节｜APO vs BAI → APO偏规划，BAI偏执行｜DSS vs MEA → DSS偏做事，MEA偏查事</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 11.2 IT审计 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>11.2 IT审计 <span class="tag">审计风险</span><span class="tag">审计方法</span><span class="tag">审计流程</span><span class="tag">审计内容</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 11.2.1 IT审计基础 -->
+    <div class="sub-section">
+      <div class="sub-title">11.2.1 IT审计基础 <span class="p0-mark">P0</span><span class="tag2">已考</span></div>
+      <ul class="item-list">
+        <li><b>定义</b>：获取评价证据，判断IT系统是否保证资产安全、数据完整、资源有效利用、实现组织目标的过程</li>
+        <li><b>4大目的</b>：IT战略与业务一致、保护信息资产安全、提高系统安全可靠有效性、符合法律法规标准</li>
+        <li><b>审计范围4类</b>：总体范围、组织范围、物理范围、逻辑范围 <span class="mnemonic">「总组物逻」</span></li>
+        <li><b>审计人员4要求</b>：职业道德、知识技能资格经验、专业胜任能力、利用外部专家服务 <span class="mnemonic">「道知能外」</span></li>
+        <li><b>3类审计风险</b>：固有风险（无控制时天然风险，不可控）、控制风险（内控失效风险，可控）、检查风险（审计程序未发现问题风险） <span class="p0-mark">P0必背</span> <span class="exam-mark">高频考点</span> <span class="mnemonic">「固控检」</span></li>
+      </ul>
+      <div class="note-box">🔑 <b>易混区分</b>：固有风险 vs 控制风险 → 固有=无控制时天然存在，不可控；控制=有控制但失效，可通过改进内控降低</div>
+    </div>
+    <!-- 11.2.2 IT审计方法与技术 -->
+    <div class="sub-section">
+      <div class="sub-title">11.2.2 IT审计方法与技术 <span class="p0-mark">P0</span></div>
+      <ul class="item-list">
+        <li><b>6种常用方法</b>：访谈法、调查法、检查法、观察法、测试法、程序代码检查法 <span class="p0-mark">P0必背</span> <span class="mnemonic">「访调检观测码」</span></li>
+        <li><b>4类审计技术</b>：
+          <ul class="item-list">
+            <li>风险评估技术：识别、分析、评价、应对 <span class="mnemonic">「识分评对」</span></li>
+            <li>审计抽样技术：统计抽样（属性/变量）、非统计抽样 <span class="mnemonic">「统非」</span></li>
+            <li>计算机辅助审计技术（CAAT）：通用审计软件、测试数据、实用工具等</li>
+            <li>大数据审计技术：智能分析、可视化分析、多数据源综合分析 <span class="mnemonic">「智可视多」</span></li>
+          </ul>
+        </li>
+        <li><b>审计证据5特性</b>：充分性、客观性、相关性、可靠性、合法性 <span class="p0-mark">P1</span> <span class="mnemonic">「充客相可法」</span></li>
+        <li><b>审计工作底稿</b>：3类（综合类、业务类、备查类）；3级复核（机构负责人、部门负责人、项目负责人） <span class="mnemonic">「综业备」「机部项」</span></li>
+      </ul>
+      <div class="note-box">🔑 <b>易混区分</b>：属性抽样 vs 变量抽样 → 属性=回答「有多少」（比率），变量=回答「多少钱/多少量」（金额）｜访谈法 vs 调查法 → 访谈=面对面深度，调查=书面/口头广度</div>
+    </div>
+    <!-- 11.2.3 IT审计流程 -->
+    <div class="sub-section">
+      <div class="sub-title">11.2.3 IT审计流程4阶段 <span class="p0-mark">P0必背</span><span class="tag2">已考</span><span class="exam-mark">首考已考</span></div>
+      <table class="table-mini">
+        <tr><th style="width:20%">阶段</th><th style="width:40%">核心工作</th><th style="width:40%">关键输出</th></tr>
+        <tr><td><b>审计准备</b></td><td>明确目的任务、组建项目组、搜集信息、编制审计计划</td><td>审计计划、审计通知书</td></tr>
+        <tr><td><b>审计实施</b></td><td>调整审计计划、评估IT内控、符合性测试、实质性测试</td><td>审计工作底稿、审计证据</td></tr>
+        <tr><td><b>审计终结</b></td><td>整理复核底稿、评价控制目标、沟通审计结果、出具审计报告</td><td>审计报告、管理建议书</td></tr>
+        <tr><td><b>后续审计</b></td><td>检查整改措施落实情况，验证整改效果</td><td>后续审计报告</td></tr>
+      </table>
+      <div class="mnemonic" style="margin-top:6px">「备施结续」</div>
+    </div>
+    <!-- 11.2.4 IT审计内容 -->
+    <div class="sub-section">
+      <div class="sub-title">11.2.4 IT审计内容 <span class="p0-mark">P1</span></div>
+      <ul class="item-list">
+        <li><b>IT内部控制审计3类</b>：组织层面IT控制审计、IT一般控制审计、应用控制审计 <span class="mnemonic">「组一应」</span></li>
+        <li><b>IT专项审计6类</b>：信息系统生命周期审计、开发过程审计、运行维护审计、项目管理审计、网络与信息安全审计、数据审计 <span class="mnemonic">「周开运维项安数」</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 本章小结 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>📋 本章考察规律总结 · 11.1考概念辨析 · 11.2考流程分类 · COBIT/审计流程高频考点</span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <table class="table-mini">
+      <tr><th>优先级</th><th>考点</th><th>掌握要求</th></tr>
+      <tr><td>🔴P0</td><td>COBIT 5域分辨、IT治理3大目标/6核心内容/5大任务、IT审计3类风险/6方法/4流程</td><td>必须背熟，选择题+案例题双杀</td></tr>
+      <tr><td>🟡P1</td><td>IT治理8驱动因素/5内涵、ISO 38500 6原则、审计证据5特性、ITSS标准</td><td>理解即可，选择题高发</td></tr>
+      <tr><td>🟢P2</td><td>IT审计内容分类、审计人员要求、COBIT 7组件/11设计因素</td><td>了解即可，可能出论文</td></tr>
+    </table>
+    <div class="note-box" style="margin-top:10px">🔑 <b>出题规律</b>：概念辨析型 > 流程记忆型；国标（ITSS）与国际标准（COBIT/ISO）并存；IT审计为独立板块，与IT治理不交叉</div>
+  </div>
+</div>
+
+</div><!-- container -->
+
+<!-- 口诀面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 10px 16px">
+  <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:17px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记·28条）</h3>
+    <div class="mnemonics-grid">
+      <div><b>IT治理定义</b>：「治权责一致」</div>
+      <div><b>驱动因素</b>：「驱高有价技成融」</div>
+      <div><b>5大内涵</b>：「理目保制组」</div>
+      <div><b>3大目标</b>：「致用险」</div>
+      <div><b>3层管理</b>：「高执业」</div>
+      <div><b>5项关键决策</b>：「原架基需投」</div>
+      <div><b>体系框架6部分</b>：「目组机域准绩」</div>
+      <div><b>核心内容6方面</b>：「组战资价风绩」</div>
+      <div><b>机制3原则</b>：「简透适」</div>
+      <div><b>5大任务</b>：「统价机创文」</div>
+      <div><b>ITSS4问题</b>：「做什么如何做怎么样如何评价」</div>
+      <div><b>COBIT五域</b>：「EDM/APO/BAI/DSS/MEA」</div>
+      <div><b>COBIT7组件</b>：「流程组策信文员服」</div>
+      <div><b>COBIT11因素</b>：「十一设计因素」</div>
+      <div><b>ISO 6原则</b>：「责战收性一行为」</div>
+      <div><b>ISO 3任务</b>：「评指监」</div>
+      <div><b>审计范围4类</b>：「总组物逻」</div>
+      <div><b>审计人员4要求</b>：「道知能外」</div>
+      <div><b>3类审计风险</b>：「固控检」</div>
+      <div><b>6种审计方法</b>：「访调检观测码」</div>
+      <div><b>风险评估4技术</b>：「识分评对」</div>
+      <div><b>审计抽样2类</b>：「统非」</div>
+      <div><b>大数据3技术</b>：「智可视多」</div>
+      <div><b>证据5特性</b>：「充客相可法」</div>
+      <div><b>底稿3类</b>：「综业备」</div>
+      <div><b>底稿3级复核</b>：「机部项」</div>
+      <div><b>审计流程4阶段</b>：「备施结续」</div>
+      <div><b>审计内容分类</b>：「内专/组一应/周开运维项安数」</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">第11章 信息系统治理 · 核心知识思维脑图 | 基于第2版教材 + 2025年11月首考真题考点 | Ctrl+E 全展开 · Ctrl+C 全折叠</div>
+
+<script>
+function toggleBranch(header){header.classList.toggle('collapsed');var body=header.nextElementSibling;body.classList.toggle('collapsed')}
+function toggleAll(expand){
+  document.querySelectorAll('.branch-header').forEach(function(h){
+    if(expand){h.classList.remove('collapsed');h.nextElementSibling.classList.remove('collapsed')}
+    else{h.classList.add('collapsed');h.nextElementSibling.classList.add('collapsed')}
+  })
+}
+function toggleMnemonics(){
+  var btn=document.getElementById('btnHighlight');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m){
+    m.style.background=btn.classList.contains('active')?'#ffc107':'#fff3cd';
+    m.style.color=btn.classList.contains('active')?'#000':'#856404'
+  })
+}
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && e.key==='e'){e.preventDefault();toggleAll(true)}
+  if(e.ctrlKey && e.key==='c'){e.preventDefault();toggleAll(false)}
+})
+</script>
+
+</body>
+</html>

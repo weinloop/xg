@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第16章 资源与工具管理 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.container{max-width:900px;margin:0 auto;padding:16px 10px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;margin-bottom:14px;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:12px 16px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 12px 14px}
+.branch-body.collapsed{display:none}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:4px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:4px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:4px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:4px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:4px solid #7d3c98}
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:3px solid #3498db}
+.item-list{list-style:none;padding-left:8px}
+.item-list li{font-size:14px;padding:3px 8px;line-height:1.8;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:4px;font-size:13px;font-weight:700;margin-left:5px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#f4ecf7;color:#7d3c98;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.key-point{color:#c0392b;font-weight:600}
+.exam-mark{display:inline-block;background:#ffe0b2;color:#e65100;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.p0-mark{display:inline-block;background:#fdedec;color:#c0392b;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;margin:0 3px}
+.table-mini{width:100%;font-size:14px;border-collapse:collapse;margin-top:6px}
+.table-mini th{background:#f8f9fa;padding:6px 8px;border:1px solid #e0e0e0;text-align:center;font-weight:700;font-size:13px}
+.table-mini td{padding:5px 8px;border:1px solid #e0e0e0;font-size:13px}
+.table-mini tr:nth-child(even){background:#fafafa}
+.note-box{background:#fff9e6;border-left:4px solid #f39c12;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:14px;color:#7d6608}
+.formula-box{background:#eaf2f8;border:2px solid #3498db;padding:10px 14px;margin:8px 0;border-radius:8px;font-size:14px;color:#1a5276;text-align:center}
+.footer{padding:18px 10px;text-align:center;color:#aaa;font-size:13px}
+.mnemonics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.mnemonics-grid div{background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:14px;border:1px solid #eee}
+.danger-mark{display:inline-block;background:#c0392b;color:#fff;padding:1px 5px;border-radius:3px;font-size:11px;font-weight:700}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🛠 第16章 资源与工具管理 · 核心知识思维脑图</h1>
+  <p>基于第2版教材 + 2025年11月首考真题考点 · 16.1~16.3 全节覆盖</p>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <button onclick="toggleAll(true)">📖 全部展开</button>
+  <button onclick="toggleAll(false)">📕 全部折叠</button>
+  <button id="btnHighlight" onclick="toggleMnemonics()">🧠 高亮口诀</button>
+</div>
+
+<div class="container">
+
+<!-- ========== 16.1 研发与测试管理 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>16.1 研发与测试管理 <span class="tag">研发工具</span><span class="tag">测试工具</span><span class="tag">环境维护</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 概述 -->
+    <div class="sub-section">
+      <div class="sub-title">研发与测试环境概述</div>
+      <ul class="item-list">
+        <li>研发测试环境 = <b>软件工具</b> + <b>环境集成机制</b>，支持系统软件和应用软件的工程化开发和维护</li>
+        <li>研发测试环境质量直接影响研发人员<b>工作效率和质量</b></li>
+        <li>包括：开发机器获取、网络配置、基本工具、代码获取和配置</li>
+      </ul>
+    </div>
+
+    <!-- 16.1.1 研发管理工具 -->
+    <div class="sub-section">
+      <div class="sub-title">16.1.1 研发管理工具 <span class="p0-mark">P0高频</span><span class="mnemonic">开代配</span></div>
+      <ul class="item-list">
+        <li>研发管理借助信息平台对团队/流程/绩效/风险/成本/项目/知识等进行协调活动</li>
+        <li>三类管理工具：<b>软件开发工具</b> + <b>代码管理工具</b> + <b>软件配置管理工具</b></li>
+      </ul>
+
+      <!-- 1. 软件开发工具 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">1) 软件开发工具 <span class="mnemonic">V-E-P</span></div>
+        <ul class="item-list">
+          <li><b>两个层次</b>：孤立单个工具（特定活动） vs 集成化CASE环境（一致界面+共享数据库）</li>
+        </ul>
+        <table class="table-mini">
+          <tr><th style="width:16%">工具</th><th style="width:14%">厂商</th><th style="width:40%">核心特点</th><th style="width:30%">关键能力</th></tr>
+          <tr><td><b>Visual Studio</b></td><td>微软</td><td>全面IDE，支持C++/C#/VB.NET/F#/Python/JS</td><td>调试编译强、VSTS敏捷计划/测试管理/CI/CD</td></tr>
+          <tr><td><b>Eclipse</b></td><td>IBM(开源)</td><td>基于Java的可扩展IDE，<span class="key-point">插件化</span>架构(PDE)</td><td>跨平台、开放源码、Ant/Maven集成、CVS/SVN/Git</td></tr>
+          <tr><td><b>PyCharm</b></td><td>JetBrains</td><td>Python IDE，智能代码编辑器</td><td>代码审查、调试器、单元测试、远程开发、数据库工具</td></tr>
+        </table>
+        <div class="note-box">🔑 <b>Eclipse特点</b>：开源/跨平台/插件化/Java支持强/高级编辑(高亮+补全+重构)/Ant+Maven构建/CVS+SVN+Git版本控制/社区丰富</div>
+      </div>
+
+      <!-- 2. 代码管理工具 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">2) 代码管理工具 <span class="p0-mark">P0必背</span><span class="exam-mark">已考</span><span class="mnemonic">集SVN分Git</span></div>
+        <table class="table-mini">
+          <tr><th style="width:14%">类型</th><th style="width:14%">代表</th><th style="width:32%">架构模式</th><th style="width:40%">关键特性</th></tr>
+          <tr><td><b>集中式</b></td><td><b>SVN</b></td><td>C/S架构，文件集中存服务器</td><td>唯一URL、提交<b>必须联网</b>、提交需授权、冲突需先解决 <span class="exam-mark">已考</span></td></tr>
+          <tr><td><b>分布式</b></td><td><b>Git</b></td><td>本地仓库+远程仓库</td><td>每人有<b>完整代码库</b>、<b>离线</b>可查日志/提交/建分支、分支易合、本地操作快</td></tr>
+        </table>
+        <div class="note-box">🔑 <b>核心区分</b>：SVN提交需联网 vs Git离线可提交｜SVN单中央仓库 vs Git每人都完整仓库｜SVN冲突后提交者需先解决 vs Git分支并行开发</div>
+        <div class="note-box">🔑 <b>Git设计目标</b>：分支创建和合并简单而安全（最初为Linux内核开发而生）。Git只关心文件整体是否变化，不保存差异。</div>
+      </div>
+
+      <!-- 3. 软件配置管理工具 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">3) 软件配置管理工具(SCM) <span class="p0-mark">P0</span><span class="mnemonic">项版增程资自期集</span></div>
+        <ul class="item-list">
+          <li>SCM = Software Configuration Management，贯穿软件开发始终的<b>质量保证活动</b></li>
+          <li>常见工具：Harvest、ClearCase、StarTeam、Firefly</li>
+        </ul>
+        <table class="table-mini">
+          <tr><th style="width:18%">功能</th><th style="width:82%">核心内容</th></tr>
+          <tr><td><b>1.项目管理</b></td><td>建立配置管理计划、创建配置库；配置项含发行版本/系统文档/环境基线/软件库工具包</td></tr>
+          <tr><td><b>2.版本管理和基线控制</b></td><td>记录修改轨迹、跟踪修改信息、基线渐进方式、版本差异比较、恢复早期版本</td></tr>
+          <tr><td><b>3.增强的版本控制</b></td><td><b>快照</b>(多文件当前版本集合) + 分支；支持批量签入/签出/加标签</td></tr>
+          <tr><td><b>4.流程控制和变更管理</b></td><td>问题跟踪 + 变更请求管理，支持报告/抓取/跟踪软件变更相关问题</td></tr>
+          <tr><td><b>5.资源维护</b></td><td><b>沙箱技术</b>提供独立工作空间，并行开发，修改满意后合并到主线</td></tr>
+          <tr><td><b>6.过程自动化</b></td><td><b>事件触发机制</b>，一个事件触发另一事件；缩短开发时间+规范过程</td></tr>
+          <tr><td><b>7.管理整个生命周期</b></td><td>开发→测试→发布→维护；提供典型开发模式模板 + 支持自定义</td></tr>
+          <tr><td><b>8.与主流IDE集成</b></td><td>版本控制功能与IDE集成；IDE充当<b>沙箱</b>角色</td></tr>
+        </table>
+        <div class="note-box">🔑 <b>易混陷阱</b>：配置管理<b>8大功能</b>(项版增程资自期集) ≠ 配置管理工具<b>功能模块</b>(不同出处分法)。考试问"功能"答8大，问"功能模块"答模块图。</div>
+      </div>
+    </div>
+
+    <!-- 16.1.2 测试管理工具 -->
+    <div class="sub-section">
+      <div class="sub-title">16.1.2 测试管理工具 <span class="p0-mark">P0高频</span></div>
+      <ul class="item-list">
+        <li>测试工具分两类：<b>自动化软件测试工具</b>(代替人工输入) + <b>测试管理工具</b>(管理测试流程)</li>
+      </ul>
+
+      <!-- 1. 自动化软件测试工具 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">1) 自动化软件测试工具 <span class="mnemonic">计设施执</span></div>
+        <ul class="item-list">
+          <li><b>4阶段</b>：自动化测试计划 → 自动化测试设计 → 自动化测试实施 → 自动化测试执行 <span class="exam-mark">已考</span></li>
+          <li><b>按测试技术分类</b>：白盒测试工具 / 黑盒测试工具 / 性能测试工具</li>
+          <li>常见类型：单元测试工具、性能测试工具、功能测试工具</li>
+        </ul>
+        <table class="table-mini">
+          <tr><th style="width:18%">工具</th><th style="width:14%">类型</th><th style="width:14%">厂商</th><th style="width:54%">核心功能</th></tr>
+          <tr><td><b>UFT</b></td><td>功能测试</td><td>HP</td><td>原QTP；GUI测试+API测试+数据驱动+关键字驱动+VBScript脚本+报告分析</td></tr>
+          <tr><td><b>LoadRunner</b></td><td>性能测试</td><td>—</td><td>模拟真实用户行为重现业务压力；<b>三大组件</b>：<span class="key-point">VuGen(虚拟用户脚本)+Controller(控制器)+Analysis(分析)</span></td></tr>
+        </table>
+        <div class="note-box">🔑 <b>性能测试5步</b>：计划测试 → 创建脚本 → 定义场景 → 运行场景 → 分析结果</div>
+      </div>
+
+      <!-- 2. 测试管理工具 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">2) 测试管理工具 <span class="mnemonic">计例执陷报协集</span></div>
+        <ul class="item-list">
+          <li><b>7大功能</b>：测试计划管理 + 测试用例管理 + 测试任务执行 + 缺陷记录跟踪 + 报告和分析 + 团队协作 + 集成其他工具</li>
+          <li><b>核心</b>：测试用例库 + 缺陷库</li>
+        </ul>
+        <table class="table-mini">
+          <tr><th style="width:18%">工具</th><th style="width:14%">类型</th><th style="width:52%">核心特点</th><th style="width:16%">关键标签</th></tr>
+          <tr><td><b>TestRail</b></td><td>用例管理</td><td>Web化用例管理；3种方式：<b>普通/基线/多套件</b>；不提供需求和缺陷模块，但支持集成JIRA/GitHub</td><td><span class="tag">用例</span></tr>
+          <tr><td><b>Quality Center</b></td><td>测试管理</td><td>Web化，4部分：<b>明确需求→测试计划→执行测试→跟踪缺陷</b></td><td><span class="tag">全流程</span></tr>
+          <tr><td><b>Bugzilla</b></td><td>缺陷跟踪</td><td>开源；缺陷报告/查询/状态/统计/权限/自定义字段/邮件集成/插件扩展</td><td><span class="tag">开源</span></tr>
+        </table>
+        <div class="note-box">🔑 <b>易混区分</b>：自动化测试<b>4阶段</b>(计设施执) vs 测试管理<b>7功能</b>(计例执陷报协集)。前者是测试过程阶段，后者是管理工具的功能模块。</div>
+      </div>
+    </div>
+
+    <!-- 16.1.3 研发与测试环境搭建和维护 -->
+    <div class="sub-section">
+      <div class="sub-title">16.1.3 研发与测试环境搭建和维护</div>
+
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">环境8原则 <span class="mnemonic">重协生自覆灵隔维</span></div>
+        <table class="table-mini">
+          <tr><th style="width:18%">原则</th><th style="width:52%">含义</th><th style="width:30%">关键词</th></tr>
+          <tr><td><b>可重现性</b></td><td>方便复现问题并调试</td><td>复现问题</td></tr>
+          <tr><td><b>可协作性</b></td><td>多人协作开发，避免冲突</td><td>多人协作</td></tr>
+          <tr><td><b>与生产环境相似性</b></td><td>尽量相似，减少环境问题</td><td>贴近生产</td></tr>
+          <tr><td><b>自动化环境管理</b></td><td>自动化工具管理配置，减少人为出错</td><td>自动化</td></tr>
+          <tr><td><b>测试覆盖率</b></td><td>确保研发结果符合预期</td><td>覆盖全面</td></tr>
+          <tr><td><b>灵活性</b></td><td>可扩展，尝试新方法/框架/工具</td><td>灵活扩展</td></tr>
+          <tr><td><b>环境隔离性</b></td><td>避免研发测试人员环境干扰</td><td>隔离互扰</td></tr>
+          <tr><td><b>可维护性</b></td><td>能随时更新和维护</td><td>易维护</td></tr>
+        </table>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">环境部署5步 <span class="mnemonic">硬系应库测</span></div>
+        <ul class="item-list">
+          <li>(1) 硬件设备选取和配置 → (2) 操作系统安装和配置 → (3) 应用程序安装和配置 → (4) 数据库安装和配置 → (5) 测试工具和脚本准备</li>
+          <li>核心要求：与生产环境<b>相同或相近</b>的硬件/OS/应用/数据库</li>
+        </ul>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">环境维护4要求 <span class="mnemonic">备更清监</span></div>
+        <ul class="item-list">
+          <li>(1) <b>定期备份</b>数据（建议每天备份）</li>
+          <li>(2) <b>定期更新</b>软件和补丁（注意先备份）</li>
+          <li>(3) <b>定期清理</b>数据和日志（释放磁盘+提升性能）</li>
+          <li>(4) <b>监控</b>环境状态（硬件/软件/网络，实时监控+报警）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 16.2.1-16.2.3 运维监控/过程管理/自动化 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>16.2.1~16.2.3 运维监控/过程管理/自动化工具 <span class="tag">Zabbix</span><span class="tag">Prometheus</span><span class="tag">ITSM</span><span class="tag">Ansible</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+
+    <!-- 16.2.1 监控工具 -->
+    <div class="sub-section">
+      <div class="sub-title">16.2.1 监控工具 <span class="p0-mark">P0高频</span><span class="mnemonic">基性能业</span></div>
+      <ul class="item-list">
+        <li><b>3大类</b>：(1) IT基础设施监控(主机/网络/存储/应用/机房动力) (2) 性能监控(业务/应用/网络性能) (3) 业务运营监控(运营管理/流程/容量)</li>
+        <li>可单一功能监控，也可综合运维监控平台</li>
+      </ul>
+
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">常见监控工具 <span class="mnemonic">Z-N-P</span></div>
+        <table class="table-mini">
+          <tr><th style="width:14%">工具</th><th style="width:14%">类型</th><th style="width:14%">架构模型</th><th style="width:58%">核心特点</th></tr>
+          <tr><td><b>Zabbix</b></td><td>开源分布式</td><td>—</td><td>Web界面；分布式系统+网络监控；支持数千台服务器+百万指标；CPU/内存/磁盘/网络/端口/日志；跨平台</td></tr>
+          <tr><td><b>Nagios</b></td><td>开源</td><td><b>Push推模型</b></td><td>服务器代理架构；监控可用性；<b>Nagios Core</b>(免费/不支持Web管理) + <b>Nagios XI</b>(付费)；插件丰富</td></tr>
+          <tr><td><b>Prometheus</b></td><td>开源</td><td><b>Pull拉模型</b></td><td>HTTP周期抓取；<b>时序数据</b>存储(值+时间戳+标签表)；服务发现+横向扩展；适用微服务/云环境 <span class="exam-mark">已考</span></td></tr>
+        </table>
+        <div class="note-box">🔑 <b>核心陷阱</b>：Prometheus = <b>拉(Pull)模型</b>(Server主动HTTP抓取) vs Nagios = <b>推(Push)模型</b>(Agent推送数据)。Prometheus支持<b>时序数据</b>，按时间顺序记录状态变化。</div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">统一运维监控平台 <span class="mnemonic">采检告故视管</span></div>
+        <ul class="item-list">
+          <li><b>6大模块</b>：数据采集 → 数据检测 → 告警管理 → 故障管理 → 视图管理 → 监控管理</li>
+          <li><b>4个统一</b>：统一采集 + 统一检测 + 统一告警 + 统一展示</li>
+          <li>目标：运维<b>规范化、自动化、智能化</b></li>
+        </ul>
+        <table class="table-mini">
+          <tr><th style="width:25%">建设方式</th><th style="width:75%">说明</th></tr>
+          <tr><td><b>基于开源自主开发</b></td><td>在传统开源工具基础上集成封装和二次开发</td></tr>
+          <tr><td><b>定制商业平台</b></td><td>选择成熟供应商一体化平台裁剪定制（嘉为蓝鲸/锐捷/华胜天成/联想）</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- 16.2.2 过程管理工具 -->
+    <div class="sub-section">
+      <div class="sub-title">16.2.2 过程管理工具 <span class="p0-mark">P0</span><span class="mnemonic">请件题变</span></div>
+      <ul class="item-list">
+        <li>根据SLA对运维服务交付全过程管理，实现IT服务<b>可视、可管、可控、可衡量</b></li>
+        <li><b>ITSM</b>(IT Service Management)：面向过程、以客户为中心的管理方法和规范</li>
+        <li><b>核心4流程</b>：<span class="key-point">服务请求管理 + 事件管理 + 问题管理 + 变更管理</span> <span class="exam-mark">已考</span></li>
+      </ul>
+      <div class="note-box">🔑 <b>陷阱</b>：ITSM核心流程只有<b>4个</b>（请件题变），<b>不包含</b>发布管理、配置管理！不要混淆。</div>
+      <table class="table-mini">
+        <tr><th style="width:22%">工具</th><th style="width:78%">核心特点</th></tr>
+        <tr><td><b>Jira Service Management</b></td><td>Atlassian；模板创建服务台；整合邮件/聊天/服务台请求；AI自助服务+虚拟支持；多服务级别（免费→高级）</td></tr>
+        <tr><td><b>ServiceHot ITSM</b></td><td>可视化引擎+拖拽流程设计；<b>国产化适配</b>（龙芯/飞腾/鲲鹏+中标麒麟/银河麒麟+高斯/达梦/人大金仓）；开箱即用</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>过程管理工具逻辑架构</b>：服务目录/自助服务门户 → 服务台+统一请求 → 事件/请求/问题/变更/知识/配置/资产/巡检管理平台 → 基础架构 → 外围接口</div>
+    </div>
+
+    <!-- 16.2.3 自动化专用工具 -->
+    <div class="sub-section">
+      <div class="sub-title">16.2.3 自动化专用工具 <span class="p0-mark">P0高频</span></div>
+
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">1) 作业调度/批处理工具 <span class="mnemonic">P-S-A</span></div>
+        <table class="table-mini">
+          <tr><th style="width:14%">工具</th><th style="width:14%">架构</th><th style="width:14%">客户端</th><th style="width:58%">核心特点</th></tr>
+          <tr><td><b>Puppet</b></td><td>C/S</td><td><b>需要</b></td><td>较早的Linux自动化工具；跨平台(Linux/Windows/AIX)；客户端周期连接服务器下载配置文件；Web界面集中管理</td></tr>
+          <tr><td><b>SaltStack</b></td><td>C/S</td><td><b>需要</b></td><td>加入MQ消息同步；<b>秒级</b>数万台操作；RSA Key确认身份+AES加密；需等待全部返回（可能丢结果）</td></tr>
+          <tr><td><b>Ansible</b></td><td>SSH</td><td><b>不需要</b></td><td><span class="key-point">基于SSH协议，无需客户端</span>；普通服务器运行；上千插件模块；批量配置/部署/命令 <span class="exam-mark">已考</span></td></tr>
+        </table>
+        <div class="note-box">🔑 <b>核心陷阱</b>：Ansible <b>不需要</b>安装客户端（基于SSH）！Puppet/SaltStack <b>需要</b>客户端。SaltStack速度最快（秒级，MQ消息）。</div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">2) 操作自动化工具 <span class="mnemonic">J-C</span></div>
+        <table class="table-mini">
+          <tr><th style="width:16%">工具</th><th style="width:14%">定位</th><th style="width:70%">核心特点</th></tr>
+          <tr><td><b>Jenkins</b></td><td>持续集成</td><td>跨平台；自动构建/测试/部署；插件扩展体系；基于Java开源；兼容各种CI/CD工具</td></tr>
+          <tr><td><b>Chef</b></td><td>自动化部署</td><td>新一代IT工具；Ruby编写的DSL；定义全面IT任务流程；多平台/云服务；大规模部署；适合云业务DevOps</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 16.2.4-16.2.7 服务台/知识/备件/新型运维 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>16.2.4~16.2.7 服务台/知识/备件/新型运维 <span class="tag">服务台</span><span class="tag">知识库</span><span class="tag">AIOps</span><span class="tag">DevOps</span><span class="tag">云管理</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+
+    <!-- 16.2.4 服务台 -->
+    <div class="sub-section">
+      <div class="sub-title">16.2.4 服务台 <span class="p0-mark">P1</span></div>
+      <ul class="item-list">
+        <li>又称<b>服务支持中心</b>，供方与需方沟通交互的<b>单一连接点</b></li>
+        <li>演变：分布式/集中式 → 线上线下结合 + ITSM服务门户（ITSM基础）</li>
+        <li>ITSM中：服务台是处理所有事件/问题/请求的<b>单一联络点</b>，负责运营维护自助门户和知识库</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:22%">工具</th><th style="width:78%">核心特点</th></tr>
+        <tr><td><b>ServiceDesk Plus</b></td><td>图形化工作流构建器；可视化拖拽创建工作流；集成网络/应用/桌面/AD管理；集成事件/问题/变更/资产/IT项目/知识库+CMDB</td></tr>
+        <tr><td><b>ServiceHot</b></td><td>融入AI智能机器学习；多渠道(邮件/电话/Web/微信)提交请求；服务台统一调度；跟踪处理状态+用户评价反馈</td></tr>
+        <tr><td><b>云智慧服务台</b></td><td>即时聊天平台建立沟通渠道；融合即时通信+呼叫中心+自助提单；<b>AI+全文检索</b>实现0线服务支持；自动创建工单+聊天记录同步</td></tr>
+      </table>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">ChatOps 智能化工具</div>
+        <ul class="item-list">
+          <li>利用AI和大数据实现自动化和主动管理，消除<b>信息孤岛</b></li>
+          <li>以<b>沟通为中心</b>，通过<b>ChatBot</b>(聊天机器人)连接成员和工具，以对话方式完成工作</li>
+          <li>典型应用：ServiceHot AI智能机器人、云智慧云小慧（自然语言识别）</li>
+          <li>流程：AI解决→转人工服务台/自动创建工单→聊天内容带入工单→信息归档</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 16.2.5 知识管理 -->
+    <div class="sub-section">
+      <div class="sub-title">16.2.5 知识管理 <span class="p0-mark">P1</span><span class="mnemonic">ITSM内 Confluence PingCode</span></div>
+      <ul class="item-list">
+        <li>知识库确保管理<b>规范化</b>，保证信息<b>准确性、完整性、可用性</b></li>
+        <li>促进团队技术管理能力，提升服务质量，减少重复劳动</li>
+        <li>知识库与<b>服务台集成</b>可提高服务请求处理时效</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:22%">工具</th><th style="width:78%">核心特点</th></tr>
+        <tr><td><b>ITSM内置知识库</b></td><td>与ITSM各流程紧密耦合(服务请求/需求/事件/故障/问题/变更/发布/巡检)；智能推送解决方案；减少重复申报</td></tr>
+        <tr><td><b>Confluence</b></td><td>Atlassian；企业知识管理+协同+Wiki；富文本编辑+文档模板；数百插件；与Jira Service Management结合建服务台；自动化自助知识库</td></tr>
+        <tr><td><b>PingCode Wiki</b></td><td>国产；类似Confluence但自动化降低管理成本；整合企业微信/飞书/钉钉；支持Confluence/HTML/Markdown迁移；支持Markdown+GitHub/GitLab集成</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：Confluence = 企业Wiki(知识管理工具) vs Jira Service Management = ITSM工具(过程管理)，但Jira SM<b>内置知识库</b>也属知识管理。</div>
+    </div>
+
+    <!-- 16.2.6 备件管理 -->
+    <div class="sub-section">
+      <div class="sub-title">16.2.6 备件管理 <span class="mnemonic">库服审追</span></div>
+      <ul class="item-list">
+        <li>备件库分<b>实体备件</b>和<b>虚拟备件</b>两种形态，不仅针对硬件也包括软件虚拟资产</li>
+        <li>大部分组织已与<b>ITSM系统集成</b>，在IT资产管理模块中</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:25%">功能</th><th style="width:75%">核心内容</th></tr>
+        <tr><td><b>1.库存信息管理</b></td><td>备件库存数量/资产信息/采购信息/供应商/维保/电子文档/干系人</td></tr>
+        <tr><td><b>2.备件维保服务生命周期</b></td><td>技术服务流程/维保流程/维修流程/退换货流程/报废流程</td></tr>
+        <tr><td><b>3.出入库审批流程</b></td><td>出入库或调拨流程/属性信息/审批环节人员/与其他IT服务流程关联</td></tr>
+        <tr><td><b>4.备件查询与追踪</b></td><td>便捷查询申领入口/当前状况及历史跟踪/可视化报表分析</td></tr>
+      </table>
+      <div class="note-box">🔑 ITSM资产管理模块可对资产<b>整个生命周期</b>全程管理，与服务请求/事件/问题/变更/巡检衔接，支持资产跟踪/配置管理/软件许可/采购合同。</div>
+    </div>
+
+    <!-- 16.2.7 新型运维工具 -->
+    <div class="sub-section">
+      <div class="sub-title">16.2.7 新型运维工具 <span class="p0-mark">P1</span></div>
+
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">1) AIOps 智能运维</div>
+        <ul class="item-list">
+          <li><b>AIOps</b> = Artificial Intelligence for IT Operations，利用大数据/AI/机器学习解放运维人员</li>
+          <li>产品分两类：<b>智能运维平台</b>(占比较高，场景解决方案) + <b>智能运维工具</b></li>
+          <li>通过算法分析/可视化/智能调度解决自动化运维未解决的问题</li>
+        </ul>
+        <table class="table-mini">
+          <tr><th style="width:25%">方案</th><th style="width:75%">核心特点</th></tr>
+          <tr><td><b>嘉为蓝鲸</b></td><td>基于腾讯蓝鲸PaaS；数据治理+挖掘平台；样本管理/特征提取/算法调参/模型训练/发布；支持异常检测/指标预测/关联分析/健康画像/故障根因分析</td></tr>
+          <tr><td><b>云智慧</b></td><td>数据驱动平台架构；运维监控/服务管理/可视化一体化底座；数百应用场景模板；适配国产CPU/OS/数据库/中间件</td></tr>
+        </table>
+        <div class="note-box">🔑 <b>嘉为蓝鲸AIOps愿景</b>：质量、成本、效率三者兼顾的<b>无人值守运维</b>。体系化建设：数据治理+学件深入+场景扩展+组织培养。</div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">2) DevOps 开发运维一体化 <span class="mnemonic">版构测持配日容云</span></div>
+        <ul class="item-list">
+          <li>DevOps = <b>Development</b> + <b>Operations</b>，让开发与运维更好沟通合作</li>
+          <li>通过自动化<b>持续集成、持续部署</b>，实现软件快速交付和持续改进</li>
+        </ul>
+        <table class="table-mini">
+          <tr><th style="width:22%">工具类别</th><th style="width:78%">代表工具</th></tr>
+          <tr><td><b>版本控制</b></td><td>Git、Mercurial、SVN</td></tr>
+          <tr><td><b>自动化构建</b></td><td>Maven、Gradle</td></tr>
+          <tr><td><b>自动化测试</b></td><td>Selenium、JUnit</td></tr>
+          <tr><td><b>持续集成/持续交付</b></td><td>Jenkins、Travis CI、GitLab CI/CD</td></tr>
+          <tr><td><b>配置管理</b></td><td>Ansible、Chef、Puppet</td></tr>
+          <tr><td><b>日志管理</b></td><td>ELK Stack(Elasticsearch+Logstash+Kibana)、Graylog</td></tr>
+          <tr><td><b>容器化</b></td><td>Docker、Kubernetes</td></tr>
+          <tr><td><b>云平台</b></td><td>AWS、Microsoft Azure、Google Cloud Platform</td></tr>
+        </table>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">3) 云管理工具 <span class="mnemonic">OSMS</span></div>
+        <table class="table-mini">
+          <tr><th style="width:14%">缩写</th><th style="width:30%">全称</th><th style="width:56%">功能</th></tr>
+          <tr><td><b>CloudOS</b></td><td>虚拟化云</td><td>硬件资源物理→逻辑方式，打破物理结构，灵活管理，提升投资回报率</td></tr>
+          <tr><td><b>CMP</b></td><td>Cloud Management Platform</td><td>公有云/私有云/容器云/虚拟化/物理服务器/虚拟机/网络/存储<b>统一管理</b>；云资源适配器+管理+服务+运营+门户</td></tr>
+          <tr><td><b>CSM</b></td><td>Cloud Security Management</td><td>云资源+应用+数据安全；安全监测/审计/威胁分析/防护/处置</td></tr>
+          <tr><td><b>CPS</b></td><td>Cloud Professional Service</td><td>云迁移/云测试/云备份等云专业服务支撑</td></tr>
+        </table>
+        <div class="note-box">🔑 <b>云管理4工具</b>：CloudOS(虚拟化) + CMP(统一管理) + CSM(安全) + CPS(专业服务)。注意CMP≠CSM≠CPS的区分。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 16.3 项目管理工具 ========== -->
+<div class="branch-card c4">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>16.3 项目管理工具 <span class="tag">PingCode</span><span class="tag">禅道</span><span class="tag">Jira</span><span class="tag">MS Project</span><span class="p0-mark">P0</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 概述 -->
+    <div class="sub-section">
+      <div class="sub-title">项目管理工具概述</div>
+      <ul class="item-list">
+        <li>高集成度项目管理工具，同一平台实现<b>需求分析→项目规划→项目实施→配置管理→测试管理→软件交付</b>全生命周期管理</li>
+        <li>使软件研发更高效，项目综合管理能力更强</li>
+      </ul>
+    </div>
+
+    <!-- 1. PingCode -->
+    <div class="sub-section">
+      <div class="sub-title">1) PingCode <span class="mnemonic">敏看瀑需文测效</span></div>
+      <ul class="item-list">
+        <li>覆盖软件研发<b>全生命周期</b>的项目管理系统（研发管理工具集合）</li>
+        <li>涵盖：项目管理、测试管理、知识管理、效能度量、目标管理</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:22%">场景</th><th style="width:78%">核心能力</th></tr>
+        <tr><td><b>敏捷开发</b></td><td>Scrum+Kanban两种敏捷类型；迭代规划/燃尽图/任务板/故事墙/迭代回顾/WIP/多泳道/DoD</td></tr>
+        <tr><td><b>Kanban管理</b></td><td>可视化端到端流动；个性化工作流；规划工作项卡片；WIP限制；版本发布规划</td></tr>
+        <tr><td><b>瀑布模型</b></td><td>全流程覆盖；可视化项目计划；WBS分解；手动/自动排期；里程碑/交付物/工时</td></tr>
+        <tr><td><b>产品需求</b></td><td>条目化管理；汇总多渠道需求(规划/客户/内部/竞品)；需求评审；优先级列表和排期</td></tr>
+        <tr><td><b>文档协作</b></td><td>结构化知识库；多人在线编辑；文档版本回溯</td></tr>
+        <tr><td><b>测试管理</b></td><td>用例维护/版本管理/评审/测试计划/执行/自动生成报告</td></tr>
+        <tr><td><b>研发效能度量</b></td><td>自动化收集过程数据；加工清洗；可视化效能仪表盘</td></tr>
+      </table>
+    </div>
+
+    <!-- 2. 禅道 -->
+    <div class="sub-section">
+      <div class="sub-title">2) 禅道 <span class="mnemonic">集产项执</span></div>
+      <ul class="item-list">
+        <li>国产<b>开源</b>专业研发项目管理软件；集产品/项目/质量/文档/组织/事务管理于一体</li>
+        <li>完整覆盖项目管理核心流程；提供全生命周期/DevOps一体化/自动化解决方案</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:18%">4大框架</th><th style="width:82%">核心内容</th></tr>
+        <tr><td><b>项目集</b></td><td>互相关联且被协调管理的项目集合；<b>最高层级</b>；分解子项目集；维护预算/周期/负责人；制定战略规划</td></tr>
+        <tr><td><b>产品</b></td><td>所有工作围绕产品展开；<b>项目管理活动核心</b>；项目最终交付物；产品经理创建并关联项目集</td></tr>
+        <tr><td><b>项目</b></td><td>项目集下层级；项目经理创建；可选敏捷/瀑布/看板模型管理</td></tr>
+        <tr><td><b>执行</b></td><td>完成项目的一系列动作；核心概念=需求/任务/缺陷/用例；管理项目下迭代</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>禅道3种项目管理模型</b>：Scrum敏捷开发全流程 + 瀑布式项目管理 + 专业研发看板项目管理</div>
+    </div>
+
+    <!-- 3. Jira -->
+    <div class="sub-section">
+      <div class="sub-title">3) Jira</div>
+      <ul class="item-list">
+        <li>全球最早软件研发过程管理工具之一，广泛应用于缺陷跟踪/客户服务/需求收集/流程审批/任务跟踪/敏捷管理</li>
+        <li><b>核心概念</b>：项目=一组事务集合；事务=可跟踪最小单元(缺陷/功能/任务)；<b>工作流</b>=状态+变迁</li>
+        <li>使用敏捷面板和统一数据源管理整个流程：故事/事务/任务分解→规划→优先次序→共享信息→可视化跟踪</li>
+        <li><b>不足</b>：价格不菲、配置复杂、中文界面适配不友好（中小企业望而却步）</li>
+      </ul>
+    </div>
+
+    <!-- 4. Microsoft Project -->
+    <div class="sub-section">
+      <div class="sub-title">4) Microsoft Project</div>
+      <ul class="item-list">
+        <li>微软畅销桌面产品，协助项目经理制订计划/分配资源/跟踪计划/管理预算/分析工作量</li>
+        <li>集成现代成熟管理理念，在项目管理<b>5阶段</b>（建议/启动计划/实施/控制/收尾）发挥重要作用</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:22%">功能</th><th style="width:78%">说明</th></tr>
+        <tr><td><b>项目计划</b></td><td>创建计划+任务+里程碑+资源+预算</td></tr>
+        <tr><td><b>任务管理</b></td><td>跟踪进度/优先级/关系</td></tr>
+        <tr><td><b>资源管理</b></td><td>人力/物资/设备分配给任务</td></tr>
+        <tr><td><b>时程表和进度</b></td><td>创建维护时程表，跟踪实际vs计划差异</td></tr>
+        <tr><td><b>多种视图</b></td><td>网格视图(规划)+板视图(跟踪状态)+<b>日程表视图(甘特图)</b></td></tr>
+        <tr><td><b>报告</b></td><td>预生成报告跟踪项目/资源/计划/项目组合</td></tr>
+        <tr><td><b>路线图</b></td><td>汇集不同项目类型，构建交互式路线图</td></tr>
+        <tr><td><b>项目协作</b></td><td>多人协作，共享任务列表/文档/进度</td></tr>
+      </table>
+      <div class="note-box">🔑 早期单机软件 → Project Online在线协作版 → 与Microsoft 365/Teams无缝衔接</div>
+    </div>
+
+    <!-- 项目管理工具的选择 -->
+    <div class="sub-section">
+      <div class="sub-title">项目管理工具的选择 <span class="p0-mark">P0</span><span class="exam-mark">已考</span><span class="mnemonic">规方业扩易安本</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">评估维度</th><th style="width:82%">核心内容</th></tr>
+        <tr><td><b>1.团队规模</b></td><td>小团队→简单任务列表；大团队→复杂工具高效分配/沟通/跟踪</td></tr>
+        <tr><td><b>2.团队工作方式</b></td><td>远程协作/实时协作/移动端访问支持</td></tr>
+        <tr><td><b>3.业务需求</b></td><td>功能和特性匹配业务需求+部署环境要求</td></tr>
+        <tr><td><b>4.自定义和可扩展性</b></td><td>考虑未来增长，自定义能力强、可扩展</td></tr>
+        <tr><td><b>5.易用性</b></td><td>用户界面直观明了，非技术用户易用</td></tr>
+        <tr><td><b>6.安全性</b></td><td>敏感信息保护，医疗保健/金融行业必要</td></tr>
+        <tr><td><b>7.成本</b></td><td>开源需二次开发 vs 商业订阅/一次性购买</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>选型7要素</b>：团队规模 + 工作方式 + 业务需求 + 自定义可扩展 + 易用性 + 安全性 + 成本。注意<b>不含</b>"工具知名度""厂商规模"等干扰项。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 本章考察规律总结 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>📋 本章考察规律总结 · 16.1考工具分类 · 16.2考特性区分 · 16.3考选型要素</span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <table class="table-mini">
+      <tr><th style="width:10%">优先级</th><th style="width:30%">考点</th><th style="width:60%">掌握要求</th></tr>
+      <tr><td>🔴P0</td><td>SVN vs Git（集中式vs分布式）</td><td>必背：SVN需联网提交 vs Git离线可提交+完整仓库</td></tr>
+      <tr><td>🔴P0</td><td>Prometheus拉模型 vs Nagios推模型</td><td>必背：Prometheus=<b>Pull拉</b>，Nagios=<b>Push推</b></td></tr>
+      <tr><td>🔴P0</td><td>Ansible无客户端（基于SSH）</td><td>必背：Puppet/SaltStack需客户端，Ansible不需要</td></tr>
+      <tr><td>🔴P0</td><td>ITSM核心4流程（请件题变）</td><td>必背：服务请求/事件/问题/变更；<b>不含</b>发布/配置</td></tr>
+      <tr><td>🔴P0</td><td>自动化测试4阶段 vs 测试管理7功能</td><td>必背：4阶段=计设施执；7功能=计例执陷报协集</td></tr>
+      <tr><td>🔴P0</td><td>配置管理8大功能</td><td>必背：项版增程资自期集</td></tr>
+      <tr><td>🔴P0</td><td>项目管理工具选型7要素</td><td>必背：规方业扩易安本</td></tr>
+      <tr><td>🟡P1</td><td>云管理4工具（CMP/CSM/CPS/CloudOS）</td><td>会区分：统一管理/安全/专业服务/虚拟化</td></tr>
+      <tr><td>🟡P1</td><td>LoadRunner三大组件</td><td>会背：VuGen+Controller+Analysis</td></tr>
+      <tr><td>🟡P1</td><td>统一监控6模块+4统一</td><td>会背：采检告故视管；采集/检测/告警/展示</td></tr>
+      <tr><td>🟡P1</td><td>DevOps 8类工具</td><td>会归类：版构测持配日容云</td></tr>
+      <tr><td>🟡P1</td><td>禅道4框架+3模型</td><td>会背：集产项执；Scrum/瀑布/看板</td></tr>
+      <tr><td>🟢P2</td><td>各工具厂商与特点</td><td>了解：VS/Eclipse/PyCharm/Zabbix等</td></tr>
+      <tr><td>🟢P2</td><td>环境8原则+部署5步+维护4要求</td><td>了解：重协生自覆灵隔维/硬系应库测/备更清监</td></tr>
+    </table>
+
+    <div class="sub-section">
+      <div class="sub-title" style="border-left-color:#7d3c98">三科命题规律</div>
+      <table class="table-mini">
+        <tr><th style="width:20%">科目</th><th style="width:14%">分值</th><th style="width:66%">命题模式</th></tr>
+        <tr><td><b>综合选择题</b></td><td>3-4分</td><td>工具名称→功能/特性匹配（工具归类/核心特性/功能匹配/同类区分/选型因素）</td></tr>
+        <tr><td><b>案例分析题</b></td><td>5-8分</td><td>场景→设计工具体系/选择工具并说明理由（运维监控体系/ITSM流程选型/知识管理建设/研发工具链）</td></tr>
+        <tr><td><b>论文题</b></td><td>14主题之一</td><td>主题16：论信息系统的资源与工具管理（运维工具体系构建/知识管理工具建设）</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-section">
+      <div class="sub-title" style="border-left-color:#7d3c98">高频易错陷阱 TOP 10</div>
+      <table class="table-mini">
+        <tr><th style="width:8%">#</th><th style="width:30%">陷阱</th><th style="width:62%">正确结论</th></tr>
+        <tr><td>1</td><td>集中式 vs 分布式</td><td>Git是<b>分布式</b>每人完整仓库；SVN提交<b>必须联网</b></td></tr>
+        <tr><td>2</td><td>推模型 vs 拉模型</td><td>Prometheus=<b>Pull拉</b>；Nagios=<b>Push推</b></td></tr>
+        <tr><td>3</td><td>Ansible需要客户端？</td><td>Ansible基于<b>SSH</b>，<b>不需要</b>客户端！</td></tr>
+        <tr><td>4</td><td>测试4阶段 vs 7功能</td><td>4阶段=计设施执；7功能=计例执陷报协集</td></tr>
+        <tr><td>5</td><td>配置管理8功能 vs 功能模块</td><td>8功能=项版增程资自期集；功能模块不同出处</td></tr>
+        <tr><td>6</td><td>Puppet/SaltStack/Ansible对比</td><td>Puppet需客户端/周期拉取；SaltStack需客户端/MQ秒级；Ansible<b>无客户端</b>/SSH</td></tr>
+        <tr><td>7</td><td>ITSM核心流程</td><td><b>只有4个</b>：请件题变！不含发布/配置管理</td></tr>
+        <tr><td>8</td><td>知识库工具分类</td><td>Confluence=企业Wiki；Jira SM=ITSM工具但<b>内置知识库</b>也属知识管理</td></tr>
+        <tr><td>9</td><td>PingCode vs 禅道</td><td>PingCode=结构化Wiki+效能度量；禅道=<b>完全开源</b>+文档管理</td></tr>
+        <tr><td>10</td><td>云管理工具缩写</td><td>CMP=多云统一管理；CSM=云安全；CPS=云专业服务</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+</div><!-- container -->
+
+<!-- 口诀面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 10px 16px">
+  <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:17px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记·28条）</h3>
+    <div class="mnemonics-grid">
+      <div><b>研发管理3类</b>：开代配（开发工具/代码管理/配置管理）</div>
+      <div><b>开发工具3种</b>：V-E-P（Visual Studio/Eclipse/PyCharm）</div>
+      <div><b>代码管理2类</b>：集SVN分Git（集中式/分布式）</div>
+      <div><b>SVN特点</b>：唯一URL+需联网+授权+冲突先解决</div>
+      <div><b>Git特点</b>：本地完整+离线提交+分支易合</div>
+      <div><b>配置管理8功能</b>：项版增程资自期集 <span class="p0-mark">P0</span></div>
+      <div><b>自动化测试4阶段</b>：计设施执（计划/设计/实施/执行）</div>
+      <div><b>测试管理7功能</b>：计例执陷报协集 <span class="p0-mark">P0</span></div>
+      <div><b>LoadRunner三组件</b>：VuGen+Controller+Analysis</div>
+      <div><b>性能测试5步</b>：计脚场运分（计划/脚本/场景/运行/分析）</div>
+      <div><b>QC四部分</b>：需计执跟（需求/计划/执行/跟踪）</div>
+      <div><b>TestRail三方式</b>：普基多（普通/基线/多套件）</div>
+      <div><b>环境8原则</b>：重协生自覆灵隔维</div>
+      <div><b>环境部署5步</b>：硬系应库测</div>
+      <div><b>环境维护4要求</b>：备更清监</div>
+      <div><b>监控3类</b>：基性能（基础设施/性能/业务运营）</div>
+      <div><b>监控工具3种</b>：Z-N-P（Zabbix/Nagios/Prometheus）</div>
+      <div><b>Prometheus核心</b>：拉(Pull)模型+时序数据 <span class="p0-mark">P0</span></div>
+      <div><b>统一监控6模块</b>：采检告故视管</div>
+      <div><b>统一监控4统一</b>：采集/检测/告警/展示</div>
+      <div><b>ITSM核心4流程</b>：请件题变 <span class="p0-mark">P0</span></div>
+      <div><b>自动化运维3工具</b>：P-S-A（Puppet/SaltStack/Ansible）</div>
+      <div><b>Ansible核心</b>：无客户端+SSH协议 <span class="p0-mark">P0</span></div>
+      <div><b>操作自动化</b>：J-C（Jenkins/Chef）</div>
+      <div><b>备件管理4功能</b>：库服审追</div>
+      <div><b>DevOps 8类工具</b>：版构测持配日容云</div>
+      <div><b>云管理4工具</b>：OSMS（CloudOS/CMP/CSM/CPS）</div>
+      <div><b>禅道4框架</b>：集产项执（项目集/产品/项目/执行）</div>
+      <div><b>选型7要素</b>：规方业扩易安本 <span class="p0-mark">P0</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">第16章 资源与工具管理 · 核心知识思维脑图 | 基于第2版教材 + 2025年11月首考真题考点 | Ctrl+E 全展开 · Ctrl+C 全折叠</div>
+
+<script>
+function toggleBranch(header){header.classList.toggle('collapsed');var body=header.nextElementSibling;body.classList.toggle('collapsed')}
+function toggleAll(expand){
+  document.querySelectorAll('.branch-header').forEach(function(h){
+    if(expand){h.classList.remove('collapsed');h.nextElementSibling.classList.remove('collapsed')}
+    else{h.classList.add('collapsed');h.nextElementSibling.classList.add('collapsed')}
+  })
+}
+function toggleMnemonics(){
+  var btn=document.getElementById('btnHighlight');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m){
+    m.style.background=btn.classList.contains('active')?'#ffc107':'#fff3cd';
+    m.style.color=btn.classList.contains('active')?'#000':'#856404'
+  })
+}
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && e.key==='e'){e.preventDefault();toggleAll(true)}
+  if(e.ctrlKey && e.key==='c'){e.preventDefault();toggleAll(false)}
+})
+</script>
+
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第8章 数据资源规划 · 思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50;font-size:15px;line-height:1.7}
+.header{background:linear-gradient(135deg,#1b4f72,#1abc9c);color:#fff;padding:20px 16px;text-align:center}
+.header h1{font-size:22px;font-weight:700}
+.header p{font-size:13px;opacity:.85;margin-top:4px}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 16px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#1abc9c;color:#1abc9c}
+.toolbar button.active{background:#1abc9c;color:#fff;border-color:#1abc9c}
+.legend{display:flex;align-items:center;gap:6px;margin-left:12px;font-size:13px;color:#888}
+.legend span{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:4px}
+
+.container{max-width:900px;margin:0 auto;padding:16px}
+.section{margin-bottom:16px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff}
+.branch-header{padding:12px 16px;font-weight:700;font-size:18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 14px}
+.branch-body.collapsed{display:none}
+
+.c1 .branch-header{background:#e8f8f5;color:#0e6251;border-left:5px solid #0e6251}
+.c2 .branch-header{background:#ebf5fb;color:#1a5276;border-left:5px solid #1a5276}
+.c3 .branch-header{background:#fef9e7;color:#7d6608;border-left:5px solid #7d6608}
+.c4 .branch-header{background:#f4ecf7;color:#6c3483;border-left:5px solid #6c3483}
+.c5 .branch-header{background:#fdedec;color:#922b21;border-left:5px solid #922b21}
+
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:5px;margin-bottom:5px;border-left:4px solid #1abc9c}
+.item-list{list-style:none;padding-left:6px}
+.item-list li{font-size:14px;padding:3px 6px;line-height:1.7;position:relative;color:#444}
+.item-list li:before{content:"·";color:#1abc9c;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fcf3cf;color:#7d6608;padding:2px 7px;border-radius:4px;font-size:13px;font-weight:700;margin-left:4px}
+.highlight{color:#922b21;font-weight:600}
+.tag{display:inline-block;background:#e8f8f5;color:#0e6251;padding:2px 6px;border-radius:4px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#145a32;padding:2px 6px;border-radius:4px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#fdedec;color:#922b21;padding:2px 6px;border-radius:4px;font-size:12px;margin:0 3px}
+.key-point{color:#922b21;font-weight:600}
+
+.info-table{width:100%;font-size:14px;border-collapse:collapse;margin:6px 0}
+.info-table td,.info-table th{border:1px solid #ddd;padding:5px 8px;text-align:left}
+.info-table tr:nth-child(even){background:#fafafa}
+.info-table thead th{background:#f0f0f0;font-weight:700}
+
+.formula-box{background:#e8f8f5;border:2px solid #1abc9c;border-radius:8px;padding:10px 14px;margin:8px 0;font-size:14px}
+.formula-box b{color:#0e6251}
+
+.mnemonic-panel{background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin-bottom:20px}
+.mnemonic-panel h3{font-size:17px;color:#2c3e50;margin-bottom:10px;border-bottom:2px solid #1abc9c;padding-bottom:8px}
+.mnemonic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px}
+.mnemonic-item{background:#f8f9fa;padding:9px 12px;border-radius:6px;font-size:14px}
+
+.footer{padding:16px;text-align:center;color:#aaa;font-size:12px}
+
+.dikw-row{display:flex;gap:8px;margin:6px 0}
+.dikw-item{flex:1;text-align:center;padding:8px;border-radius:6px;font-size:13px;font-weight:600;background:#e8f8f5;border:1px solid #a3e4d7}
+.dikw-arrow{display:flex;align-items:center;font-size:18px;color:#1abc9c}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>📊 第8章 数据资源规划 · 核心知识思维脑图</h1>
+  <p>8.1 概述 → 8.2 三种规划方法 → 8.3 数据架构 → 8.4 数据标准化 → 8.5 数据管理 | 点击标题折叠/展开</p>
+</div>
+<div class="toolbar" id="toolbar">
+  <button onclick="expandAll()">📖 全部展开</button>
+  <button onclick="collapseAll()">📕 全部折叠</button>
+  <button onclick="toggleMnemonics()" id="mnemBtn">🧠 高亮口诀</button>
+  <div class="legend"><span style="background:#922b21"></span>关键考点 <span style="background:#eafaf1"></span>已考 <span style="background:#fcf3cf"></span>口诀</div>
+</div>
+
+<div class="container">
+
+<!-- ===== 8.1 概述 ===== -->
+<div class="section">
+<div class="branch-card c1">
+<div class="branch-header" onclick="toggleBranch(this)">
+  <span>8.1 概述 <span class="mnemonic">数源规</span></span>
+  <span class="icon">▼</span>
+</div>
+<div class="branch-body">
+
+<div class="sub-section">
+<div class="sub-title">8.1.1 数据的定义 <span class="tag2">已考</span></div>
+<ul class="item-list">
+<li>数据是对客观事物的性质、状态以及相互关系等进行记载的物理符号或物理符号的组合</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">⭐ DIKW层次模型 <span class="mnemonic">数→信→知→智</span> <span class="tag">P0必考</span></div>
+<div class="dikw-row">
+  <div class="dikw-item">📄 数据<br><small>感性认识</small></div>
+  <div class="dikw-arrow">→</div>
+  <div class="dikw-item">📋 信息<br><small>理性认识</small></div>
+  <div class="dikw-arrow">→</div>
+  <div class="dikw-item">🧠 知识<br><small>理性认识</small></div>
+  <div class="dikw-arrow">→</div>
+  <div class="dikw-item">💡 智慧<br><small>最高层次</small></div>
+</div>
+<ul class="item-list">
+<li><span class="highlight">数据是信息的源泉，信息是知识的子集/基石，知识是智慧的基础和条件</span></li>
+<li><b>数据</b> = 感性认识阶段产物 | <b>信息/知识/智慧</b> = 理性认识阶段产物</li>
+<li>层次越高 → 外延、内涵、概念化、价值不断增加</li>
+<li>前者是后者的基础与前提，后者对前者的获取有一定影响</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">8.1.2 数据资源的定义</div>
+<ul class="item-list">
+<li><b>定义：</b>将无序、混乱的原始数据开发为有序、有使用价值的数据资源（采集+聚合+加工）</li>
+<li><b>2020年中央文件：</b>数据作为<span class="key-point">第五要素</span>（与土地/劳动力/资本/技术并列）</li>
+<li><span class="highlight">五大特征：</span><span class="mnemonic">无可非时依垄</span> — 无形性与可复制性、非竞争性与弱排他性、时效性、依附性、垄断性</li>
+<li>被誉为<span class="key-point">"21世纪的石油"</span>，具有大宗商品属性</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">三个阶段 <span class="mnemonic">资源化→资产化→资本化</span></div>
+<div class="info-table">
+<thead><tr><th>阶段</th><th>核心</th><th>产出</th></tr></thead>
+<tr><td><b>1. 数据资源化</b></td><td>原始数据→有序有价值</td><td>高质量数据资源（可用/可信/标准）</td></tr>
+<tr><td><b>2. 数据资产化</b></td><td>基于场景加工形成数据产品</td><td>场景赋能，预期产生经济利益</td></tr>
+<tr><td><b>3. 数据资本化</b></td><td>赋予金融属性，流通变现</td><td>数据要素社会化配置</td></tr>
+</table>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">8.1.3 数据资源规划的定义与四大作用 <span class="mnemonic">提缓标市</span></div>
+<ul class="item-list">
+<li><b>定义：</b>对数据从产生、获取到处理、存储、传输和使用的全面规划，核心对象是<span class="key-point">数据本身</span></li>
+<li>① 提质增效 — 解决数据开发不足/利用不够/效益不高</li>
+<li>② <span class="highlight">缓解"数据孤岛"</span> — 减少重复建设和体系分割</li>
+<li>③ 标准化与共享 — 数据标准化，深层共享共用</li>
+<li>④ 市场化发展 — 推动市场化，解决低产业化/小规模/缺乏国际竞争力</li>
+</ul>
+</div>
+
+</div></div></div>
+
+<!-- ===== 8.2 数据资源规划的方法 ===== -->
+<div class="section">
+<div class="branch-card c2">
+<div class="branch-header" onclick="toggleBranch(this)">
+  <span>8.2 数据资源规划的方法 <span class="mnemonic">过程·结构·指标</span></span>
+  <span class="icon">▼</span>
+</div>
+<div class="branch-body">
+
+<div class="sub-section">
+<div class="sub-title">⭐ 三种方法总对比表 <span class="tag">P0必考</span></div>
+<div class="info-table">
+<thead><tr><th>方法</th><th>适用场景</th><th>优点</th><th>缺点</th></tr></thead>
+<tr><td><b>稳定信息过程法</b></td><td>业务固定，数据少</td><td>理论成熟、易理解、难度不大</td><td>步骤繁杂、因素多、数据稳定性差</td></tr>
+<tr><td><b>稳定信息结构法</b></td><td><span class="highlight">业务多变，数据多</span></td><td>理论较成熟、周期短、稳定性好</td><td>全局设计后置、初期工作量大、并行组织难</td></tr>
+<tr><td><b>指标能力法</b></td><td>涉及决策，数据少</td><td>直撑决策、思路清晰、稳定性好</td><td>案例少、难度大、对设计人员要求高</td></tr>
+</table>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">8.2.1 基于稳定信息过程的方法（11步）<span class="mnemonic">可目准业模数标主分方审</span> <span class="tag">案例</span></div>
+<ul class="item-list">
+<li><b>两条主线：</b>功能需求分析 + 数据需求分析</li>
+<li><b>三种模型：</b>功能模型（子系统→功能模块→程序模块）+ 数据模型（基本表→子系统→全域）+ 关联模型</li>
+<li><b>一套标准：</b>数据元素标准、分类编码标准、用户视图标准、概念/逻辑数据库标准</li>
+<li><b>核心11步：</b>可行性分析(资/操/技) → 确定目标范围 → 准备(组团队/定路线/培训) → 业务活动研究 → 建立业务逻辑模型 → 导出数据模型 → 建立管理标准 → 设计主题数据库 → 数据分布分析 → 制定方案 → 审核评价</li>
+<li><span class="highlight">核心是模型分析</span>，重点是<span class="highlight">建立主题数据库</span>（共建共用），按职能域划分</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">8.2.2 基于稳定信息结构的方法（5步）<span class="mnemonic">界初核目模</span> <span class="tag">案例</span></div>
+<ul class="item-list">
+<li>从组织目标→任务→数据→数据关系，<span class="key-point">从数据角度反推业务</span></li>
+<li><b>关键：</b>建立"核心数据集"，输出"目标数据集"，实现稳定因素与不稳定因素分离</li>
+<li><b>5步循环：</b>①确定目标与系统边界 → ②获取初始数据集（尽可能全） → ③建立核心数据集 → ④完善目标数据集 → ⑤建立信息模型</li>
+<li><span class="highlight">核心数据集5审查：</span><span class="mnemonic">项主功任核</span> — 数据项审查 → 主题审查 → 功能审查 → 任务审查 → 核心数据集审查</li>
+<li>任一步骤可返回前面任一步骤，是循环过程</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">8.2.3 基于指标能力的方法（7步）<span class="mnemonic">决指体模融检评</span></div>
+<ul class="item-list">
+<li><b>切入点：</b>决策 → 指标 → 数据模型，<span class="key-point">反推出核心数据集</span>，不需关心具体业务流程</li>
+<li>决策评估收集 → 支撑指标分析 → 指标体系构建 → 建立指标数据模型并分析数据集 → 数据子集融合 → <span class="highlight">核心数据集一致性检验</span>（去除同义不同名） → 核心数据集评价</li>
+<li><b>评价四维度：</b><span class="mnemonic">准平数利</span> — 准备级（规章制度/标准规范）→ 平台级（数据供与需载体）→ 数据级（数量/质量/标准/范围）→ 利用级（利用促进/成果产出）</li>
+</ul>
+</div>
+
+</div></div></div>
+
+<!-- ===== 8.3 数据架构 ===== -->
+<div class="section">
+<div class="branch-card c3">
+<div class="branch-header" onclick="toggleBranch(this)">
+  <span>8.3 数据架构 <span class="mnemonic">传统→现代</span></span>
+  <span class="icon">▼</span>
+</div>
+<div class="branch-body">
+
+<div class="sub-section">
+<div class="sub-title">8.3.1 数据架构定义与目标</div>
+<ul class="item-list">
+<li><b>构件：</b>当前状态描述+数据需求定义+数据整合指引+数据资产管理规范</li>
+<li><b>必须包含：</b>数据模型（结构+规范）和数据流设计</li>
+<li><b>五大职责：</b>利用新兴技术→业务需求转数据需求→管理复杂数据→确保业务IT一致→支撑变革转型</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">8.3.2 数据模型（三层）<span class="mnemonic">概逻物</span></div>
+<ul class="item-list">
+<li><b>概念模型</b> — 主题域模型组合，业务流程概念/实体</li>
+<li><b>逻辑模型</b> — 实体+属性+关系</li>
+<li><b>物理模型</b> — 数据表+字段+主键（机器语言）</li>
+<li><b>构建方法：</b>自上而下（主题→下层）+ 自下而上（现有逻辑→抽象），<span class="key-point">两种方法结合最佳</span></li>
+<li><b>主题域识别准则：</b>规范化规则（最有效）/系统组合分离/基于价值链/基于业务能力/基于数据治理结构</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">8.3.3 数据流设计</div>
+<ul class="item-list">
+<li><b>数据流：</b>数据在业务流程和系统中流动的过程 = 数据起源→存储→使用→转化（完整记录 = <span class="highlight">数据血缘</span>）</li>
+<li><b>表现形式：</b>二维矩阵（多对多场景）+ 数据流图（直观，可扩展至业务属性级别）</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">8.3.4 演化驱动因素 <span class="mnemonic">技业法</span></div>
+<ul class="item-list">
+<li>技术发展（大数据/云/AI）→ 业务量快速增长 → 业务需求变化 → 法律法规变化（隐私/保护）</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">8.3.5 传统数据架构</div>
+<ul class="item-list">
+<li><b>集中式</b> — 中央数据仓库，数据集中存储/处理，安全性高，适用<span class="highlight">小型企业</span></li>
+<li><b>分布式</b> — 多节点存储，<span class="key-point">高可靠/可扩展/高效</span>
+  <br>· 分布式数据库：DRDS/TiDB/GreenPlum — 计算层+元数据层+存储层
+  <br>· 分布式存储：HDFS/Swift/Ceph/GlusterFS
+  <br>· <b>分片(Sharding)</b> = 大库分成多个独立实例 ↔ <b>分区(Partitioning)</b> = 大表分成小块
+  <br>· 水平分区（按行）↔ 垂直分区（按列）
+  <br>· 副本一致性 = 整个分布式系统理论核心</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">⭐ CAP理论 <span class="tag2">已考</span> <span class="mnemonic">能选二不能全得</span></div>
+<div class="info-table">
+<thead><tr><th>模型</th><th>舍弃</th><th>说明</th><th>典型系统</th></tr></thead>
+<tr><td><b>CA</b></td><td>P</td><td>全在一个网络节点内</td><td>单站点数据库、集群数据库、LDAP</td></tr>
+<tr><td><b>CP</b></td><td>A</td><td>保证一致性，牺牲可用性</td><td><span class="highlight">Redis</span>（分布式缓存）、<span class="highlight">Zookeeper</span>（协调中心）</td></tr>
+<tr><td><b>AP</b></td><td>C</td><td>保证高可用，最终一致性(BASE)</td><td>高并发系统（排队+乐观锁）</td></tr>
+</table>
+<p style="font-size:13px;color:#777;margin-top:4px"><span class="key-point">分布式系统P必选，只能在C和A之间取舍</span></p>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">8.3.6 现代数据架构</div>
+<div class="sub-section" style="margin-left:8px;margin-top:6px">
+<div class="sub-title" style="font-size:14px">① 数据湖架构 <span class="tag">高频</span></div>
+<ul class="item-list">
+<li><b>特点：</b>储存原始数据/无模式或灵活模式/可扩展/实时处理/海量处理/数据多样性</li>
+<li><b>组件：</b>存储层(HDFS/S3)+管理工具(Spark/Hive/Flink)+治理(Atlas/Ranger)+查询(SQL/Athena)+可视化(Tableau/PowerBI)+流处理(Flink/SparkStreaming)+AI(TensorFlow/PyTorch)</li>
+<li><span class="highlight">数据湖无治理 = 数据沼泽</span><span class="tag2">已考</span> — 导致数据质量/一致性/可靠性问题，引发错误决策</li>
+<li><b>治理四步：</b>记录业务案例 → 获得高管支持 → 创建治理架构（团队+委员会） → 制定标准和政策</li>
+</ul>
+</div>
+<div class="sub-section" style="margin-left:8px;margin-top:6px">
+<di class="sub-title" style="font-size:14px">② 云原生数据架构</div>
+<ul class="item-list">
+<li>云环境+容器化+微服务 → 高可扩展/高可用/高安全/高性能</li>
+<li>组件：容器编排+微服务框架+无服务器+多云管道+实时分析+大数据存储处理</li>
+</ul>
+</div>
+<div class="sub-section" style="margin-left:8px;margin-top:6px">
+<div class="sub-title" style="font-size:14px">③ 实时数据架构 <span class="mnemonic">接存计平应（五层）</span> <span class="tag">高频</span></div>
+<ul class="item-list">
+<li>接入层（Kafka收集binlog/日志）→ 存储层（Kafka/HDFS/Clickhouse/HBase/Redis）→ 计算层（Flink实时+Spark准实时+Presto/ClickHouse多维）→ 平台层（统一查询+元数据/指标管理+质量血缘）→ 应用层（大屏/OLAP/特征）</li>
+</ul>
+</div>
+<div class="sub-section" style="margin-left:8px;margin-top:6px">
+<div class="sub-title" style="font-size:14px">⭐ Lambda vs Kappa <span class="tag2">已考</span></div>
+<div class="info-table">
+<thead><tr><th></th><th>Lambda</th><th>Kappa</th></tr></thead>
+<tr><td><b>通道</b></td><td>实时流 + 离线批（两条分支）</td><td><span class="highlight">全程流处理</span>（消息队列替代）</td></tr>
+<tr><td><b>三层</b></td><td>批处理层 + 速度处理层 + 服务层</td><td>单一流处理引擎</td></tr>
+<tr><td><b>代码</b></td><td><span class="key-point">2套</span>（批+流）</td><td><span class="key-point">1套</span>（全量流）</td></tr>
+</table>
+</div>
+<div class="sub-section" style="margin-left:8px;margin-top:6px">
+<div class="sub-title" style="font-size:14px">④ 数据应用架构</div>
+<ul class="item-list">
+<li><b>微服务</b> — 小型服务+独立进程+HTTP API通信，可单独开发部署，更快推向市场</li>
+<li><b>数据API</b> — API连接数据与应用，Web API/RESTful/SOAP，无须了解存储实现细节</li>
+</ul>
+</div>
+
+</div></div></div>
+
+<!-- ===== 8.4 数据标准化 ===== -->
+<div class="section">
+<div class="branch-card c4">
+<div class="branch-header" onclick="toggleBranch(this)">
+  <span>8.4 数据标准化 <span class="mnemonic">系元数码</span></span>
+  <span class="icon">▼</span>
+</div>
+<div class="branch-body">
+
+<div class="sub-section">
+<div class="sub-title">四大内容概览 <span class="mnemonic">体系+元数据+数据元+分类编码</span></div>
+<ul class="item-list">
+<li>数据标准体系 — 标准按其内在联系形成有机整体</li>
+<li>元数据标准化 — 数据外部特征统一规范描述</li>
+<li>数据元标准化 — 数据内部基本元素（名称/定义/表示）规范</li>
+<li>数据分类与编码标准化 — 统一分类编码，避免共享/交换困难</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">8.4.1 数据标准体系三类 <span class="mnemonic">指导·通用·专用</span></div>
+<ul class="item-list">
+<li><b>1. 指导标准</b> — 标准体系及参考模型+标准化指南+概念与术语+一致性测试</li>
+<li><b>2. 通用标准（三类）：</b>
+  <br>· <b>数据类</b> — 元数据标准+分类编码标准+数据内容标准（数据元+模式描述+交换格式+图示表达）
+  <br>· <b>服务类</b> — 数据发现/访问/表示/操作服务（发布/表达/交换/共享环节）
+  <br>· <b>管理与建设类</b> — 质量/发布/运行/安全/效益评价/验收/数据中心建设/门户建设规范</li>
+<li><b>3. 专用标准</b> — 特定领域：领域元数据/分类编码/数据模式/交换格式/数据元目录/图示表达</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">8.4.2 元数据标准化</div>
+<ul class="item-list">
+<li><b>定义：</b>关于数据的数据(Data about Data)，是<span class="key-point">数据与数据用户之间的桥梁</span></li>
+<li><b>三维结构：</b>内容结构（元素及定义标准）+ 句法结构（XML DTD/Schema/RDF描述）+ 语义结构（ISO/IEC 11179描述方法）</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">⭐ 元数据五大作用 <span class="mnemonic">描定寻评选</span> <span class="tag">重点</span></div>
+<div class="info-table">
+<thead><tr><th>作用</th><th>说明</th></tr></thead>
+<tr><td><b>描述</b></td><td>对信息对象的内容描述，为存取利用奠定基础</td></tr>
+<tr><td><b>定位</b></td><td>确定数据对象位置，促进发现和检索</td></tr>
+<tr><td><b>寻找/发掘</b></td><td>抽出重要特征赋予语义建立关系，检索更精确</td></tr>
+<tr><td><b>评价</b></td><td>提供基本属性，不需浏览即可评估价值</td></tr>
+<tr><td><b>选择</b></td><td>参照评价标准结合环境做出选择决定</td></tr>
+</table>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">8.4.3 数据元标准化 <span class="tag">重点</span></div>
+<ul class="item-list">
+<li><b>定义：</b>由一组属性规定其定义、标识、表示和允许值的数据单元（数据的基本单元）</li>
+<li><span class="highlight">三部分组成：</span><span class="mnemonic">对象类+特性+表示</span> <span class="tag2">已考</span></li>
+<li><b>命名规则：</b>语义规则（对象类+特性+表示各一个）+ 句法规则（对象类第一+特性第二+表示最后）+ 唯一性规则</li>
+<li><b>定义编写6规范：</b>唯一性/准确不含糊/阐述基本含义/描述性短语/简练/能单独成立</li>
+<li><b>表示三要素：</b>数据类型（存储方式）+ 数据表示（展现格式+单位）+ 值域（取值约束）</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">8.4.4 数据分类与编码标准化</div>
+<ul class="item-list">
+<li><span class="highlight">分类五原则：</span><span class="mnemonic">稳系可综兼</span> — 稳定性+系统性+可扩充性+综合实用性+兼容性</li>
+<li><span class="highlight">编码四原则：</span><span class="mnemonic">唯匹扩简</span> — 唯一性+匹配性+可扩充性+简洁性</li>
+<li>编码原则之间有冲突（可扩充需要备用码 → 牺牲简洁性），需综合最优设计</li>
+</ul>
+</div>
+
+</div></div></div>
+
+<!-- ===== 8.5 数据管理 ===== -->
+<div class="section">
+<div class="branch-card c5">
+<div class="branch-header" onclick="toggleBranch(this)">
+  <span>8.5 数据管理 <span class="mnemonic">治理·质量·安全</span></span>
+  <span class="icon">▼</span>
+</div>
+<div class="branch-body">
+
+<div class="sub-section">
+<div class="sub-title">8.5.1 数据治理 <span class="mnemonic">规略施嵌</span></div>
+<ul class="item-list">
+<li><b>定义：</b>管理数据资产过程中行使权力和管控（计划+监控+实施）</li>
+<li><span class="highlight">治理 vs 管理：</span>治理=监督（总体视角），管理=执行（执行层面），<span class="key-point">监督与执行分离</span></li>
+<li><b>目标：</b>将数据作为资产进行管理，提供原则/制度/流程/框架/指标</li>
+<li><b>四活动：</b>①规划组织的数据治理 → ②制定数据治理战略（章程+运营框架+路线图+运营计划） → ③实施数据治理 → ④<label class="highlight">嵌入数据治理</label>（持续运作，接受、监控、测量）</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">8.5.2 数据质量 <span class="mnemonic">高略识评序标操</span></div>
+<ul class="item-list">
+<li><b>定义：</b>数据满足数据消费者应用需求目的的程度（取决于使用场景和消费者需求）</li>
+<li><span class="highlight">五大质量维度：</span><span class="mnemonic">一完合唯效</span> — 一致性+完整性+合理性+唯一性+有效性</li>
+<li><b>改进三目标：</b>开发受管理方法→定义质量控制标准规范→测量监控报告质量</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">⭐ 数据质量十大原则 <span class="mnemonic">重全预根治标客嵌系关</span> <span class="tag">重点</span></div>
+<div class="info-table">
+<thead><tr><th>#</th><th>原则</th><th>核心要点</th></tr></thead>
+<tr><td>1</td><td><b>重要性</b></td><td>关注对企业及客户最重要的数据</td></tr>
+<tr><td>2</td><td><b>全生命周期管理</b></td><td>覆盖创建/采购到处置全过程</td></tr>
+<tr><td>3</td><td><b>预防</b></td><td>重点在预防错误，不简单纠正</td></tr>
+<tr><td>4</td><td><b>根因修正</b></td><td>不只纠正错误，需改流程/系统</td></tr>
+<tr><td>5</td><td><b>治理</b></td><td>治理活动支撑高质量数据开发</td></tr>
+<tr><td>6</td><td><b>标准驱动</b></td><td>可量化需求以标准/期望形式定义</td></tr>
+<tr><td>7</td><td><b>客观测量和透明度</b></td><td>客观一致测量，与利益方分享</td></tr>
+<tr><td>8</td><td><b>嵌入业务流程</b></td><td>流程所有者对数据质量负责</td></tr>
+<tr><td>9</td><td><b>系统强制执行</b></td><td>系统所有者让系统强制执行要求</td></tr>
+<tr><td>10</td><td><b>与SLA关联</b></td><td>质量报告和问题管理纳入SLA</td></tr>
+</table>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">数据质量八活动 <span class="mnemonic">定定识执优定开部</span></div>
+<ul class="item-list">
+<li>① 定义高质量数据 → ② 定义数据质量战略 → ③ 识别关键数据和业务规则 → ④ 执行初始数据质量评估 → ⑤ 识别改进方向并确定优先排序 → ⑥ 定义数据质量改进目标 → ⑦ 开发和部署数据质量操作</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">8.5.3 数据安全 <span class="mnemonic">需制细评控</span></div>
+<ul class="item-list">
+<li><b>定义：</b>安全策略和过程的规划、建立与执行（身份验证+授权+访问+审计）</li>
+<li><span class="highlight">五要求来源：</span><span class="mnemonic">利政业合合</span> — 利益相关方+政府法规+特定业务关注点+合法访问需求+合同义务</li>
+<li><span class="highlight">六指导原则：</span><span class="mnemonic">协企主责元减</span> — 协同合作+企业统筹+主动管理+明确责任+元数据驱动+减少接触降风险</li>
+<li><b>五活动：</b>①识别数据安全需求 → ②制定数据安全制度 → ③定义数据安全细则 → ④评估当前安全风险 → ⑤实施控制和规程（访问权限+角色+监控+分类+泄露处理）</li>
+</ul>
+</div>
+
+</div></div></div>
+
+</div>
+
+<!-- ===== 口诀汇总面板 ===== -->
+<div class="mnemonic-panel" id="mnemonicPanel">
+  <h3>🧠 核心记忆口诀汇总（一键速记）</h3>
+  <div class="mnemonic-grid">
+    <div class="mnemonic-item"><b>DIKW四层</b>：数→信→知→智</div>
+    <div class="mnemonic-item"><b>三阶段</b>：资源化→资产化→资本化</div>
+    <div class="mnemonic-item"><b>五大特征</b>：无可非时依垄</div>
+    <div class="mnemonic-item"><b>四大作用</b>：提缓标市</div>
+    <div class="mnemonic-item"><b>过程法11步</b>：可目准业模数标主分方审</div>
+    <div class="mnemonic-item"><b>结构法5步</b>：界初核目模</div>
+    <div class="mnemonic-item"><b>核心数据集5审查</b>：项主功任核</div>
+    <div class="mnemonic-item"><b>指标法7步</b>：决指体模融检评</div>
+    <div class="mnemonic-item"><b>评价四维度</b>：准平数利</div>
+    <div class="mnemonic-item"><b>数据模型三层</b>：概逻物</div>
+    <div class="mnemonic-item"><b>演化驱动</b>：技业法</div>
+    <div class="mnemonic-item"><b>CAP理论</b>：能选CP或AP不能全得</div>
+    <div class="mnemonic-item"><b>实时架构五层</b>：接存计平应</div>
+    <div class="mnemonic-item"><b>标准三分类</b>：指导·通用·专用</div>
+    <div class="mnemonic-item"><b>元数据五作用</b>：描定寻评选</div>
+    <div class="mnemonic-item"><b>数据元三部分</b>：对象类+特性+表示</div>
+    <div class="mnemonic-item"><b>分类五原则</b>：稳系可综兼</div>
+    <div class="mnemonic-item"><b>编码四原则</b>：唯匹扩简</div>
+    <div class="mnemonic-item"><b>数据治理四活动</b>：规略施嵌</div>
+    <div class="mnemonic-item"><b>质量五维度</b>：一完合唯效</div>
+    <div class="mnemonic-item"><b>质量十原则</b>：重全预根治标客嵌系关</div>
+    <div class="mnemonic-item"><b>质量八活动</b>：定定识执优定开部</div>
+    <div class="mnemonic-item"><b>安全五来源</b>：利政业合合</div>
+    <div class="mnemonic-item"><b>安全六原则</b>：协企主责元减</div>
+    <div class="mnemonic-item"><b>安全五活动</b>：需制细评控</div>
+    <div class="mnemonic-item"><b>数据湖 vs 沼泽</b>：无治理=沼泽</div>
+    <div class="mnemonic-item"><b>Lambda vs Kappa</b>：2套代码 vs 1套全流</div>
+    <div class="mnemonic-item"><b>治理 vs 管理</b>：监督(战略) vs 执行(战术)</div>
+  </div>
+</div>
+
+<div class="footer">📊 第8章 数据资源规划 · 核心知识思维脑图 | 数据是第五要素，数据是21世纪的石油</div>
+
+<script>
+function toggleBranch(el){el.classList.toggle('collapsed');el.nextElementSibling.classList.toggle('collapsed');}
+function expandAll(){document.querySelectorAll('.branch-header').forEach(function(h){h.classList.remove('collapsed')});document.querySelectorAll('.branch-body').forEach(function(b){b.classList.remove('collapsed')});}
+function collapseAll(){document.querySelectorAll('.branch-header').forEach(function(h){h.classList.add('collapsed')});document.querySelectorAll('.branch-body').forEach(function(b){b.classList.add('collapsed')});}
+function toggleMnemonics(){var b=document.getElementById('mnemBtn');b.classList.toggle('active');var ms=document.querySelectorAll('.mnemonic');ms.forEach(function(m){if(b.classList.contains('active')){m.style.background='#f9e79f';m.style.color='#7d6608';m.style.fontWeight='900'}else{m.style.background='#fcf3cf';m.style.color='#7d6608';m.style.fontWeight='700'}});
+document.getElementById('mnemonicPanel').scrollIntoView({behavior:'smooth'})}
+document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.key==='e'){e.preventDefault();expandAll()}if(e.ctrlKey&&e.key==='c'){e.preventDefault();collapseAll()}});
+</script>
+</body>
+</html>

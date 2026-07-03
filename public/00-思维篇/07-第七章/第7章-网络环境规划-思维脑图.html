@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第7章 网络环境规划 · 思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50;font-size:15px;line-height:1.7}
+.header{background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff;padding:20px 16px;text-align:center}
+.header h1{font-size:22px;font-weight:700}
+.header p{font-size:13px;opacity:.85;margin-top:4px}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 16px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#2980b9;color:#2980b9}
+.toolbar button.active{background:#2980b9;color:#fff;border-color:#2980b9}
+.legend{display:flex;align-items:center;gap:6px;margin-left:12px;font-size:13px;color:#888}
+.legend span{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:4px}
+
+.container{max-width:900px;margin:0 auto;padding:16px}
+.section{margin-bottom:16px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff}
+.branch-header{padding:12px 16px;font-weight:700;font-size:18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 14px}
+.branch-body.collapsed{display:none}
+
+.c1 .branch-header{background:#e8f4fd;color:#1a5276;border-left:5px solid #1a5276}
+.c2 .branch-header{background:#fef9e7;color:#7d6608;border-left:5px solid #7d6608}
+.c3 .branch-header{background:#eafaf1;color:#145a32;border-left:5px solid #145a32}
+.c4 .branch-header{background:#fdedec;color:#922b21;border-left:5px solid #922b21}
+.c5 .branch-header{background:#f4ecf7;color:#6c3483;border-left:5px solid #6c3483}
+
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:5px;margin-bottom:5px;border-left:4px solid #2980b9}
+.item-list{list-style:none;padding-left:6px}
+.item-list li{font-size:14px;padding:3px 6px;line-height:1.7;position:relative;color:#444}
+.item-list li:before{content:"·";color:#2980b9;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fcf3cf;color:#7d6608;padding:2px 7px;border-radius:4px;font-size:13px;font-weight:700;margin-left:4px}
+.highlight{color:#922b21;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#1a5276;padding:2px 6px;border-radius:4px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#145a32;padding:2px 6px;border-radius:4px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#fdedec;color:#922b21;padding:2px 6px;border-radius:4px;font-size:12px;margin:0 3px}
+.key-point{color:#922b21;font-weight:600}
+
+/* Tables */
+.info-table{width:100%;font-size:14px;border-collapse:collapse;margin:6px 0}
+.info-table td,.info-table th{border:1px solid #ddd;padding:5px 8px;text-align:left}
+.info-table tr:nth-child(even){background:#fafafa}
+.info-table thead th{background:#f0f0f0;font-weight:700}
+
+/* Formula box */
+.formula-box{background:#eaf2f8;border:2px solid #2980b9;border-radius:8px;padding:10px 14px;margin:8px 0;font-size:14px}
+.formula-box b{color:#1a5276}
+
+/* Mnemonic panel */
+.mnemonic-panel{background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin-bottom:20px}
+.mnemonic-panel h3{font-size:17px;color:#2c3e50;margin-bottom:10px;border-bottom:2px solid #2980b9;padding-bottom:8px}
+.mnemonic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px}
+.mnemonic-item{background:#f8f9fa;padding:9px 12px;border-radius:6px;font-size:14px}
+
+.footer{padding:16px;text-align:center;color:#aaa;font-size:12px}
+
+.osi-layer{display:flex;align-items:center;gap:4px;margin:2px 0}
+.osi-num{display:inline-block;width:22px;height:22px;border-radius:50%;text-align:center;line-height:22px;font-size:11px;font-weight:700;background:#2980b9;color:#fff;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🌐 第7章 网络环境规划 · 核心知识思维脑图</h1>
+  <p>7.1 网络架构与技术 → 7.2 广域网 → 7.3 局域网 → 7.4 无线网 → 7.5 整体规划 | 点击标题折叠/展开</p>
+</div>
+<div class="toolbar" id="toolbar">
+  <button onclick="expandAll()">📖 全部展开</button>
+  <button onclick="collapseAll()">📕 全部折叠</button>
+  <button onclick="toggleMnemonics()" id="mnemBtn">🧠 高亮口诀</button>
+  <div class="legend"><span style="background:#922b21"></span>关键考点 <span style="background:#eafaf1"></span>已考 <span style="background:#fcf3cf"></span>口诀</div>
+</div>
+
+<div class="container">
+
+<!-- ===== 7.1 网络架构和主要技术 ===== -->
+<div class="section">
+<div class="branch-card c1">
+<div class="branch-header" onclick="toggleBranch(this)">
+  <span>7.1 网络架构和主要技术 <span class="mnemonic">模七协传拓</span></span>
+  <span class="icon">▼</span>
+</div>
+<div class="branch-body">
+
+<div class="sub-section">
+<div class="sub-title">7.1.1 信息网络系统一般体系框架模型（5大功能模块）<span class="mnemonic">传服安管环</span></div>
+<ul class="item-list">
+<li><b>网络传输平台</b> — 负责数据传输：传输/路由/交换/有线和无线接入</li>
+<li><b>网络和应用服务平台</b> — 管理与业务逻辑：DNS/地址分配/OA/WWW/邮件/视频会议</li>
+<li><b>安全服务平台</b> — 安全防护：加解密/防火墙/入侵检测/漏洞扫描/病毒查杀/审计/数字证书</li>
+<li><b>网络管理和维护平台</b> — 管理维护+运营系统</li>
+<li><b>环境系统</b> — 机房建设/环境监控/智能安防/节能降耗/综合布线</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">7.1.2 OSI七层模型 <span class="mnemonic">物数网传会表应</span> <span class="tag2">已考</span></div>
+<div class="info-table">
+<thead><tr><th>层</th><th>名称</th><th>核心功能</th><th>口诀</th></tr></thead>
+<tr><td>7</td><td><b>应用层</b></td><td>直接向用户提供通信服务（HTTP/邮件/视频等）</td><td>应</td></tr>
+<tr><td>6</td><td>表示层</td><td>数据翻译（编解码/加密解密）、格式化、语法选择</td><td>表</td></tr>
+<tr><td>5</td><td>会话层</td><td>建立/管理/拆除会话连接</td><td>会</td></tr>
+<tr><td>4</td><td><b>传输层</b></td><td>端到端可靠传输，差错纠正+流量控制</td><td>传</td></tr>
+<tr><td>3</td><td><b>网络层</b></td><td>寻址与路由选择，跨网络通信</td><td>网</td></tr>
+<tr><td>2</td><td>数据链路层</td><td>比特流→数据包（帧），MAC地址，差错+流量控制</td><td>数</td></tr>
+<tr><td>1</td><td>物理层</td><td>物理信道（光纤/双绞线/无线电），机械/电气/功能/规程特性</td><td>物</td></tr>
+</table>
+<p style="font-size:13px;color:#777;margin-top:4px">上3层(1-3)解决数据通达 | 上4层(4-7)实现端到端应用 <span class="key-point">ISO 1984年提出</span></p>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">7.1.3 TCP/IP协议族（4层）<span class="mnemonic">应传网链</span> <span class="tag2">已考</span></div>
+<ul class="item-list">
+<li><b>应用层</b>（对应OSI 5-7层）— Telnet/FTP/SMTP/DNS/HTTP/NAT</li>
+<li><b>传输层</b>（对应OSI 4-5层部分）— <span class="key-point">TCP（面向连接）</span>/UDP（非连接）</li>
+<li><b>互联网络层</b>（对应OSI 3层）— ICMP/<b>IP</b>/IGMP，<span class="key-point">IPv4 + IPv6</span></li>
+<li><b>物理和数据链路层</b>（对应OSI 1-2层）— ARP/RARP，基于物理介质成帧传输</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">IPv4协议 <span class="tag2">已考</span> <span class="mnemonic">ABC私组</span></div>
+<ul class="item-list">
+<li><b>32位地址</b>，点分十进制（如192.121.123.56），≈42亿地址<span class="key-point">（2011年IANA用尽）</span></li>
+<li><span class="highlight">五类地址：</span>A(1-126, /8) → B(128-191, /16) → C(192-223, /24) → D(224-239组播) → E(240-255保留)</li>
+<li><span class="highlight">私网地址三段：</span>A:10.0.0.0~10.255.255.255 | B:172.16~172.31 | C:192.168.x.x</li>
+<li><b>NAT</b> — 私网↔公网地址转换，在网关/路由器实现 | <b>127.0.0.1</b> = 本机回环</li>
+<li><b>路由三种类型：</b>直连路由（自动）→ 静态路由（手动）→ 动态路由（RIP/BGP距离矢量、OSPF/IS-IS链路状态）</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">IPv6协议 <span class="tag">新考点</span> <span class="mnemonic">128位·点分16进制</span></div>
+<ul class="item-list">
+<li><b>128位地址</b>（IPv4的4倍），前64位网络前缀+后64位接口标识，<span class="key-point">几乎无限地址</span></li>
+<li>点分十六进制8段，如ABCD:EF01:2345:6789:ABCD:EF01:2345:6789</li>
+<li><b>包头固定40字节</b>（IPv4是20字节+选项），含传输等级/流标签/载荷长度/下一个包头/路程段限制</li>
+<li>支持即插即用、自动配置、QoS，更好支撑物联网/AI</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">7.1.4 传输平台一般架构和主要技术</div>
+<ul class="item-list">
+<li><b>传输媒介：</b>有线（光纤/双绞线/同轴电缆）+ 无线（长波/中波/短波/超短波/微波）</li>
+<li><b>传输技术：</b>光纤：SDH/PDH/DWDM | 同轴：HFC | 无线：Wi-Fi/DMC/VSAT/2G~6G</li>
+<li><b>路由交换：</b><span class="key-point">自治系统（AS）</span> — 内部用OSPF/RIP/IS-IS，AS间用BGP</li>
+<li><span class="highlight">SDN</span> — 软件定义网络，控制与转发分离，SDN控制器统一控制</li>
+<li><b>接入技术：</b>有线：PON(EPON/GPON/10G-PON) | 无线：Wi-Fi/蓝牙</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">7.1.5 常见网络拓扑结构（8种）<span class="mnemonic">总星树环网孔复层</span></div>
+<ul class="item-list">
+<li><b>总线</b> — 单通道，增减方便，稳定性差</li>
+<li><b>星形/双星形</b> — 中心节点辐射，链路少经济，但中心是瓶颈（双星解决）</li>
+<li><b>树状</b> — 星形扩展，层次连接，用户接入网常用</li>
+<li><b>环形</b> — 首尾相连，自愈环保护，稳定性高 | 线形=环形不开环</li>
+<li><b>网状</b> — <span class="highlight">全互连</span>，冗余大稳定，经济性差 | <b>网孔形</b> — 网状变种，部分直连</li>
+<li><b>复合型/层级型</b> — 网状+星形复合，<span class="key-point">最普遍采用</span>，分层设计</li>
+</ul>
+</div>
+
+</div></div></div>
+
+<!-- ===== 7.2 广域网规划 ===== -->
+<div class="section">
+<div class="branch-card c2">
+<div class="branch-header" onclick="toggleBranch(this)">
+  <span>7.2 广域网规划 <span class="mnemonic">架技容</span></span>
+  <span class="icon">▼</span>
+</div>
+<div class="branch-body">
+
+<div class="sub-section">
+<div class="sub-title">7.2.1 广域网一般架构</div>
+<ul class="item-list">
+<li><b>运营商网络：</b>全国骨干网 → 省级骨干网 → 城域网 → 接入网（融合IP承载）</li>
+<li><b>城域网三层：</b>核心层（核心路由器+出口）→ 汇聚层（汇聚交换机+IDC/CDN）→ 接入层（OLT等有线/无线接入）</li>
+<li><b>企业广域网：</b>核心层（路由器）→ 汇聚层（三层交换机）→ 接入层（二层交换机）<span class="key-point">分支通过VPN互联</span></li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">7.2.2 广域网主要技术 <span class="mnemonic">MPLS标·VPN隧·VXLAN广</span> <span class="tag">高频</span></div>
+<ul class="item-list">
+<li><b>MPLS</b> — IP包加标签(Lable)转发，LDP协议，支持流量工程/CoS/QoS/MPLS VPN</li>
+<li><b>VPN</b> — 公有网建虚拟专网，关键技术：隧道+认证+密钥交换；隧道协议：MPLS/PPTP/L2TP/IPSec/GRE/GTP</li>
+<li><b>VLAN</b> — 二层隔离，ID范围1~4096（仅4094可用）</li>
+<li><b>VXLAN</b> — 24位VNI，支持<span class="key-point">16M虚拟网络</span>，满足大规模隔离需求</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">7.2.3 广域网规划六大内容 <span class="mnemonic">建需预技拓址</span> <span class="tag2">已考案例</span></div>
+<ul class="item-list">
+<li><b>1. 建设背景</b> — 新建/扩容/整合？内部承载/对外服务？</li>
+<li><b>2. 需求分析</b> — 功能/业务/运维需求 → 网络能力需求（流量流向/技术选择）</li>
+<li><b>3. 项目预算</b> — 设备费/线路费/配套费/建设+运维+优化成本</li>
+<li><b>4. 技术方向</b> — 业务功能+性能指标（吞吐量/时延/抖动/丢包率）+技术成熟度+演进方向</li>
+<li><b>5. 网络拓扑设计</b> — 物理+逻辑，考虑业务云化/AI算力/VLAN/VXLAN</li>
+<li><b>6. IP地址等逻辑资源规划</b> — IPv4/IPv6地址规划，公网/私网布局，VLAN/VXLAN规划</li>
+</ul>
+</div>
+
+</div></div></div>
+
+<!-- ===== 7.3 局域网规划 ===== -->
+<div class="section">
+<div class="branch-card c3">
+<div class="branch-header" onclick="toggleBranch(this)">
+  <span>7.3 局域网规划 <span class="mnemonic">VLAN五重点</span></span>
+  <span class="icon">▼</span>
+</div>
+<div class="branch-body">
+
+<div class="sub-section">
+<div class="sub-title">7.3.1 局域网一般架构 <span class="mnemonic">三大部件：计连传</span></div>
+<ul class="item-list">
+<li>计算机设备（服务器+工作站）+ 网络连接设备（网卡/集线器/交换机）+ 传输介质（双绞线/光纤）</li>
+<li><b>三层结构：</b>核心层 → 汇聚层 → 接入层（大中型） | <b>二层结构：</b>核心-汇聚（中型） | <b>星形：</b>小型</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">7.3.2 VLAN 6种划分方法 <span class="mnemonic">端MAC协组策户</span> <span class="tag2">已考</span> <span class="tag3">高频</span></div>
+<div class="info-table">
+<thead><tr><th>方法</th><th>核心</th><th>优点</th><th>缺点</th></tr></thead>
+<tr><td>1. 按端口</td><td>物理端口分组</td><td>简单，适合任何规模</td><td>换端口需重定义</td></tr>
+<tr><td>2. 按MAC地址</td><td>每个MAC配组</td><td>移动自动保留VLAN</td><td>初始化全配，仅小型</td></tr>
+<tr><td>3. 按网络层协议</td><td>IP/IPX等分</td><td>跨交换机，按应用组织</td><td>效率低，检查帧头费时</td></tr>
+<tr><td>4. 按IP组播</td><td>组播组=VLAN</td><td>扩至广域网，灵活</td><td>不适局域网，效率低</td></tr>
+<tr><td>5. 按策略</td><td>端口+MAC+IP+协议组合</td><td>灵活多变</td><td>管理复杂</td></tr>
+<tr><td>6. 按用户定义</td><td>特别需求+密码认证</td><td>定制化强</td><td>非标准</td></tr>
+</table>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">7.3.3 局域网规划五大重点 <span class="mnemonic">划编由树配</span> <span class="tag3">必背</span></div>
+<ul class="item-list">
+<li><b>1. VLAN划分</b> — 综合业务/地理/安全考量，可多种方式并存</li>
+<li><b>2. VLAN编号</b> — VLAN ID范围1~4096，<span class="key-point">大型局域网需谨慎规划</span></li>
+<li><b>3. VLAN间路由</b> — 三种方式：多物理接口 / 子接口(Sub-Interface) / 三层交换机</li>
+<li><b>4. STP设计</b> — <span class="key-point">生成树协议</span>，阻断二层环路，防广播风暴</li>
+<li><b>5. DHCP设计</b> — 小：出口路由器 | 中：核心三层交换机 | <span class="key-point">大：专门DHCP代理服务器</span></li>
+</ul>
+</div>
+
+</div></div></div>
+
+<!-- ===== 7.4 无线网规划 ===== -->
+<div class="section">
+<div class="branch-card c4">
+<div class="branch-header" onclick="toggleBranch(this)">
+  <span>7.4 无线网规划 <span class="mnemonic">5G三大·NB窄带·Wi-Fi瘦胖</span></span>
+  <span class="icon">▼</span>
+</div>
+<div class="branch-body">
+
+<div class="sub-section">
+<div class="sub-title">7.4.1 5G移动通信 <span class="tag2">已考</span> <span class="tag3">高频新考点</span></div>
+<div class="info-table">
+<thead><tr><th>三大场景</th><th>全称</th><th>应用</th></tr></thead>
+<tr><td><b>eMBB</b></td><td>增强移动宽带</td><td>高清视频/VR/大流量</td></tr>
+<tr><td><b>uRLLC</b></td><td>超高可靠低时延</td><td>工业控制/远程医疗/自动驾驶</td></tr>
+<tr><td><b>mMTC</b></td><td>海量机器类通信</td><td>智慧城市/智能家居/环境监测</td></tr>
+</table>
+<ul class="item-list">
+<li><b>关键指标：</b>峰值10~20Gbps | 时延1ms | <span class="key-point">百万连接/km²</span> | 频谱效率×3 | 移动500km/h</li>
+<li><b>SBA微服务架构</b>（总线式）：UE → AN → AMF(接入移动) / SMF(会话) / UPF(用户面) / UDM(数据) / AUSF(鉴权) / PCF(策略) / NEF(开放) / NSSF(切片) / NRF(存储)</li>
+<li><b>核心创新：</b>NFV虚拟化 / 控制用户面分离 / <span class="key-point">网络切片</span> / MEC边缘计算 / Polar码 / 毫米波</li>
+<li><b>4G架构：</b>EPC核心网(MME/S-GW/P-GW) + E-UTRAN(eNodeB Mesh互连) | 2013年发牌</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">7.4.2 NB-IoT（窄带物联网）<span class="tag">新考点</span> <span class="mnemonic">广多快低省</span></div>
+<ul class="item-list">
+<li>授权频谱，半双工，<b>五大特点：</b>覆盖广/连接多/速率快/成本低/耗电少</li>
+<li>应用：远程设备状态传输、工业智能终端低功耗低速率场景</li>
+<li>非授权频谱对比：LoRa、Sixfox</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">7.4.3 无线局域网(Wi-Fi)技术</div>
+<ul class="item-list">
+<li><b>瘦AP</b> — 需AC集中管理，功能丰富，适合<span class="key-point">大型环境</span></li>
+<li><b>胖AP</b> — 自带管理平面，分布式，功能少，适合<span class="key-point">小型</span></li>
+<li><b>组网架构：</b>二层组网 vs 三层组网 | 直连 vs 旁挂 | 直接转发 vs 隧道转发</li>
+<li><b>SSID</b> — 服务集标识，分不同子网络，独立身份验证</li>
+<li>注意：AP物理位置、IP分配、VLAN-SSID映射、AC可靠性、用户接入控制</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">7.4.4 无线网规划五大内容 <span class="mnemonic">频覆容站组</span></div>
+<ul class="item-list">
+<li><b>1. 无线频率规划</b> — 有限排他资源，降低干扰提高效率</li>
+<li><b>2. 无线传输覆盖范围</b> — 考虑建筑遮挡/环境干扰/穿透特性</li>
+<li><b>3. 无线传输容量规划</b> — 测算用户规模+业务量→所需基站数量</li>
+<li><b>4. 无线基站站址规划</b> — 位置/电力/网络/干扰/安全/施工+天线方向/隔离/挂高</li>
+<li><b>5. 无线组网规划</b> — 组网策略+方案+设备选型+安全方案</li>
+</ul>
+</div>
+
+</div></div></div>
+
+<!-- ===== 7.5 网络整体规划 ===== -->
+<div class="section">
+<div class="branch-card c5">
+<div class="branch-header" onclick="toggleBranch(this)">
+  <span>7.5 网络整体规划的重点事项 <span class="mnemonic">管安机布监节</span></span>
+  <span class="icon">▼</span>
+</div>
+<div class="branch-body">
+
+<div class="sub-section">
+<div class="sub-title">7.5.1 网络管理五大功能 FCAPS <span class="mnemonic">故配性费安</span> <span class="tag2">已考</span> <span class="tag3">必背</span></div>
+<ul class="item-list">
+<li><b>F 故障管理</b> — 收集告警，判定定位故障，快速恢复</li>
+<li><b>C 配置管理</b> — 配置网络，采集分析配置数据，优化运行</li>
+<li><b>A 性能管理</b> — 采集分析性能数据，了解网络设备运行状况</li>
+<li><b>P 计费管理</b> — 记录资源使用，控制监测费用代价 <span class="tag">(Accounting)</span></li>
+<li><b>S 安全管理</b> — 设备和管理层面安全，保障安全运行</li>
+</ul>
+<p style="font-size:13px;color:#777;margin:4px 0"><b>网管三层体系：</b>网元/网络层（MIB+SNMP）→ 管理应用层（五大功能+扩展）→ 表示层（人机交互/Web+C/S）</p>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">7.5.2 网络安全四大手段 + 五大重点 <span class="mnemonic">防火墙·VLAN域·IDS·SOC</span></div>
+<ul class="item-list">
+<li><b>四大手段：</b><span class="highlight">防火墙</span>（DDoS防御/访问控制）→ <span class="highlight">VLAN安全域</span>划分 → <span class="highlight">IDS/IPS</span>（入侵检测/防御）→ <span class="highlight">SOC/统一日志</span>（安全审计）</li>
+<li><b>安全四大关注：</b>网络结构 → 访问控制 → 网络入侵防护 → 网络安全审计</li>
+<li><b>安全管理五大重点：</b>安全组织与责任 / 风险管理机制 / 应急处理机制 / 容灾备份机制 / 上线切换+安全运维</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">7.5.3 机房建设（七大系统）<span class="mnemonic">装空电雷消环节</span></div>
+<ul class="item-list">
+<li>机房装修 / 空调系统 / 电气系统 / 接地和防雷系统 / 消防系统 / 环境监控系统 / 节能降耗系统</li>
+<li>综合性专业工程，涉及建筑/暖通/强电/弱电/美学，需专业单位完成</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">7.5.4 综合布线（三个子系统）<span class="mnemonic">建干配</span></div>
+<ul class="item-list">
+<li><b>建筑群子系统</b> — 建筑间连接 | <b>干线子系统</b> — 楼内垂直主干 | <b>配线子系统</b> — 楼层水平布线</li>
+<li>标准化结构化，纳入建筑规划设计，与信息网络/安防/楼宇监控同步设计</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">7.5.5 监控系统（五类对象+五子系统）</div>
+<ul class="item-list">
+<li><b>五类对象：</b>动力设备 / 环境设施 / 消防设施 / 安防设施 / 信息网络设备</li>
+<li><b>五子系统：</b>动力环境监测 → 网络设备监控 → 门禁监控 → 环境消防监控 → 统一运维管理平台</li>
+<li><b>作用：</b>自动预警报警、智能运维、提升防护、保障业务长期运行</li>
+</ul>
+</div>
+
+<div class="sub-section">
+<div class="sub-title">7.5.6 节能降耗 <span class="mnemonic">选密风设智</span></div>
+<ul class="item-list">
+<li>选址利于节能降成本 | 密封/绝热/配风/气流组织合理降低空调成本</li>
+<li>机柜排列分隔冷热气流 | 设备自身节能 | <span class="key-point">AI智能分析与动态制冷</span></li>
+</ul>
+</div>
+
+</div></div></div>
+
+<!-- ============ 口诀汇总面板 ============ -->
+<div class="mnemonic-panel" id="mnemonicPanel">
+<h3>🧠 第7章 核心记忆口诀汇总</h3>
+<div class="mnemonic-grid">
+<div class="mnemonic-item"><b>五功能模块</b>：传服安管环</div>
+<div class="mnemonic-item"><b>OSI七层</b>：物数网传会表应</div>
+<div class="mnemonic-item"><b>TCP/IP四层</b>：应传网链</div>
+<div class="mnemonic-item"><b>IPv4五类地址</b>：A大B中C小D组E留</div>
+<div class="mnemonic-item"><b>私网地址三段</b>：A10 B172 C192</div>
+<div class="mnemonic-item"><b>路由三种类型</b>：直静动</div>
+<div class="mnemonic-item"><b>IPv6地址</b>：128位·8段十六进制</div>
+<div class="mnemonic-item"><b>拓扑八种</b>：总星树环网孔复层</div>
+<div class="mnemonic-item"><b>广域网六大内容</b>：建需预技拓址</div>
+<div class="mnemonic-item"><b>广域网技术</b>：MPLS标·VPN隧·VXLAN广</div>
+<div class="mnemonic-item"><b>VLAN六种划分</b>：端MAC协组策户</div>
+<div class="mnemonic-item"><b>局域网五大重点</b>：划编由树配</div>
+<div class="mnemonic-item"><b>5G三大场景</b>：eMBB/uRLLC/mMTC</div>
+<div class="mnemonic-item"><b>5G关键指标</b>：1020G·1ms·百万·×3·500km</div>
+<div class="mnemonic-item"><b>NB-IoT五大特点</b>：广多快低省</div>
+<div class="mnemonic-item"><b>无线规划五大</b>：频覆容站组</div>
+<div class="mnemonic-item"><b>FCAPS五大功能</b>：故配性费安</div>
+<div class="mnemonic-item"><b>网管三层体系</b>：网元→管理→表示</div>
+<div class="mnemonic-item"><b>安全四大手段</b>：防火墙·VLAN域·IDS·SOC</div>
+<div class="mnemonic-item"><b>安全四大关注</b>：结构·控制·入侵·审计</div>
+<div class="mnemonic-item"><b>安全管理五大</b>：组危急容运</div>
+<div class="mnemonic-item"><b>机房七大系统</b>：装空电雷消环节</div>
+<div class="mnemonic-item"><b>综合布线三系统</b>：建干配</div>
+<div class="mnemonic-item"><b>监控五子系统</b>：动网门消统</div>
+<div class="mnemonic-item"><b>节能降耗五措</b>：选密风设智</div>
+<div class="mnemonic-item"><b>5G SBA网元</b>：A S U U A P N N N</div>
+<div class="mnemonic-item"><b>瘦AP vs 胖AP</b>：瘦集中·胖自带</div>
+<div class="mnemonic-item"><b>VLAN间路由三式</b>：多口·子口·三层交</div>
+</div>
+</div>
+
+</div>
+
+<div class="footer">第7章 网络环境规划 · 核心知识思维脑图 | 按教材（第2版）梳理 | Ctrl+E全部展开 · Ctrl+C全部折叠</div>
+
+<script>
+function toggleBranch(el){el.classList.toggle("collapsed");el.nextElementSibling.classList.toggle("collapsed")}
+function expandAll(){document.querySelectorAll(".branch-header").forEach(h=>{h.classList.remove("collapsed");h.nextElementSibling.classList.remove("collapsed")})}
+function collapseAll(){document.querySelectorAll(".branch-header").forEach(h=>{h.classList.add("collapsed");h.nextElementSibling.classList.add("collapsed")})}
+function toggleMnemonics(){const btn=document.getElementById("mnemBtn");btn.classList.toggle("active");document.querySelectorAll(".mnemonic").forEach(m=>{m.style.background=btn.classList.contains("active")?"#ffe082":"#fcf3cf";m.style.fontSize=btn.classList.contains("active")?"15px":"13px"})}
+document.addEventListener("keydown",e=>{if(e.ctrlKey&&e.key==="e"){e.preventDefault();expandAll()}if(e.ctrlKey&&e.key==="c"){e.preventDefault();collapseAll()}})
+</script>
+</body>
+</html>

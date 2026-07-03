@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第15章 技术与研发管理 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.container{max-width:900px;margin:0 auto;padding:16px 10px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;margin-bottom:14px;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:12px 16px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 12px 14px}
+.branch-body.collapsed{display:none}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:4px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:4px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:4px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:4px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:4px solid #7d3c98}
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:3px solid #3498db}
+.item-list{list-style:none;padding-left:8px}
+.item-list li{font-size:14px;padding:3px 8px;line-height:1.8;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:4px;font-size:13px;font-weight:700;margin-left:5px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#f4ecf7;color:#7d3c98;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.key-point{color:#c0392b;font-weight:600}
+.exam-mark{display:inline-block;background:#ffe0b2;color:#e65100;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.p0-mark{display:inline-block;background:#fdedec;color:#c0392b;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;margin:0 3px}
+.table-mini{width:100%;font-size:14px;border-collapse:collapse;margin-top:6px}
+.table-mini th{background:#f8f9fa;padding:6px 8px;border:1px solid #e0e0e0;text-align:center;font-weight:700;font-size:13px}
+.table-mini td{padding:5px 8px;border:1px solid #e0e0e0;font-size:13px}
+.table-mini tr:nth-child(even){background:#fafafa}
+.note-box{background:#fff9e6;border-left:4px solid #f39c12;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:14px;color:#7d6608}
+.formula-box{background:#eaf2f8;border:2px solid #3498db;padding:10px 14px;margin:8px 0;border-radius:8px;font-size:14px;color:#1a5276;text-align:center}
+.footer{padding:18px 10px;text-align:center;color:#aaa;font-size:13px}
+.mnemonics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.mnemonics-grid div{background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:14px;border:1px solid #eee}
+.danger-mark{display:inline-block;background:#c0392b;color:#fff;padding:1px 5px;border-radius:3px;font-size:11px;font-weight:700}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🔧 第15章 技术与研发管理 · 核心知识思维脑图</h1>
+  <p>基于第2版教材 + 2025年11月首考真题考点 · 15.1~15.3 全节覆盖</p>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <button onclick="toggleAll(true)">📖 全部展开</button>
+  <button onclick="toggleAll(false)">📕 全部折叠</button>
+  <button id="btnHighlight" onclick="toggleMnemonics()">🧠 高亮口诀</button>
+</div>
+
+<div class="container">
+
+<!-- ========== 15.1 技术研发管理 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>15.1 技术研发管理 <span class="tag">5范围</span><span class="tag">6对象</span><span class="tag">5角色</span><span class="tag">4过程</span><span class="tag">5类型</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 定义与目的 -->
+    <div class="sub-section">
+      <div class="sub-title">技术研发的定义与目的</div>
+      <ul class="item-list">
+        <li><b>定义</b>：为有效实施运维服务，建立、提升组织核心能力，投入人力/财力/环境资源，研发与运维服务有关的方法、工具、手段的活动</li>
+        <li><b>目的①</b>：通过使用研发成果<span class="key-point">提高系统服务效率和服务质量</span></li>
+        <li><b>目的②</b>：通过对技术和行业新技术的研究，应用到服务产品和工具中，<span class="key-point">丰富拓展服务范围</span>，推动组织服务发展</li>
+        <li><b>本质</b>：技术创新是知识经济时代组织参与竞争、追逐较快发展的重要手段</li>
+      </ul>
+      <div class="note-box">🔑 <b>技术的三元特性</b>：目的性（贯穿全过程）+ 社会性（社会协作与制约）+ 多元性（硬件/软件/信息资料）</div>
+    </div>
+
+    <!-- 15.1.1 目标和范围 -->
+    <div class="sub-section">
+      <div class="sub-title">15.1.1 技术研发的范围 <span class="p0-mark">P0必背</span><span class="exam-mark">高频</span><span class="mnemonic">运范题具品</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">范围</th><th style="width:30%">核心内容</th><th style="width:56%">关键词/示例</th></tr>
+        <tr><td><b>①运行相关</b></td><td>与系统运行相关的技术研发</td><td>IT服务对象本身技术：基础环境（制冷/电源/消防）+ 设备（服务器/网络/存储/系统软件）+ 管理技术（网管/数据/安全）</td></tr>
+        <tr><td><b>②技术规范</b></td><td>技术规范的研发</td><td><b>服务规范</b>=质量标准（应达到什么水准）+ <b>服务提供规范</b>=操作规程/技术操作手册（怎么达到）</td></tr>
+        <tr><td><b>③发现问题</b></td><td>发现/解决问题相关技术的研发</td><td>监控/诊断/分析问题；问题处理手册、测试环境、工具脚本、风险控制手册</td></tr>
+        <tr><td><b>④运维工具</b></td><td>运行维护工具研发</td><td>监控工具、过程管理工具、专用工具（提升效能/准确性/降成本）</td></tr>
+        <tr><td><b>⑤服务产品</b></td><td>IT服务产品研发</td><td>将服务有形化、标准化设计；融入核心能力和独特设计，体现差异化</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：服务规范=应达到什么水准（What）｜服务提供规范=怎么达到（How，操作规程）｜技术规范=两者的统称</div>
+    </div>
+
+    <!-- 管理对象 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 技术研发的六大管理对象 <span class="p0-mark">P1</span><span class="mnemonic">队程本项绩险</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">对象</th><th style="width:86%">核心要点</th></tr>
+        <tr><td><b>①研发团队</b></td><td>不限于研发部门，还包括质量/营销/生产/采购/人力资源等部门；部分组织还含需方或供应商</td></tr>
+        <tr><td><b>②研发过程</b></td><td>将常规环节程序化、制度化；多项目并行时的资源占用标准化；优越过程=最佳机遇+有竞争力产品+最快投入应用</td></tr>
+        <tr><td><b>③研发成本</b></td><td>不是压缩规模或减少投资，而是<span class="key-point">减少不必要的开支</span>，用较少投入获取较大成果</td></tr>
+        <tr><td><b>④研发项目</b></td><td>研发以项目为导向，横跨多个部门，项目管理不可或缺</td></tr>
+        <tr><td><b>⑤研发绩效</b></td><td>三指标：<span class="highlight">难度/效率/质量</span>；可用平衡计分卡制定评估系统</td></tr>
+        <tr><td><b>⑥研发风险</b></td><td>关键人员离职风险、研发信息泄露/破坏、灾难意外/恶意攻击</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>研发体系</b>=技术战略实现的支撑体系，使研发过程<b>可评估、可测量、可控制</b>。知识管理让团队智慧沉淀为组织技术资产。</div>
+    </div>
+
+    <!-- 15.1.2 组织架构 -->
+    <div class="sub-section">
+      <div class="sub-title">15.1.2 组织架构 · 五大角色 <span class="p0-mark">P1</span><span class="mnemonic">决需研质财</span></div>
+      <table class="table-mini">
+        <tr><th style="width:20%">角色</th><th style="width:46%">职责</th><th style="width:34%">典型岗位</th></tr>
+        <tr><td><b>①决策负责人</b></td><td>承担总体决策；负责技术规划、实施、应用和改进</td><td>IT服务主管/副主管/主管技术负责人</td></tr>
+        <tr><td><b>②需求负责人</b></td><td>需求调研+成果应用；提出需求→初审→立项申请→详细需求设计→验收应用→反馈</td><td>IT服务部门负责人/技术部负责人</td></tr>
+        <tr><td><b>③研发负责人</b></td><td>研发规划+过程组织+成果应用支持</td><td>技术总监/研发部负责人/技术主要负责人</td></tr>
+        <tr><td><b>④质量管理负责人</b></td><td>质量体系建设/实施/检查/改进；参与研发体系建设并检查执行</td><td>质量管理部经理</td></tr>
+        <tr><td><b>⑤财务负责人</b></td><td>审查投入产出比、筹措研发费用、度量财务回报</td><td>财务部门</td></tr>
+      </table>
+    </div>
+
+    <!-- 15.1.3 管理过程 -->
+    <div class="sub-section">
+      <div class="sub-title">15.1.3 管理过程 · 四大过程 <span class="p0-mark">P0</span><span class="exam-mark">已考</span><span class="mnemonic">规实监应</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">过程</th><th style="width:48%">核心工作</th><th style="width:38%">产出/形式</th></tr>
+        <tr><td><b>①规划</b></td><td>需求调研→确定目标→制定方案→投入产出分析→形成立项报告→规划评审发布</td><td>研发立项报告（需决策负责人批准）</td></tr>
+        <tr><td><b>②实施</b></td><td>制订实施计划：任务/进度/责任人/里程碑（做什么/何时/谁做/如何做）</td><td>技术研发成果</td></tr>
+        <tr><td><b>③监控</b></td><td>对质量/成本/进度监控；偏差时采取措施纠正</td><td>项目周报/月度报告/里程碑总结/质量审计/内审/管理评审</td></tr>
+        <tr><td><b>④应用</b></td><td>研发成果推广运用到IT服务；转移至使用部门，增强人员素质/技能/工具/效率</td><td>研发团队=培训者+支持者；交付负责人主动应用</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>核心论断</b>：科学技术是第一生产力，生产力=人+生产工具+劳动对象。研发成果通过<b>提高人的素质、改善生产工具和劳动对象</b>实现价值。</div>
+    </div>
+
+    <!-- 15.1.4 管理要点 -->
+    <div class="sub-section">
+      <div class="sub-title">15.1.4 管理要点 · 三方面条件 <span class="p0-mark">P1</span></div>
+      <ul class="item-list">
+        <li><b>①环境</b>：制造鼓励创新、适合研发的环境；弹性而目标化的管理，不以死板制度限制创意，要求实质成果</li>
+        <li><b>②市场</b>：将市场观念融入研发，让市场人员参与研发过程，成果才具有更高价值</li>
+        <li><b>③策略</b>：制定与掌握研发策略方针，使团队善加规划运用有限资源，最短时间达到最高效益</li>
+      </ul>
+    </div>
+
+    <!-- 五大类型研发管理 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 五大管理要点类型 <span class="p0-mark">P0必背</span><span class="mnemonic">品范具题新</span></div>
+      <table class="table-mini">
+        <tr><th style="width:12%">类型</th><th style="width:18%">定位</th><th style="width:20%">研发队伍</th><th style="width:20%">研发过程</th><th style="width:30%">产出物</th></tr>
+        <tr><td><b>①服务产品</b></td><td>面向需方，5定位问题</td><td>虚拟团队+产品经理（市场/售前/交付/质量）</td><td>规划→研发→售前支持→交付支持</td><td>服务目录+服务交付方式+服务质量管理</td></tr>
+        <tr><td><b>②服务规范</b></td><td>服务规范化的前提是产品化</td><td>质量管理负责人+资深技术专家+资深需方服务经理</td><td>编写→测试演练定稿→评审组评审→交付执行→质量监督</td><td>工作指南+过程管理规范+技术手册+故障处理手册</td></tr>
+        <tr><td><b>③服务工具</b></td><td>面向内部过程管理/面向业务监控专用</td><td>交付管理人员+专业软件人员 / 交付技术人员+软件开发人员</td><td>需求→设计→编码→测试（参考软件研发）</td><td>①工具发布包+使用手册 ②工具介绍文档 ③需求文档+设计文档+源代码 <span class="mnemonic">包介码</span></td></tr>
+        <tr><td><b>④发现问题解决问题</b></td><td>发现=信息采集监控+诊断分析；解决=方法手段+判断方法</td><td>高级运维工程师+技术专家</td><td>工具类按服务工具流程；手册类分头编写→测试演练→评审→知识库发布</td><td>软硬件工具+故障分析文档+作业指导书+知识案例库+操作手册</td></tr>
+        <tr><td><b>⑤新技术研究</b></td><td>支撑需方业务/支撑IT服务</td><td>资深技术专家</td><td>跟踪研究→应用前景分析→知识积累→内部知识传递</td><td>应用前景分析报告+技术文档+培训教材</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>服务产品研发5个定位问题</b>：①谁是需方？②需方为何需要？③为何需要我们提供？④用什么方式提供？⑤为直接经济利益还是提高黏着度？</div>
+      <div class="note-box">🔑 <b>服务工具两类</b>：面向内部的过程管理工具（提高管理水平）vs 面向业务的监控工具和专用工具（监控工具提高可视性/便利性/安全性；专用工具如安全工具）</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 15.2 技术研发应用 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>15.2 技术研发应用 <span class="tag">6步管理</span><span class="tag">8项应用</span><span class="tag">SOP</span><span class="tag">应急预案</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 15.2.1 管理要点 -->
+    <div class="sub-section">
+      <div class="sub-title">15.2.1 技术应用管理6步 <span class="p0-mark">P0必背</span><span class="mnemonic">险判验决用跟</span></div>
+      <table class="table-mini">
+        <tr><th style="width:12%">步骤</th><th style="width:88%">核心内容</th></tr>
+        <tr><td><b>①技术风险与机遇</b></td><td>分析风险并控制；分析潜在影响因素（有利/不利）；不利因素纳入风险管理降至可接受程度</td></tr>
+        <tr><td><b>②判断与选择</b></td><td>科学方法判断应用效果；结构化分析有利/不利因素；识别不可逾越困难及所需资源；资源可行性分析；技术实现条件分析</td></tr>
+        <tr><td><b>③技术验证</b></td><td>对性价比高、风险较大的技术应用进行验证；必要时开发技术原型验证应用效果</td></tr>
+        <tr><td><b>④技术决策</b></td><td>技术方向选择+服务相关技术选择+服务工具技术选择+技术可行性分析</td></tr>
+        <tr><td><b>⑤技术应用</b></td><td>①技术传递给人员→服务能力 ②转变成服务工具→提高质量效率 ③作为服务一部分交付客户 ④利用新技术创新服务 ⑤技术内容知识化文档化</td></tr>
+        <tr><td><b>⑥跟踪管理</b></td><td>定期评估状态；跟踪评估发现的问题；不适用及时终止；处理失败培养创新文化；按服务组合管理调整；分级确定负责人；对结果负责；根据市场变化调整规划</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>管理原则</b>：遵循自愿、互利、公平、公开、诚实信用原则；依法或按合同约定享受利益、共担风险。新系统/工具需<b>技术评定报告→审批→测试→验收报告→推广</b>。</div>
+    </div>
+
+    <!-- 15.2.2 主要应用 -->
+    <div class="sub-section">
+      <div class="sub-title">15.2.2 主要应用 · 8项内容 <span class="p0-mark">P1</span><span class="mnemonic">转急规册测训演改</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">应用</th><th style="width:86%">核心要点</th></tr>
+        <tr><td><b>①知识转移</b></td><td>4内容：<span class="mnemonic">史架用业</span> 历史运维资料+基础架构资料+应用系统资料+业务资料</td></tr>
+        <tr><td><b>②应急响应预案</b></td><td>组织IT系统总体应急预案；适用重大系统性故障、业务中断、数据丢失等</td></tr>
+        <tr><td><b>③SOP标准操作规范</b></td><td><span class="p0-mark">P0</span><span class="exam-mark">已考</span> 见下方详解</td></tr>
+        <tr><td><b>④技术手册发布</b></td><td>3步：<span class="mnemonic">审存发</span> 审核（验证可行→文档存档）→存档（分级管理便于定位）→发放（通知查看+培训讲解）</td></tr>
+        <tr><td><b>⑤搭建测试环境</b></td><td>建立测试目标；模拟工具模拟真实场景；验证可行性/可靠性；规避潜在缺陷减少突发事件</td></tr>
+        <tr><td><b>⑥培训与知识转移</b></td><td>3类：知识性研发成果培训（鱼骨图法/KT分析法）+ 工具类研发成果培训（监控/IT服务流程工具）+ 应急预案与解决方案手册知识转移</td></tr>
+        <tr><td><b>⑦演练或推演</b></td><td><b>演练</b>：定期对应急预案/灾备方案仿真演习；<b>推演</b>：沙盘或模拟研讨，圆桌会议给出改进建议与评价</td></tr>
+        <tr><td><b>⑧优化改进</b></td><td>对技术成果评价与评估；根据分析或实践信息进行新一轮开发；增加相应预算</td></tr>
+      </table>
+    </div>
+
+    <!-- 知识转移详解 -->
+    <div class="sub-section">
+      <div class="sub-title">知识转移4内容详解 <span class="mnemonic">史架用业</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">类别</th><th style="width:82%">具体内容</th></tr>
+        <tr><td><b>①历史运维资料</b></td><td>工作界面和人员职责说明书；内外部支持信息（开发商/厂商/业务部门/公司内部）</td></tr>
+        <tr><td><b>②基础架构资料</b></td><td>系统部署和网络物理拓扑；系统架构说明+软/硬件配置；数据备份与恢复操作说明书；应急容灾方案（集群切换恢复）；日常运维操作手册</td></tr>
+        <tr><td><b>③应用系统资料</b></td><td>测试报告+使用手册+需求设计文档+安装配置手册+版本说明（依赖关系/已知错误/临时措施）</td></tr>
+        <tr><td><b>④业务资料</b></td><td>业务架构图+业务流程（系统交互/工作流/功能/对象）+业务场景（前台高峰/后台关键作业周期）+业务培训资料+业务运维文档（FAQ/问题诊断）</td></tr>
+      </table>
+    </div>
+
+    <!-- 应急响应预案 -->
+    <div class="sub-section">
+      <div class="sub-title">应急响应预案 · 适用情形 + 演练4原则 <span class="p0-mark">P1</span><span class="mnemonic">实战安筹</span></div>
+      <ul class="item-list">
+        <li><b>适用7情形</b>：①自然灾害灾难性破坏 ②网络通信设备/线路故障 ③电源电路/机房基础设施故障 ④数据库/系统/存储/中间件故障 ⑤网络攻击/病毒传播/违法犯罪 ⑥应用系统重大故障 ⑦组织认定的其他重大突发事件</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:20%">演练原则</th><th style="width:80%">核心要点</th></tr>
+        <tr><td><b>①结合实际</b></td><td>紧密结合应急管理工作实际；明确演练目的；根据资源条件确定演练方式和规模</td></tr>
+        <tr><td><b>②着眼实战</b></td><td>以提高指挥协调能力和实战能力为着眼点；重视效果评估；总结推广经验、整改问题</td></tr>
+        <tr><td><b>③精心组织</b></td><td>精心策划内容；科学设计方案；周密组织活动；遵守安全措施确保人员装备安全</td></tr>
+        <tr><td><b>④统筹规划</b></td><td>统筹规划演练活动；充分利用现有资源；努力提高演练效益</td></tr>
+      </table>
+    </div>
+
+    <!-- SOP详解 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ SOP标准操作规范 · 5作用 + 5编写原则 <span class="p0-mark">P0必背</span><span class="exam-mark">已考</span></div>
+      <div class="note-box">🔑 <b>SOP定义</b>：将某一事件的标准操作步骤和要求以统一格式描述出来，用来指导和规范日常工作。<b>精髓</b>=将细节进行量化，对关键控制点进行细化和量化。<b>地位</b>=<span class="highlight">系统规划与管理师最基本、最有效的技术管理手段</span>。</div>
+      <table class="table-mini">
+        <tr><th style="width:50%">5大作用</th><th style="width:50%">5大编写原则</th></tr>
+        <tr><td>①记录技术经验，避免因人员流动使技术流失</td><td>①在人力/财力/物力资源允许范围内可以做到</td></tr>
+        <tr><td>②经过短期培训快速掌握先进合理的操作技术</td><td>②IT服务人员都能看懂，且每个人的理解都相同</td></tr>
+        <tr><td>③树立良好服务形象，取得客户信赖与满意</td><td>③效率最高和成本最低，并识别出关键风险点</td></tr>
+        <tr><td>④贯彻标准化作业：管理规范化/流程条理化/标准化/形象化/简单化</td><td>④正式发布前要经过测试与评价环节</td></tr>
+        <tr><td>⑤<span class="highlight">最基本、最有效的技术管理手段</span></td><td>⑤可以根据业务与技术发展需求实现快速迭代</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：SOP=怎么操作（How，操作步骤）｜技术手册=怎么发现+怎么解决（What+How，监控阈值+故障排查）｜服务规范=应达到什么水准（What，SLA指标）｜服务提供规范=怎么达到（How，操作规程）</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 15.3 知识产权管理 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>15.3 知识产权管理 <span class="tag">4形式</span><span class="tag">4原则</span><span class="tag">5过程</span><span class="tag">评价审核改进</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 定义 -->
+    <div class="sub-section">
+      <div class="sub-title">知识产权的定义（GB/T 21374-2008）</div>
+      <ul class="item-list">
+        <li>在科学技术、文学艺术等领域中，发明者、创造者等对自己创造性劳动成果依法享有的专有权</li>
+        <li><b>范围</b>：专利、商标、著作权及相关权、集成电路布图设计、地理标志、植物新品种、商业秘密、传统知识、遗传资源、民间文艺等</li>
+        <li><b>价值</b>：保护技术创新成果独占市场；防止侵权保护商业利益和声誉；促进合作交流提高行业创新能力</li>
+      </ul>
+    </div>
+
+    <!-- 15.3.1 目标和范围 -->
+    <div class="sub-section">
+      <div class="sub-title">15.3.1 知识产权4形式 <span class="p0-mark">P0必背</span><span class="exam-mark">已考</span><span class="mnemonic">专商著密</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">形式</th><th style="width:40%">定义</th><th style="width:44%">场景判断</th></tr>
+        <tr><td><b>①专利权</b></td><td>对于发明的一种技术解决方案所享有的专有权利</td><td>"我发明了一种新的数据压缩算法"</td></tr>
+        <tr><td><b>②商标权</b></td><td>商标所有人对其商标使用和保护的专有权利</td><td>"这是我们公司的Logo和品牌名称"</td></tr>
+        <tr><td><b>③著作权</b></td><td>作品的作者对其作品使用和保护的专有权利</td><td>"我写的软件源代码" / "我画了一张系统架构图"</td></tr>
+        <tr><td><b>④商业秘密</b></td><td>组织所拥有的商业信息和技术信息</td><td>"公司内部的客户名单和定价策略" / "从不对外公开的配方"</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：算法/配方=专利（若申请）或商业秘密（若保密）｜源代码/架构图=著作权｜Logo/品牌=商标权｜客户名单/定价策略=商业秘密</div>
+      <div class="note-box">🔑 <b>知识产权管理4需求</b>：①研发新技术/新产品/新工艺 ②提高产品附加值扩大市场份额 ③防范知识产权风险保障经营安全 ④提高生产经营效率增加经济效益</div>
+    </div>
+
+    <!-- 15.3.2 管理职责 -->
+    <div class="sub-section">
+      <div class="sub-title">15.3.2 管理职责 · 4指导原则 <span class="p0-mark">P1</span><span class="mnemonic">战领员程</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">原则</th><th style="width:84%">核心内容</th></tr>
+        <tr><td><b>①战略导向</b></td><td>统一部署经营发展、创新创造和知识产权战略，三者互相支撑互相促进</td></tr>
+        <tr><td><b>②领导重视</b></td><td>最高管理者的支持和参与是关键；全面负责知识产权管理；确保合规义务得到履行</td></tr>
+        <tr><td><b>③全员参与</b></td><td>涉及组织各业务领域和各业务环节；所有人员都应遵守合规义务</td></tr>
+        <tr><td><b>④全程管理</b></td><td>在产品/服务全生命周期开展知识产权管理；全过程履行合规义务；防范风险实现价值</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>最高管理者=第一责任人</b>，应：①以高质量发展为目标提升竞争力 ②运用知识产权实现短期长期/显性隐性/财务非财务价值 ③维护合规承诺并妥善处理不合规行为 ④识别应对预防内外部事项导致的知识产权风险</div>
+      <div class="note-box">🔑 <b>知识产权管理机构6职责</b>：①推进识别合规义务并监督分配 ②就合规事项提出建议 ③制订实施工作计划并监督考核 ④负责日常管理 ⑤统筹与其他机构的协作 ⑥建立专利导航工作机制参与重大项目知识产权布局</div>
+    </div>
+
+    <!-- 15.3.3 管理制度和流程 -->
+    <div class="sub-section">
+      <div class="sub-title">15.3.3 管理制度与流程 · 5大过程 <span class="p0-mark">P1</span><span class="mnemonic">取护运保规</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">过程</th><th style="width:86%">核心内容</th></tr>
+        <tr><td><b>①获取</b></td><td>制订不同类型获取计划；建立审核机制防非正常申请专利/不正当获取商业秘密/剽窃作品；专利申请前检索分析；作品登记明确权属；商业秘密通过遴选、密级划分确定范围</td></tr>
+        <tr><td><b>②维护</b></td><td>建立分类管理档案；权属变更与放弃；会计信息披露；建立会计核算档案定期核算成本与产出效益；保管产品资料；分级管理；保留成文信息</td></tr>
+        <tr><td><b>③运用</b></td><td>5方面：<span class="mnemonic">施许投重标</span> 实施和使用+许可和转让+投融资+企业重组+标准化</td></tr>
+        <tr><td><b>④保护</b></td><td>2方面：风险管理（避免侵权/定期监控/纳入风险管理/涉密管理/披露前审查/风险分级）+ 争议处理（自力救济/行政/司法；协商/诉讼/仲裁/调解）</td></tr>
+        <tr><td><b>⑤合规管理</b></td><td>创建管理制度和流程防止泄露和侵权；基于合规义务履行实施必要审查；违反法律法规的依据充分评估法律后果</td></tr>
+      </table>
+    </div>
+
+    <!-- 知识产权运用详解 -->
+    <div class="sub-section">
+      <div class="sub-title">知识产权运用 · 5方面详解 <span class="mnemonic">施许投重标</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">方面</th><th style="width:86%">核心要点</th></tr>
+        <tr><td><b>①实施和使用</b></td><td>开展实施场景/成熟度/配套条件调查；评估对组织贡献；明确许可实施类型在范围内实施；监控合规实施和使用；知识产权密集型产品备案管理</td></tr>
+        <tr><td><b>②许可和转让</b></td><td>制定方案；开展或自行开展评估；履行审查/备案/登记程序；可自愿开放许可；增值部分预先评估或约定归属；国企转让遵循国资规定避免流失</td></tr>
+        <tr><td><b>③投融资</b></td><td>开展前对投融资对象涉及的知识产权开展尽职调查评估风险和价值；境外投资前针对相关法律政策及执行情况进行风险分析</td></tr>
+        <tr><td><b>④企业重组</b></td><td>合并或并购前开展尽职调查并根据目的设定调查内容进行评估；出售或剥离资产前开展调查评估分析对未来竞争力的影响</td></tr>
+        <tr><td><b>⑤标准化</b></td><td>参与标准化组织前了解知识产权政策；提案时按政策披露并做出许可承诺；牵头制定标准时制定工作组的知识产权政策和工作程序</td></tr>
+      </table>
+    </div>
+
+    <!-- 知识产权保护详解 -->
+    <div class="sub-section">
+      <div class="sub-title">知识产权保护 · 风险管理6措施 + 争议处理</div>
+      <ul class="item-list">
+        <li><b>风险管理6措施</b>：①避免或降低设备/软件/作品侵权风险 ②定期监控产品及工艺可能涉及他人知识产权状况 ③纳入组织风险管理范围识别分析监测 ④建立涉密人员/载体/设备/区域/信息管理要求 ⑤对外信息披露前开展合规保密审查 ⑥结合时间频次影响因素后果开展风险分析并分级</li>
+        <li><b>争议处理</b>：及时发现和监控被侵犯情况→提出应对方案→运用<b>自力救济/行政救济/司法救济</b>途径保护；评估<b>协商/诉讼/仲裁/调解</b>不同方式影响，选取适宜方式</li>
+      </ul>
+    </div>
+
+    <!-- 15.3.4 评价审核与改进 -->
+    <div class="sub-section">
+      <div class="sub-title">15.3.4 评价、审核与改进 <span class="mnemonic">价绩策监风外改</span></div>
+      <ul class="item-list">
+        <li>组织应策划并实施必要的监控和审查，评价知识产权合规管理体系绩效</li>
+        <li>定期根据获得的数据和信息进行分析并形成结果，利用分析结果对以下方面进行评价：</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:50%">评价方面</th><th style="width:50%">说明</th></tr>
+        <tr><td>①知识产权价值实现的符合性</td><td>是否实现预期价值</td></tr>
+        <tr><td>②合规管理体系的绩效和有效性</td><td>体系运行情况</td></tr>
+        <tr><td>③策划是否得到有效实施</td><td>计划落地情况</td></tr>
+        <tr><td>④知识产权合规的监测结果</td><td>监测数据评估</td></tr>
+        <tr><td>⑤应对风险和机遇所采取措施的有效性</td><td>措施效果评估</td></tr>
+        <tr><td>⑥外部供方的绩效</td><td>供应商绩效评估</td></tr>
+        <tr><td>⑦合规管理体系改进的需求</td><td>持续改进</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 易混概念对比 ========== -->
+<div class="branch-card c4">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>⚡ 易混概念对比 · 3组核心区分 <span class="p0-mark">P0</span><span class="exam-mark">高频</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 组1 -->
+    <div class="sub-section">
+      <div class="sub-title">易混组1：SOP vs 技术手册 vs 服务规范 vs 服务提供规范</div>
+      <table class="table-mini">
+        <tr><th style="width:16%">概念</th><th style="width:24%">是什么</th><th style="width:24%">关注点</th><th style="width:36%">典型内容</th></tr>
+        <tr><td><b>SOP</b></td><td>操作步骤的标准描述</td><td>怎么操作（How）</td><td>主从切换6步操作法</td></tr>
+        <tr><td><b>技术手册</b></td><td>发现和解决问题的技术文档</td><td>怎么发现+怎么解决（What+How）</td><td>监控阈值配置 + 故障排查步骤</td></tr>
+        <tr><td><b>服务规范</b></td><td>服务应达到的水准和要求</td><td>应达到什么水准（What）</td><td>SLA指标（可用性≥99.99%）</td></tr>
+        <tr><td><b>服务提供规范</b></td><td>提供服务的具体方法和手段</td><td>怎么达到规范要求（How）</td><td>操作规程、技术操作手册</td></tr>
+      </table>
+    </div>
+    <!-- 组2 -->
+    <div class="sub-section">
+      <div class="sub-title">易混组2：四种知识产权场景判断</div>
+      <table class="table-mini">
+        <tr><th style="width:70%">描述</th><th style="width:30%">答案</th></tr>
+        <tr><td>"我发明了一种新的数据压缩算法"</td><td><b>专利权</b></td></tr>
+        <tr><td>"这是我们公司的Logo和品牌名称"</td><td><b>商标权</b></td></tr>
+        <tr><td>"这是我写的软件源代码"</td><td><b>著作权</b></td></tr>
+        <tr><td>"公司内部的客户名单和定价策略"</td><td><b>商业秘密</b></td></tr>
+        <tr><td>"我画了一张系统架构图"</td><td><b>著作权</b></td></tr>
+        <tr><td>"我们研发的配方从不对外公开"</td><td><b>商业秘密</b></td></tr>
+      </table>
+    </div>
+    <!-- 组3 -->
+    <div class="sub-section">
+      <div class="sub-title">易混组3：服务产品 vs 服务规范 vs 服务工具研发</div>
+      <table class="table-mini">
+        <tr><th style="width:20%">研发类型</th><th style="width:24%">面向对象</th><th style="width:56%">核心产出</th></tr>
+        <tr><td><b>服务产品研发</b></td><td>面向需方</td><td>服务目录 + 交付方式 + 质量管理</td></tr>
+        <tr><td><b>服务规范研发</b></td><td>面向内部</td><td>工作指南 + 过程规范 + 技术手册</td></tr>
+        <tr><td><b>服务工具研发</b></td><td>面向运维</td><td>监控平台 + 过程管理工具 + 专用工具</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 本章小结 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>📋 本章考察规律总结 · 15.1考清单范围 · 15.2考SOP应用 · 15.3考知识产权区分</span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <table class="table-mini">
+      <tr><th style="width:12%">优先级</th><th style="width:36%">考点</th><th style="width:52%">掌握要求</th></tr>
+      <tr><td>🔴P0</td><td>技术研发5大范围（运范题具品）</td><td>概念区分多，最容易被混入干扰项；必须能默写+场景判断</td></tr>
+      <tr><td>🔴P0</td><td>SOP作用5条 + 编写原则5条</td><td>高频考点；"最基本、最有效的技术管理手段"地位判断</td></tr>
+      <tr><td>🔴P0</td><td>知识产权4形式区分（专商著密）</td><td>实际场景判断，区分度高；不考专利有效期几年</td></tr>
+      <tr><td>🔴P0</td><td>管理4过程（规实监应）</td><td>已考；顺序不能乱</td></tr>
+      <tr><td>🟡P1</td><td>管理6对象 / 5角色 / 5类型</td><td>清单类，多考查"不包括什么"</td></tr>
+      <tr><td>🟡P1</td><td>技术应用6步顺序（险判验决用跟）</td><td>顺序不能乱，干扰项会调换位置</td></tr>
+      <tr><td>🟡P1</td><td>应急演练4原则（实战安筹）</td><td>易与第6章容灾原则混淆</td></tr>
+      <tr><td>🟡P1</td><td>知识产权4原则 / 5过程 / 运用5方面</td><td>清单类+场景判断</td></tr>
+      <tr><td>🟢P2</td><td>知识转移4内容 / 技术应用8项 / 评价7方面</td><td>了解即可</td></tr>
+      <tr><td>🟢P2</td><td>研发绩效3指标 / 5大管理要点类型</td><td>了解即可</td></tr>
+    </table>
+    <div class="note-box">🔑 <b>出题规律</b>：①"不包括什么"是经典套路——5范围/6对象/5角色/4过程随便抽一个替换成无关项 ②SOP相关是重中之重——作用+原则+地位三合一 ③知识产权重在区分而非背诵——考"这段描述属于哪种知识产权" ④与第12章关联——技术研发成果（工具/SOP）是第12章设计实现的资源要素</div>
+    <div class="note-box">🔑 <b>2026年考点预测</b>：P0选择题——5大范围/SOP/知识产权4形式；P1选择题——6对象/5角色/4过程/5类型/6步顺序/演练4原则；P2案例——技术选型决策过程、SOP编写应用场景；P2论文——技术研发管理方法与实践（主题15，★★★☆概率）</div>
+  </div>
+</div>
+
+</div><!-- container -->
+
+<!-- 口诀面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 10px 16px">
+  <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:17px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记·28条）</h3>
+    <div class="mnemonics-grid">
+      <div><b>研发2目的</b>：提效扩服（提高效率/拓展范围）</div>
+      <div><b>技术3特性</b>：目的性+社会性+多元性</div>
+      <div><b>研发5范围</b>：运范题具品（运行/规范/问题/工具/产品）<span class="p0-mark">P0</span></div>
+      <div><b>管理6对象</b>：队程本项绩险（团队/过程/成本/项目/绩效/风险）</div>
+      <div><b>研发绩效3指标</b>：难效质（难度/效率/质量）</div>
+      <div><b>研发体系特性</b>：可评估/可测量/可控制</div>
+      <div><b>组织5角色</b>：决需研质财（决策/需求/研发/质量/财务）</div>
+      <div><b>管理4过程</b>：规实监应（规划/实施/监控/应用）<span class="p0-mark">P0</span></div>
+      <div><b>管理3条件</b>：环境+市场+策略</div>
+      <div><b>5大管理类型</b>：品范具题新（产品/规范/工具/问题/新技术）<span class="p0-mark">P0</span></div>
+      <div><b>服务产品5定位</b>：谁为什方为（5个问题）</div>
+      <div><b>服务规范5要素</b>：位队过环出（定位/队伍/过程/环境/产出）</div>
+      <div><b>服务工具2类</b>：内过业监专（内部过程管理/业务监控专用）</div>
+      <div><b>服务工具3产出</b>：包介码（发布包+使用手册/介绍文档/需求设计源码）</div>
+      <div><b>技术应用6步</b>：险判验决用跟（风险/判断/验证/决策/应用/跟踪）<span class="p0-mark">P0</span></div>
+      <div><b>技术应用8项</b>：转急规册测训演改（知识转移/应急/规范/手册/测试/培训/演练/改进）</div>
+      <div><b>知识转移4内容</b>：史架用业（历史/架构/应用/业务）</div>
+      <div><b>技术手册3步</b>：审存发（审核/存档/发放）</div>
+      <div><b>应急演练4原则</b>：实战安筹（结合实际/着眼实战/精心组织/统筹规划）</div>
+      <div><b>SOP地位</b>：最基最效（最基本、最有效的技术管理手段）<span class="p0-mark">P0</span></div>
+      <div><b>SOP精髓</b>：细节量化+关键控制点细化</div>
+      <div><b>SOP作用5条</b>：记培树规最（记录/培训/树立形象/规范化/最基本）<span class="exam-mark">已考</span></div>
+      <div><b>SOP原则5条</b>：力懂效测迭（资源允许/都能懂/效率最高/测试评价/快速迭代）<span class="exam-mark">已考</span></div>
+      <div><b>知识产权4形式</b>：专商著密（专利/商标/著作权/商业秘密）<span class="p0-mark">P0</span></div>
+      <div><b>知识产权4原则</b>：战领员程（战略导向/领导重视/全员参与/全程管理）</div>
+      <div><b>知识产权5过程</b>：取护运保规（获取/维护/运用/保护/合规）</div>
+      <div><b>知识产权运用5面</b>：施许投重标（实施/许可转让/投融资/重组/标准化）</div>
+      <div><b>知识产权保护2面</b>：风争（风险管理+争议处理）</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">第15章 技术与研发管理 · 核心知识思维脑图 | 基于第2版教材 + 2025年11月首考真题考点 | Ctrl+E 全展开 · Ctrl+C 全折叠</div>
+
+<script>
+function toggleBranch(header){header.classList.toggle('collapsed');var body=header.nextElementSibling;body.classList.toggle('collapsed')}
+function toggleAll(expand){
+  document.querySelectorAll('.branch-header').forEach(function(h){
+    if(expand){h.classList.remove('collapsed');h.nextElementSibling.classList.remove('collapsed')}
+    else{h.classList.add('collapsed');h.nextElementSibling.classList.add('collapsed')}
+  })
+}
+function toggleMnemonics(){
+  var btn=document.getElementById('btnHighlight');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m){
+    m.style.background=btn.classList.contains('active')?'#ffc107':'#fff3cd';
+    m.style.color=btn.classList.contains('active')?'#000':'#856404'
+  })
+}
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && e.key==='e'){e.preventDefault();toggleAll(true)}
+  if(e.ctrlKey && e.key==='c'){e.preventDefault();toggleAll(false)}
+})
+</script>
+
+</body>
+</html>

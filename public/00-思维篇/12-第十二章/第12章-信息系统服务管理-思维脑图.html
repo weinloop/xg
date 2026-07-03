@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第12章 信息系统服务管理 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.container{max-width:900px;margin:0 auto;padding:16px 10px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;margin-bottom:14px;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:12px 16px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 12px 14px}
+.branch-body.collapsed{display:none}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:4px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:4px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:4px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:4px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:4px solid #7d3c98}
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:3px solid #3498db}
+.item-list{list-style:none;padding-left:8px}
+.item-list li{font-size:14px;padding:3px 8px;line-height:1.8;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:4px;font-size:13px;font-weight:700;margin-left:5px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#f4ecf7;color:#7d3c98;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.key-point{color:#c0392b;font-weight:600}
+.exam-mark{display:inline-block;background:#ffe0b2;color:#e65100;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.p0-mark{display:inline-block;background:#fdedec;color:#c0392b;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;margin:0 3px}
+.table-mini{width:100%;font-size:14px;border-collapse:collapse;margin-top:6px}
+.table-mini th{background:#f8f9fa;padding:6px 8px;border:1px solid #e0e0e0;text-align:center;font-weight:700;font-size:13px}
+.table-mini td{padding:5px 8px;border:1px solid #e0e0e0;font-size:13px}
+.table-mini tr:nth-child(even){background:#fafafa}
+.note-box{background:#fff9e6;border-left:4px solid #f39c12;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:14px;color:#7d6608}
+.formula-box{background:#eaf2f8;border:2px solid #3498db;padding:10px 14px;margin:8px 0;border-radius:8px;font-size:14px;color:#1a5276;text-align:center}
+.footer{padding:18px 10px;text-align:center;color:#aaa;font-size:13px}
+.mnemonics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.mnemonics-grid div{background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:14px;border:1px solid #eee}
+.danger-mark{display:inline-block;background:#c0392b;color:#fff;padding:1px 5px;border-radius:3px;font-size:11px;font-weight:700}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🖥️ 第12章 信息系统服务管理 · 核心知识思维脑图</h1>
+  <p>基于第2版教材 + 2025年11月首考真题考点 · 12.1~12.5 全节覆盖</p>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <button onclick="toggleAll(true)">📖 全部展开</button>
+  <button onclick="toggleAll(false)">📕 全部折叠</button>
+  <button id="btnHighlight" onclick="toggleMnemonics()">🧠 高亮口诀</button>
+</div>
+
+<div class="container">
+
+<!-- ========== 12.1 服务战略规划 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>12.1 服务战略规划 <span class="tag">规划设计</span><span class="tag">服务目录</span><span class="tag">需求识别</span><span class="tag">SLA/OLA/UC</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 规划设计活动 -->
+    <div class="sub-section">
+      <div class="sub-title">12.1.1 规划设计活动 <span class="p0-mark">P1</span></div>
+      <ul class="item-list">
+        <li>需求阶段：客户提出<span class="key-point">服务级别需求</span>（结合服务目录）</li>
+        <li>设计阶段：供方进行<span class="key-point">服务级别设计</span>（兼顾成本控制/定价）</li>
+        <li>产出：<span class="highlight">SLA + OLA + UC</span></li>
+        <li>未有效规划设计 → 可用性低/服务能力不足/预算超支/客户满意度下降</li>
+      </ul>
+    </div>
+    <!-- 服务目录管理 -->
+    <div class="sub-section">
+      <div class="sub-title">12.1.2 服务目录管理 <span class="p0-mark">P0</span><span class="exam-mark">首考已考</span><span class="mnemonic">组列编评发完</span></div>
+      <table class="table-mini">
+        <tr><th style="width:12%">步骤</th><th style="width:38%">活动</th><th style="width:50%">核心要点</th></tr>
+        <tr><td><b>①成立小组</b></td><td>服务目录管理小组</td><td>市场销售+系统规划与管理+工程师</td></tr>
+        <tr><td><b>②列举清单</b></td><td>列出服务清单</td><td>当前正在提供 + 准备开展的服务</td></tr>
+        <tr><td><b>③确定类别代码</b></td><td>分类并赋予唯一代码</td><td>按技术维度或服务性质维度分类</td></tr>
+        <tr><td><b>④编制详述</b></td><td>详细描述各项服务</td><td>服务内容/目标/级别/技术实现方法</td></tr>
+        <tr><td><b>⑤评审发布</b></td><td>内部评审后正式发布</td><td>作为服务交付和管理基准 <span class="exam-mark">已考</span></td></tr>
+        <tr><td><b>⑥完善目录</b></td><td>持续改进</td><td>根据市场需求及业务发展趋势</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>首考第23题</b>：服务目录管理活动的正确顺序 = 组列编评发完（①→②→③→④→⑤→⑥）</div>
+    </div>
+    <!-- 服务需求识别 -->
+    <div class="sub-section">
+      <div class="sub-title">12.1.3 服务需求识别 <span class="p0-mark">P1</span><span class="mnemonic">可连能安价报</span></div>
+      <table class="table-mini">
+        <tr><th style="width:15%">需求类型</th><th style="width:40%">核心内容</th><th style="width:45%">关键指标/要点</th></tr>
+        <tr><td><b>可用性需求</b></td><td>业务需求→信息系统可用性需求</td><td>MTBF/MTTR/MTBSI <span class="p0-mark">P0公式</span></td></tr>
+        <tr><td><b>连续性需求</b></td><td>系统连续可用保障，编制灾难恢复计划</td><td>风险评估（断电/火灾/水灾/病毒等）</td></tr>
+        <tr><td><b>服务能力需求</b></td><td>及时有效满足当前及未来服务级别需求</td><td>把握未来能力需求（竞争力体现）</td></tr>
+        <tr><td><b>信息安全需求</b></td><td>机密性+完整性+可用性</td><td>优先级由数据和业务内容决定</td></tr>
+        <tr><td><b>价格需求</b></td><td>服务成本估算与定价</td><td>设备+软件+人力+第三方+管理+其他</td></tr>
+        <tr><td><b>服务报告需求</b></td><td>记录服务过程和结果，有效沟通</td><td>绩效/工作量/趋势/未来计划</td></tr>
+      </table>
+      <!-- 可用性指标 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">⚡ 可用性指标公式 <span class="p0-mark">P0</span></div>
+        <table class="table-mini">
+          <tr><th style="width:20%">指标</th><th style="width:35%">含义</th><th style="width:45%">计算公式</th></tr>
+          <tr><td><b>MTBF</b></td><td>平均无故障时间（正常运行时间）</td><td>系统运行时间 / 故障次数</td></tr>
+          <tr><td><b>MTTR</b></td><td>平均故障修复时间（宕机时间）</td><td>系统故障耗时 / 故障次数</td></tr>
+          <tr><td><b>MTBSI</b></td><td>平均故障间隔</td><td><span class="highlight">MTBSI = MTBF + MTTR</span> <span class="p0-mark">P0必背</span></td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 服务级别设计 -->
+    <div class="sub-section">
+      <div class="sub-title">12.1.4 服务级别设计 <span class="p0-mark">P0</span><span class="exam-mark">首考已考</span><span class="mnemonic">外S内O三U</span></div>
+      <table class="table-mini">
+        <tr><th style="width:12%">协议</th><th style="width:28%">全称</th><th style="width:22%">对象</th><th style="width:38%">法律效力</th></tr>
+        <tr><td><b>SLA</b></td><td>服务级别协议<br>Service Level Agreement</td><td>对外（客户）</td><td>合法文档，双方认可协定 <span class="exam-mark">首考22题</span></td></tr>
+        <tr><td><b>OLA</b></td><td>运营级别协议<br>Operational Level Agreement</td><td>对内（内部部门）</td><td>后台协议，无外部法律效力</td></tr>
+        <tr><td><b>UC</b></td><td>支持合同<br>Underpinning Contract</td><td>对第三方（供应商）</td><td>正规、具备法律效力的协议</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>首考第22题</b>：SLA基本概念。口诀「外S内O三U」= SLA对外、OLA对内、UC对第三方（三个都有U字）</div>
+      <div class="note-box">🔑 <b>易混区分</b>：OLA vs UC → 前=对内无法律效力，后=对第三方有法律效力｜SLA是三级协议的核心和前提</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 12.2 服务设计实现 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>12.2 服务设计实现 <span class="tag">服务模式</span><span class="tag">四要素</span><span class="tag">8大过程</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 服务模式设计 -->
+    <div class="sub-section">
+      <div class="sub-title">12.2.1 服务模式设计 <span class="p0-mark">P1</span><span class="mnemonic">远集中远支持，现上门驻场</span></div>
+      <table class="table-mini">
+        <tr><th style="width:15%">分类</th><th style="width:20%">方式</th><th style="width:65%">服务内容</th></tr>
+        <tr><td rowspan="2"><b>远程服务</b></td><td>远程集中监控</td><td>监控平台实时监控，异常及时介入处理</td></tr>
+        <tr><td>远程技术支持</td><td>电话/邮件/远程登录，配合客户处理故障</td></tr>
+        <tr><td rowspan="2"><b>现场服务</b></td><td>上门技术支持</td><td>远程不能解决时，按需或定期上门</td></tr>
+        <tr><td>驻场技术支持</td><td>专人常驻客户现场，随时响应</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>设计考虑点</b>：①与服务需求一致 ②人员资源配置匹配 ③具备同时提供多种模式的能力</div>
+    </div>
+    <!-- 人员要素设计 -->
+    <div class="sub-section">
+      <div class="sub-title">12.2.2 人员要素设计 <span class="p0-mark">P0</span><span class="mnemonic">管技操，标绩培</span></div>
+      <table class="table-mini">
+        <tr><th style="width:15%">岗位</th><th style="width:30%">职责</th><th style="width:55%">能力要求</th></tr>
+        <tr><td><b>管理岗</b></td><td>服务需求管理+服务过程结果管理</td><td>建立沟通渠道，挖掘真实需求</td></tr>
+        <tr><td><b>技术支持岗</b></td><td>提供技术支持（主机/网络/数据库等）</td><td>专业技术能力+响应支持能力</td></tr>
+        <tr><td><b>操作岗</b></td><td>按规范执行服务交付（呼叫中心/监控/值守）</td><td>规范执行能力</td></tr>
+      </table>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">人员绩效方案设计</div>
+        <ul class="item-list">
+          <li>①确定绩效指标（差异化，按岗位职责不同）</li>
+          <li>②明确考核信息来源（系统日志/满意度反馈等）</li>
+          <li>③制定绩效指标计算方法</li>
+          <li>④定义绩效考核周期（一般每季度，高级每半年/年）</li>
+          <li>⑤设计绩效考核策略（公开反馈，引导激励）</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">人员培训方案设计 <span class="mnemonic">管技工过交</span></div>
+        <ul class="item-list">
+          <li><b>管理培训</b>：沟通能力/执行能力/规划能力/过程管理能力</li>
+          <li><b>技术培训</b>：专业技能，以解决问题为契机提升</li>
+          <li><b>工具培训</b>：监控工具/过程管理工具/专业工具的使用规范性</li>
+          <li><b>过程培训</b>：各过程规范/SLA指标/考核制度</li>
+          <li><b>交付和应急培训</b>：交付职责/应急预案/应急演练</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 资源要素设计 -->
+    <div class="sub-section">
+      <div class="sub-title">12.2.3 资源要素设计 <span class="p0-mark">P0</span><span class="mnemonic">工台件库</span></div>
+      <table class="table-mini">
+        <tr><th style="width:15%">资源</th><th style="width:85%">设计要点</th></tr>
+        <tr><td><b>服务工具</b></td><td>监控类工具（状态数据）+ 过程管理类工具（流程化）+ 其他工具（自动化）｜判断是否需要工具</td></tr>
+        <tr><td><b>服务台</b></td><td><span class="key-point">服务台是职能，不是过程！</span> 统一联络点，沟通渠道（热线/传真/网站/邮箱）+ 专人负责 + 管理制度</td></tr>
+        <tr><td><b>备件库</b></td><td>备件响应方式和级别 + 供应商管理 + 出入库管理 + 可用性管理（定期检测）</td></tr>
+        <tr><td><b>知识库</b></td><td>常见问题知识库 + 知识可用可共享 + 知识添加/更新/查询功能 + 知识生命周期管理</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：服务台 vs 事件管理 → 前=服务<b>职能</b>（不是过程），后=服务<b>过程</b> <span class="p0-mark">P0高频</span></div>
+    </div>
+    <!-- 技术要素设计 -->
+    <div class="sub-section">
+      <div class="sub-title">12.2.4 技术要素设计 <span class="p0-mark">P1</span><span class="mnemonic">研发发现问题，制定标准预案，完成知识转移</span></div>
+      <ul class="item-list">
+        <li><b>技术研发</b>：成本估算 + 编制技术研发预算</li>
+        <li><b>发现问题的技术</b>：①制定监控指标及阈值表 ②制订测试环境建设计划（仿真测试环境）</li>
+        <li><b>解决问题的技术</b>：①制定技术活动标准操作流程(SOP) ②制定应急预案 ③完成知识转移</li>
+      </ul>
+    </div>
+    <!-- 过程要素设计 -->
+    <div class="sub-section">
+      <div class="sub-title">12.2.5 过程要素设计（8大过程）<span class="p0-mark">P0</span><span class="exam-mark">首考已考</span><span class="mnemonic">级报事问配变发安</span></div>
+      <table class="table-mini">
+        <tr><th style="width:10%">序号</th><th style="width:18%">过程名称</th><th style="width:32%">主要活动</th><th style="width:40%">关键指标</th></tr>
+        <tr><td><b>1</b></td><td><b>服务级别管理</b></td><td>建立服务目录→签SLA→SLA考核评估→改进跟踪</td><td>服务目录完整性/SLA规范性和有效性</td></tr>
+        <tr><td><b>2</b></td><td><b>服务报告管理</b></td><td>确定活动→制订报告计划→建立报告模板</td><td>过程完整性/报告及时准确</td></tr>
+        <tr><td><b>3</b></td><td><b>事件管理</b></td><td>受理→分类分级→初步支持→调查诊断→解决→跟踪→关闭</td><td>及时解决率/平均解决时间</td></tr>
+        <tr><td><b>4</b></td><td><b>问题管理</b></td><td>建立→分类→调查诊断→解决→错误评估→关闭</td><td>问题解决率/平均解决时间</td></tr>
+        <tr><td><b>5</b></td><td><b>配置管理</b></td><td>识别→记录→更新→审计</td><td>配置数据准确完整有效可用可追溯</td></tr>
+        <tr><td><b>6</b></td><td><b>变更管理</b></td><td>请求→评估→审核→实施→确认→回顾</td><td>未经批准的变更占比/不成功变更占比</td></tr>
+        <tr><td><b>7</b></td><td><b>发布管理</b></td><td>规划→设计→建设→配置→测试</td><td>发布成功率/发布及时率/更新CMDB</td></tr>
+        <tr><td><b>8</b></td><td><b>信息安全管</b></td><td>识别→评估→处置→改进</td><td>保密性/可用性/完整性</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>首考第24题</b>：8个服务管理过程的归属判断。「级报事问配变发安」= 服务级别/服务报告/事件/问题/配置/变更/发布/信息安全</div>
+      <div class="note-box">🔑 <b>易混区分</b>：事件管理 vs 问题管理 → 前=<b>被动恢复</b>（治标，恢复服务），后=<b>根因分析</b>（治本，预防重复发生） <span class="p0-mark">P0高频</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 12.3 服务运营提升 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>12.3 服务运营提升 <span class="tag">业务关系</span><span class="tag">服务营销</span><span class="tag">成本度量</span><span class="tag">预算核算</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 业务关系管理 -->
+    <div class="sub-section">
+      <div class="sub-title">12.3.1 业务关系管理 <span class="p0-mark">P1</span><span class="mnemonic">客供三，八满增</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">客户关系管理（7项活动）</div>
+        <ul class="item-list">
+          <li><b>定期沟通</b>：周/月/季度，总结回顾+协商处理+改进计划</li>
+          <li><b>日常沟通</b>：了解服务感知，及时跟进需求变化</li>
+          <li><b>高层拜访</b>：重要支持事件/投诉处理，邀请公司高层参与</li>
+          <li><b>投诉管理</b>：应急处理机制，及时有效处理可提升感知</li>
+          <li><b>表扬管理</b>：公开表扬信/体验交流/经验分享</li>
+          <li><b>满意度调查</b>：①Case by Case调查 ②公开调查（电话/问卷/走访）</li>
+          <li><b>增值服务</b>：超出协议约定内容，原则：不影响现有服务/贴合需要/成本可接受/有能力引申</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">供应商关系管理（6项活动）</div>
+        <ul class="item-list">
+          <li><b>选择/推荐</b>：注册资本/人员规模/资质/流程规范性/技术能力/可扩展性/业界评价</li>
+          <li><b>审核及管理</b>：响应能力/问题解决能力/效率/人员稳定性/客户反馈/合作氛围</li>
+          <li><b>供应商间协调</b>：建立协作机制，准确定位问题</li>
+          <li><b>争议处理</b>：提前约定争议处理方式</li>
+          <li><b>支持合同管理</b>：合同内容高于与客户签订的SLA要求</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">第三方关系管理</div>
+        <ul class="item-list">
+          <li>定期沟通 + 日常沟通 + 信息收集分享（5W1H原则）+ 关系协调 + 配合支持</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 服务营销管理 -->
+    <div class="sub-section">
+      <div class="sub-title">12.3.2 服务营销管理（4阶段）<span class="p0-mark">P1</span><span class="mnemonic">启调能达</span></div>
+      <table class="table-mini">
+        <tr><th style="width:15%">阶段</th><th style="width:30%">核心活动</th><th style="width:55%">关键内容</th></tr>
+        <tr><td><b>启动准备</b></td><td>营销准备+营销计划</td><td>熟悉行业/客户/自身产品；制订/执行/跟踪/修正计划</td></tr>
+        <tr><td><b>调研交流</b></td><td>需求调研+写好解决方案</td><td>高层访谈/现状梳理/需求收集/挖掘潜在需求；方案承上启下</td></tr>
+        <tr><td><b>能力展示</b></td><td>产品展示+持续沟通</td><td>展示准备/说明/演示/互动；制订沟通计划+保持联系</td></tr>
+        <tr><td><b>服务达成</b></td><td>达成协议+持续服务</td><td>准备/协商/达成/签订SLA；提高满意度/挖掘需求/增值服务</td></tr>
+      </table>
+    </div>
+    <!-- 服务成本度量 -->
+    <div class="sub-section">
+      <div class="sub-title">12.3.3 服务成本度量（4类成本）<span class="p0-mark">P0</span><span class="exam-mark">首考已考</span><span class="mnemonic">直人直非，间人间非</span></div>
+      <table class="table-mini">
+        <tr><th style="width:15%">成本类型</th><th style="width:36%">包含内容</th><th style="width:49%">判断要点</th></tr>
+        <tr><td><b>直接人力成本</b></td><td>劳动报酬+社保规费+福利</td><td>直接参与项目人员的所有人力费用</td></tr>
+        <tr><td><b>直接非人力成本</b></td><td>办公费/差旅费/培训费/业务费/采购费/租赁费</td><td><span class="key-point">必须为特定项目支出</span> <span class="exam-mark">首考25题</span></td></tr>
+        <tr><td><b>间接人力成本</b></td><td>非项目组人员人力资源分摊</td><td>管理部门/PMO/组织级配置或QA人员</td></tr>
+        <tr><td><b>间接非人力成本</b></td><td>不直接服务于特定项目的非人力费用</td><td>不会因某个项目结束而停止发生（如日常办公场地租赁）</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>首考第25题</b>：直接非人力 vs 间接非人力分类。关键判断：是否「仅为特定项目支出」｜项目专用会议室租金=直接非人力；日常办公场地租金=间接非人力</div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">⚡ 服务成本度量方法</div>
+        <ul class="item-list">
+          <li>考虑因素：<b>服务对象规模</b> + <b>单位工作量</b> + <b>调整因子</b>（服务要求/服务能力/服务对象和业务特征）</li>
+          <li>直接人力成本 = 工作量 × 单位价格（元/人·天）</li>
+          <li>间接成本 = 按直接人力成本一定比例分摊</li>
+          <li>直接非人力成本 = 与直接人力成本无直接关系，按项目特点计算</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 服务项目预算、核算和结算 -->
+    <div class="sub-section">
+      <div class="sub-title">12.3.4 服务项目预算、核算和结算 <span class="p0-mark">P1</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">预算3步骤 <span class="mnemonic">识阶表</span></div>
+        <ul class="item-list">
+          <li>①识别项目预算收入项与开支项（人员/服务台/备品备件/服务工具/知识库/研发分摊/过程管理活动）</li>
+          <li>②划分项目执行阶段（周期性和重复性，按月/周/日预算）</li>
+          <li>③形成预算表（收入+各开支项×时间周期）</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">核算 <span class="mnemonic">流汇资析</span></div>
+        <ul class="item-list">
+          <li><b>流水表</b>：逐笔记录收入与开支</li>
+          <li><b>汇总表</b>：按开支项汇总</li>
+          <li><b>资源使用情况核算</b>：人员/备件/硬件/软件/场地</li>
+          <li><b>核算分析与总结</b>：改进预算编制和核算过程</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">⚡ 衡量项目收益4指标 <span class="p0-mark">P0</span></div>
+        <table class="table-mini">
+          <tr><th style="width:18%">指标</th><th style="width:35%">公式</th><th style="width:47%">说明</th></tr>
+          <tr><td><b>投入产出比</b></td><td>R = K/IN = 1:N</td><td>N越大经济效益越好（投资总额/收入总额）</td></tr>
+          <tr><td><b>投资回报率</b></td><td>回报率＝利润／投资总额×100%</td><td>横向比较不同项目价值</td></tr>
+          <tr><td><b>项目净产出</b></td><td>收入 - 所有开支 = 净利润</td><td>了解主要利润来源</td></tr>
+          <tr><td><b>人均产出</b></td><td>净利润总额／人员数量</td><td>单位人均净利润（万元/人）</td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 服务外包收益 -->
+    <div class="sub-section">
+      <div class="sub-title">12.3.5 服务外包收益 <span class="p0-mark">P2</span><span class="mnemonic">成效降专管提</span></div>
+      <ul class="item-list">
+        <li><b>成本效益</b>：按需采购按需付费，无隐性成本</li>
+        <li><b>效率提升</b>：借鉴外包商先进管理理念和资源</li>
+        <li><b>降低风险</b>：获取专业风险应对能力</li>
+        <li><b>专注于主营业务</b>：基础运维外包，精力投入主营业务</li>
+        <li><b>管理简单</b>：只对一个外包商进行结果考核</li>
+        <li><b>提升满意度</b>：外包商有成熟客户满意度管理体系</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 12.4 服务退役终止 ========== -->
+<div class="branch-card c4">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>12.4 服务退役终止 <span class="tag">4会议</span><span class="tag">4风险</span><span class="tag">4回收</span><span class="tag">信息处置</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 沟通管理 -->
+    <div class="sub-section">
+      <div class="sub-title">12.4.1 沟通管理（4类会议）<span class="p0-mark">P1</span><span class="mnemonic">编评移经</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">会议类型</th><th style="width:82%">核心内容</th></tr>
+        <tr><td><b>计划编制会议</b></td><td>确认服务交付/人员/资源情况；形成书面服务终止计划（含12项内容：适用条件/目标/控制/角色职责/风险/里程碑/活动/完成标准/时间/接口处理/信息安全审查/悬而未决事项）</td></tr>
+        <tr><td><b>计划评审会议</b></td><td>评审计划/明确责任/通知第三方/获得高层批准</td></tr>
+        <tr><td><b>移交会议</b></td><td>移交：文件信息/知识/技能/基线/模拟环境；需方高层+继任团队参与</td></tr>
+        <tr><td><b>经验交流会</b></td><td>编制服务项目经验总结报告；为未来项目提供参考</td></tr>
+      </table>
+    </div>
+    <!-- 风险控制 -->
+    <div class="sub-section">
+      <div class="sub-title">12.4.2 风险控制（4类风险）<span class="p0-mark">P1</span><span class="mnemonic">数业法信</span></div>
+      <table class="table-mini">
+        <tr><th style="width:15%">风险类型</th><th style="width:85%">风险内容及控制措施</th></tr>
+        <tr><td><b>数据风险</b></td><td>数据泄露/篡改/滥用/违规传输/非法访问｜按数据分类（终端/网络/应用/存储）评估风险等级</td></tr>
+        <tr><td><b>业务连续性风险</b></td><td>①服务人员变动风险（关键人员离职）②服务信息同步风险（继任团队理解不到位）｜加强移交管理</td></tr>
+        <tr><td><b>法律法规风险</b></td><td>合同/协议/知识产权/商业秘密条款不明确｜组织法务核对，沟通协商</td></tr>
+        <tr><td><b>信息安全风险</b></td><td>客户数据（隐私/商业）泄露｜加强监管，强调保密责任，签署保密协议</td></tr>
+      </table>
+    </div>
+    <!-- 资源回收 -->
+    <div class="sub-section">
+      <div class="sub-title">12.4.3 资源回收（4类）<span class="p0-mark">P2</span><span class="mnemonic">文财人基</span></div>
+      <ul class="item-list">
+        <li><b>文件归档</b>：服务日志/项目计划/来往函件/会议记录/进展报告/合同/技术文件等；建立计算机信息系统检索</li>
+        <li><b>财务资源回收</b>：及时撤销项目账目编码，防止项目结束后仍 use 财务资源</li>
+        <li><b>人力资源回收</b>：及时送回服务人员到管理部门；消除团队成员失落感，给予回报或肯定</li>
+        <li><b>基础设施资源回收</b>：回收设备或工具；检查说明文件/操作手册是否被修改</li>
+      </ul>
+    </div>
+    <!-- 信息处置 -->
+    <div class="sub-section">
+      <div class="sub-title">12.4.4 信息处置 <span class="p0-mark">P2</span></div>
+      <ul class="item-list">
+        <li><b>信息转移和清除</b>：①确定清单 ②制定处理方式流程 ③执行转移/清除并监控记录</li>
+        <li><b>存储介质清除或销毁</b>：①确定介质清单 ②制定处理方案（数据清除/介质销毁）③严格执行并监督记录</li>
+        <li>含敏感信息介质按照国家相关部门规定处理</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 12.5 持续改进与监督 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>12.5 持续改进与监督 <span class="tag">风险管理</span><span class="tag">服务测量</span><span class="tag">质量管理</span><span class="tag">服务回顾</span><span class="tag">服务改进</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 服务风险管理 -->
+    <div class="sub-section">
+      <div class="sub-title">12.5.1 服务风险管理 <span class="p0-mark">P2</span></div>
+      <ul class="item-list">
+        <li>风险来源：<b>人员</b>（流动/误操作）+ <b>技术</b>（不匹配）+ <b>资源</b>（备件失效/工具失效）+ <b>过程</b>（规定不完善）+ <b>其他</b>（范围蔓延）</li>
+        <li>风险管理：策划→组织→领导→协调→控制；风险识别→分析→评估→回避/减少/分散/转移</li>
+      </ul>
+    </div>
+    <!-- 服务测量 -->
+    <div class="sub-section">
+      <div class="sub-title">12.5.2 服务测量（四要素测量）<span class="p0-mark">P0</span><span class="mnemonic">人资技过</span></div>
+      <table class="table-mini">
+        <tr><th style="width:15%">测量对象</th><th style="width:85%">关键测量指标</th></tr>
+        <tr><td><b>服务人员</b></td><td>备份工程师满足度/招聘需求匹配率/培训覆盖率/能力测量/工作量测量/岗位职责更新/绩效考核分配/团队状态监控</td></tr>
+        <tr><td><b>服务资源</b></td><td>工具：功能匹配/手册有效性/健康状态｜服务台：接听率/派单准确率/录单率/平均通话时间｜备件库：损坏率/命中率/复用率｜知识库：积累量/利用率/更新率/完整性</td></tr>
+        <tr><td><b>服务技术</b></td><td>研发规划落实/研发成果应用/技术手册SOP覆盖率/应急预案实施统计/监控点和阈值统计</td></tr>
+        <tr><td><b>服务过程</b></td><td>服务级别分析（SLA达成率）/事件统计分析/问题统计分析/变更与发布统计分析/配置统计分析</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>服务台关键指标</b>：接听率=响应电话数/用户呼叫总数；派单准确率=首次派单解决数/事件总数；录单率=记录数/呼叫总数</div>
+    </div>
+    <!-- 服务质量管理 -->
+    <div class="sub-section">
+      <div class="sub-title">12.5.3 服务质量管理 <span class="p0-mark">P1</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">信息技术服务质量评价模型（GB/T 33850）</div>
+        <ul class="item-list">
+          <li><b>安全性</b>：可用性/完整性/保密性/完备性/连续性</li>
+          <li><b>可靠性</b>：稳定性/有效性/可追溯性</li>
+          <li><b>响应性</b>：及时性/互动性</li>
+          <li><b>有形性</b>：可视性/专业性/合规性</li>
+          <li><b>友好性</b>：主动性/灵活性/礼貌性</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">服务质量管理3活动 <span class="mnemonic">策检改</span></div>
+        <ul class="item-list">
+          <li><b>服务质量策划</b>：确定目标/确定活动/确定职责权限/确定时间安排/形成策划文件</li>
+          <li><b>服务质量检查</b>：满意度调查/项目质量保证/内审/管理评审/日常检查/质量文化培训</li>
+          <li><b>服务质量改进</b>：清楚质量总体状况/确定改进方向目标/安排人员落实改进</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 服务回顾 -->
+    <div class="sub-section">
+      <div class="sub-title">12.5.4 服务回顾（四级机制）<span class="p0-mark">P0</span><span class="exam-mark">首考已考</span><span class="mnemonic">一无二度三季四年</span></div>
+      <table class="table-mini">
+        <tr><th style="width:10%">级别</th><th style="width:20%">内容</th><th style="width:15%">频率</th><th style="width:55%">参与者</th></tr>
+        <tr><td><b>一级</b></td><td>重大事件/特殊事件沟通/服务内容变更/客户投诉</td><td>不定期按需</td><td>系统规划与管理师+客户接口人</td></tr>
+        <tr><td><b>二级</b></td><td>项目月度例会（服务量/SLA达成率/重大事件）</td><td>每月度</td><td>系统规划与管理师+客户接口人</td></tr>
+        <tr><td><b>三级</b></td><td>项目季度回顾（服务数据/SLA/满意度/改进计划）</td><td>每季度</td><td>系统规划与管理师+业务关系经理+客户接口人</td></tr>
+        <tr><td><b>四级</b></td><td>合作年度回顾（项目整体实施交付情况）</td><td>每年度</td><td>供方高层+系统规划与管理师+业务关系经理+客户</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>首考第26题</b>：四级服务回顾机制——级别与频率匹配。「一无二度三季四年」= 一级不定期、二级月度、三级季度、四级年度</div>
+    </div>
+    <!-- 服务改进 -->
+    <div class="sub-section">
+      <div class="sub-title">12.5.5 服务改进 <span class="p0-mark">P0</span><span class="exam-mark">首考论文</span><span class="mnemonic">设实验</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">服务改进设计</div>
+        <ul class="item-list">
+          <li><b>定义改进目标</b>：与服务目标一致/现实可行可测定/满足用户需求符合法规</li>
+          <li><b>识别改进输入</b>：服务测量/回顾/客户需求差异/业界标准/员工意见/管理层要求/审核结果/KPI趋势/变革/日常问题</li>
+          <li><b>制订改进计划</b>：文档介绍/基本信息/改进描述/改进方案/角色职责/改进回顾</li>
+          <li><b>确认改进职责</b>：系统规划与管理师和质量负责人负责</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">服务改进实施（四要素改进）</div>
+        <ul class="item-list">
+          <li><b>人员改进</b>：改善管理体制/提高人员素质/调整储备比例/调整岗位结构</li>
+          <li><b>资源改进</b>：保障资源支撑/完善IT工具/优化服务台/优化知识库和备件库</li>
+          <li><b>技术改进</b>：研发计划重新规划/技术成果优化/完善技术文档/改进应急预案/更新监控指标</li>
+          <li><b>过程改进</b>：完善现有过程/建立新过程/调整考核指标/提升对外形象/提供新服务/提供管理报表</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">服务改进验证</div>
+        <ul class="item-list">
+          <li>对照改进计划检查指标完成情况 → 未达标则原因分析+整改措施</li>
+          <li>形成书面统计分析及改进报告</li>
+          <li>提交服务改进报告</li>
+        </ul>
+      </div>
+      <div class="note-box">🔑 <b>首考论文</b>：论信息系统服务持续改进与监督（12.5全节）。服务改进是五环闭环：测量→回顾→改进设计→改进实施→改进验证→（回到测量）</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 本章小结 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>📋 本章考察规律总结 · 12.1考协议区分 · 12.2考8大过程 · 12.3考成本分类 · 12.5考回顾机制</span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <table class="table-mini">
+      <tr><th>优先级</th><th>考点</th><th>掌握要求</th></tr>
+      <tr><td>🔴P0</td><td>SLA/OLA/UC区分（外S内O三U）</td><td>必须背熟，场景判断</td></tr>
+      <tr><td>🔴P0</td><td>8大过程名称+顺序（级报事问配变发安）</td><td>必须背熟每个过程的核心活动</td></tr>
+      <tr><td>🔴P0</td><td>服务目录6步（组列编评发完）</td><td>必须背熟顺序</td></tr>
+      <tr><td>🔴P0</td><td>四级服务回顾机制（一无二度三季四年）</td><td>必须背熟级别与频率</td></tr>
+      <tr><td>🔴P0</td><td>4类成本分类（直人/直非/间人/间非）</td><td>必须会判断，首考已考</td></tr>
+      <tr><td>🔴P0</td><td>MTBSI=MTBF+MTTR公式</td><td>必须会计算</td></tr>
+      <tr><td>🟡P1</td><td>服务四要素设计（人/资/技/过）</td><td>会展开每个要素下的核心内容</td></tr>
+      <tr><td>🟡P1</td><td>服务营销4阶段（启调能达）</td><td>了解每个阶段的核心活动</td></tr>
+      <tr><td>🟡P1</td><td>业务关系管理（客户/供应商/第三方）</td><td>了解主要活动</td></tr>
+      <tr><td>🟢P2</td><td>服务退役终止（4会议/4风险/4回收）</td><td>了解即可</td></tr>
+      <tr><td>🟢P2</td><td>服务外包收益（6条）</td><td>了解即可</td></tr>
+    </table>
+    <div class="note-box">🔑 <b>2026年论文预测</b>：最高优先级是「论信息系统服务设计实现」（12.2），与首考12.5不重叠，五要素信息密度极高</div>
+  </div>
+</div>
+
+</div><!-- container -->
+
+<!-- 口诀面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 10px 16px">
+  <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:17px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记·28条）</h3>
+    <div class="mnemonics-grid">
+      <div><b>服务目录6步</b>：组列编评发完（成立小组/列举清单/确定类别代码/编制详述/评审发布/完善目录）<span class="p0-mark">P0</span></div>
+      <div><b>6类需求</b>：可连能安价报（可用性/连续性/服务能力/信息安全/价格/服务报告）</div>
+      <div><b>三级协议</b>：外S内O三U（SLA对外/OLA对内/UC对第三方）<span class="p0-mark">P0</span></div>
+      <div><b>可用性公式</b>：MTBSI=MTBF+MTTR（平均故障间隔=平均无故障+平均修复）<span class="p0-mark">P0</span></div>
+      <div><b>服务模式</b>：远集中远支持，现上门驻场（远程集中监控/远程技术支持/上门技术支持/驻场技术支持）</div>
+      <div><b>人员三设计</b>：管技操，标绩培（岗位/绩效/培训）</div>
+      <div><b>培训5类</b>：管技工过交（管理/技术/工具/过程/交付应急）</div>
+      <div><b>资源4类</b>：工台件库（服务工具/服务台/备件库/知识库）<span class="p0-mark">P0</span></div>
+      <div><b>服务台性质</b>：是职能不是过程！（易混P0）</div>
+      <div><b>8大过程</b>：级报事问配变发安（服务级别/服务报告/事件/问题/配置/变更/发布/信息安全）<span class="p0-mark">P0</span></div>
+      <div><b>事件vs问题</b>：事件=被动恢复治标，问题=根因分析治本（易混P0）</div>
+      <div><b>业务关系</b>：客供三，八满增（客户/供应商/第三方，8项活动/满意度/增值服务）</div>
+      <div><b>服务营销4阶段</b>：启调能达（启动准备/调研交流/能力展示/服务达成）</div>
+      <div><b>4类成本</b>：直人直非，间人间非（直接人力/直接非人力/间接人力/间接非人力）<span class="p0-mark">P0</span></div>
+      <div><b>直接非人力判断</b>：是否为特定项目支出（是=直接，否=间接）</div>
+      <div><b>预算3步骤</b>：识阶表（识别收支项/划分执行阶段/形成预算表）</div>
+      <div><b>收益4指标</b>：投净人产（投入产出比/投资回报率/净产出/人均产出）</div>
+      <div><b>外包收益6条</b>：成效降专管提（成本效益/效率提升/降低风险/专注主业/管理简单/提升满意度）</div>
+      <div><b>退役4会议</b>：编评移经（计划编制/评审/移交/经验交流）</div>
+      <div><b>退役4风险</b>：数业法信（数据/业务连续性/法律法规/信息安全）</div>
+      <div><b>资源回收4类</b>：文财人基（文件归档/财务/人力资源/基础设施）</div>
+      <div><b>服务测量4对象</b>：人资技过（人员/资源/技术/过程）</div>
+      <div><b>服务质量5特性</b>：安可响有形友（安全性/可靠性/响应性/有形性/友好性）</div>
+      <div><b>质量管理3活动</b>：策检改（策划/检查/改进）</div>
+      <div><b>四级回顾</b>：一无二度三季四年（一级不定期/二级月度/三级季度/四级年度）<span class="p0-mark">P0</span></div>
+      <div><b>服务改进3阶段</b>：设实验（设计/实施/验证）<span class="p0-mark">P0</span></div>
+      <div><b>改进四要素</b>：每人资过（人员/资源/技术/过程）</div>
+      <div><b>首考5题</b>：SLA概念/服务目录顺序/8过程判断/成本分类/回顾机制（全覆盖12.1-12.5）</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">第12章 信息系统服务管理 · 核心知识思维脑图 | 基于第2版教材 + 2025年11月首考真题考点 | Ctrl+E 全展开 · Ctrl+C 全折叠</div>
+
+<script>
+function toggleBranch(header){header.classList.toggle('collapsed');var body=header.nextElementSibling;body.classList.toggle('collapsed')}
+function toggleAll(expand){
+  document.querySelectorAll('.branch-header').forEach(function(h){
+    if(expand){h.classList.remove('collapsed');h.nextElementSibling.classList.remove('collapsed')}
+    else{h.classList.add('collapsed');h.nextElementSibling.classList.add('collapsed')}
+  })
+}
+function toggleMnemonics(){
+  var btn=document.getElementById('btnHighlight');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m){
+    m.style.background=btn.classList.contains('active')?'#ffc107':'#fff3cd';
+    m.style.color=btn.classList.contains('active')?'#000':'#856404'
+  })
+}
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && e.key==='e'){e.preventDefault();toggleAll(true)}
+  if(e.ctrlKey && e.key==='c'){e.preventDefault();toggleAll(false)}
+})
+</script>
+
+</body>
+</html>

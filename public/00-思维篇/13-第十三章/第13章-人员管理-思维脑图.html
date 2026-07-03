@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第13章 人员管理 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.container{max-width:900px;margin:0 auto;padding:16px 10px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;margin-bottom:14px;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:12px 16px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 12px 14px}
+.branch-body.collapsed{display:none}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:4px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:4px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:4px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:4px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:4px solid #7d3c98}
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:3px solid #3498db}
+.item-list{list-style:none;padding-left:8px}
+.item-list li{font-size:14px;padding:3px 8px;line-height:1.8;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:4px;font-size:13px;font-weight:700;margin-left:5px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#f4ecf7;color:#7d3c98;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.key-point{color:#c0392b;font-weight:600}
+.exam-mark{display:inline-block;background:#ffe0b2;color:#e65100;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.p0-mark{display:inline-block;background:#fdedec;color:#c0392b;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;margin:0 3px}
+.table-mini{width:100%;font-size:14px;border-collapse:collapse;margin-top:6px}
+.table-mini th{background:#f8f9fa;padding:6px 8px;border:1px solid #e0e0e0;text-align:center;font-weight:700;font-size:13px}
+.table-mini td{padding:5px 8px;border:1px solid #e0e0e0;font-size:13px}
+.table-mini tr:nth-child(even){background:#fafafa}
+.note-box{background:#fff9e6;border-left:4px solid #f39c12;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:14px;color:#7d6608}
+.formula-box{background:#eaf2f8;border:2px solid #3498db;padding:10px 14px;margin:8px 0;border-radius:8px;font-size:14px;color:#1a5276;text-align:center}
+.footer{padding:18px 10px;text-align:center;color:#aaa;font-size:13px}
+.mnemonics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.mnemonics-grid div{background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:14px;border:1px solid #eee}
+.danger-mark{display:inline-block;background:#c0392b;color:#fff;padding:1px 5px;border-radius:3px;font-size:11px;font-weight:700}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>👥 第13章 人员管理 · 核心知识思维脑图</h1>
+  <p>基于第2版教材 + 2025年11月首考真题考点 · 13.1~13.7 全节覆盖</p>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <button onclick="toggleAll(true)">📖 全部展开</button>
+  <button onclick="toggleAll(false)">📕 全部折叠</button>
+  <button id="btnHighlight" onclick="toggleMnemonics()">🧠 高亮口诀</button>
+</div>
+
+<div class="container">
+
+<!-- ========== 13.1 人力资源管理基础 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>13.1 人力资源管理基础 <span class="tag">五环节</span><span class="tag">四大目标</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">人力资源管理目标 <span class="p0-mark">P1</span></div>
+      <ul class="item-list">
+        <li>① 建立招聘选拔体系，获得最符合组织需要的员工</li>
+        <li>② 充分挖掘员工潜能，服务于组织发展目标+满足员工事业需求</li>
+        <li>③ 留住助力实现目标的员工，淘汰无法满足发展需要的员工</li>
+        <li>④ 确保遵守政府人力资源方面的法律法规、政策和标准</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">⚡ 人力资源管理5环节 <span class="p0-mark">P0必背</span><span class="exam-mark">已考</span><span class="mnemonic">规聘维升评</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">环节</th><th style="width:86%">核心内容</th></tr>
+        <tr><td><b>规划</b></td><td>确认工作要求，确定人员容量与技术需求，工作分析与岗位设计，预测人力需求 <span class="tag">基础</span></td></tr>
+        <tr><td><b>招聘</b></td><td>根据工作需要确定最合适人选，确保从申请人中选拔出符合组织需要的员工</td></tr>
+        <tr><td><b>维护</b></td><td>维护员工积极性，维护安全健康工作环境，工资薪金、绩效、福利激励 <span class="tag">留人</span></td></tr>
+        <tr><td><b>提升</b></td><td>提高员工知识/技能/经验，培训指导，培育各级管理人员及骨干人才 <span class="tag">育人</span></td></tr>
+        <tr><td><b>评价</b></td><td>观察测量评估员工工作结果和表现，绩效评估，面谈辅导促使满足岗位要求</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>记忆口诀</b>：规聘维升评 = 招人前先规划，然后招聘，进来后维护（薪酬激励），再提升（培训），最后评价（绩效）</div>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">广义 vs 狭义目标</div>
+      <ul class="item-list">
+        <li><b>广义</b>：充分利用组织中的人员使各项工作效率水平达到最高</li>
+        <li><b>狭义</b>：帮助各团队负责人更加有效地管理团队成员</li>
+        <li>人力资源部门通过制定解释政策、规范完成这两个目标</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 13.2 工作分析与岗位设计 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>13.2 工作分析与岗位设计 <span class="tag">4作用</span><span class="tag">4阶段</span><span class="tag">8方法</span><span class="tag">4设计法</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 工作分析作用 -->
+    <div class="sub-section">
+      <div class="sub-title">13.2.1 工作分析的作用 <span class="p0-mark">P0</span><span class="exam-mark">已考</span><span class="mnemonic">聘评薪岗</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">作用领域</th><th style="width:82%">具体说明</th></tr>
+        <tr><td><b>招聘和选择</b></td><td>工作分析是有效招聘的前提，提供工作内容和任职资格条件资料，用作选录工具</td></tr>
+        <tr><td><b>发展和评价</b></td><td>设计培训计划，建立晋升渠道和职业发展路径，工作要求是绩效评价的标准和依据</td></tr>
+        <tr><td><b>薪酬政策</b></td><td>合理确定薪酬标准的基础，理解各项工作对组织价值的贡献大小，确定合理薪酬</td></tr>
+        <tr><td><b>组织与岗位设计</b></td><td>明确各项工作之间的关系结构，正确划分岗位序列，消除盲点减少重复提高效率</td></tr>
+      </table>
+    </div>
+    <!-- 工作分析过程 -->
+    <div class="sub-section">
+      <div class="sub-title">工作分析4阶段（10步骤）<span class="p0-mark">P0</span><span class="mnemonic">围法集评</span></div>
+      <table class="table-mini">
+        <tr><th style="width:15%">阶段</th><th style="width:85%">步骤内容</th></tr>
+        <tr><td><b>第一阶段<br>准备</b></td><td>1.确立工作分析的目的 2.明确工作分析范围 3.确定所需信息的类型</td></tr>
+        <tr><td><b>第二阶段<br>设计</b></td><td>4.识别工作信息的来源 5.确定工作分析方法 6.明确工作分析的具体步骤</td></tr>
+        <tr><td><b>第三阶段<br>收集分析</b></td><td>7.收集工作信息 8.分析所收集的信息 9.向组织报告结果</td></tr>
+        <tr><td><b>第四阶段<br>评价</b></td><td>10.评价工作分析的结果（收益、成本、合规性和合法性）</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>口诀</b>：围（范围/目的）→ 法（方法设计）→ 集（收集分析）→ 评（评价结果）</div>
+    </div>
+    <!-- 信息收集人员 -->
+    <div class="sub-section">
+      <div class="sub-title">三类信息收集人员优缺点 <span class="p1-mark" style="background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px">P1</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">类型</th><th style="width:28%">优点</th><th style="width:28%">缺点</th><th style="width:28%">适用场景</th></tr>
+        <tr><td><b>工作分析专家</b></td><td>客观公正、方法科学、信息一致</td><td>成本高，可能忽略无形方面</td><td>关键重要工作</td></tr>
+        <tr><td><b>主管人员</b></td><td>全面了解，收集速度快</td><td>需培训，时间负担重，客观性难保证</td><td>新工作/变动工作</td></tr>
+        <tr><td><b>典型任职者</b></td><td>对工作最熟悉，速度快</td><td>标准化程度差，工作职责完整性差</td><td>相对成熟工作</td></tr>
+      </table>
+    </div>
+    <!-- 工作分析方法 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 定性5种方法 <span class="p0-mark">P0</span><span class="exam-mark">已考</span><span class="mnemonic">实观面卷例</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">方法</th><th style="width:42%">核心定义</th><th style="width:44%">优缺点/适用</th></tr>
+        <tr><td><b>工作实践法</b></td><td>分析人员亲自从事所需要研究的工作</td><td>优：准确了解实际任务；缺：不适用于大量训练和危险工作</td></tr>
+        <tr><td><b>直接观察法</b></td><td>观察工作过程，标准格式记录</td><td>适用：身体活动完成的工作（装配、保安）；不适用：脑力劳动</td></tr>
+        <tr><td><b>面谈法</b></td><td>与工作承担者面谈收集信息</td><td>优：简单迅速；缺：员工易夸大责任难度，不应作为唯一方法</td></tr>
+        <tr><td><b>问卷法</b></td><td>结构化问卷收集信息</td><td>优：迅速、费用低、可数量化；缺：设计理想问卷费时费力</td></tr>
+        <tr><td><b>典型事例法</b></td><td>描述有效/无效行为，积累汇总分类</td><td>优：揭示动态性质；缺：收集归纳耗时，难形成总体概念</td></tr>
+      </table>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">⚡ 定量3种方法 <span class="p0-mark">P0</span><span class="exam-mark">已考</span><span class="mnemonic">职管功</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">方法</th><th style="width:82%">核心内容与特点</th></tr>
+        <tr><td><b>职位分析问卷法PAQ</b></td><td>1972年麦考密克提出，适用性很强。6部分：信息来源/智力活动/产出/与他人关系/环境/其他特征。6分制评分。<span class="tag2">高频</span>：PAQ属于定量方法</td></tr>
+        <tr><td><b>管理岗位描述问卷法</b></td><td>1976年托诺和平托提出，208个问题描述管理人员工作，13个类别，6分制评分</td></tr>
+        <tr><td><b>功能性工作分析法</b></td><td>依据与数据、人和事三项要素的关系评估工作，数值越小等级越高</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：定性 vs 定量 → 前=描述性（实观面卷例），后=量化评分（职管功）｜PAQ属于定量，不要误选为定性</div>
+    </div>
+    <!-- 工作说明书 -->
+    <div class="sub-section">
+      <div class="sub-title">工作说明书：工作描述 + 工作规范</div>
+      <ul class="item-list">
+        <li><b>工作描述</b>：记载任职者需要做什么、如何做、在什么条件下完成。包括工作设定/工作定义/工作说明</li>
+        <li><b>工作规范</b>：回答需要哪些个人特征和经验才能胜任。说明教育、经验等最低要求（非最理想）</li>
+        <li>工作规范由上一级管理者、工作承担者和工作分析人员共同研究制定</li>
+      </ul>
+    </div>
+    <!-- 岗位设计 -->
+    <div class="sub-section">
+      <div class="sub-title">13.2.2 岗位设计方法 <span class="p1-mark" style="background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px">P1</span><span class="mnemonic">科人特高</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">方法</th><th style="width:84%">核心思想与特点</th></tr>
+        <tr><td><b>科学管理方法</b><br>（泰勒）</td><td>时间-动作研究，工作简化到最简单任务，员工在严密监督下完成。优点：安全简单可靠；缺点：降低独立性，限制内在报酬</td></tr>
+        <tr><td><b>人际关系方法</b></td><td>在枯燥工作中增加管理成分，提高工作吸引力。包括：工作扩大化、工作轮调、工作丰富化</td></tr>
+        <tr><td><b>工作特征模型</b><br>（赫茨伯格）</td><td>工作丰富化，5核心维度（技能多样性/任务完整性/任务意义/自主性/反馈）→ 3关键心理状态 → 结果<span class="tag2">易考5维度</span></td></tr>
+        <tr><td><b>高绩效工作体系</b></td><td>科学管理+人际关系结合，员工有多方面技能，组成工作小组，自主决定任务分配。适合扁平化网络化组织</td></tr>
+      </table>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">岗位设计内容（3方面）</div>
+      <ul class="item-list">
+        <li><b>工作内容设计</b>（重点）：工作广度/深度/完整性/自主性/反馈性</li>
+        <li><b>工作职责设计</b>：责任/权利/方法/相互沟通</li>
+        <li><b>工作关系设计</b>：岗位之间的协作关系、监督关系</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">工作特征模型 · 5核心维度 <span class="p1-mark" style="background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px">P1</span><span class="mnemonic">多完意主反</span></div>
+      <ul class="item-list">
+        <li><b>技能的多样性</b>：工作需要多种技能和才干的程度</li>
+        <li><b>任务的完整性</b>：工作从头到尾完成整个过程的程度</li>
+        <li><b>工作任务的意义</b>：工作对他人生活影响的程度</li>
+        <li><b>任务的自主性</b>：工作提供自主安排进度的自由度</li>
+        <li><b>反馈</b>：员工了解自己工作绩效的程度</li>
+      </ul>
+      <div class="note-box">🔑 5维度 → 3关键心理状态（感受意义/感受责任/了解结果）→ 结果（内在动力/绩效/满意度/低缺勤离职）</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 13.3 人力资源战略与计划 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>13.3 人力资源战略与计划 <span class="tag">诱投参</span><span class="tag">内高混</span><span class="tag">3预测法</span><span class="tag">6供给法</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 人力资源战略 -->
+    <div class="sub-section">
+      <div class="sub-title">13.3.1 戴尔和霍德战略分类 <span class="p0-mark">P0</span><span class="exam-mark">已考</span><span class="mnemonic">诱投参</span></div>
+      <table class="table-mini">
+        <tr><th style="width:12%">战略</th><th style="width:44%">核心特点</th><th style="width:44%">关键词</th></tr>
+        <tr><td><b>诱因战略</b></td><td>寻求稳定可靠员工，依赖高薪策略留住员工，纯粹利益交换关系</td><td>高薪、绩效薪酬比重大、成本控制、员工关系简单</td></tr>
+        <tr><td><b>投资战略</b></td><td>成长期/变化环境，长期雇佣观点，重视培训开发，聘用多于需要的人数</td><td>重视培训、人才储备、广泛职责、良好劳资关系、长期发展<span class="p0-mark">P0</span></td></tr>
+        <tr><td><b>参与战略</b></td><td>权力下放到最基层，提高员工参与性，员工参与管理决策</td><td>员工参与决策、管理者是指导教练、充分授权、团队建设</td></tr>
+      </table>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">⚡ 巴伦和克雷普斯战略分类 <span class="p0-mark">P0</span><span class="exam-mark">已考</span><span class="mnemonic">内高混</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">战略</th><th style="width:86%">核心特点与区分</th></tr>
+        <tr><td><b>内部劳动力市场战略</b></td><td>层级分明，内部晋升渠道，提供工作保障，鼓励员工长期效力，维护组织独特知识资本</td></tr>
+        <tr><td><b>高承诺战略</b></td><td>扁平化组织结构+团队合作，保证一定员工流动率获取新知识，薪酬体现工作成果差别<span class="tag2">易混</span></td></tr>
+        <tr><td><b>混合战略</b></td><td>介于两者之间，既有内部晋升和工作保障，也采用基于工作成果的绩效考核和薪酬</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>两类战略区分</b>：戴尔=从员工角度（诱=高薪留人/投=培训发展/参=授权参与）｜巴伦=从市场角度（内=内部晋升/高=流动获取新知/混=两者结合）</div>
+    </div>
+    <!-- 人力资源预测 -->
+    <div class="sub-section">
+      <div class="sub-title">13.3.2 人力资源需求预测3法 <span class="p1-mark" style="background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px">P1</span><span class="mnemonic">集回转</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">方法</th><th style="width:84%">核心内容与特点</th></tr>
+        <tr><td><b>集体预测法</b><br>（德尔菲法）</td><td>专家匿名多轮反馈，直到达成一致意见。适合对人力需求的<span class="key-point">长期趋势</span>进行预测<span class="tag2">高频</span></td></tr>
+        <tr><td><b>回归分析法</b></td><td>根据数学回归原理预测。简单=趋势分析；复杂=计量模型分析法（业务量vs员工数）</td></tr>
+        <tr><td><b>转换比率分析法</b></td><td>先估计关键技能员工数量，再估计辅助人员数量。研究未来经营活动需要的员工数量</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>德尔菲法特点</b>：匿名、多轮反馈、专家独立判断、直到达成一致。不属于定量工作分析方法！</div>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">人力资源供给预测6法 <span class="p1-mark" style="background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px">P1</span><span class="mnemonic">盘图续阵息外</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">方法</th><th style="width:82%">核心内容</th></tr>
+        <tr><td><b>人才盘点与技能清单</b></td><td>明确人才标准→了解人才现状→形成人才地图→拟定行动计划。三步：组织盘点/开展盘点/拟定计划</td></tr>
+        <tr><td><b>管理人员置换图</b></td><td>记录管理人员绩效/晋升可能性/培训需求，决定重要职位空缺的补充人选</td></tr>
+        <tr><td><b>人力接续计划</b></td><td>明确工作岗位要求，确定能达到要求的候选员工或经培训后能胜任的员工</td></tr>
+        <tr><td><b>转移矩阵法</b><br>（马尔可夫）</td><td>预测各类人员分布状况，找出过去人事变动规律推测未来<span class="tag2">高频</span>。流动可能性比例矩阵</td></tr>
+        <tr><td><b>人力资源信息系统</b></td><td>收集保存分析人事信息，建立人事档案（知识/技术/能力/经验/抱负）+未来需求预测</td></tr>
+        <tr><td><b>外部供给预测</b></td><td>研究潜在员工数量、能力等，提供研究新员工来源及进入方式的分析框架</td></tr>
+      </table>
+    </div>
+    <!-- 计划控制与评价 -->
+    <div class="sub-section">
+      <div class="sub-title">13.3.3 人力资源计划控制与评价</div>
+      <ul class="item-list">
+        <li><b>供需结果对照</b>：适应 / 需求超过供给（短缺）/ 需求小于供给（过剩）</li>
+        <li><b>短缺解决</b>：增加录用数量（新来源/强吸引/降标准/临时工）或提高效率（培训/岗位设计/补偿政策）</li>
+        <li><b>过剩解决</b>：减少加班/鼓励提前退休/减少新进员工/辞退</li>
+        <li><b>整体性</b>：内部一致（招聘选育考配合）+ 外部一致（服从组织整体规划）</li>
+        <li><b>人力资源审计</b>：考察HRM活动是否按原计划执行（如是否完成绩效考核、是否离职面谈等）</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 13.4 人员招聘与录用 ========== -->
+<div class="branch-card c4">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>13.4 人员招聘与录用 <span class="tag">8渠道</span><span class="tag">3原则</span><span class="tag">3面试</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 招聘过程 -->
+    <div class="sub-section">
+      <div class="sub-title">13.4.1 招聘过程5步骤</div>
+      <ul class="item-list">
+        <li>① <b>招聘计划制订</b>：确定需求数量/技术组合/岗位等级/时间要求等</li>
+        <li>② <b>招聘信息发布</b>：时间/方式/渠道/范围根据招聘计划确定</li>
+        <li>③ <b>应聘者申请</b>：建立应聘者数据库，保存候选人信息</li>
+        <li>④ <b>人员遴选与录用</b>：初步筛选→测试→面试→背景调查→确定录取→入职培训</li>
+        <li>⑤ <b>招聘评估与反馈</b>：招聘周期/完成率/成本/满意度/录用人员评估</li>
+      </ul>
+    </div>
+    <!-- 招聘渠道 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 招聘8渠道 <span class="p1-mark" style="background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px">P1</span><span class="exam-mark">已考</span><span class="mnemonic">内广介猎校推网临</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">渠道</th><th style="width:86%">适用场景与特点</th></tr>
+        <tr><td><b>内部来源</b></td><td>发布信息公告，现有员工申请。优点：节省成本，员工忠诚可靠</td></tr>
+        <tr><td><b>招聘广告</b></td><td>使用最普遍，发布迅速，成本较低，可同时发布多种岗位<span class="tag">最普遍</span></td></tr>
+        <tr><td><b>职业介绍机构</b></td><td><span class="key-point">5个适用场景</span>：难吸引足够申请人/只需招很少数量/急于填充关键岗位/招聘已在业人员/缺乏招聘经验<span class="p1-mark" style="background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px">P1</span></td></tr>
+        <tr><td><b>猎头组织</b></td><td>专门"搜捕"高级管理人员和高级技术人员，接触正在工作没换工作积极性的人<span class="tag">高管/高技</span></td></tr>
+        <tr><td><b>校园招聘</b></td><td>专业技术人员的重要来源。注意：选派能力强的工作人员/及时答复/体现公平诚实</td></tr>
+        <tr><td><b>员工推荐</b></td><td>节省广告费，得到忠诚可靠员工。自荐者也应礼貌对待</td></tr>
+        <tr><td><b>网络招聘</b></td><td>三种方式：自建网站/第三方招聘网站/社交媒体。缩短招聘时间，提高效率</td></tr>
+        <tr><td><b>临时性雇员</b></td><td>4种选择：内部临时工储备/中介临时雇用/自由职业者/短期雇用。缺点：增加成本，质量不稳定</td></tr>
+      </table>
+    </div>
+    <!-- 录用方法 -->
+    <div class="sub-section">
+      <div class="sub-title">13.4.3 录用方法</div>
+      <ul class="item-list">
+        <li><b>背景调查</b>：打电话或要求推荐信验证个人资料（教育/工作履历/品质/能力/重新雇佣意愿）</li>
+        <li><b>录用测试8类</b>：能力测试/操作与身体技能测试/人格与兴趣测试/成就测试/工作样本法/测谎器法/笔迹判定法/体检</li>
+        <li><b>工作样本法</b>：测试实际业务能力，效果直接客观，不侵犯隐私权，不涉及人格心理状态</li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">录用标准3原则 <span class="mnemonic">补最混</span></div>
+        <table class="table-mini">
+          <tr><th style="width:16%">原则</th><th style="width:84%">核心内容</th></tr>
+          <tr><td><b>补偿性原则</b></td><td>成绩高的项目可以补偿成绩低的项目，设置不同权重。适用于强调综合素质的情况</td></tr>
+          <tr><td><b>多元最低限制原则</b></td><td>每个方面都必须达到最低标准，依次测试，成本低的安排在前面</td></tr>
+          <tr><td><b>混合原则</b></td><td>先使用多元最低限制淘汰一部分，再依据补偿性原则综合评价</td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 招聘面试 -->
+    <div class="sub-section">
+      <div class="sub-title">13.4.4 招聘面试3类型 <span class="mnemonic">非半结</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">类型</th><th style="width:86%">特点与区分</th></tr>
+        <tr><td><b>非结构化面试</b></td><td>面试人员完全任意与申请人讨论各种话题，不依据任何固定线索，帮助了解申请人兴趣</td></tr>
+        <tr><td><b>半结构化面试</b></td><td>提前准备重要问题但不按固定次序提问；或依据事先规划的问题表格提问，留空白记录反应</td></tr>
+        <tr><td><b>结构化面试</b></td><td>提前准备好问题和各种可能的答案，要求申请人在问卷上选择答案，迅速做出评价结论</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>面试程序</b>：面试前准备（明确目的/了解岗位要求/设计问题/设计评分标准）→ 实施面试（发现能力/挖掘经验）→ 评估面试结果（检查记录/量化评价）</div>
+    </div>
+    <!-- 招聘效果评估 -->
+    <div class="sub-section">
+      <div class="sub-title">13.4.5 招聘效果评估5指标 <span class="mnemonic">周满成达成本</span></div>
+      <ul class="item-list">
+        <li><b>招聘周期</b>：完成一个职位招聘所需要的时间，越长成本越高</li>
+        <li><b>用人部门满意度</b>：用人部门领导对所招新员工的满意程度</li>
+        <li><b>招聘成功率</b>：实际上岗人数和面试人数的比例</li>
+        <li><b>招聘达成率</b>：实际上岗人数与计划招聘人数的比例</li>
+        <li><b>招聘成本</b>：显性成本（广告/奖励）+ 隐性成本（内部沟通/面试时间）</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 13.5 人员培训 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>13.5 人员培训 <span class="tag">4步骤</span><span class="tag">柯氏4层</span><span class="tag">培训迁移</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 培训程序 -->
+    <div class="sub-section">
+      <div class="sub-title">13.5.1 培训4基本步骤 <span class="mnemonic">标项施评</span></div>
+      <ul class="item-list">
+        <li>① <b>评估培训需求</b>：确定组织绩效或发展要求方面的偏差是否可以通过培训弥补</li>
+        <li>② <b>设定培训目标</b>：目标应可以衡量，随问题变化而不断变化</li>
+        <li>③ <b>设计培训项目</b>：培训师选择/地点布置/方法设计/教材确定</li>
+        <li>④ <b>培训实施和评估</b>：比较培训前后绩效和能力差异，考核培训计划效果</li>
+      </ul>
+      <div class="note-box">🔑 <b>培训类型</b>：入职培训（消除焦虑/适应组织）+ 在职培训（提升绩效/节约成本/迅速反馈）</div>
+    </div>
+    <!-- 培训需求评估 -->
+    <div class="sub-section">
+      <div class="sub-title">13.5.2 培训需求3层面分析 <span class="mnemonic">组绩任</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">分析层面</th><th style="width:86%">分析内容与目的</th></tr>
+        <tr><td><b>组织分析</b></td><td>确定组织范围内的培训需求，保证培训计划符合整体目标与战略要求。重点：战略目标/资源/氛围分析</td></tr>
+        <tr><td><b>绩效分析</b></td><td>考察员工目前实际绩效与目标绩效之间是否存在偏离，决定是否可以通过培训矫正<span class="tag">改绩效</span></td></tr>
+        <tr><td><b>任务分析</b></td><td>分析员工达到理想绩效必须掌握的技能和能力，形成工作活动详细描述<span class="tag">定内容</span></td></tr>
+      </table>
+      <div class="note-box">🔑 <b>前瞻性培训需求分析模型</b>：满意的工作绩效 + 工作要求变化/工作调动/晋升 → 预期工作技能要求 → 培训解决方案 or 非培训解决方案</div>
+    </div>
+    <!-- 培训效果评估 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 培训效果评估4层次 <span class="p0-mark">P0必背</span><span class="exam-mark">已考</span><span class="mnemonic">反学行果</span></div>
+      <table class="table-mini">
+        <tr><th style="width:10%">层次</th><th style="width:22%">名称</th><th style="width:30%">考察内容</th><th style="width:38%">测量方法</th></tr>
+        <tr><td><b>第一层</b></td><td>反应</td><td>受训者对培训项目的反应和感觉</td><td>满意度调查、科目/教员/收获评价</td></tr>
+        <tr><td><b>第二层</b></td><td>学习效果</td><td>受训者对培训内容的掌握程度</td><td>培训后考试或实际操作测试</td></tr>
+        <tr><td><b>第三层</b></td><td>行为变化</td><td>员工因培训引起的工作能力变化，是否应用了概念和技能</td><td>控制组方法，比较培训组vs未培训组绩效<span class="p0-mark">P0</span></td></tr>
+        <tr><td><b>第四层</b></td><td>培训效果</td><td>受训者能力变化是否对组织结果有积极影响</td><td>效率提高/质量改进/离职率下降/风险减少<span class="key-point">最高层</span></td></tr>
+      </table>
+      <div class="note-box">🔑 <b>口诀</b>：反（反应）→ 学（学习）→ 行（行为）→ 果（结果）。柯氏四层次 = Kirkpatrick Model</div>
+    </div>
+    <!-- 培训迁移 -->
+    <div class="sub-section">
+      <div class="sub-title">培训迁移模型（Baldwin & Ford, 1988）</div>
+      <ul class="item-list">
+        <li><b>培训输入</b>：受训者特征 + 培训设计 + 工作环境 → 影响学习/保存/迁移</li>
+        <li><b>受训者特征</b>：能力/个性/动机</li>
+        <li><b>培训设计</b>：学习目的/材料/内容/场地</li>
+        <li><b>工作环境</b>：管理者支持/执行机会/技术支持/转化氛围</li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">促进培训迁移的6工作环境特征 <span class="mnemonic">主管线反惩奖惩</span></div>
+        <ul class="item-list">
+          <li><b>直接主管</b>：鼓励使用新技能并设定目标</li>
+          <li><b>任务线索</b>：工作特点督促提醒应用新技能</li>
+          <li><b>反馈结果</b>：主管关注应用培训内容的人员</li>
+          <li><b>不轻易惩罚</b>：应用新技能出现失误时不会受到惩罚</li>
+          <li><b>外部强化</b>：因应用新技能而受到外在奖励（薪水/绩效增加）</li>
+          <li><b>内部强化</b>：因应用新技能而受到内部激励（表扬）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 13.6 组织绩效与薪酬管理 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>13.6 组织绩效与薪酬管理 <span class="tag">4环节</span><span class="tag">5考核法</span><span class="tag">3薪酬体系</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 绩效管理 -->
+    <div class="sub-section">
+      <div class="sub-title">13.6.1 绩效管理循环4环节 <span class="p1-mark" style="background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px">P1</span><span class="exam-mark">已考</span><span class="mnemonic">计实考反</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">环节</th><th style="width:42%">活动内容</th><th style="width:44%">时间</th></tr>
+        <tr><td><b>绩效计划</b></td><td>与员工一起确定绩效目标和行动计划，收集信息→确定KPI→讨论确定</td><td>新绩效周期开始时</td></tr>
+        <tr><td><b>绩效实施与监控</b></td><td>观察记录总结绩效，提供反馈，探讨问题，提供指导建议</td><td>整个绩效期间</td></tr>
+        <tr><td><b>绩效考核</b></td><td>考核员工绩效，制定科学标准，日常记录，自评与管理员考核结合</td><td>绩效周期结束时</td></tr>
+        <tr><td><b>绩效反馈面谈</b></td><td>就考核结果与员工讨论，达成共识，认识进步与缺点，制定改进计划</td><td>绩效周期结束时</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>绩效反馈面谈4目的</b>：达成共识/认识进步与缺点/制订改进计划/修订下一周期目标</div>
+    </div>
+    <!-- 绩效考核方法 -->
+    <div class="sub-section">
+      <div class="sub-title">绩效考核5方法对比 <span class="p1-mark" style="background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px">P1</span><span class="mnemonic">排事对鉴锚</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">方法</th><th style="width:28%">适合提供反馈</th><th style="width:28%">适合奖金分配</th><th style="width:30%">设计/应用成本</th></tr>
+        <tr><td><b>员工比较类</b><br>（排序/成对/强制分布）</td><td>❌ 难发现问题领域</td><td>❌ 很难提出有力证据</td><td>✅ 设计应用成本都很低</td></tr>
+        <tr><td><b>关键事件法</b></td><td>△ 取决于报告主题</td><td>❌ 无综合分数无法比较</td><td>设计低/应用高</td></tr>
+        <tr><td><b>行为对照表法</b></td><td>△ 只能发现一般问题</td><td>✅ 可设置权重得分数</td><td>设计高/应用低（整体居中）</td></tr>
+        <tr><td><b>等级鉴定法</b></td><td>✅ 能发现问题领域</td><td>△ 很难提出有力证据</td><td>✅ 设计应用成本都低</td></tr>
+        <tr><td><b>行为锚定评价法BARS</b><br><span class="tag2">高频</span></td><td>✅ 明确指出导致问题的行为</td><td>✅ 能明确依据行为提出证据</td><td>设计高/应用低（但效果好）<span class="p0-mark">P0</span></td></tr>
+      </table>
+      <div class="note-box">🔑 <b>BARS</b> = Behaviorally Anchored Rating Scales，明确定义每个评价项目，用关键事件法描述不同水平工作要求，避免评价误差</div>
+    </div>
+    <!-- 薪酬体系 -->
+    <div class="sub-section">
+      <div class="sub-title">13.6.2 薪酬体系3类型 <span class="p1-mark" style="background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px">P1</span><span class="mnemonic">职技能</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">体系类型</th><th style="width:84%">确定依据与区分</th></tr>
+        <tr><td><b>基于职位</b></td><td>依据员工所从事的工作自身的价值。最常见。流程：工作分析→职位说明书→工作评价→职位薪酬结构</td></tr>
+        <tr><td><b>基于技能</b></td><td>依据员工所掌握的技能水平。"会什么技术"<span class="tag2">易混</span></td></tr>
+        <tr><td><b>基于能力</b></td><td>依据员工所具备的能力水平。"具备什么素质"<span class="tag2">易混</span></td></tr>
+      </table>
+      <div class="note-box">🔑 <b>技能 vs 能力</b>：技能=会什么技术（可测量）；能力=具备什么素质（潜在特征）</div>
+    </div>
+    <!-- 工作评价 -->
+    <div class="sub-section">
+      <div class="sub-title">工作评价5方法 <span class="p1-mark" style="background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px">P1</span><span class="mnemonic">排因分点海</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">方法</th><th style="width:84%">分类与特点</th></tr>
+        <tr><td><b>工作排序法</b></td><td>非量化，工作间比较。按整体印象排序</td></tr>
+        <tr><td><b>因素比较法</b></td><td>量化，工作间比较。按要素逐一对比</td></tr>
+        <tr><td><b>工作分类法</b></td><td>非量化，与既定标准比较。预先定义等级标准</td></tr>
+        <tr><td><b>点数法</b></td><td>量化，与既定标准比较。打分加总，最常用<span class="tag2">易考</span></td></tr>
+        <tr><td><b>海氏系统法</b></td><td>量化，与既定标准比较。复杂的评分系统</td></tr>
+      </table>
+    </div>
+    <!-- 薪酬等级 -->
+    <div class="sub-section">
+      <div class="sub-title">薪酬等级结构5要素 <span class="p2-mark" style="background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px">P2</span><span class="mnemonic">数中标差叠</span></div>
+      <ul class="item-list">
+        <li><b>薪酬等级数</b>：太多或太少都会损害内部公平性，需持续优化</li>
+        <li><b>目标薪酬</b>：每个薪酬等级的中点（中值），反映组织针对某职位确定的薪酬水平</li>
+        <li><b>薪酬级差</b>：相邻两个等级目标薪酬之间的差额</li>
+        <li><b>薪酬幅度</b>：每级职位薪酬的范围幅度（最低点与最高点之间的差额）</li>
+        <li><b>薪酬重叠情况</b>：相邻两级别之间薪酬区间的重叠程度，年资为依据时重叠程度高</li>
+      </ul>
+    </div>
+    <!-- 薪酬激励 -->
+    <div class="sub-section">
+      <div class="sub-title">4类人员薪酬激励策略</div>
+      <table class="table-mini">
+        <tr><th style="width:16%">人员类别</th><th style="width:84%">激励方法与特点</th></tr>
+        <tr><td><b>操作人员</b></td><td>计件制（完全计件/部分计件），按产量计算薪酬</td></tr>
+        <tr><td><b>销售人员</b></td><td>佣金制（完全按绩效）+ 底薪制（固定薪水）+ 混合制（底薪+佣金）</td></tr>
+        <tr><td><b>专业技术人员</b></td><td>加薪（公平绩效评估基础上按年资增加），非金钱奖励（更好设备/支持性管理）</td></tr>
+        <tr><td><b>高级管理人员</b></td><td>5部分：基本薪酬+短期奖励（年度红利）+长期激励（股票）+正常福利+特殊津贴</td></tr>
+      </table>
+    </div>
+    <!-- 薪酬调整 -->
+    <div class="sub-section">
+      <div class="sub-title">薪酬调整分类</div>
+      <ul class="item-list">
+        <li><b>水平调整</b>：主动型（增薪/减薪）vs 被动型（法规/工会压力）</li>
+        <li><b>水平调整内容</b>：奖励性调整/生活指数性调整/年资性调整/效益性调整</li>
+        <li><b>结构调整</b>：纵向（增加/减少薪酬等级）+ 横向（固定/变动薪酬比例/薪酬形式组合）</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 13.7 人员职业规划与管理 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>13.7 人员职业规划与管理 <span class="tag">职业道路</span><span class="tag">4责任方</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">职业规划道路设计要求</div>
+      <ul class="item-list">
+        <li>① 代表员工职业发展的真实可能性（横向发展/纵向升迁）</li>
+        <li>② 具有尝试性，能根据工作内容/任职顺序/组织形式调整</li>
+        <li>③ 具有灵活性，考虑员工薪酬水平</li>
+        <li>④ 说明每个职位要求的技能/知识/品质及具备条件的方法</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">确定职业道路的步骤</div>
+      <ul class="item-list">
+        <li>① 进行工作分析，找出工作对员工要求的相同点和不同点</li>
+        <li>② 将行为要求类似的工作组合成工作族</li>
+        <li>③ 在工作族之间找出职业道路</li>
+        <li>④ 连接所有职业道路，构成完整的职业系统</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">三方责任划分 <span class="mnemonic">员管组</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">责任方</th><th style="width:84%">主要责任内容</th></tr>
+        <tr><td><b>员工</b></td><td>向管理人员提供技能/工作经验/职业意愿等准确信息</td></tr>
+        <tr><td><b>管理人员</b></td><td>发挥员工信息作用/提供职位空缺信息/综合信息确定候选人/发现发展机会</td></tr>
+        <tr><td><b>组织</b></td><td>提供职业规划模型/信息/指导/培训；设计信息收集分析方法；监控评价执行效果</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 本章小结 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>📋 本章考察规律总结 · 全是清单题 · 区分两个战略体系是核心</span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="note-box">🔑 <b>第13章考点规律</b>：全是清单题。"不包括"陷阱极多，解题关键是分清两个分类体系的边界。方法名称混淆（PAQ/德尔菲/BARS）是高频考点。顺序题必考（四阶段/四环节/三步骤）。</div>
+    <table class="table-mini">
+      <tr><th style="width:10%">优先级</th><th style="width:90%">考点与掌握要求</th></tr>
+      <tr><td>🔴P0</td><td>两个战略分类体系区分（诱投参 vs 内高混）= 必须背熟，是解题核心</td></tr>
+      <tr><td>🔴P0</td><td>定性5种 vs 定量3种方法归属 = PAQ属于定量，德尔菲属于需求预测</td></tr>
+      <tr><td>🔴P0</td><td>柯氏四层次顺序和名称（反学行果）= 必须能默写+场景判断</td></tr>
+      <tr><td>🔴P0</td><td>绩效管理四环节（计实考反）= 必须能默写，注意顺序</td></tr>
+      <tr><td>🟡P1</td><td>职业介绍机构5场景 + 招聘8渠道 + 工作特征模型5维度</td></tr>
+      <tr><td>🟡P1</td><td>工作分析4阶段 + 5环节 + 4作用 = 会场景判断和区分</td></tr>
+      <tr><td>🟢P2</td><td>薪酬等级5要素 + 工作评价5法 + 培训迁移6特征</td></tr>
+    </table>
+    <div class="sub-section">
+      <div class="sub-title" style="border-left-color:#1e8449">10组最易混概念对照（速记）</div>
+      <ul class="item-list">
+        <li><b>诱因战略 vs 高承诺战略</b>：诱因=高薪诱惑留人；高承诺=允许流动获取新知</li>
+        <li><b>面谈法（工作分析）vs 面谈法（绩效反馈）</b>：前者收集工作信息；后者绩效循环第四环节</li>
+        <li><b>工作实践法 vs 工作样本法</b>：实践=分析人员亲自干；样本=应聘者现场做任务</li>
+        <li><b>转移矩阵法（供给预测）vs 转换比率分析法（需求预测）</b>：转移=供给；转换=需求</li>
+        <li><b>BARS vs 行为对照表法</b>：BARS有具体行为描述；对照表只是勾选</li>
+        <li><b>技能薪酬 vs 能力薪酬</b>：技能=会什么技术；能力=具备什么素质</li>
+        <li><b>点数法 vs 因素比较法</b>：点数法=打分加总；因素比较=逐项对比</li>
+        <li><b>培训效果第四层 vs 培训迁移</b>：第四层评估培训本身效果；迁移评估知识应用到工作的程度</li>
+        <li><b>德尔菲法 vs 专家判断法</b>：德尔菲=匿名多轮；专家判断=直接征询</li>
+        <li><b>内部劳动力市场战略 vs 诱因战略</b>：内部=长期内部晋升；诱因=高薪外部吸引</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div><!-- container -->
+
+<!-- 口诀面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 10px 16px">
+  <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:17px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记·30条）</h3>
+    <div class="mnemonics-grid">
+      <div><b>HR五环节</b>：规聘维升评（规划/招聘/维护/提升/评价）<span class="p0-mark">P0</span></div>
+      <div><b>工作分析四作用</b>：聘评薪岗（招聘/评价/薪酬/岗设）</div>
+      <div><b>工作分析四阶段</b>：围法集评（准备/设计/收集分析/评价）</div>
+      <div><b>定性五法</b>：实观面卷例（实践/观察/面谈/问卷/典型事例）</div>
+      <div><b>定量三法</b>：职管功（职位分析问卷/管理岗位描述/功能性工作分析）</div>
+      <div><b>信息收集三类</b>：专主任（专家/主管/任职者）</div>
+      <div><b>岗位设计四法</b>：科人特高（科学管理/人际关系/特征模型/高绩效体系）</div>
+      <div><b>工作特征五维</b>：多完意主反（多样性/完整性/意义/自主性/反馈）</div>
+      <div><b>戴尔霍德三战略</b>：诱投参（诱因/投资/参与）<span class="p0-mark">P0</span></div>
+      <div><b>巴伦克雷普斯三战略</b>：内高混（内部市场/高承诺/混合）<span class="p0-mark">P0</span></div>
+      <div><b>需求预测三法</b>：集回转（集体/回归/转换比率）</div>
+      <div><b>供给预测六法</b>：盘图续阵息外（盘点/图表/接续/矩阵/信息系统/外部）</div>
+      <div><b>招聘五步骤</b>：计发申选评（计划/发布/申请/遴选/评估）</div>
+      <div><b>招聘八渠道</b>：内广介猎校推网临<span class="p1-mark" style="background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px">P1</span></div>
+      <div><b>录用三原则</b>：补最混（补偿/最低/混合）</div>
+      <div><b>面试三类型</b>：非半结（非结构化/半结构化/结构化）</div>
+      <div><b>招聘评估五指标</b>：周满成达成（周期/满意度/成功率/达成率/成本）</div>
+      <div><b>培训四步骤</b>：需标项施（需求/目标/项目设计/实施评估）</div>
+      <div><b>培训需求三层面</b>：组绩任（组织/绩效/任务）</div>
+      <div><b>柯氏四层次</b>：反学行果（反应/学习/行为/结果）<span class="p0-mark">P0</span></div>
+      <div><b>培训迁移六特征</b>：主(管)线反惩奖惩（主管/线索/反馈/不惩罚/外奖/内奖）</div>
+      <div><b>绩效四环节</b>：计实考反（计划/实施/考核/反馈）<span class="p1-mark" style="background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px">P1</span></div>
+      <div><b>考核五方法</b>：排事对鉴锚（排序/关键事件/对照表/等级鉴定/锚定）</div>
+      <div><b>薪酬三体系</b>：职技能（职位/技能/能力）</div>
+      <div><b>工作评价五法</b>：排因分点海（排序/因素比较/分类/点数/海氏）</div>
+      <div><b>薪酬等级五要素</b>：数中标差叠（等级数/目标薪酬/级差/幅度/重叠）</div>
+      <div><b>职业三方责任</b>：员管组（员工/管理人员/组织）</div>
+      <div><b>两大战略易混</b>：诱=高薪留人｜投=培训发展｜参=授权｜内=内部晋升｜高=流动获知｜混=两者结合</div>
+      <div><b>PAQ归属</b>：定量方法（职位分析问卷法），不要误选定性！<span class="p0-mark">P0</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">第13章 人员管理 · 核心知识思维脑图 | 基于第2版教材 + 2025年11月首考真题考点 | Ctrl+E 全展开 · Ctrl+C 全折叠</div>
+
+<script>
+function toggleBranch(header){header.classList.toggle('collapsed');var body=header.nextElementSibling;body.classList.toggle('collapsed')}
+function toggleAll(expand){
+  document.querySelectorAll('.branch-header').forEach(function(h){
+    if(expand){h.classList.remove('collapsed');h.nextElementSibling.classList.remove('collapsed')}
+    else{h.classList.add('collapsed');h.nextElementSibling.classList.add('collapsed')}
+  })
+}
+function toggleMnemonics(){
+  var btn=document.getElementById('btnHighlight');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m){
+    m.style.background=btn.classList.contains('active')?'#ffc107':'#fff3cd';
+    m.style.color=btn.classList.contains('active')?'#000':'#856404'
+  })
+}
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && e.key==='e'){e.preventDefault();toggleAll(true)}
+  if(e.ctrlKey && e.key==='c'){e.preventDefault();toggleAll(false)}
+})
+</script>
+
+</body>
+</html>

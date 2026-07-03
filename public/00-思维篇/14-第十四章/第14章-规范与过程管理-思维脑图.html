@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第14章 规范与过程管理 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.container{max-width:900px;margin:0 auto;padding:16px 10px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;margin-bottom:14px;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:12px 16px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 12px 14px}
+.branch-body.collapsed{display:none}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:4px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:4px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:4px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:4px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:4px solid #7d3c98}
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:3px solid #3498db}
+.item-list{list-style:none;padding-left:8px}
+.item-list li{font-size:14px;padding:3px 8px;line-height:1.8;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:4px;font-size:13px;font-weight:700;margin-left:5px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#f4ecf7;color:#7d3c98;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.key-point{color:#c0392b;font-weight:600}
+.exam-mark{display:inline-block;background:#ffe0b2;color:#e65100;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.p0-mark{display:inline-block;background:#fdedec;color:#c0392b;padding:1px 5px;border-radius:3px;font-size:11px;font-weight:600;margin:0 3px}
+.table-mini{width:100%;font-size:14px;border-collapse:collapse;margin-top:6px}
+.table-mini th{background:#f8f9fa;padding:6px 8px;border:1px solid #e0e0e0;text-align:center;font-weight:700;font-size:13px}
+.table-mini td{padding:5px 8px;border:1px solid #e0e0e0;font-size:13px}
+.table-mini tr:nth-child(even){background:#fafafa}
+.note-box{background:#fff9e6;border-left:4px solid #f39c12;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:14px;color:#7d6608}
+.formula-box{background:#eaf2f8;border:2px solid #3498db;padding:10px 14px;margin:8px 0;border-radius:8px;font-size:14px;color:#1a5276;text-align:center}
+.footer{padding:18px 10px;text-align:center;color:#aaa;font-size:13px}
+.mnemonics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.mnemonics-grid div{background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:14px;border:1px solid #eee}
+.danger-mark{display:inline-block;background:#c0392b;color:#fff;padding:1px 5px;border-radius:3px;font-size:11px;font-weight:700}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📋 第14章 规范与过程管理 · 核心知识思维脑图</h1>
+  <p>基于第2版教材 + 2025年11月首考真题考点 · 14.1~14.5 全节覆盖</p>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <button onclick="toggleAll(true)">📖 全部展开</button>
+  <button onclick="toggleAll(false)">📕 全部折叠</button>
+  <button id="btnHighlight" onclick="toggleMnemonics()">🧠 高亮口诀</button>
+</div>
+
+<div class="container">
+
+<!-- ========== 14.1 管理标准化 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>14.1 管理标准化 <span class="tag">5大特性</span><span class="tag">8大原理</span><span class="tag">5种方法</span><span class="tag">PDCA</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 标准化定义与5大特性 -->
+    <div class="sub-section">
+      <div class="sub-title">标准化的定义与5大特性 <span class="p0-mark">P1</span><span class="mnemonic">系国动超经</span></div>
+      <ul class="item-list">
+        <li><b>定义</b>：对重复性事物和概念，通过制订、发布和实施标准达到统一，获得最佳秩序和社会效益</li>
+        <li><b>标准化对象</b>：具体对象（需制定标准的具体事物）+ 总体对象（各种具体对象的总和）</li>
+        <li><b>①系统性</b>：系统工程方法，从系统整体最优出发</li>
+        <li><b>②国际性</b>：国际标准协调，减少贸易壁垒</li>
+        <li><b>③动态性</b>：标准随技术发展适时修订</li>
+        <li><b>④超前性</b>：超前标准化，引领技术发展</li>
+        <li><b>⑤经济性</b>：获取最佳经济效益和社会效益</li>
+      </ul>
+      <div class="note-box">🔑 <b>PDCA循环</b>（戴明环）：计划 → 实施与运行 → 检查与纠正措施 → 管理评审，周而复始实现持续改进 <span class="tag2">已考关联</span></div>
+    </div>
+    <!-- 8大原理 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 标准化8大原理 <span class="p0-mark">P0必背</span><span class="exam-mark">首考已考</span><span class="mnemonic">超系协统动互阶滞</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">原理</th><th style="width:43%">核心内容</th><th style="width:43%">关键词/判断</th></tr>
+        <tr><td><b>超前预防</b></td><td>从实际+潜在重复发生问题中选取标准化对象，预防不必要多样化</td><td>潜在问题→超前标准化</td></tr>
+        <tr><td><b>系统优化</b></td><td>从系统观点出发，全局最佳效益＞局部效益</td><td>系统最优、全局效益</td></tr>
+        <tr><td><b>协商一致</b></td><td>标准以推荐性为原则，需相关各方协商一致（非强制）</td><td>推荐性、协商一致、公开招标</td></tr>
+        <tr><td><b>统一有度</b></td><td>统一不是单一化，在一定范围/时期/条件下统一，等效是前提</td><td>统一有度、等效前提 <span class="exam-mark">易混</span></td></tr>
+        <tr><td><b>动变有序</b></td><td>标准适时修订，按规定程序变动；国标5年有效，行标/地标5年，组织标准3年</td><td>5年/3年、有序修订</td></tr>
+        <tr><td><b>互换兼容</b></td><td>产品/服务/过程能互相替代（互换）或一起使用不干扰（兼容）</td><td>互换性、兼容性、模块化</td></tr>
+        <tr><td><b>阶梯发展</b></td><td>制定→实施→监督检查→评价，循环上升，每修订一次标准高一阶</td><td>阶梯上升、循环发展</td></tr>
+        <tr><td><b>滞阻即废</b></td><td>标准有二重性（促进/阻碍），受阻时立即废止；复审4结果：更修废确</td><td>双刃剑、更修废确 <span class="exam-mark">已考关联</span></td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：统一有度（原理）vs 简化（方法）→ 前=统一但不单一化，后=缩减类型数目｜协商一致 vs 强制性标准 → 标准以推荐性为原则，非强制执行</div>
+    </div>
+    <!-- 标准有效期与复审 -->
+    <div class="sub-section">
+      <div class="sub-title">标准有效期与复审4结果 <span class="p0-mark">P1</span><span class="mnemonic">更修废确</span></div>
+      <table class="table-mini">
+        <tr><th style="width:20%">标准类型</th><th style="width:20%">有效期</th><th style="width:60%">复审4结果</th></tr>
+        <tr><td><b>国际/国家/行业标准</b></td><td>5年</td><td rowspan="2"><b>更</b>改（改不适用条文）/ <b>修</b>订（大改换版）/ <b>废</b>止（原标准无效）/ <b>确</b>认（继续有效）</td></tr>
+        <tr><td><b>组织标准</b></td><td>3年</td></tr>
+      </table>
+    </div>
+    <!-- 5种标准化方法 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 5种标准化方法 <span class="p0-mark">P0必背</span><span class="mnemonic">简系组综超</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">方法</th><th style="width:30%">定义</th><th style="width:28%">目的/特点</th><th style="width:28%">应用场景</th></tr>
+        <tr><td><b>简化</b></td><td>缩减对象类型数目，满足基本需要</td><td>减少多样化，投资少收效快</td><td>品种/规格/原材料/工艺装备</td></tr>
+        <tr><td><b>系列化</b></td><td>对同一类产品参数按规定数系同时标准化</td><td>简化品种规格，增加品种降成本</td><td>产品参数系列/型谱/系列设计</td></tr>
+        <tr><td><b>组合化</b></td><td>分解→标准模块→组合成新系统（可拆装重用）</td><td>统一化单元多次重复利用</td><td>模块化设计、组合式设计系统</td></tr>
+        <tr><td><b>综合标准化</b></td><td>整体最佳效果为目标，全部因素综合系统处理</td><td>标准综合体，跨专业协调</td><td>产品标准综合体/技术性标准综合体</td></tr>
+        <tr><td><b>超前标准化</b></td><td>规定高于实际水平的规格要求（有超前期）</td><td>动态标准化，引领技术发展</td><td>带头产品、先进管理方法</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：综合标准化 vs 超前标准化 → 前=全面最优（广度/多因素），后=领先当前（深度/超前期）｜简化 vs 系列化 → 前=减少类型数目，后=统一参数系列</div>
+    </div>
+    <!-- 简化 -->
+    <div class="sub-section">
+      <div class="sub-title">14.1.2 简化 <span class="mnemonic">保需防过分</span></div>
+      <ul class="item-list">
+        <li><b>原则</b>：总体功能最佳、以时空范围为前提、保证满足一般需要、参数符合标准数值分级</li>
+        <li><b>实质</b>：对客观事物构成调整并最优化，非任意缩减</li>
+        <li><b>应用</b>：品种/规格/原材料/工艺装备/零部件，管理业务也可简化</li>
+      </ul>
+    </div>
+    <!-- 系列化 -->
+    <div class="sub-section">
+      <div class="sub-title">14.1.3 系列化 <span class="mnemonic">参谱设</span></div>
+      <ul class="item-list">
+        <li><b>①制定基本参数系列</b>：首个环节，参数系列化是型谱和系列设计的基础</li>
+        <li><b>②编制产品系列型谱</b>：基型+变型关系，品种发展总趋势图表（慎重不变）</li>
+        <li><b>③开展产品系列设计</b>：选基型→横扩规格→纵扩展型（4方面）</li>
+      </ul>
+    </div>
+    <!-- 组合化和模块化 -->
+    <div class="sub-section">
+      <div class="sub-title">14.1.4 组合化和模块化 <span class="mnemonic">分标组重</span></div>
+      <ul class="item-list">
+        <li><b>分解</b>：把系统分解为功能单元，分离出可通用/互换的标准模块</li>
+        <li><b>组合</b>：把标准模块/通用模块/专用模块有机组合成新系统</li>
+        <li><b>特征</b>：统一化单元可多次重复利用，拼合后可重新拆装</li>
+        <li><b>优势</b>：不经常改变生产流程，迅速将新产品投入市场</li>
+      </ul>
+    </div>
+    <!-- 综合标准化 -->
+    <div class="sub-section">
+      <div class="sub-title">14.1.5 综合标准化 <span class="mnemonic">系全整协</span></div>
+      <ul class="item-list">
+        <li><b>定义</b>：GB/T 12366-2009，运用系统分析方法，建立标准综合体并贯彻实施</li>
+        <li><b>标准综合体2类</b>：①产品标准综合体（长绒棉20项/烤烟17项）②一般技术性标准综合体（跨专业协调）</li>
+        <li><b>7原则</b>：系统开展/范围完整/有计划组织/整体效益最佳/低层次服从高层次/充分选用现行标准/标准相互配合</li>
+      </ul>
+    </div>
+    <!-- 超前标准化 -->
+    <div class="sub-section">
+      <div class="sub-title">14.1.6 超前标准化 <span class="mnemonic">超预指阶</span></div>
+      <ul class="item-list">
+        <li><b>超前标准</b>：规定高于实际达到水平的规格要求，有超前期（分若干等级/阶段实施）</li>
+        <li><b>3阶段</b>：准备阶段（选对象定指标）→ 制定超前标准阶段 → 贯彻超前标准阶段</li>
+        <li><b>4预测对象</b>：①科学技术水平（模拟法）②需求量（模拟/标准/外推/直接法）③生态指标（模拟/动态模型）④经济指标（模拟/启发/外推法）</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 14.2 流程规划 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>14.2 流程规划 <span class="tag">端到端</span><span class="tag">3类流程</span><span class="tag">2种方法</span><span class="tag">分级</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 端到端流程 -->
+    <div class="sub-section">
+      <div class="sub-title">14.2.1 端到端的流程 <span class="p0-mark">P0</span><span class="mnemonic">以终为始目导</span></div>
+      <ul class="item-list">
+        <li><b>定义</b>：从获取业务对象需求开始，到业务对象满意结束（以终为始，目标导向）</li>
+        <li><b>本质</b>：关注贡献而非任务本身，从目的而非任务出发，追求整体最优</li>
+        <li><b>分级</b>：组织级高阶流程（战略→目标）→ 中阶流程（最终业务对象）→ 低阶流程</li>
+        <li><b>业务对象</b>：利益干系人 = 经销商/用户/群众/股东/员工/政府/社区/供应商/合作伙伴</li>
+      </ul>
+      <div class="formula-box">端到端 = 需求 → 满意｜战略导向 → 全局管理 → 整体最优（非分散聚焦个人/部门目标）</div>
+    </div>
+    <!-- 组织流程框架 -->
+    <div class="sub-section">
+      <div class="sub-title">14.2.2 组织流程框架 <span class="mnemonic">线面战协</span></div>
+      <ul class="item-list">
+        <li><b>从"线"到"面"</b>：端到端流程识别（线）→ 流程紧密捏合（面），流程与战略匹配+流程间运行协同</li>
+        <li><b>整体流程框架</b>：反映整体业务模式，突出战略/核心竞争力，一级/二级流程逐渐细化到完整流程清单</li>
+        <li><b>APQC流程框架</b>：1.0愿景战略/2.0产品服务开发/3.0营销销售/4.0交付/5.0客户服务/6.0人力资本/7.0IT/8.0财务/9.0资产/10.0环健安/11.0外部关系/12.0知识改进变革</li>
+        <li><b>责任人</b>：组织最高管理层是流程框架总图责任人</li>
+      </ul>
+    </div>
+    <!-- 流程规划方法 -->
+    <div class="sub-section">
+      <div class="sub-title">14.2.3 流程规划方法 <span class="p0-mark">P0</span><span class="mnemonic">岗模</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">方法</th><th style="width:36%">工作路径</th><th style="width:46%">优缺点</th></tr>
+        <tr><td><b>基于岗位职责</b><br>（从下到上）</td><td>①确定代表性岗位→②访谈→③分解主要工作→④梳理流程及关键点→⑤补充完善→⑥汇总流程清单</td><td><b>优点</b>：细致不遗漏、易被接受<br><b>缺点</b>：工作量大、受访谈人影响</td></tr>
+        <tr><td><b>基于业务模型</b><br>（从上到下）</td><td>①绘制业务模式模型→②模型分解→③关联对接现有流程→④访谈无法对接部门→⑤完成清单和总图</td><td><b>优点</b>：工作量小、进度可控<br><b>缺点</b>：易遗漏、对专业能力要求高、成果可能不被认可</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：岗位职责法（从下到上）= 细致但量大｜业务模型法（从上到下）= 快速但易漏</div>
+    </div>
+    <!-- 流程分类分级 -->
+    <div class="sub-section">
+      <div class="sub-title">14.2.4 流程分类与分级 <span class="p0-mark">P0必背</span><span class="exam-mark">高频</span><span class="mnemonic">战运支</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">分类</th><th style="width:32%">定义</th><th style="width:54%">包含内容</th></tr>
+        <tr><td><b>战略流程</b></td><td>面向未来，提供发展方向和整体管理</td><td>战略目标规划/分解/实现策略/竞争策略与商业模式/战略控制与调整</td></tr>
+        <tr><td><b>运行流程</b></td><td>直接为业务对象创造价值，能被看到的流程</td><td>新产品管理（价值链）/营销和销售（市场链）/产品与服务提供（供应链）/服务管理（服务链）</td></tr>
+        <tr><td><b>支持流程</b></td><td>为运行流程提供支持与服务</td><td>决策支持/后勤支持/风险控制（纵向职能专业导向）</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>关系</b>：战略流程 → 运行流程 → 支持流程｜运行流程以战略流程为导向，支持流程以服务运行流程为目的</div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">流程分级（3级）<span class="mnemonic">一二三</span></div>
+        <ul class="item-list">
+          <li><b>一级流程</b>（域）：高阶流程，端到端流程</li>
+          <li><b>二级流程</b>（域过程）：中阶流程，在每个"域"内</li>
+          <li><b>三级流程</b>（子流程+活动）：低阶流程，工作活动比较具体</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">流程分类维度（6种）</div>
+        <ul class="item-list">
+          <li>按业务对象分（组织级/个人/政府）/ 按业务风险分（普通/绿色通道）/ 按输入分（电子/手工）/ 按重要度分（主辅料/备件/办公）/ 按业务模式分（定制/库存）/ 按管理对象分（收入/管理/应付/固定资产/总账）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 14.3 流程执行 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>14.3 流程执行 <span class="tag">8项保障</span><span class="tag">理解/推广/培训/负责人/审计/信息系统/制度/文化</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">⚡ 流程执行8项保障措施 <span class="p0-mark">P0必背</span><span class="exam-mark">首考已考</span><span class="mnemonic">解推训人审统制化</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">措施</th><th style="width:43%">核心内容</th><th style="width:43%">关键词</th></tr>
+        <tr><td><b>①理解流程</b></td><td>理解流程是什么+设计方法与规则；理解建立原因+目的+价值+不执行的后果</td><td>两个层面理解</td></tr>
+        <tr><td><b>②推广流程</b></td><td>关键流程重要变更时，采取培训/交流等方式推广</td><td>变更后推广</td></tr>
+        <tr><td><b>③新员工培训</b></td><td>新员工入职是黄金时期，流程制度蕴含组织运行体系，利于塑造工作行为</td><td>黄金时期、入职培训</td></tr>
+        <tr><td><b>④执行负责人</b></td><td>流程管理者（设计+推动+检查）+ 流程助手（执行+督导+实时掌握）</td><td>管理者+助手 <span class="exam-mark">易混</span></td></tr>
+        <tr><td><b>⑤流程审计监控</b></td><td>稽查与评价，保证有效实施和持续改进；建立违规惩处措施</td><td>监督考核、惩处措施</td></tr>
+        <tr><td><b>⑥固化到信息系统</b></td><td>信息系统固化流程，执行情况一目了然；信息共享/自动化/知识积累</td><td>信息系统、自动约束</td></tr>
+        <tr><td><b>⑦固化到制度</b></td><td>形成正规制度（强制属性）；包含：遵守规则 + 绩效激励制度</td><td>制度权威、强制约束</td></tr>
+        <tr><td><b>⑧流程文化宣导</b></td><td>以流程为做事准则，重视流程权威性，潜移默化影响员工行为习惯</td><td>文化宣导、行为习惯</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：固化到信息系统 vs 固化到制度 → 前=技术手段自动约束（IT），后=管理规范权威强制（管理）｜流程管理者 vs 流程助手 → 前=设计+整体负责，后=执行+实时督导</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 14.4 流程评价 ========== -->
+<div class="branch-card c4">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>14.4 流程评价 <span class="tag">4种检查方法</span><span class="tag">稽查7步</span><span class="tag">绩效3维度</span><span class="tag">审计11步</span><span class="tag">5项应用</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 流程检查方法4种 -->
+    <div class="sub-section">
+      <div class="sub-title">流程检查方法4种 <span class="p0-mark">P0</span><span class="mnemonic">稽效满意审</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">方法</th><th style="width:84%">核心内容</th></tr>
+        <tr><td><b>流程稽查</b></td><td>对单个流程稽查，查安排是否得到执行、是否到位（表14-2，7步）</td></tr>
+        <tr><td><b>流程绩效评估</b></td><td>对流程运行结果/效果评估，与设计目标对比；3维度：效果/效率/弹性</td></tr>
+        <tr><td><b>满意度评估</b></td><td>业务对象满意度评估，6来源：日常沟通/投诉抱怨/走访/电话回访/问卷调查/信息库</td></tr>
+        <tr><td><b>流程审计</b></td><td>针对流程体系整体全面系统检查，评估充分性/适用性/有效性/效率性（表14-3，11步）</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：流程稽查 vs 流程审计 → 前=单个流程执行合规检查，后=整体体系评估｜流程绩效 vs 流程稽查 → 前=结果评估（效/率/弹），后=执行合规检查</div>
+    </div>
+    <!-- 流程稽查7步 -->
+    <div class="sub-section">
+      <div class="sub-title">流程稽查7步 <span class="p0-mark">P0</span><span class="mnemonic">解键法线查报改</span></div>
+      <table class="table-mini">
+        <tr><th style="width:8%">步骤</th><th style="width:20%">名称</th><th style="width:72%">描述</th></tr>
+        <tr><td><b>1</b></td><td>理解流程目的目标及管理原则</td><td>理解流程本质（目的/目标/管理原则），才有明确稽查方向</td></tr>
+        <tr><td><b>2</b></td><td>确定流程稽查的关键点</td><td>从流程本质出发；关键点是对目标达成起关键作用的控制点</td></tr>
+        <tr><td><b>3</b></td><td>确定稽查方法</td><td>查记录与资料/现场观察执行/人员访谈</td></tr>
+        <tr><td><b>4</b></td><td>设计稽查线路与实施计划</td><td>汇总不同稽查点方法，设计最佳稽查路线（保证效率）</td></tr>
+        <tr><td><b>5</b></td><td>开展流程稽查</td><td>与受稽查部门明确目的背景；保证记录可追溯/可量化/真实</td></tr>
+        <tr><td><b>6</b></td><td>提交流程稽查报告</td><td>充分沟通达成一致；暴露普遍性/重大/代表性问题</td></tr>
+        <tr><td><b>7</b></td><td>跟进流程稽查问题整改</td><td>问题严重度评估 + 根源分析；根据资源配备安排改进</td></tr>
+      </table>
+    </div>
+    <!-- 流程绩效评估 -->
+    <div class="sub-section">
+      <div class="sub-title">流程绩效评估3维度 <span class="p0-mark">P0必背</span><span class="exam-mark">首考已考</span><span class="mnemonic">效效弹</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">维度</th><th style="width:30%">含义</th><th style="width:54%">典型指标/说明</th></tr>
+        <tr><td><b>效果</b></td><td>流程产出在多大程度上满足业务对象需求和期望</td><td>达成流程绩效设定目标的程度</td></tr>
+        <tr><td><b>效率</b></td><td>追求流程效果过程中，资源节约和杜绝浪费程度</td><td>处理时间/投入产出比/增值时间比例/质量成本</td></tr>
+        <tr><td><b>弹性</b></td><td>流程应具备的动态调整能力，满足当前和未来需求</td><td>适应性是典型指标</td></tr>
+      </table>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">建立战略导向流程绩效评估指标体系4步</div>
+        <ul class="item-list">
+          <li>①将组织战略目标按平衡计分卡4维度分解成符合SMART原则的目标</li>
+          <li>②将流程目标分解到组织一级流程上</li>
+          <li>③将一级流程目标分解到可管理级流程目标</li>
+          <li>④确定流程绩效评估指标体系</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">流程绩效评估结果分析4方面 <span class="mnemonic">目横竞稳</span></div>
+        <ul class="item-list">
+          <li><b>与流程绩效目标对比</b>（目）：找差距，原因分析，改进</li>
+          <li><b>组织内部横向比较</b>（横）：不同区域分支机构的流程绩效相互竞争</li>
+          <li><b>与竞争对手对比</b>（竞）：了解市场相对表现，找到改进方向</li>
+          <li><b>结果稳定性分析</b>（稳）：控制图；稳定=受控（需流程优化）/波动=非受控（需加强质量控制）</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 满意度评估 -->
+    <div class="sub-section">
+      <div class="sub-title">满意度评估6来源 <span class="p0-mark">P2</span><span class="mnemonic">日常投走电问库</span></div>
+      <ul class="item-list">
+        <li>①日常沟通记录 ②投诉抱怨信息 ③走访信息 ④电话回访 ⑤满意度问卷调查 ⑥满意度评估信息库（汇总集成）</li>
+      </ul>
+    </div>
+    <!-- 流程审计11步 -->
+    <div class="sub-section">
+      <div class="sub-title">流程审计11步 <span class="p0-mark">P1</span><span class="mnemonic">划围研表施首场补报末追</span></div>
+      <table class="table-mini">
+        <tr><th style="width:8%">步骤</th><th style="width:20%">名称</th><th style="width:72%">说明</th></tr>
+        <tr><td><b>1</b></td><td>制订计划</td><td>组建审计组，确认组长；成员至少有业务专业技术人员</td></tr>
+        <tr><td><b>2</b></td><td>确定审计范围</td><td>确定要审哪些流程（以流程为主线）</td></tr>
+        <tr><td><b>3</b></td><td>流程初步调研</td><td>厘清流程文件作用与关联，收集分析绩效测评资料与问题反馈</td></tr>
+        <tr><td><b>4</b></td><td>编制检查表</td><td>确定审计重要关注点，列出检查点并确定审计方法和判断标准</td></tr>
+        <tr><td><b>5</b></td><td>制订审计实施计划</td><td>安排现场审计的人员/时间/路线；包含目的/范围/依据/组成员</td></tr>
+        <tr><td><b>6</b></td><td>召开首次会议</td><td>与受审方确认审核计划，启动审计工作</td></tr>
+        <tr><td><b>7</b></td><td>现场审计</td><td>现场观察/查阅文件记录/交谈沟通/实际测定，抽取样本查证</td></tr>
+        <tr><td><b>8</b></td><td>补充审计</td><td>对不确定且影响审计结果的事项，开展小范围补充审计</td></tr>
+        <tr><td><b>9</b></td><td>编制审计报告</td><td>审计组长召开总结会议，以流程为主线汇总串联审计结果</td></tr>
+        <tr><td><b>10</b></td><td>召开末次会议</td><td>通报审计发现/不合格项/结论；与责任部门确定整改安排</td></tr>
+        <tr><td><b>11</b></td><td>改进追踪</td><td>追踪不合格项改进（<span class="key-point">能否产生价值的关键</span>）</td></tr>
+      </table>
+    </div>
+    <!-- 流程评价应用 -->
+    <div class="sub-section">
+      <div class="sub-title">流程评价结果5项应用 <span class="p0-mark">P0</span><span class="mnemonic">优核控纠战</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">应用</th><th style="width:84%">核心内容</th></tr>
+        <tr><td><b>①流程优化</b></td><td>以业务对象需求为导向优化流程；根据绩效评估结果找优化方向；通过审计发现体系全局问题</td></tr>
+        <tr><td><b>②绩效考核</b></td><td>流程检查结果作为绩效考核指标一部分；奖优罚劣；与评优/晋升/福利挂钩</td></tr>
+        <tr><td><b>③过程控制</b></td><td>及时提交整改单，评审问题严重度，处理不合格事项，迅速采取补救措施</td></tr>
+        <tr><td><b>④纠正措施</b></td><td>对系统性原因产生的问题（大面积/反复发生），分析根本原因，从根源针对性解决</td></tr>
+        <tr><td><b>⑤战略调整</b></td><td>满意度评估结果+流程绩效评估结果关联，对组织战略调整极具参考价值</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：纠正措施 vs 过程控制 → 前=系统性问题根因消除（治本），后=不合格纠正+补救（治标）</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 14.5 流程持续改进 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>14.5 流程持续改进 <span class="tag">3种驱动</span><span class="tag">优化顺序</span><span class="tag">项目化6步</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 3种驱动因素 -->
+    <div class="sub-section">
+      <div class="sub-title">流程优化3种驱动因素 <span class="p0-mark">P0</span><span class="mnemonic">问绩变</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">驱动类型</th><th style="width:84%">具体内容</th></tr>
+        <tr><td><b>问题导向</b></td><td>流程优化建议/流程事件/内外部投诉及意见反馈/流程审计报告（事件驱动）</td></tr>
+        <tr><td><b>绩效导向</b></td><td>流程目标及绩效测量报告/标杆组织对比分析报告（数据驱动，对标差距）</td></tr>
+        <tr><td><b>变革导向</b></td><td>组织战略/运行思路及策略/重要改革举措/流程规划报告（战略驱动）</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：绩效导向 vs 问题导向 → 前=数据驱动（对标差距），后=事件驱动（投诉/错误）</div>
+    </div>
+    <!-- 优化顺序 -->
+    <div class="sub-section">
+      <div class="sub-title">流程优化顺序（3步） <span class="p0-mark">P0</span><span class="mnemonic">框流程标</span></div>
+      <ul class="item-list">
+        <li><b>①流程框架体系优化</b>：优化业务模式/资源配置/职能，提升组织效率（明确问题边界和逻辑关系）</li>
+        <li><b>②流程的优化</b>：把组织的问题归结为重要问题，通过流程优化手段解决（落地在流程上）</li>
+        <li><b>③流程的标准化</b>：把具体流程/规范/标准/知识沉淀下来，标准化（落实到制度/执行标准/作业手册）</li>
+      </ul>
+      <div class="formula-box">优化顺序：框架体系优化 → 流程优化 → 流程标准化（落地到制度/执行标准）</div>
+    </div>
+    <!-- 项目化流程优化 -->
+    <div class="sub-section">
+      <div class="sub-title">项目化流程优化6步 <span class="p0-mark">P1</span><span class="mnemonic">立现目IT新旧关</span></div>
+      <table class="table-mini">
+        <tr><th style="width:12%">步骤</th><th style="width:88%">内容</th></tr>
+        <tr><td><b>1.0 立项</b></td><td>确定优化目标和范围，组建项目团队</td></tr>
+        <tr><td><b>2.0 现状分析及诊断</b></td><td>发现问题，分析问题根本原因，形成重要问题清单</td></tr>
+        <tr><td><b>3.0 目标流程及配套方案设计</b></td><td>设计目标流程，配套组织架构/制度/考核方案</td></tr>
+        <tr><td><b>4.0 IT方案设计与开发</b></td><td>将流程固化到信息系统中（如适用）</td></tr>
+        <tr><td><b>5.0 新旧流程切换</b></td><td>培训/试点/全面推行，确保平稳切换</td></tr>
+        <tr><td><b>6.0 项目关闭</b></td><td>评估优化效果，总结经验，项目结案</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>核心</b>：优化后的流程是否实现优化目标，需要通过流程评价活动进行评价；如无法达到预设效果，需再次进入流程优化活动（闭环管理）。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 本章小结 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>📋 本章考察规律总结 · 识别类首选 · 区分类难点 · 步骤类适合案例</span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <table class="table-mini">
+      <tr><th>优先级</th><th>考点</th><th>掌握要求</th><th>首考情况</th></tr>
+      <tr><td>🔴P0</td><td>标准化8大原理（超系协统动互阶滞）</td><td>必须能识别每项原理的核心内容</td><td><span class="tag2">已考</span>第41题</td></tr>
+      <tr><td>🔴P0</td><td>5种标准化方法（简系组综超）</td><td>必须能区分每种方法的定义和应用</td><td>未考，高频</td></tr>
+      <tr><td>🔴P0</td><td>组织流程3类（战运支）</td><td>必须能区分3类流程的定义和内容</td><td>未考，高频</td></tr>
+      <tr><td>🔴P0</td><td>流程执行8项保障（解推训人审统制化）</td><td>必须能默写8项措施</td><td><span class="tag2">已考</span>第42题</td></tr>
+      <tr><td>🔴P0</td><td>流程绩效3维度（效效弹）</td><td>必须能默写3维度及典型指标</td><td><span class="tag2">已考</span>第43题</td></tr>
+      <tr><td>🔴P0</td><td>流程评价结果5项应用（优核控纠战）</td><td>必须能默写5项应用</td><td>未考，案例题预测</td></tr>
+      <tr><td>🟡P1</td><td>稽查7步/审计11步/2种规划方法/3驱动/优化顺序</td><td>会区分和记忆步骤</td><td>未考</td></tr>
+      <tr><td>🟢P2</td><td>5特性/有效期复审/APQC/满意度6来源</td><td>了解即可</td><td>未考</td></tr>
+    </table>
+    <div class="note-box">🔑 <b>出题规律</b>：①「识别类」是首选（以下哪项不属于/属于XX）②「区分类」是难点（稽查vs审计/统一有度vs简化/运行vs支持）③「步骤类」适合案例（稽查7步/审计11步/优化3步）</div>
+  </div>
+</div>
+
+</div><!-- container -->
+
+<!-- 口诀面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 10px 16px">
+  <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:17px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记·28条）</h3>
+    <div class="mnemonics-grid">
+      <div><b>5大特性</b>：系国动超经（系统性/国际性/动态性/超前性/经济性）</div>
+      <div><b>8大原理</b>：超系协统动互阶滞（超前预防/系统优化/协商一致/统一有度/动变有序/互换兼容/阶梯发展/滞阻即废）</div>
+      <div><b>标准有效期</b>：国标行标5年，组织标准3年</div>
+      <div><b>复审4结果</b>：更修废确（更改/修订/废止/确认）</div>
+      <div><b>5种方法</b>：简系组综超（简化/系列化/组合化/综合标准化/超前标准化）</div>
+      <div><b>简化原则</b>：保需防过分（保证需要/防过分压缩/以时空为前提/参数符合分级）</div>
+      <div><b>系列化3内容</b>：参谱设（参数系列/系列型谱/系列设计）</div>
+      <div><b>组合化特征</b>：分标组重（分解/标准模块/组合/重复利用）</div>
+      <div><b>综合标准化</b>：系全整协（系统/全面/整体/协调）</div>
+      <div><b>超前标准化</b>：超预指阶（超前/预测/指标/阶段）</div>
+      <div><b>端到端本质</b>：以终为始目导（以终为始/目标导向）</div>
+      <div><b>流程规划2方法</b>：岗模（岗位职责/业务模型）</div>
+      <div><b>3类流程</b>：战运支（战略/运行/支持）</div>
+      <div><b>流程分级</b>：一二三（一级域/二级域过程/三级低阶）</div>
+      <div><b>流程执行8保障</b>：解推训人审统制化（理解/推广/培训/负责人/审计/信息系统/制度/文化）</div>
+      <div><b>流程管理者vs助手</b>：管理者=设计推动检查，助手=执行督导实时</div>
+      <div><b>固化两方式</b>：信息系统（技术自动），制度（管理强制）</div>
+      <div><b>4种检查方法</b>：稽效满意审（稽查/绩效/满意度/审计）</div>
+      <div><b>稽查vs审计</b>：稽查=单个流程，审计=整体体系</div>
+      <div><b>稽查7步</b>：解键法线查报改（理解/关键点/方法/线路/稽查/报告/整改）</div>
+      <div><b>绩效3维度</b>：效效弹（效果/效率/弹性）</div>
+      <div><b>绩效分析4方面</b>：目横竞稳（目标对比/横向比较/竞争对手/稳定性）</div>
+      <div><b>满意度6来源</b>：日常投走电问库</div>
+      <div><b>审计11步</b>：划围研表施首场补报末追</div>
+      <div><b>评价结果5应用</b>：优核控纠战（优化/考核/控制/纠正/战略）</div>
+      <div><b>3种驱动</b>：问绩变（问题导向/绩效导向/变革导向）</div>
+      <div><b>优化顺序</b>：框流程标（框架体系/流程/标准化）</div>
+      <div><b>项目化6步</b>：立现目IT新旧关（立项/现状/目标/IT/新旧/关闭）</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">第14章 规范与过程管理 · 核心知识思维脑图 | 基于第2版教材 + 2025年11月首考真题考点 | Ctrl+E 全展开 · Ctrl+C 全折叠</div>
+
+<script>
+function toggleBranch(header){header.classList.toggle('collapsed');var body=header.nextElementSibling;body.classList.toggle('collapsed')}
+function toggleAll(expand){
+  document.querySelectorAll('.branch-header').forEach(function(h){
+    if(expand){h.classList.remove('collapsed');h.nextElementSibling.classList.remove('collapsed')}
+    else{h.classList.add('collapsed');h.nextElementSibling.classList.add('collapsed')}
+  })
+}
+function toggleMnemonics(){
+  var btn=document.getElementById('btnHighlight');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m){
+    m.style.background=btn.classList.contains('active')?'#ffc107':'#fff3cd';
+    m.style.color=btn.classList.contains('active')?'#000':'#856404'
+  })
+}
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && e.key==='e'){e.preventDefault();toggleAll(true)}
+  if(e.ctrlKey && e.key==='c'){e.preventDefault();toggleAll(false)}
+})
+</script>
+
+</body>
+</html>
