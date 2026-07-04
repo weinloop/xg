@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第24章 法律法规和标准规范 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.container{max-width:900px;margin:0 auto;padding:16px 10px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;margin-bottom:14px;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:12px 16px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 12px 14px}
+.branch-body.collapsed{display:none}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:4px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:4px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:4px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:4px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:4px solid #7d3c98}
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:3px solid #3498db}
+.item-list{list-style:none;padding-left:8px}
+.item-list li{font-size:14px;padding:3px 8px;line-height:1.8;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:4px;font-size:13px;font-weight:700;margin-left:5px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#f4ecf7;color:#7d3c98;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.key-point{color:#c0392b;font-weight:600}
+.exam-mark{display:inline-block;background:#ffe0b2;color:#e65100;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.p0-mark{display:inline-block;background:#fdedec;color:#c0392b;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;margin:0 3px}
+.table-mini{width:100%;font-size:14px;border-collapse:collapse;margin-top:6px}
+.table-mini th{background:#f8f9fa;padding:6px 8px;border:1px solid #e0e0e0;text-align:center;font-weight:700;font-size:13px}
+.table-mini td{padding:5px 8px;border:1px solid #e0e0e0;font-size:13px}
+.table-mini tr:nth-child(even){background:#fafafa}
+.note-box{background:#fff9e6;border-left:4px solid #f39c12;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:14px;color:#7d6608}
+.formula-box{background:#eaf2f8;border:2px solid #3498db;padding:10px 14px;margin:8px 0;border-radius:8px;font-size:14px;color:#1a5276;text-align:center}
+.footer{padding:18px 10px;text-align:center;color:#aaa;font-size:13px}
+.mnemonics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.mnemonics-grid div{background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:14px;border:1px solid #eee}
+.danger-mark{display:inline-block;background:#c0392b;color:#fff;padding:1px 5px;border-radius:3px;font-size:11px;font-weight:700}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>⚖️ 第24章 法律法规和标准规范 · 核心知识思维脑图</h1>
+  <p>基于第2版教材 · 24.1法律法规（5节+8部法律） + 24.2标准规范（6节+ITSS 5.0） 全节覆盖</p>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <button onclick="toggleAll(true)">📖 全部展开</button>
+  <button onclick="toggleAll(false)">📕 全部折叠</button>
+  <button id="btnHighlight" onclick="toggleMnemonics()">🧠 高亮口诀</button>
+</div>
+
+<div class="container">
+
+<!-- ========== 24.1 法律法规 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>24.1 法律法规 <span class="tag">法与法律</span><span class="tag">法律体系</span><span class="tag">法的效力</span><span class="tag">8部常用法律</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 24.1.1 法与法律 -->
+    <div class="sub-section">
+      <div class="sub-title">24.1.1 法与法律 <span class="mnemonic">调国强权</span></div>
+      <ul class="item-list">
+        <li><b>法</b>：国家制定/认可并保证实施，反映统治阶级意志，以权利义务为内容的行为规范体系</li>
+        <li><b>法律</b>：国家立法机关依照立法程序制定颁布的规范性文件，效力仅低于<span class="key-point">宪法</span></li>
+        <li><b>法的本质</b>：统治阶级意志的体现，由特定社会物质生活条件决定</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:8%">序</th><th style="width:30%">特征</th><th style="width:62%">核心内容</th></tr>
+        <tr><td>①</td><td><b>调整规范</b></td><td>法是调整人的行为或社会关系的规范</td></tr>
+        <tr><td>②</td><td><b>国家制定</b></td><td>由国家制定或认可，具有普遍约束力的社会规范</td></tr>
+        <tr><td>③</td><td><b>强制力</b></td><td>以国家强制力保证实施的社会规范</td></tr>
+        <tr><td>④</td><td><b>权利义务</b></td><td>规定权利和义务的社会规范</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：法 ≠ 法律。法是广义行为规范体系；法律是立法机关制定的规范性文件，效力仅次于宪法。</div>
+    </div>
+    <!-- 24.1.2 法律体系 -->
+    <div class="sub-section">
+      <div class="sub-title">24.1.2 法律体系 <span class="p0-mark">P1</span><span class="mnemonic">大陆英美两大系</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">1. 世界两大法系对比 <span class="exam-mark">已考</span></div>
+        <table class="table-mini">
+          <tr><th style="width:14%">对比项</th><th style="width:43%">大陆法系</th><th style="width:43%">英美法系</th></tr>
+          <tr><td><b>别名</b></td><td>欧陆法系/罗马法系/民法法系</td><td>普通法系/海洋法系/不成文法系</td></tr>
+          <tr><td><b>起源</b></td><td>罗马法《国法大全》12世纪复兴</td><td>英国地方习惯法演变</td></tr>
+          <tr><td><b>核心特点</b></td><td>重视编写法典，详尽成文法</td><td>遵循先例，判例法</td></tr>
+          <tr><td><b>审判原则</b></td><td>严格按法条审判，逻辑推理</td><td>当事人进行主义+陪审团制度</td></tr>
+          <tr><td><b>法官角色</b></td><td>适用法律</td><td>创造判例</td></tr>
+          <tr><td><b>我国归属</b></td><td><span class="key-point">中国主要借鉴德国，属大陆法系</span></td><td>—</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">2. 中国特色社会主义法律体系 <span class="p0-mark">P0</span><span class="mnemonic">宪民行经社刑诉</span></div>
+        <ul class="item-list">
+          <li><b>统帅</b>：<span class="key-point">宪法</span>｜主干：法律｜重要组成：行政法规、地方性法规</li>
+        </ul>
+        <table class="table-mini">
+          <tr><th style="width:14%">部门</th><th style="width:86%">核心内容</th></tr>
+          <tr><td><b>1.宪法相关法</b></td><td>与宪法配套，保障宪法实施和国家政权运作</td></tr>
+          <tr><td><b>2.民法商法</b></td><td>规范民事和商事活动；民法调整平等主体财产/人身关系，遵循平等/意思自治/公平/诚实信用</td></tr>
+          <tr><td><b>3.行政法</b></td><td>行政权授予/行使/监督；遵循职权法定/程序法定/公正公开/有效监督</td></tr>
+          <tr><td><b>4.经济法</b></td><td>国家干预/管理/调控经济活动产生的社会经济关系</td></tr>
+          <tr><td><b>5.社会法</b></td><td>劳动/社保/福利/特殊群体权益保障；公平和谐+国家适度干预</td></tr>
+          <tr><td><b>6.刑法</b></td><td>规定犯罪与刑罚，惩罚犯罪保护人民</td></tr>
+          <tr><td><b>7.诉讼与非诉讼程序法</b></td><td>规范解决社会纠纷的诉讼与非诉讼活动</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">3. 法律法规的5种形式 <span class="mnemonic">法律解释行地规</span></div>
+        <table class="table-mini">
+          <tr><th style="width:16%">形式</th><th style="width:30%">制定机关</th><th style="width:54%">特点</th></tr>
+          <tr><td><b>①法律</b></td><td>全国人大及其常委会</td><td>国家主席签署主席令公布，<span class="key-point">级别最高</span></td></tr>
+          <tr><td><b>②法律解释</b></td><td>全国人大常委会</td><td>同法律具有同等效力；另有司法解释（两高做出）</td></tr>
+          <tr><td><b>③行政法规</b></td><td>国务院</td><td>国务院总理签署国务院令公布，地位仅次于法律</td></tr>
+          <tr><td><b>④地方性法规/自治条例/单行条例</b></td><td>省级人大及其常委会</td><td>大部分称作条例，部分为法律实施细则</td></tr>
+          <tr><td><b>⑤规章</b></td><td>国务院各部委/省级政府</td><td>部门规章仅在本部门权限内有效；地方政府规章仅在本行政区域内有效</td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 24.1.3 法的效力 -->
+    <div class="sub-section">
+      <div class="sub-title">24.1.3 法的效力 <span class="mnemonic">对空时</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">效力类型</th><th style="width:84%">核心内容</th></tr>
+        <tr><td><b>1.对象效力</b></td><td>对人的效力：①中国公民（境内一律适用；境外遵守中国法并受保护）②外国人和无国籍人（境内除法律另有规定外适用中国法）</td></tr>
+        <tr><td><b>2.空间效力</b></td><td>主权范围所及全部领域：领土/领水/底土/领空，以及驻外使馆/在外船舶/飞机（领土延伸）</td></tr>
+        <tr><td><b>3.时间效力</b></td><td>①生效时间（公布之日生效/规定具体生效时间/规定条件生效）②终止生效（明示废止/默示废止）③溯及力（生效前事件行为是否适用）</td></tr>
+      </table>
+    </div>
+    <!-- 24.1.4 效力层级 -->
+    <div class="sub-section">
+      <div class="sub-title">24.1.4 法律法规体系的效力层级 <span class="p0-mark">P0</span><span class="mnemonic">纵横时</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">层级类型</th><th style="width:82%">核心规则</th></tr>
+        <tr><td><b>纵向效力层级</b></td><td><span class="key-point">宪法 > 法律 > 行政法规 > 地方性法规 > 规章</span>。全国人大法律 > 国务院行政法规 > 国务院各部门规章/各地规章</td></tr>
+        <tr><td><b>横向效力层级</b></td><td>同一机关制定：特别规定与一般规定不一致，<span class="key-point">适用特别规定</span>（特别法优于一般法）</td></tr>
+        <tr><td><b>时间序列效力层级</b></td><td>同一机关制定：新的规定效力高于旧规定，<span class="key-point">新法优于旧法</span></td></tr>
+      </table>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">4种特殊情况裁决原则 <span class="mnemonic">常委制定国务院</span></div>
+        <table class="table-mini">
+          <tr><th style="width:40%">冲突情形</th><th style="width:60%">裁决机关</th></tr>
+          <tr><td>法律之间新的一般规定与旧的特别规定不一致</td><td><b>全国人大常委会</b>裁决</td></tr>
+          <tr><td>地方性法规、规章新的一般规定与旧的特殊规定不一致</td><td><b>制定机构</b>裁决</td></tr>
+          <tr><td>地方性法规与部门规章规定不一致（不能确定如何适用）</td><td><b>国务院</b>提出意见（认为适用地方性法规→该地方适用；认为适用部门规章→提请全国人大常委会裁决）</td></tr>
+          <tr><td>部门规章之间、部门规章与地方政府规章规定不一致</td><td><b>国务院</b>裁决</td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 24.1.5 8部常用法律 -->
+    <div class="sub-section">
+      <div class="sub-title">24.1.5 系统规划项目管理中常用的法律 <span class="p0-mark">P0必背</span><span class="exam-mark">高频</span><span class="mnemonic">民招政专著商网数</span></div>
+      <table class="table-mini">
+        <tr><th style="width:4%">序</th><th style="width:22%">法律名称</th><th style="width:20%">时间节点</th><th style="width:54%">核心内容</th></tr>
+        <tr><td>1</td><td><b>民法典（合同编）</b></td><td>2020年5月通过</td><td>信息化领域最重要法律基础；合同是民事主体间设立/变更/终止民事法律关系的协议</td></tr>
+        <tr><td>2</td><td><b>招标投标法</b></td><td>—</td><td>规范招标投标活动；配套《招标投标法实施条例》</td></tr>
+        <tr><td>3</td><td><b>政府采购法</b></td><td>2014年8月31日修正</td><td>规范政府采购行为；2015年3月1日施行实施条例；政府采购=国家机关/事业单位/团体组织使用财政性资金采购</td></tr>
+        <tr><td>4</td><td><b>专利法</b></td><td><span class="key-point">2020年10月17日第四次修正，2021年6月1日实施</span></td><td>发明创造=发明+实用新型+外观设计</td></tr>
+        <tr><td>5</td><td><b>著作权法</b></td><td><span class="key-point">2020年11月11日第三次修正，2021年6月1日施行</span></td><td>著作权保护及其实施</td></tr>
+        <tr><td>6</td><td><b>商标法</b></td><td>2019年4月23日通过，2019年11月1日施行</td><td>商标局主管全国商标注册；注册商标=商品商标+服务商标+集体商标+证明商标</td></tr>
+        <tr><td>7</td><td><b>网络安全法</b></td><td><span class="key-point">2017年6月1日实施</span></td><td>我国<span class="key-point">第一部</span>全面规范网络空间安全管理的基础性法律</td></tr>
+        <tr><td>8</td><td><b>数据安全法</b></td><td><span class="key-point">2021年9月1日施行</span></td><td>数据安全领域最高位阶专门法；"一轴两翼多级"监管体系；与网络安全法共同补充国家安全法框架</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：网络安全法（2017.6.1）vs 数据安全法（2021.9.1）vs 个人信息保护法（教材未列）；专利法与著作权法均于2021年6月1日实施，但专利法2020.10修正，著作权法2020.11修正。</div>
+      <div class="note-box">🔑 <b>核心记忆</b>：网络法是<span class="key-point">第一部</span>网络空间基础性法律；数据法是数据安全领域<span class="key-point">最高位阶</span>专门法。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 24.2.1-24.2.4 标准和标准化基础 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>24.2.1~24.2.4 标准和标准化基础 <span class="tag">6大机构</span><span class="tag">5级标准</span><span class="tag">2类标准</span><span class="tag">编号名称</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 24.2.1 标准和标准化 -->
+    <div class="sub-section">
+      <div class="sub-title">24.2.1 标准和标准化 <span class="mnemonic">制定实施监督</span></div>
+      <ul class="item-list">
+        <li><b>标准</b>（GB/T 20000.1-2014定义）：通过标准化活动，按程序经协商一致制定，为活动或其结果提供规则/指南/特性的文件</li>
+        <li><b>标准化</b>：为在既定范围内获得最佳秩序、促进共同效益，对现实/潜在问题确立共同使用和重复使用条款的活动</li>
+        <li><b>标准化3任务</b>：<span class="key-point">制定标准 + 组织实施标准 + 对标准制定实施进行监督</span></li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">6大主要标准化机构 <span class="p0-mark">P1</span><span class="mnemonic">ISO IEC ITU CAS SAC NITS</span></div>
+        <table class="table-mini">
+          <tr><th style="width:10%">缩写</th><th style="width:30%">全称</th><th style="width:60%">特点</th></tr>
+          <tr><td><b>ISO</b></td><td>国际标准化组织</td><td>世界最大、最有权威性的国际标准化专门机构</td></tr>
+          <tr><td><b>IEC</b></td><td>国际电工委员会</td><td><span class="key-point">世界上成立最早</span>的国际性电工标准化机构，电气/电子工程领域</td></tr>
+          <tr><td><b>ITU</b></td><td>国际电信联盟</td><td>联合国专门机构，<span class="key-point">历史最长</span>的国际组织；含ITU-T(标准化)/ITU-R/ITU-D</td></tr>
+          <tr><td><b>CAS</b></td><td>中国标准化协会</td><td>全国性法人社会团体，中国科协重要成员单位</td></tr>
+          <tr><td><b>SAC</b></td><td>中国国家标准化管理委员会</td><td>职责划入国家市场监督管理总局，对外保留牌子；批准发布国家标准</td></tr>
+          <tr><td><b>NITS</b></td><td>全国信息技术标准化技术委员会</td><td>原全国计算机与信息技术处理标准化技术委员会，由国家标准化管理委员会和工信部共同领导</td></tr>
+        </table>
+        <div class="note-box">🔑 <b>易混区分</b>：IEC=成立最早；ITU=联合国机构中历史最长；ISO=最大最有权威。</div>
+      </div>
+    </div>
+    <!-- 24.2.2 标准分级与分类 -->
+    <div class="sub-section">
+      <div class="sub-title">24.2.2 标准分级与分类 <span class="p0-mark">P0</span><span class="exam-mark">已考</span><span class="mnemonic">国行地团企</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">1. 标准5个级别（2017年修订《标准化法》）</div>
+        <table class="table-mini">
+          <tr><th style="width:14%">级别</th><th style="width:30%">制定机关</th><th style="width:56%">适用范围</th></tr>
+          <tr><td><b>①国家标准</b></td><td>国务院标准化行政主管部门</td><td>全国范围内统一的技术要求，统一审批/编号/发布</td></tr>
+          <tr><td><b>②行业标准</b></td><td>国务院有关行政主管部门</td><td>没有推荐性国家标准、需要在全国某行业范围内统一的技术要求 <span class="exam-mark">已考</span></td></tr>
+          <tr><td><b>③地方标准</b></td><td>省/自治区/直辖市政府标准化行政主管部门</td><td>满足地方自然条件、风俗习惯等特殊技术要求</td></tr>
+          <tr><td><b>④团体标准</b></td><td>依法成立的社会团体</td><td>协调相关市场主体共同制定，满足市场和创新需要</td></tr>
+          <tr><td><b>⑤企业标准</b></td><td>企业自行或联合制定</td><td>企业范围内需要协调、统一的技术/管理/工作要求</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">2. 标准2种类型 <span class="mnemonic">强制推荐</span></div>
+        <table class="table-mini">
+          <tr><th style="width:14%">类型</th><th style="width:40%">适用情形</th><th style="width:46%">特点</th></tr>
+          <tr><td><b>强制性标准</b></td><td>保障人身健康/生命财产/国家安全/生态环境安全/经济社会管理基本需要</td><td><span class="key-point">必须执行</span>；由国务院批准发布或授权批准发布</td></tr>
+          <tr><td><b>推荐性标准</b></td><td>满足基础通用/与强制性国标配套/对各行业起引领作用</td><td>国家鼓励采用；行业标准、地方标准均为推荐性</td></tr>
+        </table>
+        <div class="note-box">🔑 <b>核心论断</b>：强制性标准必须执行；国家鼓励采用推荐性标准。行业标准、地方标准都是推荐性标准。</div>
+      </div>
+    </div>
+    <!-- 24.2.3 标准编号和名称 -->
+    <div class="sub-section">
+      <div class="sub-title">24.2.3 我国标准的编号和名称 <span class="p0-mark">P1</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">1. 国家标准4种代号 <span class="mnemonic">GB / GB-T / GSB / GB-Z</span></div>
+        <table class="table-mini">
+          <tr><th style="width:20%">代号</th><th style="width:40%">类型</th><th style="width:40%">说明</th></tr>
+          <tr><td><b>GB</b></td><td>强制性国家标准</td><td>必须执行</td></tr>
+          <tr><td><b>GB/T</b></td><td>推荐性国家标准</td><td>国家鼓励采用</td></tr>
+          <tr><td><b>GSB</b></td><td>国家标准样品</td><td>实物标准</td></tr>
+          <tr><td><b>GB/Z</b></td><td>指导性技术文件</td><td>指导性</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">2. 其他标准代号</div>
+        <ul class="item-list">
+          <li><b>行业标准</b>：由国务院标准化行政主管部门规定，目前共73个行业标准代号（如SJ电子/YD通信/GA公共安全/GM国密/JR金融等）</li>
+          <li><b>地方标准</b>：代号"DB"+行政区划代码前两位（省级）或前四位（市级）</li>
+          <li><b>团体标准</b>：代号"T"+社会团体代号+顺序号+年代号</li>
+          <li><b>企业标准</b>：代号"Q"+企业代号+顺序号+年代号</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">3. 标准名称3元素 <span class="mnemonic">引主补</span></div>
+        <table class="table-mini">
+          <tr><th style="width:16%">元素</th><th style="width:18%">属性</th><th style="width:66%">作用</th></tr>
+          <tr><td><b>引导元素</b></td><td>可选</td><td>表示文件所属的领域</td></tr>
+          <tr><td><b>主体元素</b></td><td><span class="key-point">必备</span></td><td>表示上述领域内文件所涉及的标准化对象</td></tr>
+          <tr><td><b>补充元素</b></td><td>可选</td><td>表示标准化对象的特殊方面或区分信息</td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 24.2.4 标准有效期 -->
+    <div class="sub-section">
+      <div class="sub-title">24.2.4 我国标准的有效期 <span class="p0-mark">P0</span><span class="exam-mark">已考</span><span class="mnemonic">国5企3</span></div>
+      <table class="table-mini">
+        <tr><th style="width:25%">标准类型</th><th style="width:30%">复审周期</th><th style="width:45%">说明</th></tr>
+        <tr><td><b>国家标准</b></td><td><span class="key-point">5年</span></td><td>实施5年内需复审（标龄5年）</td></tr>
+        <tr><td><b>行业标准</b></td><td>不超过5年</td><td>《行业标准管理办法》规定</td></tr>
+        <tr><td><b>地方标准</b></td><td>不超过5年</td><td>有4种情形之一应及时复审</td></tr>
+        <tr><td><b>企业标准</b></td><td><span class="key-point">不超过3年</span></td><td>《企业标准化管理办法》规定</td></tr>
+        <tr><td><b>ISO标准</b></td><td>5年</td><td>每5年复审一次</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>核心考点</b>：国家标准有效期一般为<span class="key-point">5年</span>（已考真题）；企业标准复审周期一般不超过<span class="key-point">3年</span>（区别记忆）。</div>
+      <div class="note-box">🔑 <b>地方标准及时复审4情形</b>：①法律法规/国家规定重大变化 ②国标/行标/地标重大变化 ③关键技术/适用条件重大变化 ④其他情形。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 24.2.5 国际信息技术服务标准 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>24.2.5 国际信息技术服务标准 <span class="tag2">ISO20000</span><span class="tag2">ISO27000</span><span class="tag2">ISO9000</span><span class="tag2">ITIL</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- ISO/IEC 20000 -->
+    <div class="sub-section">
+      <div class="sub-title">1. ISO/IEC 20000 信息技术服务管理体系 <span class="p0-mark">P1</span></div>
+      <ul class="item-list">
+        <li><b>地位</b>：<span class="key-point">第一部</span>信息技术服务管理（IT Service Management）领域的国际标准，2005年12月15日发布</li>
+        <li><b>目的</b>：为IT服务提供商提供一套方法，通过第三方认证证实组织有能力满足顾客要求</li>
+        <li><b>核心理念</b>：通过"IT服务标准化"管理IT问题，将IT问题归类，识别内在联系，依据服务级别协议计划/管理/监控</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:25%">部分</th><th style="width:75%">内容</th></tr>
+        <tr><td><b>ISO/IEC 20000-1</b></td><td>信息技术—服务管理规范（Specification）</td></tr>
+        <tr><td><b>ISO/IEC 20000-2</b></td><td>信息技术—服务管理—实施指南（Code of practice）</td></tr>
+      </table>
+    </div>
+    <!-- ISO/IEC 27000 -->
+    <div class="sub-section">
+      <div class="sub-title">2. ISO/IEC 27000 信息安全管理体系 <span class="p0-mark">P1</span><span class="mnemonic">27001主标准</span></div>
+      <ul class="item-list">
+        <li><b>主标准</b>：<span class="key-point">ISO/IEC 27001</span>（前身英国BS 7799标准），规定建立/实施/维护/持续改进ISMS</li>
+        <li><b>ISO/IEC 27002</b>：信息安全控制，可作为27001实现ISMS过程中选择控制的参考，共包括<span class="key-point">35个主要安全类别+114项控制</span></li>
+        <li><b>标准族</b>：包含27001~27031等多部标准，覆盖概述/要求/控制/指南/监视/风险/审计/云服务/电信/金融等领域</li>
+      </ul>
+    </div>
+    <!-- ISO 9000 -->
+    <div class="sub-section">
+      <div class="sub-title">3. ISO 9000 质量管理体系 <span class="p0-mark">P1</span><span class="mnemonic">0001 04 11</span></div>
+      <ul class="item-list">
+        <li><b>提出</b>：1987年提出，由ISO/TC 176（质量管理和质量保证技术委员会）制定</li>
+        <li><b>4个核心标准</b>：</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:18%">标准</th><th style="width:30%">名称</th><th style="width:52%">核心内容</th></tr>
+        <tr><td><b>ISO 9000</b></td><td>质量管理体系 基础和术语</td><td>阐述基础知识、<span class="key-point">质量管理八项原则</span>，确定术语</td></tr>
+        <tr><td><b>ISO 9001</b></td><td>质量管理体系 要求</td><td>规定推行ISO 9000取得认证要满足的要求</td></tr>
+        <tr><td><b>ISO 9004</b></td><td>质量管理体系 业绩改进指南</td><td>以八项原则为基础，帮助改进业绩</td></tr>
+        <tr><td><b>ISO 19011</b></td><td>质量和环境管理体系审核指南</td><td>审核基本原则/方案管理/实施/审核员资格</td></tr>
+      </table>
+    </div>
+    <!-- ITIL -->
+    <div class="sub-section">
+      <div class="sub-title">4. ITIL IT基础架构库 <span class="p0-mark">P1</span><span class="mnemonic">v1职能v2流程v3周期v4数字</span></div>
+      <ul class="item-list">
+        <li><b>定义</b>：从复杂IT管理活动中梳理出各组织共有的最佳实践，将流程规范化、标准化</li>
+        <li><b>4个主要版本</b>：</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:16%">版本</th><th style="width:18%">时间</th><th style="width:30%">特点</th><th style="width:36%">核心内容</th></tr>
+        <tr><td><b>Version 1</b></td><td>1986-1999</td><td>基于职能型实践</td><td>40多卷图书；荷兰政府作为强制标准</td></tr>
+        <tr><td><b>Version 2</b></td><td>1999-2006</td><td>基于流程型实践</td><td>10本图书，7大模块（服务管理/实施规则/应用管理/安全管理/ICT基础架构/服务提供与支持/业务视角）</td></tr>
+        <tr><td><b>Version 3</b></td><td>2004-2007</td><td>融入最佳实践</td><td><span class="key-point">5个核心流程</span>：服务战略+服务设计+服务转换+服务运营+持续服务改进</td></tr>
+        <tr><td><b>Version 4</b></td><td>2011至今</td><td>注重数字化转型</td><td>5个指导文件+4个职能（服务台/运营管理/应用管理/技术管理）+26个流程</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>：ITIL v3 = 5核心流程（战设转运改）；ITIL v4 = 4职能+26流程。v3强调生命周期，v4强调数字化。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 24.2.6 我国信息技术服务标准体系ITSS ========== -->
+<div class="branch-card c4">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>24.2.6 我国信息技术服务标准体系 ITSS <span class="p0-mark">P0必背</span><span class="tag3">PPTR</span><span class="tag3">PIOIS</span><span class="tag3">ITSS 5.0</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- ITSS 来源 -->
+    <div class="sub-section">
+      <div class="sub-title">1. ITSS 的来源</div>
+      <ul class="item-list">
+        <li><b>ITSS</b>（Information Technology Service Standards）：一套成体系和综合配套的信息技术服务标准库</li>
+        <li><b>研制</b>：工业和信息化部、国家标准化管理委员会联合指导研制</li>
+        <li><b>性质</b>：我国IT服务行业最佳实践的总结和提升，自主创新成果的固化</li>
+      </ul>
+    </div>
+    <!-- 组成要素 -->
+    <div class="sub-section">
+      <div class="sub-title">2. ITSS 组成要素 PPTR <span class="p0-mark">P0必背</span><span class="mnemonic">人过技资</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">要素</th><th style="width:20%">英文</th><th style="width:66%">核心内容</th></tr>
+        <tr><td><b>P 人员</b></td><td>People</td><td>提供IT服务所需的人员及其知识、经验和技能要求</td></tr>
+        <tr><td><b>P 过程</b></td><td>Process</td><td>合理利用必要的资源，将输入转化为输出的一组相互关联和结构化的活动</td></tr>
+        <tr><td><b>T 技术</b></td><td>Technology</td><td>交付满足质量要求的IT服务应使用的技术或应具备的技术能力</td></tr>
+        <tr><td><b>R 资源</b></td><td>Resource</td><td>提供IT服务所依存和产生的有形及无形资产</td></tr>
+      </table>
+    </div>
+    <!-- 生命周期 -->
+    <div class="sub-section">
+      <div class="sub-title">3. IT 服务生命周期 PIOIS <span class="p0-mark">P0必背</span><span class="mnemonic">规部运改监</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">阶段</th><th style="width:22%">英文</th><th style="width:64%">核心内容</th></tr>
+        <tr><td><b>P 规划设计</b></td><td>Planning & Design</td><td>从客户业务战略出发，以需求为中心，全面系统的战略规划和设计</td></tr>
+        <tr><td><b>I 部署实施</b></td><td>Implementing</td><td>在规划设计基础上，建立管理体系、部署专用工具及服务解决方案</td></tr>
+        <tr><td><b>O 服务运营</b></td><td>Operation</td><td>采用过程方法，全面管理基础设施/服务流程/人员/业务连续性</td></tr>
+        <tr><td><b>I 持续改进</b></td><td>Improvement</td><td>定期评审IT服务满足业务情况，提出改进策略方案</td></tr>
+        <tr><td><b>S 监督管理</b></td><td>Supervision</td><td>对IT服务质量进行评价，对服务过程/交付结果实施监督和绩效评估</td></tr>
+      </table>
+    </div>
+    <!-- ITSS 5.0 -->
+    <div class="sub-section">
+      <div class="sub-title">4. ITSS 标准体系 5.0 <span class="p0-mark">P0</span><span class="mnemonic">通保基技数业</span></div>
+      <ul class="item-list">
+        <li><b>双轮驱动</b>：数字中国建设+产业高质量发展+新发展格局构建+自主创新（国家战略） + 市场需求</li>
+        <li><b>架构</b>：基础服务标准为底座，通用标准和保障标准为支柱，技术创新服务标准和数字化转型服务标准为引领，共同支撑业务融合</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:18%">标准类别</th><th style="width:82%">核心内容</th></tr>
+        <tr><td><b>①通用标准</b></td><td>适用于所有信息技术服务的共性标准；分类与代码/服务级别协议指南/服务生存周期过程/质量评价指标体系/服务基本要求/从业人员能力评价/服务成本度量指南/服务安全要求</td></tr>
+        <tr><td><b>②保障标准</b></td><td>对信息技术服务提出保障要求；含服务管控标准（治理+服务管理+监理）和服务外包标准</td></tr>
+        <tr><td><b>③基础服务标准</b></td><td>面向基础类服务：咨询设计/开发服务/集成实施/运行维护/云服务/数据中心等</td></tr>
+        <tr><td><b>④技术创新服务标准</b></td><td>新技术加持下新业态：智能化服务/数据服务/数字内容处理服务/区块链服务等</td></tr>
+        <tr><td><b>⑤数字化转型服务标准</b></td><td>支撑组织数字化转型：成熟度模型/就绪度评估模型/效果评价模型/数字化监测预警技术要求等</td></tr>
+        <tr><td><b>⑥业务融合标准</b></td><td>支撑信息技术服务与各行业融合：政务/广电/教育/应急/财会等行业</td></tr>
+      </table>
+    </div>
+    <!-- 通用标准 -->
+    <div class="sub-section">
+      <div class="sub-title">5. 通用标准 <span class="mnemonic">界支评规支</span></div>
+      <ul class="item-list">
+        <li><b>5方面重要作用</b>：①界定服务边界，规范市场秩序 ②支撑服务产品开发/采购/付费 ③评价并保障服务质量 ④规定服务工具全景，引导服务工具集成 ⑤支撑从业人员培养</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:20%">标准号</th><th style="width:30%">标准名称</th><th style="width:50%">主要内容</th></tr>
+        <tr><td>GB/T 29264-2012</td><td>信息技术服务 分类与代码</td><td>分类、管理和编目的准则，为ITSS体系建立提供范围基础</td></tr>
+        <tr><td>GB/T 33850-2017</td><td>信息技术服务 质量评价指标体系</td><td>建立服务质量模型，规定评价指标、测量方法及评价过程</td></tr>
+        <tr><td>GB/T 37696-2019</td><td>信息技术服务 从业人员能力评价要求</td><td>从业人员职业种类、能力要素、等级要求和评价方法</td></tr>
+        <tr><td>GB/T 37961-2019</td><td>信息技术服务 服务基本要求</td><td>咨询设计/集成实施/运行维护/数据处理等服务活动要求</td></tr>
+        <tr><td>GB/T 39770-2021</td><td>信息技术服务 服务安全要求</td><td>服务安全模型、安全总则、生存周期和能力要素安全要求</td></tr>
+      </table>
+    </div>
+    <!-- 保障标准 -->
+    <div class="sub-section">
+      <div class="sub-title">6. 保障标准 <span class="mnemonic">管控外包</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">1）服务管控标准（3子域）<span class="mnemonic">治管监</span></div>
+        <table class="table-mini">
+          <tr><th style="width:14%">子域</th><th style="width:40%">核心内容</th><th style="width:46%">代表标准</th></tr>
+          <tr><td><b>①治理</b></td><td>制定IT服务管理目标要求，通用要求+实施指南+绩效评价+监督管理形成闭环</td><td>GB/T 34960.1~.5（通用要求/实施指南/绩效评价/审计导则/数据治理）+ 风险治理/数据审计/安全审计</td></tr>
+          <tr><td><b>②服务管理</b></td><td>给出实施IT服务管理活动的技术要求和实施指南</td><td>GB/T 36074.2/.3（实施指南/技术要求）+ SJ/T 11693.1（通用要求）</td></tr>
+          <tr><td><b>③监理</b></td><td>7个部分构成</td><td>GB/T 19668.1~.7（总则/基础设施/运行维护/信息安全/软件工程/数据中心/监理工作量度量）</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">2）服务外包标准 <span class="mnemonic">ITO BPO</span></div>
+        <ul class="item-list">
+          <li><b>ITO</b>（IT外包）：关注供需双方为完成服务交付需执行的共性和基础性过程</li>
+          <li><b>BPO</b>（业务流程外包）：侧重业务流程及外包组织原型研究</li>
+          <li>代表标准：GB/T 33770.1/.2/.6（服务提供方通用要求/数据保护要求/服务需求方通用要求）+ SJ/T 11673.3/11445.4/.5/11739</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 基础服务标准 -->
+    <div class="sub-section">
+      <div class="sub-title">7. 基础服务标准 <span class="mnemonic">咨集运云数</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">分类</th><th style="width:40%">核心内容</th><th style="width:46%">代表标准</th></tr>
+        <tr><td><b>①咨询设计</b></td><td>IT战略规划/管理体系建设/系统工程/信息资源开发等咨询评估服务</td><td>GB/T 36463.1/.2（通用要求/规划设计指南）</td></tr>
+        <tr><td><b>②集成实施</b></td><td>通用要求+项目实施规范+项目验收规范+云系统集成+数据集成+应用集成</td><td>SJ/T 11674.1/.2/.3（通用要求/项目实施规范/项目验收规范）</td></tr>
+        <tr><td><b>③运行维护</b></td><td>运维服务能力管理体系，通用要求+交付规范+应急响应+数据中心+应用系统+成本度量+医院信息+桌面外围+成熟度模型</td><td>GB/T 28827.1~.8 + SJ/T 11564.5 + ITSS.1-2015</td></tr>
+        <tr><td><b>④云服务</b></td><td>规范云服务设计与部署、交付和运营</td><td>GB/T 36326/36325/35279/37270.1~.4（云服务运营通用要求/SLA基本要求/云资源监控/云服务质量评价等）</td></tr>
+        <tr><td><b>⑤数据中心</b></td><td>建设目标+服务能力，向相关方提供IT专业服务</td><td>GB/T 33136-2016（服务能力成熟度模型）+ GB/T 42581-2023（业务连续性等级评价准则）</td></tr>
+      </table>
+    </div>
+    <!-- 技术创新服务标准 -->
+    <div class="sub-section">
+      <div class="sub-title">8. 技术创新服务标准 <span class="mnemonic">智数内区</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">分类</th><th style="width:42%">核心内容</th><th style="width:40%">代表标准</th></tr>
+        <tr><td><b>①智能化服务</b></td><td>智能运维，框架描述，数据/算法/技术三关键要素从治理层面提要求</td><td>GB/T 43208.1-2023（智能运维通用要求）</td></tr>
+        <tr><td><b>②数据服务</b></td><td>数据资产管理规范，规划/组织保障/环境及过程</td><td>GB/T 40685-2021（数据资产管理要求）</td></tr>
+        <tr><td><b>③数字内容处理</b></td><td>程序化营销平台接口/投放过程/数据测量计费</td><td>GB/T 34941-2017（数字化营销程序化营销技术要求）</td></tr>
+        <tr><td><b>④区块链服务</b></td><td>区块链隐私计算服务，原则/相关方/技术框架/服务管理</td><td>CBD-Forum-001-2019（区块链隐私计算服务指南）</td></tr>
+      </table>
+    </div>
+    <!-- 数字化转型 + 业务融合 -->
+    <div class="sub-section">
+      <div class="sub-title">9. 数字化转型服务标准 + 10. 业务融合标准</div>
+      <ul class="item-list">
+        <li><b>数字化转型</b>：基于创新性技术组合，构建平台化业务/运营数字化服务，实现组织与业务弹性适配</li>
+        <li><b>代表标准</b>：GB/T 43439-2017《信息技术服务 数字化转型 成熟度模型与评估》</li>
+        <li><b>数字化转型4模型</b>：成熟度模型 + 就绪度评估模型 + 效果评价模型 + 数字化监测预警技术要求</li>
+        <li><b>业务融合标准</b>：信息技术服务与各业务场景融合，包括突发公共安全/智慧法院/智慧财务/融合媒体数字化等领域</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 本章小结 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>📋 本章考察规律总结 · 24.1考法律体系/8部法律 · 24.2考标准分级/有效期/ITSS</span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <table class="table-mini">
+      <tr><th>优先级</th><th>考点</th><th>掌握要求</th></tr>
+      <tr><td>🔴P0</td><td>8部常用法律（名称+时间+核心内容）</td><td>必须背熟，特别是网络安全法/数据安全法/专利法/著作权法时间</td></tr>
+      <tr><td>🔴P0</td><td>效力层级3种（纵向/横向/时间序列）+ 4种特殊情况裁决</td><td>必须能默写+场景判断</td></tr>
+      <tr><td>🔴P0</td><td>标准5级（国行地团企）+ 2类（强制/推荐）+ 有效期（国5企3）</td><td>必须能默写，已考真题</td></tr>
+      <tr><td>🔴P0</td><td>ITSS组成要素PPTR + 生命周期PIOIS + ITSS 5.0六大类</td><td>必须能默写</td></tr>
+      <tr><td>🟡P1</td><td>中国特色社会主义法律体系7部门 + 5种法律法规形式</td><td>会场景判断和区分</td></tr>
+      <tr><td>🟡P1</td><td>6大标准化机构 + 国家标准4种代号 + ISO20000/27000/9000/ITIL</td><td>会判断和区分</td></tr>
+      <tr><td>🟢P2</td><td>大陆法系vs英美法系 + 法的4特征 + 3效力 + 标准名称3元素</td><td>了解即可</td></tr>
+    </table>
+    <div class="note-box">🔑 <b>真题考点回顾</b>：①中国特色社会主义法律体系以<b>宪法</b>为统帅 ②行业标准由<b>国务院有关行政主管部门</b>制定 ③我国国家标准有效期一般为<b>5年</b>。这3题均已考过，注意掌握。</div>
+    <div class="note-box">🔑 <b>易混高频考点</b>：①GB=强制/GB-T=推荐 ②国标5年/企标3年 ③IEC最早/ITU最长/ISO最大 ④网络法2017.6.1第一部/数据法2021.9.1最高位阶 ⑤ITSS=PPTR+PIOIS ⑥ITIL v3=5流程/v4=4职能+26流程。</div>
+  </div>
+</div>
+
+</div><!-- container -->
+
+<!-- 口诀面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 10px 16px">
+  <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:17px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记·28条）</h3>
+    <div class="mnemonics-grid">
+      <div><b>法4特征</b>：调国强权（调整/国家制定/强制力/权利义务）</div>
+      <div><b>两大法系</b>：大陆英美（罗马法系/普通法系）</div>
+      <div><b>中国法律7部门</b>：宪民行经社刑诉</div>
+      <div><b>法律法规5形式</b>：法律解释行地规（法律/法律解释/行政法规/地方性法规/规章）</div>
+      <div><b>法效力3类</b>：对空时（对象/空间/时间）</div>
+      <div><b>效力层级3种</b>：纵横时（纵向/横向/时间序列）</div>
+      <div><b>特殊裁决</b>：常委制定国务院（4种情形裁决机关）</div>
+      <div><b>8部常用法律</b>：民招政专著商网数 <span class="p0-mark">P0</span></div>
+      <div><b>网络法</b>：2017.6.1第一部网络空间基础法</div>
+      <div><b>数据法</b>：2021.9.1数据安全最高位阶专门法</div>
+      <div><b>专利/著作权</b>：均2021.6.1实施（专利20.10/著作权20.11修正）</div>
+      <div><b>标准化3任务</b>：制定实施监督</div>
+      <div><b>6大标准化机构</b>：ISO IEC ITU CAS SAC NITS</div>
+      <div><b>机构特点</b>：IEC最早/ITU最长/ISO最大</div>
+      <div><b>标准5级</b>：国行地团企 <span class="p0-mark">P0</span></div>
+      <div><b>标准2类</b>：强制推荐（强制必须执行/推荐国家鼓励）</div>
+      <div><b>国标4代号</b>：GB/GB-T/GSB/GB-Z</div>
+      <div><b>标准有效期</b>：国5企3（国标5年/企标3年）<span class="p0-mark">P0</span></div>
+      <div><b>标准名称3元素</b>：引主补（引导/主体/补充，主体必备）</div>
+      <div><b>ISO/IEC 20000</b>：第一部IT服务管理国际标准（2005.12.15）</div>
+      <div><b>ISO/IEC 27000</b>：27001主标准（前身BS 7799）/27002含35类114项控制</div>
+      <div><b>ISO 9000</b>：0001 04 11（基础术语/要求/业绩改进/审核指南）</div>
+      <div><b>ITIL 4版本</b>：v1职能v2流程v3周期v4数字</div>
+      <div><b>ITIL v3 5流程</b>：战设转运改（战略/设计/转换/运营/改进）</div>
+      <div><b>ITIL v4</b>：4职能+26流程</div>
+      <div><b>ITSS组成要素</b>：PPTR（人过技资/People Process Technology Resource）<span class="p0-mark">P0</span></div>
+      <div><b>ITSS生命周期</b>：PIOIS（规部运改监/Planning Implementing Operation Improvement Supervision）<span class="p0-mark">P0</span></div>
+      <div><b>ITSS 5.0六大类</b>：通保基技数业（通用/保障/基础服务/技术创新/数字化转型/业务融合）</div>
+      <div><b>通用标准5作用</b>：界支评规支（界定边界/支撑开发/评价质量/规定工具/支撑培养）</div>
+      <div><b>保障标准2类</b>：管控外包（服务管控+服务外包）</div>
+      <div><b>服务管控3子域</b>：治管监（治理+服务管理+监理）</div>
+      <div><b>监理标准7部分</b>：GB/T 19668.1~.7</div>
+      <div><b>基础服务5类</b>：咨集运云数（咨询设计/集成实施/运行维护/云服务/数据中心）</div>
+      <div><b>技术创新4类</b>：智数内区（智能化/数据服务/数字内容/区块链）</div>
+      <div><b>数字化转型4模型</b>：成熟度+就绪度+效果评价+监测预警</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">第24章 法律法规和标准规范 · 核心知识思维脑图 | 基于第2版教材（760-792页）+ 第四篇真题考点 | Ctrl+E 全展开 · Ctrl+C 全折叠</div>
+
+<script>
+function toggleBranch(header){header.classList.toggle('collapsed');var body=header.nextElementSibling;body.classList.toggle('collapsed')}
+function toggleAll(expand){
+  document.querySelectorAll('.branch-header').forEach(function(h){
+    if(expand){h.classList.remove('collapsed');h.nextElementSibling.classList.remove('collapsed')}
+    else{h.classList.add('collapsed');h.nextElementSibling.classList.add('collapsed')}
+  })
+}
+function toggleMnemonics(){
+  var btn=document.getElementById('btnHighlight');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m){
+    m.style.background=btn.classList.contains('active')?'#ffc107':'#fff3cd';
+    m.style.color=btn.classList.contains('active')?'#000':'#856404'
+  })
+}
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && e.key==='e'){e.preventDefault();toggleAll(true)}
+  if(e.ctrlKey && e.key==='c'){e.preventDefault();toggleAll(false)}
+})
+</script>
+
+</body>
+</html>

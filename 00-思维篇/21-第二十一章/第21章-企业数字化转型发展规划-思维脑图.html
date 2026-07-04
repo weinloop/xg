@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第21章 企业数字化转型发展规划 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.container{max-width:900px;margin:0 auto;padding:16px 10px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;margin-bottom:14px;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:12px 16px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-header.collapsed+.branch-body{display:none!important}
+.branch-body{padding:0 14px 12px 14px}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:4px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:4px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:4px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:4px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:4px solid #7d3c98}
+.c6 .branch-header{background:#e8f8f5;color:#138d75;border-left:4px solid #138d75}
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:3px solid #3498db}
+.item-list{list-style:none;padding-left:8px}
+.item-list li{font-size:14px;padding:3px 8px;line-height:1.8;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:4px;font-size:13px;font-weight:700;margin-left:5px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#f4ecf7;color:#7d3c98;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.key-point{color:#c0392b;font-weight:600}
+.exam-mark{display:inline-block;background:#ffe0b2;color:#e65100;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.p0-mark{display:inline-block;background:#fdedec;color:#c0392b;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;margin:0 3px}
+.table-mini{width:100%;font-size:13px;border-collapse:collapse;margin-top:6px}
+.table-mini th{background:#f8f9fa;padding:6px 8px;border:1px solid #e0e0e0;text-align:center;font-weight:700;font-size:12px}
+.table-mini td{padding:5px 8px;border:1px solid #e0e0e0;font-size:12px}
+.table-mini tr:nth-child(even){background:#fafafa}
+.note-box{background:#fff9e6;border-left:4px solid #f39c12;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:13px;color:#7d6608}
+.formula-box{background:#eaf2f8;border:2px solid #3498db;padding:10px 14px;margin:8px 0;border-radius:8px;font-size:14px;color:#1a5276;text-align:center}
+.footer{padding:18px 10px;text-align:center;color:#aaa;font-size:13px}
+.mnemonics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.mnemonics-grid div{background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:13px;border:1px solid #eee}
+.danger-mark{display:inline-block;background:#c0392b;color:#fff;padding:1px 5px;border-radius:3px;font-size:11px;font-weight:700}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 第21章 企业数字化转型发展规划 · 核心知识思维脑图</h1>
+  <p>基于第2版教材 · 21.1~21.6 全节覆盖 · 核心考点精讲</p>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <button onclick="toggleAll(true)">📖 全部展开</button>
+  <button onclick="toggleAll(false)">📕 全部折叠</button>
+  <button id="btnHighlight" onclick="toggleMnemonics()">🧠 高亮口诀</button>
+</div>
+
+<div class="container">
+
+<!-- ========== 21.1 转型驱动力 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>21.1 转型驱动力 <span class="tag">时代演进</span><span class="tag">技术资源</span><span class="tag">政策金融</span><span class="tag">升级发展</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 时代演进驱动力 -->
+    <div class="sub-section">
+      <div class="sub-title">21.1.1 时代演进驱动力 <span class="mnemonic">消产劳绿发</span></div>
+      <table class="table-mini">
+        <tr><th style="width:12%">驱动力</th><th style="width:44%">核心内容</th><th style="width:44%">关键词</th></tr>
+        <tr><td><b>消费重塑</b></td><td>需求个性化、定制化体验、更短产品周期；小规模批量生产</td><td>以消费者为中心、敏捷柔性生产</td></tr>
+        <tr><td><b>产业调整</b></td><td>点（战略并购）线（产供销一体化）面（全价值链）整体布局</td><td>领军企业带动产业群变革</td></tr>
+        <tr><td><b>劳动供给</b></td><td>人口红利消退、劳动力成本上涨、数字劳动力成熟</td><td>人机协同、自动化智能化</td></tr>
+        <tr><td><b>绿色低碳</b></td><td>"双碳"目标（2030碳达峰、2060碳中和）；数字技术促进节能减排</td><td>数字化转型是实现双碳目标的有效手段</td></tr>
+        <tr><td><b>发展格局</b></td><td>双循环（国内大循环为主体、国内国际双循环相互促进）</td><td>对外开放获取转型资金与创新动能</td></tr>
+      </table>
+    </div>
+    <!-- 技术资源驱动力 -->
+    <div class="sub-section">
+      <div class="sub-title">21.1.2 技术资源驱动力 <span class="mnemonic">技基</span></div>
+      <ul class="item-list">
+        <li><b>技术突破应用</b>：连接（5G+TSN+N B-IoT）、计算（神经元芯片、现场算力）、分析（深度学习、知识图谱、大模型）、技术融合（云边端协同）</li>
+        <li><b>基础设施升级</b>：硬性基础设施（信息/融合/创新三类，通信网络+新技术+算力）+ 软性基础设施（智慧城市、国家大数据体系）</li>
+        <li><b>东数西算</b>：数字经济时代新型基础设施建设工程，实现数据要素跨域流通</li>
+      </ul>
+    </div>
+    <!-- 政策金融驱动力 -->
+    <div class="sub-section">
+      <div class="sub-title">21.1.3 政策金融驱动力 <span class="mnemonic">国国财</span></div>
+      <ul class="item-list">
+        <li><b>国际方面</b>：德国"工业4.0"、英国"数字化弹射器"、美国开放实验室</li>
+        <li><b>国家层面</b>：工业互联网、上云用数赋智、新业态新模式发展</li>
+        <li><b>财政金融方面</b>：财政科技支出、政府创新补贴、税收优惠</li>
+      </ul>
+    </div>
+    <!-- 升级发展驱动力 -->
+    <div class="sub-section">
+      <div class="sub-title">21.1.4 升级发展驱动力 <span class="mnemonic">自数</span></div>
+      <ul class="item-list">
+        <li><b>自我提升驱动力</b>：传统发展遇到瓶颈（决策瓶颈、变革制约、知识资产流失、需求响应延迟）</li>
+        <li><b>数据要素驱动力</b>：数据作为核心战略生产要素，渗透到经营管理与业务活动各环节</li>
+        <li><b>VUCA特征</b>：不稳定(Volatile)、不确定(Uncertain)、复杂(Complex)、模糊(Ambiguous)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 21.2 转型关注焦点 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>21.2 转型关注焦点 <span class="tag">客户中心</span><span class="tag">数智赋能</span><span class="tag">敏捷组织</span><span class="tag">新型文化</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 客户中心 -->
+    <div class="sub-section">
+      <div class="sub-title">21.2.1 客户中心 <span class="p0-mark">P0</span> <span class="mnemonic">管平定网智服</span></div>
+      <table class="table-mini">
+        <tr><th style="width:15%">应用场景</th><th style="width:85%">核心内容</th></tr>
+        <tr><td><b>数字化管理</b></td><td>基于业务数据挖掘，创新业务管理模式，提升产品和服务质量</td></tr>
+        <tr><td><b>平台化设计</b></td><td>云计算+数字孪生，集成化轻量化协同化敏捷化设计，降低试错成本</td></tr>
+        <tr><td><b>个性化定制</b></td><td>客户交互定制平台，敏捷开发、柔性生产、精准交付</td></tr>
+        <tr><td><b>网络化协同</b></td><td>跨部门跨层级跨组织业务互联，生产服务方式由线性链式向网络协同转变</td></tr>
+        <tr><td><b>智能化生产</b></td><td>自感知、自学习、自决策、自执行、自适应，提质降本降耗增效</td></tr>
+        <tr><td><b>服务化延伸</b></td><td>产品+服务，基于产品使用和服务行为大数据分析，向高附加值环节延伸</td></tr>
+      </table>
+    </div>
+    <!-- 数智赋能 -->
+    <div class="sub-section">
+      <div class="sub-title">21.2.2 数智赋能 <span class="p0-mark">P0</span> <span class="mnemonic">泛数软平</span></div>
+      <ul class="item-list">
+        <li><b>泛在互联</b>：传感网络全面实时高效数据采集，实现全要素连接（哑设备、哑岗位、哑环节数字化改造）</li>
+        <li><b>数据驱动</b>：业务数据自由流动，科学决策和优化资源配置，提高全要素效率效能</li>
+        <li><b>软件定义</b>：硬件资源软件化、软件资源模组化，重构虚拟孪生空间，研发设计仿真实验生产服务全流程虚拟运行</li>
+        <li><b>平台支撑</b>：连接多方参与的信息服务共享载体，是全要素连接枢纽、资源配置核心</li>
+      </ul>
+    </div>
+    <!-- 敏捷组织 -->
+    <div class="sub-section">
+      <div class="sub-title">21.2.3 敏捷组织 <span class="mnemonic">自灵资战</span></div>
+      <ul class="item-list">
+        <li><b>业务自组织</b>：每个员工成为组织网络节点，带动资源围绕市场变化和客户需求改变</li>
+        <li><b>灵活机动</b>：小巧灵动"特种部队"（能力单元），有机融合职能部门与业务团队业绩关系</li>
+        <li><b>资源共享</b>：工艺知识创意等技术能力资源数字化"封装"，形成共享资源库</li>
+        <li><b>战略重塑</b>：与客户共同定义新产品、共同创造新业务、共享新价值</li>
+      </ul>
+    </div>
+    <!-- 新型文化 -->
+    <div class="sub-section">
+      <div class="sub-title">21.2.4 新型文化 <span class="p0-mark">P1</span> <span class="mnemonic">拥开人全数</span></div>
+      <ul class="item-list">
+        <li><b>拥抱变革</b>：培养拥抱变革的文化，克服对现有组织流程习惯利益变革的"恐惧"</li>
+        <li><b>开放合作</b>：内部真诚开放合作，外部与客户上下游合作伙伴共建和谐共生生态圈</li>
+        <li><b>人本精神</b>：人是设计和执行者，树立人为核心、机器服务于人的意识</li>
+        <li><b>全员使命</b>：数字化转型绝不仅仅是领导层和信息化部门的事，需要全员共同努力</li>
+        <li><b>数字素养</b>：培养全员识数读数用数意识和能力，提升数字敏感性和敏锐性</li>
+      </ul>
+      <div class="note-box">🔑 <b>核心论断</b>：文化能把战略当早餐吃掉（德鲁克）。62%经理人认为企业文化是数字化转型第一障碍。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 21.3 转型能力成熟度 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>21.3 转型能力成熟度 <span class="tag">成熟度模型</span><span class="tag">基础能力</span><span class="tag">业务转型</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 数字化转型成熟度模型 -->
+    <div class="sub-section">
+      <div class="sub-title">21.3.1 数字化转型成熟度模型 <span class="p0-mark">P0</span> <span class="exam-mark">已考</span></div>
+      <ul class="item-list">
+        <li><b>国家标准</b>：GB/T 43439-2023《信息技术服务 数字化转型成熟度模型与评估》</li>
+        <li><b>能力域（7个）</b>：组织、技术、数据、资源、数字化运营、数字化生产、数字化服务</li>
+        <li><b>成熟度等级（5级）</b>：一级→二级→三级→四级→五级，逐级提升，没有捷径</li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">五级成熟度 <span class="mnemonic">初规整量优</span></div>
+        <table class="table-mini">
+          <tr><th style="width:12%">等级</th><th style="width:28%">名称</th><th style="width:60%">特征</th></tr>
+          <tr><td><b>一级</b></td><td>初始级</td><td>明确数字化转型职责，配备人员，识别关键人才</td></tr>
+          <tr><td><b>二级</b></td><td>规范级</td><td>建立统筹团队，建立人员考核培养体系，培养数字文化</td></tr>
+          <tr><td><b>三级</b></td><td>整合级</td><td>数字化转型考核与日常考核融合，强化人员数据能力，形成领域专业人才库</td></tr>
+          <tr><td><b>四级</b></td><td>量化级</td><td>量化手段实施人才梯队建设，深度优化转型方向和路径</td></tr>
+          <tr><td><b>五级</b></td><td>优化级</td><td>基于数据模型价值应用，优化变革岗位结构和职责体系，建设创新活跃数字化转型生态文化</td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 转型基础能力成熟度演进 -->
+    <div class="sub-section">
+      <div class="sub-title">21.3.2 转型基础能力成熟度演进 <span class="mnemonic">组技数资</span></div>
+      <table class="table-mini">
+        <tr><th style="width:12%">能力域</th><th style="width:28%">能力子域</th><th style="width:60%">关键内容</th></tr>
+        <tr><td><b>组织</b></td><td>组织建设、转型战略、流程管理、变革管理</td><td>组织体系构建、战略制修订执行监督、流程数字运行、变革策划验证监测优化</td></tr>
+        <tr><td><b>技术</b></td><td>研发管理、技术创新、信息安全</td><td>研发绩效管理等、信息技术与业务融合创新、信息安全风险管理</td></tr>
+        <tr><td><b>数据</b></td><td>业务数据化、数据管理、数据资产、数据业务化</td><td>业务数据采集分析、数据管理规范体系、数据资源目录盘点运营、数据业务化目标机制战略</td></tr>
+        <tr><td><b>资源</b></td><td>基础设施、应用支撑资源、资金、知识</td><td>基础设施需求供给管理、应用支撑资源规划部署集成组件化、资金统筹使用核算风险控制、知识管理体系知识库知识平台</td></tr>
+      </table>
+    </div>
+    <!-- 业务转型能力成熟度演进 -->
+    <div class="sub-section">
+      <div class="sub-title">21.3.3 业务转型能力成熟度演进 <span class="mnemonic">运产服</span></div>
+      <table class="table-mini">
+        <tr><th style="width:15%">能力域</th><th style="width:35%">能力子域</th><th style="width:50%">关键内容</th></tr>
+        <tr><td><b>数字化运营</b></td><td>数字化营销、数字化财务、数字化供应链</td><td>需求与计划客户管理、财务管理预算决算资金统筹、采购管理供应商管理物流管控</td></tr>
+        <tr><td><b>数字化生产</b></td><td>产品设计、工艺设计、计划调度、生产作业、质量管控、设备管理、仓储配送</td><td>依据GB/T 39116-2020《智能制造能力成熟度模型》</td></tr>
+        <tr><td><b>数字化服务</b></td><td>服务产品、服务能力、服务交付、服务运行</td><td>服务研发发布部署度量、服务能力管理级别容量连续性、交付管理方式和质量、服务编排集成计划调度安全</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 21.4 转型的规划要点 ========== -->
+<div class="branch-card c4">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>21.4 转型的规划要点 <span class="tag">管控活动</span><span class="tag">数字化蓝图</span><span class="tag">发展需求</span><span class="tag">解决方案</span><span class="tag">保障措施</span><span class="tag">数字人才</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 管控规划活动 -->
+    <div class="sub-section">
+      <div class="sub-title">21.4.1 管控规划活动 <span class="mnemonic">组宣目过成</span></div>
+      <table class="table-mini">
+        <tr><th style="width:15%">管控维度</th><th style="width:85%">核心内容</th></tr>
+        <tr><td><b>组织</b></td><td>业务维度+技术维度矩阵模式，"作战小队"重点攻克，引入外部团队或专家力量</td></tr>
+        <tr><td><b>宣教</b></td><td>协助全员克服对变革的担忧，融合人力资源部门和各业务部门职能，注重信息技术教育培训+深层次逻辑宣传+软技能建设+案例宣传</td></tr>
+        <tr><td><b>目标</b></td><td>目标细化、量化要求、合理分配责任人、结合部门职能定位形成相互关联指标体系、考虑阶段性和可持续性</td></tr>
+        <tr><td><b>过程</b></td><td>强调沟通有效性系统性和全面性，预设目标路径和价值定位确保规划交流有效性</td></tr>
+        <tr><td><b>成果</b></td><td>关注最终成果和过程成果，重视语言语境一致性检查</td></tr>
+      </table>
+    </div>
+    <!-- 定义数字化蓝图 -->
+    <div class="sub-section">
+      <div class="sub-title">21.4.2 定义数字化蓝图 <span class="p0-mark">P0</span> <span class="mnemonic">目战拥因</span></div>
+      <ul class="item-list">
+        <li><b>目标长远</b>：明确10-15年中长期目标，可使用较多定性描述，与企业中长远发展目标匹配</li>
+        <li><b>战略高度</b>：最高决策组织作为核心主导者，确保蓝图成为企业战略关键组成部分，覆盖所有业务活动</li>
+        <li><b>拥抱数字</b>：系统体现数据作为新生产要素观念，覆盖发展理念调整、思想文化重塑、业务变革与创新等</li>
+        <li><b>因势而为</b>：在蓝图中定义企业适应或引导内外部变化的能力</li>
+      </ul>
+    </div>
+    <!-- 明确数字化发展需求 -->
+    <div class="sub-section">
+      <div class="sub-title">21.4.3 明确数字化发展需求 <span class="mnemonic">诊识常</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">开展诊断评估7步 <span class="p0-mark">P0</span> <span class="mnemonic">析定明编研析逐</span></div>
+        <table class="table-mini">
+          <tr><th style="width:8%">步骤</th><th style="width:92%">内容</th></tr>
+          <tr><td><b>①</b></td><td>分析并确立企业所需的能力域、能力子域、能力分项</td></tr>
+          <tr><td><b>②</b></td><td>定义各能力领域的成熟度标尺（参考数字化转型成熟度、智能制造成熟度等标准）</td></tr>
+          <tr><td><b>③</b></td><td>明确各能力领域的权重体系</td></tr>
+          <tr><td><b>④</b></td><td>编制调研表单、调研问题、调研计划，实施调研活动，量化评价</td></tr>
+          <tr><td><b>⑤</b></td><td>召开研讨活动，精准把握现状，开展宣教工作</td></tr>
+          <tr><td><b>⑥</b></td><td>分析各领域能力成熟度，明确长短板，洞察深层次原因</td></tr>
+          <tr><td><b>⑦</b></td><td>逐项分析整体等级和高一等级不满足情况，具体到标尺条款，分析关联性</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">识别能力需求</div>
+        <ul class="item-list">
+          <li>基于诊断评估结果，设定短期/中期/长期成熟度等级满足需求</li>
+          <li>从人员、技术、资源、过程、数据等能力要素维度提出具体能力需求和解决办法</li>
+          <li>分析解决方案适用性和可行性，必要时借助企业外部资源</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 制定解决方案与路径计划 -->
+    <div class="sub-section">
+      <div class="sub-title">21.4.4 制定解决方案与路径计划 <span class="mnemonic">平路</span></div>
+      <ul class="item-list">
+        <li><b>平台化发展</b>：构建强大数据平台生态系统，从客户体验数字化、运营数字化、业务模式数字化三方面推进</li>
+        <li><b>路径与计划</b>：先易后难、滚动增效，自下而上创新、自上而下变革；沿着能力成熟度等级设定逐级提升；明确细则（任务内容、目标定义、时间设定、责任人主体等）</li>
+      </ul>
+    </div>
+    <!-- 确保保障措施有效性 -->
+    <div class="sub-section">
+      <div class="sub-title">21.4.5 确保保障措施有效性 <span class="mnemonic">重动动态</span></div>
+      <ul class="item-list">
+        <li><b>重视文化</b>：持续升级发展理念战略思维业务模式管理模式技术体系组织文化和核心能力</li>
+        <li><b>措施量化</b>：尽可能使用量化语言进行表达，并将量化内容与企业绩效考核一体化融合</li>
+        <li><b>动态监测</b>：直接数据（经营管理责任主体和职能工作责任主体）+间接数据（多元直接数据加工后数据）</li>
+      </ul>
+    </div>
+    <!-- 规划建设数字人才 -->
+    <div class="sub-section">
+      <div class="sub-title">21.4.6 规划建设数字人才 <span class="p0-mark">P0</span> <span class="mnemonic">体键</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">数字人才体系（分类分级分阶段）</div>
+        <table class="table-mini">
+          <tr><th style="width:15%">分类</th><th style="width:35%">定义</th><th style="width:50%">能力要求</th></tr>
+          <tr><td><b>数字化领导者</b></td><td>引领数字化转型的决策者（CEO、CDO、CIO）</td><td>数字化变革思维和数字领导力</td></tr>
+          <tr><td><b>数字应用人才</b></td><td>推动数字技术与业务深度融合的管理者或业务骨干</td><td>应用数字技术驱动业务创新能力</td></tr>
+          <tr><td><b>数字技术人才</b></td><td>信息数字技术领域的专业技术人员</td><td>大数据、大模型、大平台、物联网等研发部署运维能力</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">数字人才建设关键控制点 <span class="mnemonic">部个持</span></div>
+        <ul class="item-list">
+          <li><b>打破部门壁垒</b>：业务部门和技术部门绑定，共同参与实践项目</li>
+          <li><b>满足个性化需求</b>：提前了解学员个性化需求，分门别类个性化培养</li>
+          <li><b>持续推进培养</b>：与企业数字化转型节奏保持一致，从易到难，循序渐进</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 21.5 转型系统架构规划设计 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>21.5 转型系统架构规划设计 <span class="tag">业务架构</span><span class="tag">数据架构</span><span class="tag">应用架构</span><span class="tag">技术架构</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 业务架构 -->
+    <div class="sub-section">
+      <div class="sub-title">21.5.1 业务架构 <span class="p0-mark">P1</span> <span class="mnemonic">范主能</span></div>
+      <table class="table-mini">
+        <tr><th style="width:20%">分析层级</th><th style="width:80%">内容</th></tr>
+        <tr><td><b>企业级价值链</b></td><td>从企业领导视角构建企业生态融合发展的价值链</td></tr>
+        <tr><td><b>全域业务架构</b></td><td>从企业领导及部门经理视角，实现企业业务能力构建，实现生态融合战略支撑</td></tr>
+        <tr><td><b>能力主线业务架构</b></td><td>从各业务板块视角，构建各业务能力主线，注重业务协同</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>核心活动</b>：业务范围运营模式分析 → 主线识别与业务流程架构梳理 → 业务能力组件识别与架构构建</div>
+    </div>
+    <!-- 数据架构 -->
+    <div class="sub-section">
+      <div class="sub-title">21.5.2 数据架构 <span class="p0-mark">P0</span> <span class="exam-mark">已考</span> <span class="mnemonic">主资分运</span></div>
+      <table class="table-mini">
+        <tr><th style="width:20%">架构视图</th><th style="width:80%">内容</th></tr>
+        <tr><td><b>数据主题视图</b></td><td>梳理与确定数据主题目录（战略管控层、保障层、业务运营层）</td></tr>
+        <tr><td><b>数据资产服务视图</b></td><td>梳理与确定数据资产目录（基于主线业务流程识别数据资产）</td></tr>
+        <tr><td><b>数据分布流转视图</b></td><td>梳理与确定数据分布流转（数据资产生产消费关系、关联关系、生命周期管理支撑架构）</td></tr>
+        <tr><td><b>数据资产价值链</b></td><td>数据聚、存、管、出、用全过程生命周期运营</td></tr>
+      </table>
+    </div>
+    <!-- 应用架构 -->
+    <div class="sub-section">
+      <div class="sub-title">21.5.3 应用架构 <span class="mnemonic">调需组集</span></div>
+      <ul class="item-list">
+        <li><b>当前应用架构调研</b>：识别现有系统，建立应用组件清单和属性描述</li>
+        <li><b>应用支撑需求分析</b>：基于业务架构和数据架构，分析现有应用对业务的支撑能力和水平</li>
+        <li><b>应用支撑组件识别</b>：识别应用组件，评估现有组件选取整合淘汰策略</li>
+        <li><b>应用集成需求分析</b>：梳理应用之间交互关系，形成应用组件集成视图</li>
+      </ul>
+    </div>
+    <!-- 技术架构 -->
+    <div class="sub-section">
+      <div class="sub-title">21.5.4 技术架构 <span class="mnemonic">调优</span></div>
+      <ul class="item-list">
+        <li><b>当前技术支撑能力调研</b>：数据流贯通与运营技术需求分析、统一平台架构设计研讨、全局数据架构设计研讨等</li>
+        <li><b>开展技术架构优化设计</b>：分析现有技术框架升级优化需求，开展技术架构视图设计，统一设计技术架构层次（IaaS、DaaS、PaaS、前台门户层）</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 21.6 转型的实践案例 ========== -->
+<div class="branch-card c6">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>21.6 转型的实践案例 <span class="tag">某国有集团销售公司</span><span class="exam-mark">典型案例</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 转型概览 -->
+    <div class="sub-section">
+      <div class="sub-title">21.6.1 转型概览</div>
+      <ul class="item-list">
+        <li><b>企业背景</b>：某国有集团销售公司，业务覆盖20多个省，拥有近2000座加油站，50余座分销油库</li>
+        <li><b>转型战略</b>："自营+平台+服务"战略，建设管服平台和贸易平台</li>
+        <li><b>转型历程</b>：2018.03成立创新管理学院 → 2018.04确定数字化转型战略 → 2018.10油品采购平台上线 → 2019.09海运物流服务采购平台 → 2020.06零售客户销售平台 → 2021.03成立数字化转型部门</li>
+      </ul>
+    </div>
+    <!-- 驱动因素 -->
+    <div class="sub-section">
+      <div class="sub-title">21.6.2 驱动因素 <span class="mnemonic">外任依</span></div>
+      <table class="table-mini">
+        <tr><th style="width:20%">不确定性来源</th><th style="width:80%">具体内容</th></tr>
+        <tr><td><b>外部环境不确定性</b></td><td>经济形势变化、信息技术进步、政策环境影响、外生冲击</td></tr>
+        <tr><td><b>任务不确定性</b></td><td>成品油行业市场化改革、企业自身业务转型</td></tr>
+        <tr><td><b>任务依赖不确定性</b></td><td>内部依赖（人员变动、发展战略变化）、外部依赖（合作伙伴业务不确定性、数字化水平差异）</td></tr>
+      </table>
+    </div>
+    <!-- 策略机制 -->
+    <div class="sub-section">
+      <div class="sub-title">21.6.3 策略机制 <span class="mnemonic">横投迭</span></div>
+      <ul class="item-list">
+        <li><b>建立横向关系</b>：与政府密切联系、与重要外部供应商合作、打造客户生活生态圈、优化内部组织</li>
+        <li><b>投资垂直数字化平台系统</b>：采购端数字化平台、内部ERP数字化平台、销售端数字化平台</li>
+        <li><b>横向关系与垂直数字化平台迭代演进</b>：两者不断迭代，互相促进，实现良性循环</li>
+      </ul>
+    </div>
+    <!-- 达成效果 -->
+    <div class="sub-section">
+      <div class="sub-title">21.6.4 达成效果</div>
+      <ul class="item-list">
+        <li>提高了消费者的服务水平，网络协同提高客户粘性</li>
+        <li>提升了企业的运营效率，全面增强数据获取存储分析能力</li>
+        <li>为能源产业升级起到带头作用，构建国内成品油产业生态体系</li>
+        <li>为国家经济发展资源配置起到推动作用，优化资源分配效率</li>
+        <li>促进了成品油消费，推动了经济增长和技术发展</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 本章小结 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>📋 本章考察规律总结 · 21.1考驱动力分类 · 21.2考关注焦点应用场景 · 21.3考成熟度等级 · 21.4考规划要点 · 21.5考架构设计 · 21.6考案例分析</span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <table class="table-mini">
+      <tr><th style="width:12%">优先级</th><th style="width:38%">考点</th><th style="width:50%">掌握要求</th></tr>
+      <tr><td>🔴P0</td><td>数字化转型成熟度模型（GB/T 43439-2023）</td><td>必须背熟能力域和五级成熟度</td></tr>
+      <tr><td>🔴P0</td><td>客户中心六大应用场景（管平定网智服）</td><td>必须能默写+场景判断</td></tr>
+      <tr><td>🔴P0</td><td>定义数字化蓝图四要点（目战拥因）</td><td>必须能默写</td></tr>
+      <tr><td>🔴P0</td><td>数字人才体系（分类分级分阶段）</td><td>必须能区分三类人才</td></tr>
+      <tr><td>🔴P0</td><td>数据架构四视图（主资分运）</td><td>必须能默写</td></tr>
+      <tr><td>🟡P1</td><td>时代演进五驱动力 + 数智赋能四场景 + 敏捷组织四要点 + 新型文化五要点 + 业务架构三层级</td><td>会场景判断和区分</td></tr>
+      <tr><td>🟢P2</td><td>诊断评估7步 + 技术资源驱动力 + 保障措施三要点 + 转型实践案例</td><td>了解即可</td></tr>
+    </table>
+  </div>
+</div>
+
+</div><!-- container -->
+
+<!-- 口诀面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 10px 16px">
+  <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:17px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记·28条）</h3>
+    <div class="mnemonics-grid">
+      <div><b>时代五驱动力</b>：消产劳绿发（消费重塑/产业调整/劳动供给/绿色低碳/发展格局）</div>
+      <div><b>技术资源驱动力</b>：技基（技术突破应用/基础设施升级）</div>
+      <div><b>政策金融驱动力</b>：国国财（国际/国家/财政金融）</div>
+      <div><b>升级发展驱动力</b>：自数（自我提升/数据要素）</div>
+      <div><b>客户中心六场景</b>：管平定网智服（数字化管理/平台化设计/个性化定制/网络化协同/智能化生产/服务化延伸）</div>
+      <div><b>数智赋能四场景</b>：泛数软平（泛在互联/数据驱动/软件定义/平台支撑）</div>
+      <div><b>敏捷组织四要点</b>：自灵资战（业务自组织/灵活机动/资源共享/战略重塑）</div>
+      <div><b>新型文化五要点</b>：拥开人全数（拥抱变革/开放合作/人本精神/全员使命/数字素养）</div>
+      <div><b>成熟度模型</b>：GB/T 43439-2023，7能力域（组技数资运产服）</div>
+      <div><b>五级成熟度</b>：初规整量优（初始级/规范级/整合级/量化级/优化级）</div>
+      <div><b>基础能力四域</b>：组技数资（组织/技术/数据/资源）</div>
+      <div><b>业务转型三域</b>：运产服（数字化运营/数字化生产/数字化服务）</div>
+      <div><b>管控规划五维度</b>：组宣目过成（组织/宣教/目标/过程/成果）</div>
+      <div><b>数字化蓝图四要点</b>：目战拥因（目标长远/战略高度/拥抱数字/因势而为）</div>
+      <div><b>诊断评估7步</b>：析定明编研析逐（分析能力域/定义标尺/明确权重/编制调研/研讨活动/分析成熟度/逐项分析）</div>
+      <div><b>解决方案与路径</b>：平路（平台化发展/路径与计划）</div>
+      <div><b>保障措施三要点</b>：重动动态（重视文化/措施量化/动态监测）</div>
+      <div><b>数字人才分类</b>：领应技（领导者/应用人才/技术人才）</div>
+      <div><b>人才建设三控制点</b>：部个持（打破部门壁垒/满足个性化需求/持续推进培养）</div>
+      <div><b>业务架构三层级</b>：范主能（企业级价值链/全域业务架构/能力主线业务架构）</div>
+      <div><b>数据架构四视图</b>：主资分运（数据主题视图/数据资产服务视图/数据分布流转视图/数据资产价值链运营）</div>
+      <div><b>应用架构四步骤</b>：调需组集（调研/需求分析/组件识别/集成需求分析）</div>
+      <div><b>技术架构两步骤</b>：调优（调研/优化设计）</div>
+      <div><b>不确定性三来源</b>：外任依（外部环境/任务/任务依赖）</div>
+      <div><b>策略机制三要点</b>：横投迭（横向关系/垂直平台/迭代演进）</div>
+      <div><b>VUCA</b>：不稳定(Volatile)不确定(Uncertain)复杂(Complex)模糊(Ambiguous)</div>
+      <div><b>双循环</b>：国内大循环为主体、国内国际双循环相互促进</div>
+      <div><b>双碳目标</b>：2030碳达峰、2060碳中和</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">第21章 企业数字化转型发展规划 · 核心知识思维脑图 | 基于第2版教材 | Ctrl+E 全展开 · Ctrl+C 全折叠</div>
+
+<script>
+function toggleBranch(header){header.classList.toggle('collapsed');var body=header.nextElementSibling;if(body)body.classList.toggle('collapsed')}
+function toggleAll(expand){
+  document.querySelectorAll('.branch-header').forEach(function(h){
+    if(expand){h.classList.remove('collapsed');var b=h.nextElementSibling;if(b)b.classList.remove('collapsed')}
+    else{h.classList.add('collapsed');var b=h.nextElementSibling;if(b)b.classList.add('collapsed')}
+  })
+}
+function toggleMnemonics(){
+  var btn=document.getElementById('btnHighlight');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m){
+    m.style.background=btn.classList.contains('active')?'#ffc107':'#fff3cd';
+    m.style.color=btn.classList.contains('active')?'#000':'#856404'
+  })
+}
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && e.key==='e'){e.preventDefault();toggleAll(true)}
+  if(e.ctrlKey && e.key==='c'){e.preventDefault();toggleAll(false)}
+})
+</script>
+
+</body>
+</html>

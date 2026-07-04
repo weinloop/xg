@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第3章 系统科学与哲学方法论 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.container{max-width:900px;margin:0 auto;padding:16px 10px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;margin-bottom:14px;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:12px 16px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 12px 14px}
+.branch-body.collapsed{display:none}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:4px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:4px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:4px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:4px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:4px solid #7d3c98}
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:3px solid #3498db}
+.item-list{list-style:none;padding-left:8px}
+.item-list li{font-size:14px;padding:3px 8px;line-height:1.8;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:4px;font-size:13px;font-weight:700;margin-left:5px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#f4ecf7;color:#7d3c98;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.key-point{color:#c0392b;font-weight:600}
+.exam-mark{display:inline-block;background:#ffe0b2;color:#e65100;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.p0-mark{display:inline-block;background:#fdedec;color:#c0392b;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;margin:0 3px}
+.table-mini{width:100%;font-size:14px;border-collapse:collapse;margin-top:6px}
+.table-mini th{background:#f8f9fa;padding:6px 8px;border:1px solid #e0e0e0;text-align:center;font-weight:700;font-size:13px}
+.table-mini td{padding:5px 8px;border:1px solid #e0e0e0;font-size:13px}
+.table-mini tr:nth-child(even){background:#fafafa}
+.note-box{background:#fff9e6;border-left:4px solid #f39c12;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:14px;color:#7d6608}
+.formula-box{background:#eaf2f8;border:2px solid #3498db;padding:10px 14px;margin:8px 0;border-radius:8px;font-size:14px;color:#1a5276;text-align:center}
+.footer{padding:18px 10px;text-align:center;color:#aaa;font-size:13px}
+.mnemonics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.mnemonics-grid div{background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:14px;border:1px solid #eee}
+.danger-mark{display:inline-block;background:#c0392b;color:#fff;padding:1px 5px;border-radius:3px;font-size:11px;font-weight:700}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🧠 第3章 系统科学与哲学方法论 · 核心知识思维脑图</h1>
+  <p>基于第2版教材原文 · 3.1~3.9 全节覆盖 · 老三论+新三论+哲学双星</p>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <button onclick="toggleAll(true)">📖 全部展开</button>
+  <button onclick="toggleAll(false)">📕 全部折叠</button>
+  <button id="btnHighlight" onclick="toggleMnemonics()">🧠 高亮口诀</button>
+</div>
+
+<div class="container">
+
+<!-- ========== 3.1 矛盾论 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>3.1 矛盾论 <span class="tag">对立统一</span><span class="tag">普遍特殊</span><span class="tag">主要矛盾</span><span class="tag">4大系统矛盾</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">3.1.1 主要思想 <span class="p0-mark">P0必背</span><span class="mnemonic">根本对立普特主</span></div>
+      <ul class="item-list">
+        <li><b>① 矛盾法则即对立统一规律</b>：是唯物辩证法<span class="highlight">最根本的规律</span>，是唯物辩证法的实质和核心；矛盾双方既相互排斥又相互联系，既斗争又统一</li>
+        <li><b>② 唯物辩证法 vs 形而上学</b>：两种根本对立的发展观。形而上学（玄学，唯心论）把事物看成彼此孤立、永不变化；唯物辩证法主张从事物内部研究发展。<span class="highlight">外因是变化的条件，内因是变化的根据，外因通过内因而起作用</span></li>
+        <li><b>③ 矛盾普遍性特殊性</b>：普遍性=矛盾存在于一切过程并贯穿始终；特殊性=每一事物及其侧面各有特点</li>
+        <li><b>④ 主要矛盾、主要矛盾方面、同一性</b>：主要矛盾起领导作用规定其他矛盾；主要方面决定事物性质；同一性=矛盾双方各以对立面为存在前提，在一定条件下相互转化</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">⚡ 矛盾普遍性2含义 + 特殊性3表现 <span class="p0-mark">P1</span></div>
+      <table class="table-mini">
+        <tr><th style="width:20%">类别</th><th style="width:80%">内容</th></tr>
+        <tr><td><b>普遍性2义</b></td><td>① 矛盾存在于<b>一切过程</b>中（任何差异都是矛盾）<br>② 矛盾存在于<b>每一事物过程始终</b></td></tr>
+        <tr><td><b>特殊性3表现</b></td><td>① 每一种<b>运动形式</b>中的矛盾具有特殊性（构成事物特殊本质）<br>② 每一个事物<b>发展过程</b>中的矛盾具有特殊性（根本矛盾/非根本矛盾）<br>③ 每一个事物中矛盾及其不同方面的<b>地位</b>具有特殊性</td></tr>
+      </table>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">3.1.2 在系统规划与管理中的应用 <span class="mnemonic">需资敏稳安效文</span></div>
+      <ul class="item-list">
+        <li><b>需求与资源的矛盾</b> — 不断变化的用户需求 vs 有限资源</li>
+        <li><b>敏态与稳态的矛盾</b> — 系统稳定支持日常业务 vs 灵活适应未来变化</li>
+        <li><b>安全与效率的矛盾</b> — 保障信息安全 vs 保持系统高效运行</li>
+        <li><b>文化与技术的矛盾</b> — 原有文化管理模式 vs 新技术不匹配</li>
+      </ul>
+      <div class="note-box">🔑 <b>迭代式开发=抓住主要矛盾</b>：设计最小原型→多次迭代→实现所有功能。第一个迭代最重要，若不能抓住主要矛盾，后续迭代代价巨大，可能导致项目整体失败。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 3.2 实践论 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>3.2 实践论 <span class="tag">认识论</span><span class="tag">两次飞跃</span><span class="tag">实践检验真理</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">3.2.1 主要思想 <span class="p0-mark">P0</span></div>
+      <ul class="item-list">
+        <li><b>《实践论》写于1937年7月</b>，研究认识论；与《矛盾论》被誉为<span class="highlight">"哲学星空明亮耀眼的双子星"</span></li>
+        <li><b>实践与认识的4重关系</b> <span class="mnemonic">来动目标</span>：实践是认识的<span class="highlight">来源</span>、<span class="highlight">动力</span>、<span class="highlight">目的</span>、<span class="highlight">检验标准</span></li>
+        <li><b>认识规律</b>：实践→认识→再实践→再认识，循环反复至无穷</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">⚡ 两次能动飞跃 <span class="p0-mark">P0必背</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">飞跃</th><th style="width:32%">过程</th><th style="width:50%">关键</th></tr>
+        <tr><td><b>第一次飞跃</b></td><td>感性认识 → 理性认识</td><td>在实践基础上；通过<b>去粗取精、去伪存真、由此及彼、由表及里</b> <span class="mnemonic">去去由由</span></td></tr>
+        <tr><td><b>第二次飞跃</b></td><td>理性认识 → 实践</td><td><span class="highlight">更重要的飞跃</span>；认识具有能动反作用，正确认识促进发展，错误认识阻碍发展</td></tr>
+      </table>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">真理观 <span class="p0-mark">P1</span></div>
+      <ul class="item-list">
+        <li>真理是辩证运动着的、不断发展的过程</li>
+        <li><b>相对真理和绝对真理</b>相互统一的基础是实践</li>
+        <li><span class="highlight">实践是检验真理的唯一标准</span></li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">3.2.2 在系统规划与管理中的应用 <span class="mnemonic">惯迭实</span></div>
+      <ul class="item-list">
+        <li><b>① 避免惯向思维</b> — 立足实际问题，避免经验主义或教条主义；不仅要有感性认识，还要有理性分析</li>
+        <li><b>② 持续多次迭代</b> — 遵循"认知-实践"反复循环原理，用版本与变更控制方式管控系统规划演进</li>
+        <li><b>③ 实验问题解决</b> — 用原型法做出小实验环境，快速验证和优化系统规划</li>
+      </ul>
+      <div class="note-box">🔑 <b>实践性原则</b>：以实际问题为导向，注重实践经验，系统规划应具有可操作性、易于实施和操作，并在实际使用中持续优化调整。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 3.3 系统论 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>3.3 系统论 <span class="tag">老三论SCI</span><span class="tag">八大原理</span><span class="tag">整体观念</span><span class="tag">三脑理论</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">概述 <span class="p0-mark">P0</span></div>
+      <ul class="item-list">
+        <li><b>老三论</b>=系统论+控制论+信息论=<span class="highlight">SCI论</span>（20世纪40年代创立）</li>
+        <li>系统论研究系统的结构、特点、行为、动态、原则、规律及系统间联系，并对其功能进行数学描述</li>
+        <li><b>核心思想</b>：<span class="highlight">系统的整体观念</span>，任何系统都是有机整体，而不是各部分的机械组合或简单相加；整体功能≠各要素性质简单加和</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">系统分类 <span class="p0-mark">P1</span></div>
+      <table class="table-mini">
+        <tr><th style="width:25%">划分原则</th><th style="width:75%">类型</th></tr>
+        <tr><td>按人类干预</td><td>自然系统 / 人工系统</td></tr>
+        <tr><td>按学科领域</td><td>自然系统 / 社会系统 / 思维系统</td></tr>
+        <tr><td>按范围</td><td>宏观系统 / 微观系统</td></tr>
+        <tr><td>按与环境关系</td><td>开放系统 / 封闭系统 / 孤立系统</td></tr>
+        <tr><td>按状态</td><td>平衡系统 / 非平衡系统 / 近平衡系统 / 远平衡系统</td></tr>
+      </table>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">3.3.1 八大基本原理 <span class="p0-mark">P0必背</span><span class="mnemonic">整层开目突稳自相</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">原理</th><th style="width:50%">核心内容</th><th style="width:36%">关键词</th></tr>
+        <tr><td><b>1.整体性</b></td><td>系统整体性质功能≠各要素简单加和；非线性相互作用下整体制约部分</td><td>有机整体、非加和</td></tr>
+        <tr><td><b>2.层次性</b></td><td>要素差异形成等级秩序；如套箱，高层次包含低层次</td><td>等级秩序、套箱</td></tr>
+        <tr><td><b>3.开放性</b></td><td>与外界环境进行物质、能量、信息交换；开放是系统向上发展的前提</td><td>交换、向上发展前提</td></tr>
+        <tr><td><b>4.目的性</b></td><td>发展变化坚持趋向预先确定的状态；异因同果</td><td>趋向预定、异因同果</td></tr>
+        <tr><td><b>5.突变性</b></td><td>通过失稳从一种状态进入另一种状态；系统质变的基本形式</td><td>失稳、质变</td></tr>
+        <tr><td><b>6.稳定性</b></td><td>开放系统具有自我稳定能力；动态中的稳定性；负反馈机制</td><td>动态稳定、负反馈</td></tr>
+        <tr><td><b>7.自组织</b></td><td>系统自发从无序到有序、从低级有序到高级有序</td><td>自发、无序→有序</td></tr>
+        <tr><td><b>8.相似性</b></td><td>同构同态性质；结构功能、存在方式演化过程具有共同性</td><td>同构同态、有差异共性</td></tr>
+      </table>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">⚡ 三脑理论（层次性示例） <span class="p0-mark">P1</span><span class="mnemonic">原边新</span></div>
+      <table class="table-mini">
+        <tr><th style="width:20%">层次</th><th style="width:35%">名称</th><th style="width:45%">信息加工涉及</th></tr>
+        <tr><td>最内层</td><td><b>原始脑（爬行脑）</b></td><td>机体生理活动、躯体内脏活动、本能性适应</td></tr>
+        <tr><td>次内层</td><td><b>边缘系统</b></td><td>感情和情绪、与记忆密切联系、心理活动</td></tr>
+        <tr><td>最外层</td><td><b>新皮层</b></td><td>理智和智慧、认识学习意志抽象预见等高级反映意识</td></tr>
+      </table>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">3.3.2 在系统规划与管理中的应用 <span class="p0-mark">P1</span><span class="mnemonic">需目方成评协</span></div>
+      <ul class="item-list">
+        <li><b>IT服务规划设计7大活动</b>：服务需求识别 → 服务目录设计 → 服务方案设计 → 服务成本评估 → 服务级别协议设计</li>
+        <li><b>服务方案设计包含6要素</b>：服务模式设计、服务级别设计、人员要素设计、过程要素设计、技术要素设计、资源要素设计</li>
+        <li><b>规划顺序</b>：先有总体设计 → 才有详细设计 → 再进行实现和验证（符合从整体全局思考问题的思维方式）</li>
+        <li><b>早期系统设计基础特性</b>：可拓展性、最小原子性、耦合性 — 早期设计好坏决定系统今后能否健康有效演进</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 3.4 信息论 ========== -->
+<div class="branch-card c4">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>3.4 信息论 <span class="tag">香农1948</span><span class="tag">7大定义</span><span class="tag">4次革命</span><span class="tag">6特性</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">概述 <span class="p0-mark">P0</span></div>
+      <ul class="item-list">
+        <li><b>1948年诞生</b>，创始人<span class="highlight">香农</span>；老三论之一</li>
+        <li>运用概率论与数理统计方法研究信息、信息熵、通信系统、数据传输、密码学、数据压缩等问题</li>
+        <li><b>狭义信息论</b>：关于通信技术的理论，以数学方法研究通信技术中信息传输和变换规律</li>
+        <li><b>广义信息论（信息科学）</b>：超出通信技术范围，研究信息的本质、特点及取得、计量、传输、储存、处理、控制和利用的一般规律</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">3.4.1 主要思想 · 7大核心定义 <span class="p0-mark">P0必背</span><span class="mnemonic">信信信信信编译</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">概念</th><th style="width:84%">定义</th></tr>
+        <tr><td><b>信号</b></td><td>消息的载体，是物理量；信息通过信号在通信系统中传递</td></tr>
+        <tr><td><b>信息量</b></td><td>信息多少的量度</td></tr>
+        <tr><td><b>信源</b></td><td>消息的来源；信息以符号形式发出，自然界一切物体都可成为信源</td></tr>
+        <tr><td><b>信宿</b></td><td>信息的接收者；可以是人，也可以是机器</td></tr>
+        <tr><td><b>信道</b></td><td>信源和信宿之间传递信息的通道</td></tr>
+        <tr><td><b>信道容量</b></td><td>信道传输信息的多少以及速度</td></tr>
+        <tr><td><b>编码</b></td><td>使用特定符号、特定顺序将信息变成信号的过程；<b>信源编码</b>=用符号表达消息；<b>信道编码</b>=将符号转换为信道所需信号</td></tr>
+        <tr><td><b>译码</b></td><td>编码的逆过程，将信号还原为信息</td></tr>
+      </table>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">⚡ 四次信息技术革命 <span class="p0-mark">P1</span><span class="mnemonic">语印电计</span></div>
+      <table class="table-mini">
+        <tr><th style="width:15%">次序</th><th style="width:30%">内容</th><th style="width:55%">意义</th></tr>
+        <tr><td><b>第一次</b></td><td>语言和文字、文献</td><td>信息存在的形式，信息交流的工具</td></tr>
+        <tr><td><b>第二次</b></td><td>造纸和印刷技术</td><td>知识可大量生产、存贮和流通，扩大信息交流范围</td></tr>
+        <tr><td><b>第三次</b></td><td>电报、电话、电视及通信技术</td><td>信息传递手段的历史性变革，大大加快传递速度</td></tr>
+        <tr><td><b>第四次</b></td><td>电子计算机和现代通信技术</td><td>信息处理速度、传递速度惊人提高，处理利用能力空前</td></tr>
+      </table>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">⚡ 信息的6大特性 <span class="p0-mark">P0必背</span><span class="mnemonic">传共依价时真</span></div>
+      <table class="table-mini">
+        <tr><th style="width:20%">特性</th><th style="width:45%">含义</th><th style="width:35%">举例</th></tr>
+        <tr><td><b>① 传递性</b></td><td>信息可以通过网络无延迟传递</td><td>烽火传信、飞鸽传书、语音视频</td></tr>
+        <tr><td><b>② 共享性</b></td><td>信息可共享，但<b>不是绝对的而是有条件的</b></td><td>苹果交换仍各有一个，思想交换各得两种；专利有规则使用</td></tr>
+        <tr><td><b>③ 依附性和可处理性</b></td><td>信息存储需存储器、展示需设备；可通过各种手段更改</td><td>红绿灯显示道路信息；自拍美颜处理</td></tr>
+        <tr><td><b>④ 价值相对性</b></td><td>是否有价值因人而异、因时而异</td><td>造纸术成文化遗产；书法画作越来越贵重</td></tr>
+        <tr><td><b>⑤ 时效性</b></td><td>仅对当时时间段有效，时间过去信息不再有效</td><td>红绿灯信息按时间间隔变化</td></tr>
+        <tr><td><b>⑥ 真伪性</b></td><td>信息是客观存在的但并不全都是真实情况的反映</td><td>烽火戏诸侯</td></tr>
+      </table>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">信息论方法2特点 <span class="p0-mark">P1</span></div>
+      <ul class="item-list">
+        <li><b>①</b> 完全撇开对象的具体运动形态，把系统运动过程抽象为信息过程，在不打开机器或活体条件下研究系统与外界输入输出关系</li>
+        <li><b>②</b> 不是为了说明客观对象，而是为了说明客观对象的过程，说明主客体之间信息交换过程的方式</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">3.4.2 在系统规划与管理中的应用</div>
+      <ul class="item-list">
+        <li>由于信息<b>共享性和真伪性</b> → 需专门处理数据安全并进行权限管理</li>
+        <li>由于信息<b>价值相对性</b> → 收集需求时抽丝剥茧抓住核心，解决客户真正痛点</li>
+        <li>由于信息<b>依附性和可处理性</b> → 需将信息收集并用特定方式处理</li>
+        <li><b>编码平衡</b>：在准确性与简洁性之间找平衡，通过添加有限冗余信息确保准确性和抗噪能力</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 3.5 控制论 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>3.5 控制论 <span class="tag">维纳1948</span><span class="tag">开环闭环</span><span class="tag">负反馈</span><span class="tag">CIMS</span><span class="tag">NCS</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">概述 <span class="p0-mark">P0</span></div>
+      <ul class="item-list">
+        <li><b>1948年</b>，美国数学家<span class="highlight">罗伯特·维纳</span>把控制论定义为"动物和机器中控制和通信的科学"</li>
+        <li><b>钱学森</b>1954年出版《工程控制论》，是该领域最具权威性学术著作之一</li>
+        <li>控制 = 通过对系统输出信号的采集和加工产生控制信号施加到系统的过程</li>
+        <li>系统分两类：<b>不可控系统</b>（无法人工控制干预）vs <b>可控系统</b>（可人工控制干预，由控制部分和被控对象组成）</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">⚡ 控制部分3组成 <span class="p0-mark">P0必背</span><span class="mnemonic">传控执</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">组成</th><th style="width:42%">功能</th><th style="width:40%">说明</th></tr>
+        <tr><td><b>传感器</b> sensor</td><td>采集信息并变换到合适形式</td><td>传送到控制器</td></tr>
+        <tr><td><b>控制器</b> controller</td><td>加工信息和产生控制信号</td><td><span class="highlight">控制系统的核心</span></td></tr>
+        <tr><td><b>执行器</b> actuator</td><td>将控制信号放大和变换产生控制作用</td><td>施加到被控对象上</td></tr>
+      </table>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">3.5.1 主要思想 · 控制系统分类 <span class="p0-mark">P0</span><span class="mnemonic">开闭伺调</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">分类</th><th style="width:42%">含义</th><th style="width:40%">特点</th></tr>
+        <tr><td><b>开环控制</b></td><td>控制器形成控制信号时<b>不依赖</b>系统输出信号</td><td>"不计后果"的主观控制；必为程序控制；依赖数学模型</td></tr>
+        <tr><td><b>闭环控制</b></td><td>控制器形成控制信号时<b>依赖</b>系统输出信号</td><td>"顾及后果"的客观控制；不严格依赖数学模型</td></tr>
+        <tr><td><b>伺服控制</b></td><td>使系统输出信号跟随某个设定的信号变化</td><td>跟随设定信号</td></tr>
+        <tr><td><b>调节控制</b></td><td>使系统输出信号保持在某个固定值附近</td><td>温度、速度、压力、液位等参量保持恒定</td></tr>
+      </table>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">⚡ 反馈与负反馈4重要作用 <span class="p0-mark">P0必背</span><span class="mnemonic">稳鲁抗改</span></div>
+      <ul class="item-list">
+        <li><b>反馈</b> = 将系统实际输出和期望输出比较形成的误差信号</li>
+        <li><b>负反馈</b>：反馈信息使系统输出误差逐渐减少 — <span class="highlight">反馈的基本形式</span></li>
+        <li><b>正反馈</b>：反馈信息使系统输出误差增大 — 特殊情况下有用</li>
+      </ul>
+      <div class="formula-box">闭合负反馈环路的4重要作用：<b>① 稳定</b>（最重要）<b>② 鲁棒性</b>（减小参数变化敏感度）<b>③ 抗干扰能力</b>（减小外部干扰影响）<b>④ 改善响应性能</b></div>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">3.5.2 在系统规划与管理中的应用 <span class="p0-mark">P1</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">① 综合自动化系统</div>
+        <ul class="item-list">
+          <li>从生产过程全局出发，集成控制、优化、调度、经营、管理、决策于一体</li>
+          <li>追求<span class="highlight">总体最优而非局部最优</span>；依赖<span class="highlight">信息集成而非简单生产技术集成</span></li>
+          <li>以人为中心的系统；离散型工业重要成果是CIMS</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">② 计算机集成制造系统 CIMS <span class="mnemonic">设制造质管</span></div>
+        <table class="table-mini">
+          <tr><th style="width:25%">四大分系统</th><th style="width:75%">包含内容</th></tr>
+          <tr><td><b>自动化设计系统</b></td><td>CAD / CAM / CAE / CAPP</td></tr>
+          <tr><td><b>自动化制造系统</b></td><td>机械加工自动化 / 物流自动化 / 仓库自动化</td></tr>
+          <tr><td><b>计算机辅助质量保障系统</b></td><td>采集、储存、评价与处理质量有关数据（高质量+低成本）</td></tr>
+          <tr><td><b>管理与决策支持系统</b></td><td>中长期生产计划、物料需求计划、生产能力平衡、财务库、市场预测、长期发展战略</td></tr>
+        </table>
+        <div class="note-box">🔑 支撑环境：分布式数据库 + 数据传输网络，最终实现所有信息集成。</div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">③ 网络化控制系统 NCS <span class="p0-mark">P1</span></div>
+        <ul class="item-list">
+          <li><b>NCS</b>=分布式实时反馈控制系统，通过数字网络实现控制功能，控制器/传感器/执行器是同等网络节点，共享相同网络</li>
+          <li><b>发展阶段</b>：直接数字控制DDC → 分布式控制系统DCS → 网络化控制系统NCS</li>
+        </ul>
+        <table class="table-mini">
+          <tr><th style="width:8%">序号</th><th style="width:28%">特点</th><th style="width:64%">说明</th></tr>
+          <tr><td><b>①</b></td><td>不等周期采样</td><td>数据采集与控制作用不能确保等周期</td></tr>
+          <tr><td><b>②</b></td><td>控制品质受网络调度影响</td><td>调度算法决定数据传输快慢及优先权</td></tr>
+          <tr><td><b>③</b></td><td>网络传导时延</td><td>不仅降低性能还会导致系统不稳定</td></tr>
+          <tr><td><b>④</b></td><td>数据包时序错乱/丢失</td><td>多节点路径不唯一；驱动方式有时钟驱动和事件驱动</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 3.6 耗散结构理论 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>3.6 耗散结构理论 <span class="tag">普里戈金1969</span><span class="tag">新三论</span><span class="tag">4条件</span><span class="tag">熵变方程</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">概述 <span class="p0-mark">P0</span></div>
+      <ul class="item-list">
+        <li><b>1969年</b>，比利时布鲁塞尔自由大学<span class="highlight">普里戈金</span>教授提出</li>
+        <li>研究开放系统在远离平衡态的非线性区如何从无序向有序的组织结构进行演化的机理、过程和规律</li>
+        <li><b>耗散结构</b> = 远离平衡的开放系统通过不断与外界交换能量和物质，从无序状态转变为时间、空间或功能的有序状态所形成的稳定有序结构</li>
+        <li><b>核心论断</b>：<span class="highlight">非平衡是有序之源</span>，平衡态是无序的</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">⚡ 熵变方程 <span class="p0-mark">P0必背</span></div>
+      <div class="formula-box">
+        <b>ds = dis + des</b><br>
+        <small>dis = 熵增（正熵）≥ 0，系统内部不可逆过程引起，是系统不稳定根源（负作用）</small><br>
+        <small>des = 熵流，可正可负可为零；当 des &lt; 0 时为负熵，对系统产生正向作用</small>
+      </div>
+      <div class="note-box">🔑 <b>系统走向有序的唯一可能性</b>：des/dt &lt; 0，即外界供给系统一个负熵流（输入高品质物质能量流，输出低品质物质能量流）。系统将自发产生的熵及时排到外界环境，使本身有序度增高。稳定非平衡结构时：|des| = |dis|。</div>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">3.6.1 耗散结构形成4条件 <span class="p0-mark">P0必背</span><span class="mnemonic">开远线涨</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">条件</th><th style="width:52%">核心内容</th><th style="width:30%">关键判断</th></tr>
+        <tr><td><b>① 开放性</b></td><td>系统能同周围环境进行能量、物质和信息交换；只有 des&lt;0 时负熵可抵消熵增实现从无序向有序演化</td><td>是否与外界交换</td></tr>
+        <tr><td><b>② 远离平衡态</b></td><td>系统各部分差异越大，离平衡态越远；需与外界进行交换</td><td>各部分是否均匀一致</td></tr>
+        <tr><td><b>③ 非线性相互作用</b></td><td>只有非线性系统才能演化为有序耗散结构；线性系统失去形成耗散结构的可能</td><td>组成部分是否独立且差异</td></tr>
+        <tr><td><b>④ 涨落现象</b></td><td>微小偏差的发生，是系统形成耗散结构的<span class="highlight">触发器</span>；随机不可预测</td><td>须出现在远离平衡态区域</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>平衡结构="死"结构</b>（须与环境隔绝才能维持）｜<b>耗散结构="活"结构</b>（动态的，形成和维持都需与环境交换物质能量）</div>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">3.6.2 在系统规划与管理中的应用 <span class="p0-mark">P1</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">① 物流网络的耗散结构</div>
+        <ul class="item-list">
+          <li>减少成本、节省时间、提高效率的组织或优化策略执行都是熵流流入过程</li>
+          <li>稳定运行的物流网络就是典型的耗散结构</li>
+          <li>物流网络的<b>开放性、动态性、自组织演化</b>是形成耗散结构的根源</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">② 企业管理信息系统的耗散结构</div>
+        <ul class="item-list">
+          <li>不少企业管理信息系统是封闭系统，与外界只有少量交流和实物交流，维持低水平稳定有序="死"结构</li>
+          <li><b>抗熵能力=抗干扰能力</b>。内部干扰=部件产生噪声（产品过时、技术老化、管理陈旧等）；外部干扰=外界正熵输入（大量信息资料不加分析输入）</li>
+          <li><b>增强抗熵能力</b>：完善系统各部件功能，及时从外界输入信息，根据信息改变企业信息结构，使系统适应外界环境变化</li>
+          <li>当外界环境突然变化时，系统能重新组成新的耗散结构，比原结构更协调、更高级</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 3.7 协同论 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>3.7 协同论 <span class="tag">哈肯</span><span class="tag">三大原理</span><span class="tag">慢支配快</span><span class="tag">序参量</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">概述 <span class="p0-mark">P0</span></div>
+      <ul class="item-list">
+        <li><b>协同论（协同学/协和学）</b>，创始人<span class="highlight">哈肯</span></li>
+        <li>研究不同事物的共同特征及其协同机理，着重探讨各种系统从无序变为有序时的相似性</li>
+        <li>以系统论、信息论、控制论、突变论等为基础，吸取耗散结构理论营养</li>
+        <li><b>协同效应</b> = 复杂系统内各子系统的协同行为产生出的超越自身单独作用而形成的整个系统的聚合作用</li>
+        <li><b>序参量</b> = 描述系统整体行为的宏观参量，大小标志宏观有序程度；系统无序时序参量为零；临界点时序参量增长到最大</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">3.7.1 三大基本原理 <span class="p0-mark">P0必背</span><span class="mnemonic">不稳支序</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">原理</th><th style="width:52%">核心内容</th><th style="width:30%">关键词</th></tr>
+        <tr><td><b>① 不稳定原理</b></td><td>一种模式的形成意味着原来状态不再能维持从而变为不稳定；不稳定性具有积极建设性作用，是新旧结构演替的媒介</td><td>新旧结构演替媒介</td></tr>
+        <tr><td><b>② 支配原理</b></td><td>核心思想：系统内部各子系统、参量或因素性质和对系统影响有差异不平衡；<span class="highlight">慢变量（不稳定模）支配快变量（稳定模）</span>，快变量跟随慢变量变化</td><td>慢支配快 <span class="tag2">已考</span></td></tr>
+        <tr><td><b>③ 序参量原理</b></td><td>序参量从无到有变化并指示新结构形成；序参量形成后成为主宰系统演化过程的力量；求解用绝热消去法</td><td>主宰演化过程</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>慢变量 vs 快变量</b>：慢变量=阻尼很小、弛豫时间很长、接近临界点时缓慢增长、代表不稳定模；快变量=阻尼很大、以指数形式迅速衰减、弛豫时间很短、代表稳定模。<b>有序结构由少数几个缓慢增加的模或变量决定</b>。</div>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">序参量的不同物理意义 <span class="p0-mark">P1</span></div>
+      <table class="table-mini">
+        <tr><th style="width:30%">系统</th><th style="width:70%">序参量</th></tr>
+        <tr><td>激光系统</td><td>光场强度</td></tr>
+        <tr><td>化学反应</td><td>浓度或粒子数</td></tr>
+        <tr><td>社会学和管理学</td><td>反对或赞成的人数（测验、调研、投票表决）</td></tr>
+      </table>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">3.7.2 在系统规划与管理中的应用 <span class="mnemonic">适修进</span></div>
+      <ul class="item-list">
+        <li>信息系统=由多个相互关联子系统构成的自组织系统（硬件、软件、人员、流程）；协同作用决定整个信息系统的性能和稳定性</li>
+        <li><b>自适应能力</b> — 根据外部环境变化自动调整自身结构和行为（如云计算根据负载变化自动调整资源分配）</li>
+        <li><b>自我修复能力</b> — 出现故障或异常时能自我修复和恢复（如分布式存储系统自动容错和纠错）</li>
+        <li><b>自我进化能力</b> — 通过学习和演化不断提升性能和适应性（如人工智能通过学习优化提高智能化水平）</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 3.8 突变论 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>3.8 突变论 <span class="tag">托姆</span><span class="tag">新三论</span><span class="tag">奇点分岔</span><span class="tag">飞跃渐变</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">概述 <span class="p0-mark">P0</span></div>
+      <ul class="item-list">
+        <li>最早研究出现于数学研究领域，由法国数学家<span class="highlight">托姆</span>提出</li>
+        <li>研究自然界和人类社会中<b>连续渐变如何引起突变或飞跃</b>的现象，力求以统一数学模型描述、预测并控制</li>
+        <li>在系统科学领域与耗散结构论、协同论并称<span class="highlight">"新三论"</span></li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">3.8.1 主要思想 <span class="p0-mark">P0必背</span><span class="mnemonic">奇分飞渐</span></div>
+      <ul class="item-list">
+        <li><b>主要研究问题</b>：质变产生的路径</li>
+        <li><b>核心观点</b>：质变既可通过<b>飞跃</b>方式实现，也可通过<b>渐变</b>方式实现；改变控制条件，飞跃可转化为渐变，渐变也可转化为飞跃</li>
+        <li><b>判别准则</b>：在严格控制条件下，如果质变经历的中间过渡态是稳定的，那么它就是渐变过程；关键在于控制条件</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:20%">数学基础</th><th style="width:80%">内容</th></tr>
+        <tr><td><b>奇点理论</b></td><td>描述系统中的突变或飞跃现象，即从一个状态转变为另一个状态；奇点被视为数学模型，描述特定条件下系统状态变化（可能突然不连续，也可能连续平滑）</td></tr>
+        <tr><td><b>分岔理论</b></td><td>研究系统从一种稳定状态转变为另一种稳定状态的过程和规律；通过数学模型和计算机模拟研究分岔现象</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>解决了哲学难题</b>：质变究竟是通过飞跃还是通过渐变来实现？突变论认为两者皆可，关键在于控制条件。在突变论之前，微积分主要研究平滑连续变化过程；突变论应运而生以研究非连续变化过程。</div>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">3.8.2 在系统规划与管理中的应用 <span class="p0-mark">P1</span></div>
+      <ul class="item-list">
+        <li><b>① 系统稳定性分析</b> — 通过数学模型探讨奇点预测系统在不同条件下的行为和变化趋势，为系统规划提供稳定性分析依据</li>
+        <li><b>② 人工智能和机器学习</b> — 模型训练过程经常出现分岔和混沌现象导致训练不稳定不收敛；通过分析模型参数对训练结果的影响，优化训练过程，提高稳定性和精度</li>
+        <li><b>③ 算法设计支撑</b> — 帮助理解和描述系统中非线性关系、分岔、混沌等复杂现象，为算法设计提供更精确模型和更有效解决方案</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 3.9 复杂系统论 ========== -->
+<div class="branch-card c4">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>3.9 复杂系统论 <span class="tag">还原论修正</span><span class="tag">局部互动不可测</span><span class="tag">3原则</span><span class="tag">5方向</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">概述 <span class="p0-mark">P0</span></div>
+      <ul class="item-list">
+        <li>20世纪中期兴起，是基于复杂性科学研究的哲学思想</li>
+        <li><b>代表贡献</b>：比利时普里戈金"复杂性科学"、法国埃德加·莫兰"复杂性方法"、美国圣菲研究所"复杂适应系统理论"</li>
+        <li>我国最早研究的是<span class="highlight">钱学森</span>教授，提出<b>开放的复杂巨系统理论</b></li>
+        <li>霍金曾说：<span class="highlight">21世纪将是复杂性科学的世纪</span>；2021年诺贝尔物理学奖颁发给完成基于复杂科学思想的地球气候相关研究的三位科学家</li>
+        <li>复杂系统论是对于经典科学<span class="highlight">"还原论"的修正</b></li>
+      </ul>
+      <div class="note-box">🔑 <b>还原论</b>：将高层复杂对象分解为较低层简单对象来处理（如经典物理将物品简化为质点，忽略形状大小）。复杂系统论突破了还原论带来的理论瓶颈，成为人类认识世界的新路径。</div>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">3.9.1 主要思想 <span class="p0-mark">P0必背</span></div>
+      <ul class="item-list">
+        <li><b>核心原因</b>：<span class="highlight">局部互动不可测</span>。可充分了解每个单元特性，但组合成整体系统时将呈现出单个单元所不具备的新特性</li>
+        <li><b>核心原则</b>：复杂系统具备自我学习和适应能力，由<b>反馈、异质性、随机性</b>等原则创造 <span class="mnemonic">反异随</span></li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:18%">原则</th><th style="width:82%">核心内容</th></tr>
+        <tr><td><b>① 反馈</b></td><td>观测复杂系统是否积极向好的重要手段；复杂系统不可通过线性运算方法测量</td></tr>
+        <tr><td><b>② 异质性</b></td><td>保证复杂系统稳定运行的关键特性；同质性均匀系统对新变量反应更剧烈，异质性提供稳定性</td></tr>
+        <tr><td><b>③ 随机性</b></td><td>接受随机性可提升研究能力；让渡控制权，理解和利用系统自组织和自适应能力，接受随机性甚至引入错误概念，可帮助获得整体最优解</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>整体大于部分之和</b>。由人类设计的、支持精细控制的集约化系统并不符合现实世界普遍原则，经常导致系统只能获得局部最优解而非整体最优解。</div>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">3.9.2 在系统规划与管理中的5方向 <span class="p0-mark">P1</span><span class="mnemonic">整动非多适</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">方向</th><th style="width:82%">核心内容</th></tr>
+        <tr><td><b>① 整体视角</b></td><td>复杂系统具有多层次、多子系统特点；将系统视为整体，分析内部结构和外部环境</td></tr>
+        <tr><td><b>② 动态演化</b></td><td>考虑系统历史、现状和未来趋势，分析不同阶段特点和规律</td></tr>
+        <tr><td><b>③ 非线性思维</b></td><td>分析系统中各种反馈机制和相互作用，更好理解和预测系统行为</td></tr>
+        <tr><td><b>④ 多样性原则</b></td><td>鼓励不同策略、方案、方法和技术的融合，应对复杂多变情况</td></tr>
+        <tr><td><b>⑤ 适应性策略</b></td><td>根据系统不同阶段特点和需求及时调整方案和方法</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 本章小结 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>📋 本章考察规律总结 · 老三论新三论必考 · 哲学双星思想 · 系统八原理 · 控制论分类</span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <table class="table-mini">
+      <tr><th style="width:12%">优先级</th><th style="width:30%">考点</th><th style="width:58%">掌握要求</th></tr>
+      <tr><td>🔴P0</td><td>老三论=系控信 / 新三论=耗协突</td><td>必须能默写并区分（教材练习题第8题已考老三论）</td></tr>
+      <tr><td>🔴P0</td><td>系统论八大基本原理（整层开目突稳自相）</td><td>必须能默写名称并理解关键词</td></tr>
+      <tr><td>🔴P0</td><td>信息论7大定义 + 信息6特性</td><td>必须能默写并场景判断</td></tr>
+      <tr><td>🔴P0</td><td>控制部分3组成 + 开环闭环 + 负反馈4作用</td><td>必须能默写并区分</td></tr>
+      <tr><td>🔴P0</td><td>耗散结构4条件 + 熵变方程 ds=dis+des</td><td>必须能默写</td></tr>
+      <tr><td>🔴P0</td><td>协同论三大原理（不稳支序）+ 慢支配快</td><td>必须能默写（教材练习题第9题已考支配原理）</td></tr>
+      <tr><td>🟡P1</td><td>矛盾论4思想 + 实践论两次飞跃</td><td>理解并能区分</td></tr>
+      <tr><td>🟡P1</td><td>4次信息技术革命 + CIMS四大分系统</td><td>会排序和分类</td></tr>
+      <tr><td>🟡P1</td><td>突变论数学基础 + 复杂系统论3原则5方向</td><td>了解核心内容</td></tr>
+      <tr><td>🟢P2</td><td>各理论在系统规划与管理中的具体应用</td><td>了解即可</td></tr>
+    </table>
+    <div class="note-box">🔑 <b>本章核心脉络</b>：哲学双星（矛盾论+实践论）→ 老三论（系统论+控制论+信息论=SCI）→ 新三论（耗散结构+协同论+突变论）→ 复杂系统论。每个理论都包含"主要思想"+"在系统规划与管理中的应用"两部分。</div>
+  </div>
+</div>
+
+</div><!-- container -->
+
+<!-- 口诀面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 10px 16px">
+  <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:17px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记·28条）</h3>
+    <div class="mnemonics-grid">
+      <div><b>老三论</b>：系控信（系统论/控制论/信息论=SCI）<span class="p0-mark">P0</span></div>
+      <div><b>新三论</b>：耗协突（耗散结构/协同论/突变论）<span class="p0-mark">P0</span></div>
+      <div><b>哲学双星</b>：矛盾论+实践论（1937年7月）</div>
+      <div><b>矛盾论4思想</b>：根本对立普特主</div>
+      <div><b>矛盾普遍2义</b>：一切过程+过程始终</div>
+      <div><b>矛盾特殊3表</b>：运发地（运动形式/发展过程/地位）</div>
+      <div><b>系统规划4矛盾</b>：需资敏稳安效文</div>
+      <div><b>实践认识4角色</b>：来动目标（来源/动力/目的/标准）</div>
+      <div><b>感性认识4步</b>：去去由由（去粗取精/去伪存真/由此及彼/由表及里）</div>
+      <div><b>两次飞跃</b>：感性→理性(第一次)，理性→实践(第二次更重要)</div>
+      <div><b>实践论应用3点</b>：惯迭实（避免惯性/持续迭代/实验解决）</div>
+      <div><b>系统八原理</b>：整层开目突稳自相 <span class="p0-mark">P0</span></div>
+      <div><b>三脑理论</b>：原边新（原始脑/边缘系统/新皮层）</div>
+      <div><b>IT服务规划7活动</b>：需目方成评协</div>
+      <div><b>信息论7定义</b>：信信信信信编译（信号/信息量/信源/信宿/信道/信道容量/编码/译码）<span class="p0-mark">P0</span></div>
+      <div><b>4次信息革命</b>：语印电计（语言文字/造纸印刷/电报电话/电子计算机）</div>
+      <div><b>信息6特性</b>：传共依价时真 <span class="p0-mark">P0</span></div>
+      <div><b>控制3器</b>：传控执（传感器/控制器/执行器）<span class="p0-mark">P0</span></div>
+      <div><b>控制分类</b>：开闭伺调（开环/闭环/伺服控制/调节控制）</div>
+      <div><b>负反馈4作用</b>：稳鲁抗改（稳定/鲁棒性/抗干扰/改善响应）<span class="p0-mark">P0</span></div>
+      <div><b>CIMS四分系统</b>：设制造质管（设计/制造/质量保障/管理决策）</div>
+      <div><b>耗散结构4条件</b>：开远线涨（开放性/远离平衡/非线性/涨落）<span class="p0-mark">P0</span></div>
+      <div><b>熵变方程</b>：ds = dis + des（dis≥0熵增，des熵流可正可负）<span class="p0-mark">P0</span></div>
+      <div><b>协同论3原理</b>：不稳支序（不稳定/支配/序参量）<span class="p0-mark">P0</span></div>
+      <div><b>支配原理核心</b>：慢支快（慢变量支配快变量）<span class="tag2">已考</span></div>
+      <div><b>复杂系统3原则</b>：反异随（反馈/异质性/随机性）</div>
+      <div><b>复杂系统5方向</b>：整动非多适（整体/动态/非线性/多样性/适应性）</div>
+      <div><b>突变论数学基础</b>：奇分（奇点理论/分岔理论）</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">第3章 系统科学与哲学方法论 · 核心知识思维脑图 | 基于第2版教材原文 | Ctrl+E 全展开 · Ctrl+C 全折叠</div>
+
+<script>
+function toggleBranch(header){header.classList.toggle('collapsed');var body=header.nextElementSibling;body.classList.toggle('collapsed')}
+function toggleAll(expand){
+  document.querySelectorAll('.branch-header').forEach(function(h){
+    if(expand){h.classList.remove('collapsed');h.nextElementSibling.classList.remove('collapsed')}
+    else{h.classList.add('collapsed');h.nextElementSibling.classList.add('collapsed')}
+  })
+}
+function toggleMnemonics(){
+  var btn=document.getElementById('btnHighlight');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m){
+    m.style.background=btn.classList.contains('active')?'#ffc107':'#fff3cd';
+    m.style.color=btn.classList.contains('active')?'#000':'#856404'
+  })
+}
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && e.key==='e'){e.preventDefault();toggleAll(true)}
+  if(e.ctrlKey && e.key==='c'){e.preventDefault();toggleAll(false)}
+})
+</script>
+
+</body>
+</html>

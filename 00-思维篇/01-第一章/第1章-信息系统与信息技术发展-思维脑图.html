@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第1章 信息系统与信息技术发展 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.container{max-width:900px;margin:0 auto;padding:16px 10px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;margin-bottom:14px;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:12px 16px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 12px 14px}
+.branch-body.collapsed{display:none}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:4px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:4px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:4px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:4px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:4px solid #7d3c98}
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:3px solid #3498db}
+.item-list{list-style:none;padding-left:8px}
+.item-list li{font-size:14px;padding:3px 8px;line-height:1.8;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:4px;font-size:13px;font-weight:700;margin-left:5px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#f4ecf7;color:#7d3c98;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.key-point{color:#c0392b;font-weight:600}
+.exam-mark{display:inline-block;background:#ffe0b2;color:#e65100;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.p0-mark{display:inline-block;background:#fdedec;color:#c0392b;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;margin:0 3px}
+.table-mini{width:100%;font-size:14px;border-collapse:collapse;margin-top:6px}
+.table-mini th{background:#f8f9fa;padding:6px 8px;border:1px solid #e0e0e0;text-align:center;font-weight:700;font-size:13px}
+.table-mini td{padding:5px 8px;border:1px solid #e0e0e0;font-size:13px}
+.table-mini tr:nth-child(even){background:#fafafa}
+.note-box{background:#fff9e6;border-left:4px solid #f39c12;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:14px;color:#7d6608}
+.formula-box{background:#eaf2f8;border:2px solid #3498db;padding:10px 14px;margin:8px 0;border-radius:8px;font-size:14px;color:#1a5276;text-align:center}
+.footer{padding:18px 10px;text-align:center;color:#aaa;font-size:13px}
+.mnemonics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.mnemonics-grid div{background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:14px;border:1px solid #eee}
+.danger-mark{display:inline-block;background:#c0392b;color:#fff;padding:1px 5px;border-radius:3px;font-size:11px;font-weight:700}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌐 第1章 信息系统与信息技术发展 · 核心知识思维脑图</h1>
+  <p>基于第2版教材原文提炼 · 1.1~1.3 全节覆盖 · 信息化/信息技术/新一代信息技术</p>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <button onclick="toggleAll(true)">📖 全部展开</button>
+  <button onclick="toggleAll(false)">📕 全部折叠</button>
+  <button id="btnHighlight" onclick="toggleMnemonics()">🧠 高亮口诀</button>
+</div>
+
+<div class="container">
+
+<!-- ========== 1.1 信息系统及其发展 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>1.1 信息系统及其发展 <span class="tag">信息化内涵</span><span class="tag">信息系统</span><span class="tag">诺兰模型</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 1.1.1 信息化内涵与特征 -->
+    <div class="sub-section">
+      <div class="sub-title">1.1.1 信息化内涵与特征 <span class="p0-mark">高频</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">信息化内涵四部分 <span class="mnemonic">网产社效</span></div>
+        <ul class="item-list">
+          <li><b>信息网络体系</b>：信息资源、各种信息系统和公用通信网络平台等</li>
+          <li><b>信息产业基础</b>：信息科学技术研究与开发、信息装备制造和信息咨询服务等</li>
+          <li><b>社会运行环境</b>：现代工农业、管理体制、政策法律、规章制度、文化教育和道德观念等生产关系与上层建筑</li>
+          <li><b>效用积累过程</b>：劳动者素质、国家现代化水平和人民生活质量的不断提高等</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">信息化六启示 <span class="mnemonic">主体时空手途目</span></div>
+        <ul class="item-list">
+          <li><b>主体</b>：全体社会成员（政府、企业、事业、团体和个人）</li>
+          <li><b>时域</b>：一个长期的过程</li>
+          <li><b>空域</b>：政治、经济、文化、军事和社会的一切领域</li>
+          <li><b>手段</b>：基于现代信息技术的先进社会生产工具</li>
+          <li><b>途径</b>：创建信息时代的社会生产力，推动生产关系及上层建筑改革</li>
+          <li><b>目标</b>：推动国家综合实力、社会文明素质和人民生活质量的提升</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">信息化九大特征 <span class="mnemonic">广深快量交处整安</span></div>
+        <ul class="item-list">
+          <li><b>广泛性</b>：涉及社会各个领域（政府、企业、教育、医疗等）</li>
+          <li><b>深度性</b>：改变生产、经营、管理、服务等活动方式和内容</li>
+          <li><b>快速性</b>：信息化进程在全球迅速推进</li>
+          <li><b>数据量巨大</b>：数据量呈爆炸式增长（文字、图像、音视频等）</li>
+          <li><b>信息交流快速</b>：高速度、低成本、缩小地理隔阂</li>
+          <li><b>信息处理能力强大</b>：复杂数据挖掘分析归类可在短时间内完成</li>
+          <li><b>跨界整合</b>：驱动跨界整合，促进新型产业和商业模式创新（互联网+、AI等）</li>
+          <li><b>社会生产方式改变</b>：远程办公、在线教育、电子商务等新兴模式</li>
+          <li><b>信息安全问题突出</b>：保护个人隐私、防范网络攻击、预防虚假信息传播</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">我国信息化发展战略 · 三步走 <span class="p0-mark">高频</span></div>
+        <table class="table-mini">
+          <tr><th style="width:18%">阶段</th><th style="width:82%">目标</th></tr>
+          <tr><td><b>第一步（2020年）</b></td><td>核心关键技术部分领域达国际先进水平，信息产业国际竞争力大幅提升，信息化成为驱动现代化建设的先导力量</td></tr>
+          <tr><td><b>第二步（2025年）</b></td><td>建成国际领先的移动通信网络，根本改变核心关键技术受制于人的局面，实现技术先进、产业发达、应用领先、网络安全坚不可摧</td></tr>
+          <tr><td><b>第三步（21世纪中叶）</b></td><td>信息化全面支撑社会主义现代化国家建设，网络强国地位日益巩固，引领全球信息化发展</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">我国信息化管理体制演进五阶段 <span class="mnemonic">探实加全创</span></div>
+        <table class="table-mini">
+          <tr><th style="width:40%">阶段</th><th style="width:60%">时间</th></tr>
+          <tr><td>1. 信息化研究探索阶段</td><td>1982-1992 年</td></tr>
+          <tr><td>2. 信息化形成实践阶段</td><td>1993-1997 年</td></tr>
+          <tr><td>3. 信息化加速推进阶段</td><td>1998-2001 年</td></tr>
+          <tr><td>4. 信息化全面发展阶段</td><td>2002-2011 年</td></tr>
+          <tr><td>5. 信息化创新跨越阶段</td><td>2012 年至今</td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 1.1.2 信息系统内涵与特征 -->
+    <div class="sub-section">
+      <div class="sub-title">1.1.2 信息系统内涵与特征 <span class="p0-mark">高频</span></div>
+      <ul class="item-list">
+        <li><b>狭义信息系统</b>：由计算机硬件、网络和通信设备、软件、信息资源、信息用户和规章制度组成的以处理信息流为目的的<b>人机一体化系统</b></li>
+        <li><b>广义信息系统</b>：通过输入、处理和输出三个基本活动将原始数据转变为有用的信息；<span class="key-point">三个维度：组织、管理、信息技术</span></li>
+        <li><b>抽象模型三要素</b>：管理模型 + 信息处理模型 + 系统实现条件</li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">信息系统八大特征 <span class="mnemonic">复动扩易实安可成</span></div>
+        <ul class="item-list">
+          <li><b>复杂性</b>：多个子系统组成（硬件、软件、数据、网络等）</li>
+          <li><b>动态性</b>：需不断调整改进以适应外部环境和内部需求</li>
+          <li><b>可扩展性</b>：可升级、扩展或重组</li>
+          <li><b>易用性</b>：简单易用，方便访问操作</li>
+          <li><b>实时性</b>：对实时数据快速处理响应</li>
+          <li><b>安全性</b>：保证完整性、可用性和机密性</li>
+          <li><b>可靠性</b>：稳定可靠运行，避免故障损失</li>
+          <li><b>成本效益</b>：成本与收益保持合理比例</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">信息系统生命周期五阶段 <span class="p0-mark">P0必背</span> <span class="mnemonic">规分设施行</span></div>
+        <table class="table-mini">
+          <tr><th style="width:25%">生命周期</th><th style="width:35%">对应软件阶段</th><th style="width:40%">关键活动</th></tr>
+          <tr><td><b>系统规划</b></td><td>可行性分析与项目开发计划</td><td>立项、可行性研究</td></tr>
+          <tr><td><b>系统分析</b></td><td>需求分析</td><td>用户需求、功能需求</td></tr>
+          <tr><td><b>系统设计</b></td><td>概要设计、详细设计</td><td>架构设计、模块设计</td></tr>
+          <tr><td><b>系统实施</b></td><td>编码、测试</td><td>开发、测试、部署</td></tr>
+          <tr><td><b>系统运行和维护</b></td><td>维护</td><td>日常运维、改进</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">信息系统结构</div>
+        <ul class="item-list">
+          <li><b>物理结构</b>（按硬件空间拓扑）：<span class="key-point">集中式</span>（资源集中、便于管理，但主机故障即瘫痪） vs <span class="key-point">分布式</span>（主流模式，便于扩展、安全性好，但标准不易统一）</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">信息系统通用逻辑结构五层（自底向上）<span class="p0-mark">P0</span> <span class="mnemonic">基资中业应</span></div>
+        <table class="table-mini">
+          <tr><th style="width:18%">层次</th><th style="width:82%">核心内容</th></tr>
+          <tr><td><b>① 基础设施层</b></td><td>底层技术基础，包括信息感知设备、网络传输设备和存储设备资源</td></tr>
+          <tr><td><b>② 资源管理层</b></td><td>操作系统和数据库等，负责各类资源的管理与调度</td></tr>
+          <tr><td><b>③ 中间件层</b></td><td>保障信息传输和共享，提供基础数据服务（传输/交易/GIS/J2EE等）</td></tr>
+          <tr><td><b>④ 业务逻辑层</b></td><td>统一的业务流程驱动引擎（工作流引擎、报表引擎、交易处理引擎）</td></tr>
+          <tr><td><b>⑤ 应用表现层</b></td><td>用户交互界面，通过UI设计将信息交互在客户端展示</td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 1.1.3 信息系统发展 -->
+    <div class="sub-section">
+      <div class="sub-title">1.1.3 信息系统发展 · 诺兰模型 <span class="p0-mark">P0必背</span> <span class="exam-mark">高频考点</span></div>
+      <ul class="item-list">
+        <li>1979年<b>诺兰</b>通过对200多个公司总结提出，信息系统发展的<b>客观路径和规律</b></li>
+        <li>数据处理发展涉及四方面：技术进步、应用拓展、计划和控制策略变化、用户状况</li>
+        <li><span class="key-point">前三个阶段=计算机时代特征；后三个阶段=信息时代特征</span></li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:10%">阶段</th><th style="width:18%">名称</th><th style="width:48%">主要特点</th><th style="width:24%">关键词</th></tr>
+        <tr><td><b>① 初始阶段</b></td><td>初始</td><td>计算机只作为办公设备，少数人使用，通常发生在财务部门</td><td>打字机、办公设施</td></tr>
+        <tr><td><b>② 传播阶段</b></td><td>传播</td><td>数据处理能力快速提高；新问题不断出现（数据冗余/不一致/难共享）；使用效率偏低</td><td>投入大幅增加</td></tr>
+        <tr><td><b>③ 控制阶段</b></td><td>控制</td><td>出现计算机系统管理组织；DB技术应用；开始从计算机管理向数据管理转变；存在"部门壁垒"和"信息孤岛"</td><td>管理组织、DB</td></tr>
+        <tr><td><b>④ 集成阶段</b></td><td>集成</td><td>建立集中式DB和相应信息系统；增加大量硬件，预算费用迅速增长</td><td>集中DB、预算增</td></tr>
+        <tr><td><b>⑤ 数据管理阶段</b></td><td>数据管理</td><td>选定统一DB平台、数据管理体系和信息管理平台；基本实现资源整合和信息共享</td><td>统一平台、信息共享</td></tr>
+        <tr><td><b>⑥ 成熟阶段</b></td><td>成熟</td><td>满足组织各层次需求（事务处理到决策）；IT与管理过程结合；内部与外部资源充分整合</td><td>决策支持、内外整合</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>口诀</b>：诺兰六阶段「初传控集数成」。分界：前三阶段=计算机时代，后三阶段=信息时代。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 1.2 信息技术及其发展 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>1.2 信息技术及其发展 <span class="tag">软硬件</span><span class="tag">网络</span><span class="tag">存储数据库</span><span class="tag">安全</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 1.2.1 计算机软硬件 -->
+    <div class="sub-section">
+      <div class="sub-title">1.2.1 计算机软硬件 <span class="p0-mark">高频</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">冯·诺依曼计算机结构五部分 <span class="mnemonic">控运存入出</span></div>
+        <ul class="item-list">
+          <li><b>控制器 + 运算器</b> → 集成为<b>中央处理器（CPU）</b></li>
+          <li><b>存储器</b></li>
+          <li><b>输入设备 + 输出设备</b> → 集成为一体，按传输过程分为<b>总线、接口、外部设备</b></li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">计算机软件分类 <span class="mnemonic">系统(操数中) + 应用(专/通)</span></div>
+        <table class="table-mini">
+          <tr><th style="width:20%">类别</th><th style="width:80%">内容</th></tr>
+          <tr><td><b>系统软件</b></td><td>不依赖特定应用领域的通用软件，主要包括：<b>操作系统、数据库、中间件</b></td></tr>
+          <tr><td><b>应用软件</b></td><td>为某类应用需要或解决特定问题而设计的软件，分<b>专用应用软件</b>和<b>通用应用软件</b>两类</td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 1.2.2 计算机网络 -->
+    <div class="sub-section">
+      <div class="sub-title">1.2.2 计算机网络 <span class="p0-mark">高频</span></div>
+      <ul class="item-list">
+        <li><b>定义</b>：利用通信线路将地理上分散的、具有独立功能的计算机系统和通信设备连接起来，依靠网络软件及通信协议实现资源共享和信息传递的系统</li>
+        <li><b>五大功能</b>：数据通信、资源共享、管理集中化、实现分布式处理、负荷均衡 <span class="mnemonic">通享集分均</span></li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">网络分类</div>
+        <table class="table-mini">
+          <tr><th style="width:25%">分类维度</th><th style="width:75%">类型</th></tr>
+          <tr><td>按作用范围</td><td>PAN（个人局域网）、LAN（局域网）、MAN（城域网）、WAN（广域网）</td></tr>
+          <tr><td>按使用者</td><td>公用网（Public Network）、专用网（Private Network）</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">基本网络设备 <span class="mnemonic">集中桥交路防</span></div>
+        <ul class="item-list">
+          <li><b>集线器、中继器、网桥、交换机、路由器、防火墙</b>等</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">OSI 七层模型（自底向上）<span class="p0-mark">P0必背</span> <span class="mnemonic">物数网传会表应</span></div>
+        <table class="table-mini">
+          <tr><th style="width:14%">层次</th><th style="width:14%">中文名</th><th style="width:72%">说明</th></tr>
+          <tr><td>1</td><td><b>物理层</b></td><td>比特流传输，机械、电气、功能、过程特性</td></tr>
+          <tr><td>2</td><td><b>数据链路层</b></td><td>帧传输，物理寻址、差错检测、流量控制</td></tr>
+          <tr><td>3</td><td><b>网络层</b></td><td>分组传输，路由选择、IP寻址</td></tr>
+          <tr><td>4</td><td><b>传输层</b></td><td>端到端可靠传输（TCP/UDP）</td></tr>
+          <tr><td>5</td><td><b>会话层</b></td><td>建立、管理、终止会话</td></tr>
+          <tr><td>6</td><td><b>表示层</b></td><td>数据格式转换、加密解密、压缩</td></tr>
+          <tr><td>7</td><td><b>应用层</b></td><td>为应用程序提供网络服务（HTTP/FTP/SMTP等）</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">TCP/IP 四层模型 <span class="mnemonic">网网传应</span></div>
+        <table class="table-mini">
+          <tr><th style="width:20%">层次</th><th style="width:30%">对应OSI</th><th style="width:50%">主要协议</th></tr>
+          <tr><td><b>网络接口层</b></td><td>物理层 + 数据链路层</td><td>Ethernet、IEEE 802、Token-Ring、FDDI、SLIP</td></tr>
+          <tr><td><b>网际层</b></td><td>网络层</td><td>IP、ICMP、ARP、RARP</td></tr>
+          <tr><td><b>传输层</b></td><td>传输层</td><td>TCP、UDP</td></tr>
+          <tr><td><b>应用层</b></td><td>会话层 + 表示层 + 应用层</td><td>FTP、Telnet、SMTP、SNMP、NFS、HTTP</td></tr>
+        </table>
+        <div class="note-box">🔑 <b>对比要点</b>：OSI=7层参考模型（理论），TCP/IP=4层实用协议族（因特网核心）。TCP/IP将OSI上三层合并为应用层，下两层合并为网络接口层。</div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">网络性能指标六项 <span class="mnemonic">速带吞延往用</span></div>
+        <ul class="item-list">
+          <li><b>速率</b>：数字信道上传送数据的速率，单位 b/s（比特每秒）</li>
+          <li><b>带宽</b>：单位时间内通过的最高数据率，单位 b/s</li>
+          <li><b>吞吐量</b>：单位时间内通过某个网络/信道/接口的数据量</li>
+          <li><b>时延</b>：发送时延 + 传播时延 + 处理时延 + 排队时延</li>
+          <li><b>往返时间（RTT）</b>：发送方发送数据到收到接收方确认的总时间</li>
+          <li><b>利用率</b>：信道利用率 + 网络利用率（加权平均）</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">非性能指标 <span class="mnemonic">费标靠扩升管维</span></div>
+        <ul class="item-list">
+          <li>费用、标准化、可靠性、可扩展性、可升级性、易管理性、可维护性</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">SDN 软件定义网络 <span class="p0-mark">高频</span></div>
+        <ul class="item-list">
+          <li><b>核心思想</b>：将网络设备的<b>控制面与数据面分离</b>，通过软件编程定义和控制网络</li>
+          <li><b>三层架构</b>（由南到北）：<b>数据平面 + 控制平面 + 应用平面</b> <span class="mnemonic">数控应</span></li>
+          <li><b>三类接口</b>：<span class="key-point">南向接口（控制↔数据，OpenFlow）</span>、北向接口（控制↔应用）、东西向接口（多控制器间）</li>
+          <li><b>OpenFlow</b>：最主流的南向接口协议，基于<b>流（Flow）</b>的概念匹配转发规则，交换机维护流表（Flow Table）</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">5G 第五代移动通信技术 <span class="p0-mark">P0必背</span> <span class="exam-mark">高频</span></div>
+        <ul class="item-list">
+          <li><b>特点</b>：高速率、低时延、大连接</li>
+          <li><b>基础技术</b>：OFDMA（正交频分多址）+ MIMO（多入多出）</li>
+          <li><b>新型信道编码</b>：LDPC、Polar</li>
+          <li><b>支持频段</b>：同时支持中低频和高频（4G仅支持中低频）</li>
+        </ul>
+        <table class="table-mini">
+          <tr><th style="width:18%">场景</th><th style="width:30%">全称</th><th style="width:52%">应用</th></tr>
+          <tr><td><b>eMBB</b></td><td>增强移动宽带</td><td>面向移动互联网流量爆炸式增长，为移动互联网用户提供极致应用体验</td></tr>
+          <tr><td><b>uRLLC</b></td><td>超高可靠低时延通信</td><td>面向工业控制、远程医疗、自动驾驶等对时延和可靠性极高要求的应用</td></tr>
+          <tr><td><b>mMTC</b></td><td>海量机器类通信</td><td>面向智慧城市、智能家居、环境监测等以传感和数据采集为目标的应用</td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 1.2.3 数据存储和数据库 -->
+    <div class="sub-section">
+      <div class="sub-title">1.2.3 数据存储和数据库 <span class="p0-mark">高频</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">数据存储技术架构五部分（自底向上）<span class="mnemonic">介质网议构连</span></div>
+        <ul class="item-list">
+          <li><b>存储介质</b>：HDD（机械硬盘）、SSD（固态硬盘）、磁带、光盘</li>
+          <li><b>组网方式</b>：IP组网、FC组网、IB组网</li>
+          <li><b>存储类型和协议</b>：文件存储、块存储、对象存储</li>
+          <li><b>存储架构</b>：集中式存储、分布式存储</li>
+          <li><b>连接方式</b>：<span class="key-point">SAN、NAS、DAS</span></li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">三种连接方式对比 <span class="p0-mark">P0</span></div>
+        <table class="table-mini">
+          <tr><th style="width:14%">方式</th><th style="width:20%">全称</th><th style="width:32%">传输对象/协议</th><th style="width:34%">特点</th></tr>
+          <tr><td><b>DAS</b></td><td>直接附加存储</td><td>数据块 / SCSI/FC/ATA</td><td>直连主机，不共享；适合中小组织</td></tr>
+          <tr><td><b>NAS</b></td><td>网络接入存储</td><td>文件 / TCP/IP</td><td>文件访问服务，支持NFS/CIFS；安装简单</td></tr>
+          <tr><td><b>SAN</td><td>存储区域网络</td><td>数据块 / FC</td><td>高速专用存储网络；适合大型组织数据中心</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">数据结构模型三种 <span class="mnemonic">层网关</span></div>
+        <table class="table-mini">
+          <tr><th style="width:18%">模型</th><th style="width:22%">结构</th><th style="width:60%">特点</th></tr>
+          <tr><td><b>层次模型</b></td><td>树结构</td><td>最早使用；父子一对多联系；只能处理一对多实体联系</td></tr>
+          <tr><td><b>网状模型</b></td><td>有向图结构</td><td>突破层次模型限制；两个或以上节点可有多双亲节点</td></tr>
+          <tr><td><b>关系模型</b></td><td>二维表格</td><td>基于集合论关系概念；所有信息表示为关系中的数据值</td></tr>
+        </table>
+        <div class="note-box">🔑 层次模型+网状模型统称为<b>格式化数据模型</b>。</div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">常用数据库类型 <span class="p0-mark">高频</span></div>
+        <ul class="item-list">
+          <li><b>关系型数据库（SQL）</b>：采用关系模型；支持<b>ACID原则</b> <span class="mnemonic">原一隔持</span>
+            <ul style="margin-top:4px">
+              <li>原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）</li>
+            </ul>
+          </li>
+          <li><b>非关系型数据库（NoSQL）</b>：分布式、非关系型、不保证遵循ACID；不需要固定表结构；不存在连接操作</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">非关系型数据库四类 <span class="mnemonic">键列文图</span></div>
+        <table class="table-mini">
+          <tr><th style="width:20%">类型</th><th style="width:80%">特点</th></tr>
+          <tr><td><b>键值数据库</b></td><td>类似哈希表，通过key访问；简单、易部署、高并发</td></tr>
+          <tr><td><b>列存储数据库</b></td><td>数据存储在列族中，应对分布式存储海量数据</td></tr>
+          <tr><td><b>面向文档数据库</b></td><td>键值数据库升级版，允许嵌套键值；查询效率更高</td></tr>
+          <tr><td><b>图形数据库</b></td><td>实体作为顶点，关系作为边</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">数据仓库 <span class="p0-mark">高频</span></div>
+        <ul class="item-list">
+          <li><b>定义</b>：面向主题的、集成的、非易失的且随时间变化的数据集合，用于支持管理决策</li>
+        </ul>
+        <table class="table-mini">
+          <tr><th style="width:22%">组成部分</th><th style="width:78%">说明</th></tr>
+          <tr><td><b>① 数据源</b></td><td>系统基础和数据源泉；内部信息（业务数据、文档）+ 外部信息（法规、市场、竞争对手）</td></tr>
+          <tr><td><b>② 数据存储与管理</b></td><td><span class="key-point">整个数据仓库系统的核心</span>；按主题组织；分企业级数据仓库和部门级数据仓库（数据集市）</td></tr>
+          <tr><td><b>③ OLAP服务器</b></td><td>对分析数据按多维模型组织，多角度多层次分析发现趋势；分ROLAP/MOLAP/HOLAP <span class="mnemonic">R/M/H</span></td></tr>
+          <tr><td><b>④ 前端工具</b></td><td>查询工具、报表工具、分析工具、数据挖掘工具、应用开发工具</td></tr>
+        </table>
+        <div class="note-box">🔑 OLAP三类：ROLAP（基本+聚合均在RDBMS）、MOLAP（基本+聚合均在多维DB）、HOLAP（基本在RDBMS，聚合在多维DB）。</div>
+      </div>
+    </div>
+    <!-- 1.2.4 信息安全 -->
+    <div class="sub-section">
+      <div class="sub-title">1.2.4 信息安全 <span class="p0-mark">高频</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">信息安全五大基本属性 <span class="p0-mark">P0必背</span> <span class="mnemonic">保完可不可</span></div>
+        <table class="table-mini">
+          <tr><th style="width:14%">属性</th><th style="width:42%">含义</th><th style="width:44%">关键词</th></tr>
+          <tr><td><b>保密性</b></td><td>信息只为授权者享用而不泄漏给未授权者</td><td>不被看到、加密</td></tr>
+          <tr><td><b>完整性</b></td><td>真实发信者→真实收信者，传输中不被添加/删除/替换</td><td>不被篡改、数字签名</td></tr>
+          <tr><td><b>可用性</b></td><td>信息和系统随时为授权者提供服务，不被不合理拒绝</td><td>随时能用、灾备</td></tr>
+          <tr><td><b>可控性</b></td><td>管理者能对信息实施必要的控制管理，对抗犯罪和侵犯</td><td>管理者管控、审计</td></tr>
+          <tr><td><b>不可否认性</b></td><td>人要为信息行为负责，提供仲裁信息证据</td><td>使用者负责、日志</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">信息安全四个层次 <span class="mnemonic">设数内行</span></div>
+        <ul class="item-list">
+          <li><b>设备安全 → 数据安全 → 内容安全 → 行为安全</b>（信息依赖载体而存在）</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">信息安全七项主要技术和措施 <span class="p0-mark">P0必背</span> <span class="mnemonic">身访入防网防数</span></div>
+        <table class="table-mini">
+          <tr><th style="width:14%">技术</th><th style="width:86%">核心内容</th></tr>
+          <tr><td><b>① 身份认证</b></td><td>确认操作者身份；措施：VIEID/静态密码/智能卡/短信密码/动态口令/USB Key/PKI/生物识别/虹膜</td></tr>
+          <tr><td><b>② 访问控制</b></td><td>防止未授权访问；4种机制：<b>DAC</b>(自主)/<b>RBAC</b>(角色)/<b>Rule-BAC</b>(规则)/<b>MAC</b>(强制) <span class="exam-mark">高频</span></td></tr>
+          <tr><td><b>③ 入侵检测系统</b></td><td>依照安全策略监视网络/系统运行状况；分实时入侵检测和事后入侵检测</td></tr>
+          <tr><td><b>④ 防火墙</b></td><td>内部网和外部网之间安全网关；4部分：服务访问规则、验证工具、包过滤、应用网关 <span class="mnemonic">服验包应</span></td></tr>
+          <tr><td><b>⑤ 网闸</b></td><td>固态开关读写介质连接两个独立主机系统；逻辑隔离，无协议摆渡，无通信物理连接</td></tr>
+          <tr><td><b>⑥ 防病毒</b></td><td>6条防护准则：拒绝访问/病毒检测/控制传播/清除/恢复/替代操作 <span class="mnemonic">拒检控清恢替</span></td></tr>
+          <tr><td><b>⑦ 数据加密</b></td><td>对称加密（DES，同密钥）vs 非对称加密（RSA，公私钥）</td></tr>
+        </table>
+        <div class="note-box">🔑 <b>易混区分</b>：DAC vs MAC → 前=所有者自主决定，后=系统强制标签；RBAC vs Rule-BAC → 前=基于角色，后=基于规则；对称 vs 非对称 → 前=同密钥快但分发难，后=公私钥慢但管理简单。</div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">用户和实体行为分析（UEBA）</div>
+        <ul class="item-list">
+          <li><b>定义</b>：提供用户画像及基于各种分析方法的异常检测，发现与用户或实体标准画像/行为异常的活动相关潜在事件</li>
+          <li><b>三层架构</b>：数据获取层 + 算法分析层 + 场景应用层 <span class="mnemonic">数算场</span></li>
+          <li>结合基本分析（签名规则、模式匹配、简单统计、阈值）+ 高级分析（监督/无监督机器学习）</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">网络安全态势感知 <span class="p0-mark">高频</span></div>
+        <ul class="item-list">
+          <li><b>定义</b>：在大规模网络环境中，对能够引起网络态势发生变化的安全要素进行获取、理解、显示，并预测未来网络安全发展趋势</li>
+          <li><b>前提</b>：安全大数据</li>
+        </ul>
+        <table class="table-mini">
+          <tr><th style="width:8%">序号</th><th style="width:36%">关键技术</th><th style="width:56%">核心内容</th></tr>
+          <tr><td>①</td><td><b>海量多元异构数据的汇聚融合技术</b></td><td>PB量级多元异构数据的采集汇聚、多维度深度融合、统一存储管理和安全共享</td></tr>
+          <tr><td>②</td><td><b>面向多类型的网络安全威胁评估技术</b></td><td>从流量、域名、报文、恶意代码等多元数据入手多层次检测，结合聚类/关联/序列模式分析</td></tr>
+          <tr><td>③</td><td><b>网络安全态势评估与决策支撑技术</b></td><td>从"人/物/地/事"角度综合评估，构建多维安全事件知识图谱</td></tr>
+          <tr><td>④</td><td><b>网络安全态势可视化</b></td><td>三部分：数据转化 + 图像映射 + 视图变换</td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 1.2.5 信息技术发展 -->
+    <div class="sub-section">
+      <div class="sub-title">1.2.5 信息技术发展趋势</div>
+      <table class="table-mini">
+        <tr><th style="width:22%">领域</th><th style="width:78%">发展方向</th></tr>
+        <tr><td><b>计算机软件</b></td><td>"软件定义一切"成为主流；OS、DBMS、大数据框架、AI框架应运而生</td></tr>
+        <tr><td><b>计算机硬件</b></td><td>超高速、超小型、平行处理、智能化；体积小/速度快/容量大/功耗低/可靠性高</td></tr>
+        <tr><td><b>网络技术</b></td><td>5G加快网络速度、降低延迟，为物联网和工业互联网奠定基础</td></tr>
+        <tr><td><b>数据存储和数据库</b></td><td>云存储；数据库向<b>模型拓展、架构解耦、存算分离</b>方向演进</td></tr>
+        <tr><td><b>信息安全</b></td><td>可信计算理念为核心；标准化和集成化方向</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 1.3.1-1.3.4 新一代信息技术（前四个） ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>1.3.1~1.3.4 物联网 / 区块链 / 云计算 / 大数据 <span class="tag2">新一代信息技术</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 1.3.1 物联网 -->
+    <div class="sub-section">
+      <div class="sub-title">1.3.1 物联网（IoT）<span class="p0-mark">高频</span></div>
+      <ul class="item-list">
+        <li><b>定义</b>：通过信息传感设备，按约定协议将任何物品与互联网相连接，进行信息交换和通信，以实现智能化识别、定位、跟踪、监控和管理的网络</li>
+        <li><b>解决互联</b>：T2T（物品与物品）、H2T（人与物品）、H2H（人与人）；M2M（人/人/机器/机器）</li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">物联网三大本质特点 <span class="mnemonic">互识智</span></div>
+        <ul class="item-list">
+          <li><b>互联</b>：需要联网的"物"一定要能够实现互联互通</li>
+          <li><b>识别与通信</b>：纳入联网的"物"具备自动识别物与物（M2M）通信功能</li>
+          <li><b>智能化</b>：网络系统具有自动化、自我反馈与智能控制的特点</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">物联网产业六大特点 <span class="mnemonic">感异联管应经</span></div>
+        <ul class="item-list">
+          <li>感知识别普适化、异构设备互联化、联网终端规模化、管理调控智能化、应用服务链条化、经济发展跨越化</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">物联网三层架构 <span class="p0-mark">P0必背</span> <span class="mnemonic">感网应</span></div>
+        <table class="table-mini">
+          <tr><th style="width:18%">层次</th><th style="width:82%">组成与功能</th></tr>
+          <tr><td><b>① 感知层</b></td><td>各种传感器（温度、二维码、RFID标签和读写器、摄像头、GPS等）；<span class="key-point">识别物体、采集信息的来源</span></td></tr>
+          <tr><td><b>② 网络层</b></td><td>各种网络（互联网、广电网、网络管理系统、云计算平台等）；<span class="key-point">整个物联网的中枢</span>，传递和处理感知层获取的信息</td></tr>
+          <tr><td><b>③ 应用层</b></td><td>物联网和用户的接口，与行业需求结合实现智能应用</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">物联网关键技术</div>
+        <ul class="item-list">
+          <li><b>① 传感器技术</b>：检测装置，将信息按一定规律变换为电信号；<span class="key-point">RFID（射频识别）</span>是物联网中使用的一种传感器技术，让物品"开口说话"，赋予物联网可跟踪性</li>
+          <li><b>② 传感网</b>：<b>MEMS（微电子机械系统）</b>由微传感器、微执行器、信号处理和控制电路、通信接口和电源等组成的一体化微型器件系统</li>
+          <li><b>③ 应用系统框架</b>：5个重要技术部分：机器、传感器硬件、通信网络、中间件、应用 <span class="mnemonic">机感通中应</span></li>
+        </ul>
+      </div>
+      <div class="note-box">🔑 <b>应用领域</b>：智能家居、智慧城市、工业自动化、医疗健康、农业智能化、物流追踪、能源管理。</div>
+    </div>
+    <!-- 1.3.2 区块链 -->
+    <div class="sub-section">
+      <div class="sub-title">1.3.2 区块链 <span class="p0-mark">高频</span></div>
+      <ul class="item-list">
+        <li><b>定义</b>：按照时间顺序将数据区块以顺序相连的方式组合成的<b>链式数据结构</b>，以密码学方式保证的<b>不可篡改和不可伪造的分布式账本</b></li>
+        <li><b>狭义</b>：链式数据结构，分布式账本；<b>广义</b>：利用块链式数据结构验证与存储数据、分布式节点共识算法生成和更新数据、密码学保证安全、智能合约编程操作数据的分布式基础架构与计算范式</li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">区块链七大特点 <span class="mnemonic">多边时智不开安</span></div>
+        <table class="table-mini">
+          <tr><th style="width:18%">特点</th><th style="width:82%">核心内容</th></tr>
+          <tr><td><b>多中心化</b></td><td>纯数学方法代替中心化组织，构建去中心化、可信的分布式系统</td></tr>
+          <tr><td><b>多方维护</b></td><td>激励机制确保所有节点参与验证，通过共识机制选择特定节点加入新区块</td></tr>
+          <tr><td><b>时序数据</b></td><td>带时间戳的链式结构存储，实现可追溯性</td></tr>
+          <tr><td><b>智能合约</b></td><td>灵活可变的脚本代码支持创建新型智能合约</td></tr>
+          <tr><td><b>不可篡改</b></td><td>篡改某区块须递归修改其后序所有区块，哈希重算代价巨大</td></tr>
+          <tr><td><b>开放共识</b></td><td>任意节点可自由加入并拥有完整数据库拷贝</td></tr>
+          <tr><td><b>安全可信</b></td><td>非对称加密 + 共识算法算力抵御外部攻击</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">区块链三大关键技术 <span class="p0-mark">P0</span> <span class="mnemonic">分加共</span></div>
+        <table class="table-mini">
+          <tr><th style="width:20%">技术</th><th style="width:80%">核心内容</th></tr>
+          <tr><td><b>① 分布式账本</b></td><td>多节点共同记账，每节点保存唯一真实副本；反应时间几分钟甚至几秒；理论上除非所有节点都被破坏否则极稳健</td></tr>
+          <tr><td><b>② 加密算法</b></td><td><b>哈希算法</b>（MD5/SHA/SM3，区块链主要用<b>SHA256</b>）+ <b>非对称加密</b>（RSA/ElGamal/D-H/ECC）</td></tr>
+          <tr><td><b>③ 共识机制</b></td><td>常用：PoW、PoS、DPoS、Paxos、PBFT</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">共识机制四维度 <span class="mnemonic">合性资容</span></div>
+        <ul class="item-list">
+          <li><b>合规监管</b>：是否支持超级权限节点对全网节点和数据进行监管</li>
+          <li><b>性能效率</b>：交易达成共识被确认的效率</li>
+          <li><b>资源消耗</b>：共识过程中耗费的CPU、网络I/O和存储等资源</li>
+          <li><b>容错性</b>：防攻击、防欺诈的能力</li>
+        </ul>
+      </div>
+      <div class="note-box">🔑 <b>发展趋势</b>：①成为互联网基础协议之一；②不同分层承载不同功能；③应用和发展呈螺旋式上升。</div>
+    </div>
+    <!-- 1.3.3 云计算 -->
+    <div class="sub-section">
+      <div class="sub-title">1.3.3 云计算 <span class="p0-mark">高频</span></div>
+      <ul class="item-list">
+        <li><b>定义</b>：分布式计算的一种，通过网络"云"将巨大的数据计算处理程序分解成无数小程序，由多台服务器组成的系统处理分析后返回给用户</li>
+        <li><b>核心思想</b>：将大量用网络连接的计算资源纳入统一管理和调度，构成计算资源池，向用户提供按需服务</li>
+        <li><b>首要任务</b>：实现"一切即服务"（Everything as a Service, EaaS）</li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">云计算服务类型三种（按资源层次）<span class="p0-mark">P0必背</span> <span class="mnemonic">IaaS/PaaS/SaaS</span></div>
+        <table class="table-mini">
+          <tr><th style="width:14%">类型</th><th style="width:30%">全称</th><th style="width:56%">资源层次</th></tr>
+          <tr><td><b>IaaS</b></td><td>基础设施即服务</td><td>基础设施层（计算、存储、网络资源）</td></tr>
+          <tr><td><b>PaaS</b></td><td>平台即服务</td><td>平台层（开发、运行环境）</td></tr>
+          <tr><td><b>SaaS</b></td><td>软件即服务</td><td>应用层（完整应用软件）</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">云计算部署类型 <span class="mnemonic">公私混</span></div>
+        <ul class="item-list">
+          <li>按部署范围分为：<b>公有云、私有云、混合云</b></li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">云计算七大特征 <span class="p0-mark">P0</span> <span class="mnemonic">超扩虚可通廉灵</span></div>
+        <table class="table-mini">
+          <tr><th style="width:18%">特征</th><th style="width:82%">说明</th></tr>
+          <tr><td><b>超大规模</b></td><td>"云"具有相当大的规模，赋予用户前所未有的计算能力</td></tr>
+          <tr><td><b>高可扩展性</b></td><td>动态伸缩，满足应用和用户规模增长需要</td></tr>
+          <tr><td><b>虚拟化</b></td><td>虚拟资源池，资源来自"云"而非固定有形实体</td></tr>
+          <tr><td><b>高可靠性</b></td><td>数据保存在"云"上，无须担心个人计算机崩溃</td></tr>
+          <tr><td><b>通用性</b></td><td>同一"云"可同时支撑不同应用</td></tr>
+          <tr><td><b>廉价性</b></td><td>采用廉价节点构成"云"，大大降低成本</td></tr>
+          <tr><td><b>灵活定制</b></td><td>用户可根据需要定制服务、应用及资源</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">云计算四项关键技术 <span class="p0-mark">P0</span> <span class="mnemonic">虚存多安</span></div>
+        <ul class="item-list">
+          <li><b>① 虚拟化技术</b>：扩大硬件容量，简化软件重新配置；CPU虚拟化可单CPU模拟多CPU并行；<b>容器技术</b>属于操作系统虚拟化</li>
+          <li><b>② 云存储技术</b>：基于传统媒体系统发展的全新信息存储管理方式；分布式文件系统是重要组成部分</li>
+          <li><b>③ 多租户和访问控制管理</b>：云计算访问控制研究的核心问题；包括访问控制模型、基于ABE密码机制、多租户及虚拟化访问控制</li>
+          <li><b>④ 云安全技术</b>：两方面 = 云计算本身安全保护 + 借助云服务保障客户端安全</li>
+        </ul>
+      </div>
+      <div class="note-box">🔑 <b>云安全三方面</b>：云计算安全性、保障云基础设施的安全性、云安全技术服务。<b>四大趋势</b>：创新、垂直、混合、生态 <span class="mnemonic">创垂混生</span>。</div>
+      </div>
+    </div>
+    <!-- 1.3.4 大数据 -->
+    <div class="sub-section">
+      <div class="sub-title">1.3.4 大数据 <span class="p0-mark">高频</span></div>
+      <ul class="item-list">
+        <li><b>定义</b>：无法在一定时间范围内用常规软件工具进行捕捉、管理和处理的数据集合，是需要新处理模式才能具有更强决策力、洞察发现力和流程优化能力的海量、高增长率和多样化的信息资产</li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">大数据4V特征 <span class="p0-mark">P0必背</span> <span class="mnemonic">规多价速</span></div>
+        <table class="table-mini">
+          <tr><th style="width:20%">特征</th><th style="width:20%">英文</th><th style="width:60%">说明</th></tr>
+          <tr><td><b>规模性</b></td><td>Volume</td><td>非结构化数据超大规模，占总数据量80%~90%，增长速度比结构化数据快10~50倍；单位从GB→TB→PB→EB→ZB</td></tr>
+          <tr><td><b>多样性</b></td><td>Variety</td><td>数据类型繁多，异构性；分结构化和非结构化数据（网络日志、音频、视频、图片、地理位置等）</td></tr>
+          <tr><td><b>价值密度</b></td><td>Value</td><td>单位数据价值密度降低，但整体价值提高；价值呈稀疏性</td></tr>
+          <tr><td><b>速度</b></td><td>Velocity</td><td>处理速度快、时效性高；实时分析而非批量分析；<span class="key-point">区别于传统数据挖掘的最显著特征</span></td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">大数据技术架构四部分 <span class="p0-mark">P0</span> <span class="mnemonic">获处管服</span></div>
+        <table class="table-mini">
+          <tr><th style="width:24%">技术</th><th style="width:76%">核心内容</th></tr>
+          <tr><td><b>① 大数据获取技术</b></td><td>数据采集（分布式爬取/DPI/DFI）+ 数据整合 + 数据清洗</td></tr>
+          <tr><td><b>② 分布式数据处理技术</b></td><td>核心是将任务分解分配给多台计算机并行处理；<b>Hadoop（离线复杂）/Spark（离线快速）/Storm（在线实时）</b></td></tr>
+          <tr><td><b>③ 大数据管理技术</b></td><td>大数据存储（MPP架构/Hadoop衍生/大数据一体机）+ 多数据中心协同 + 安全隐私</td></tr>
+          <tr><td><b>④ 大数据应用和服务技术</b></td><td>分析应用技术 + 可视化技术（文本/网络/时空/多维/交互可视化）</td></tr>
+        </table>
+      </div>
+      <div class="note-box">🔑 <b>三大分布式系统</b>：Hadoop=离线复杂处理 / Spark=离线快速处理 / Storm=在线实时处理。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 1.3.5-1.3.7 人工智能/边缘计算/数字孪生 ========== -->
+<div class="branch-card c4">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>1.3.5~1.3.7 人工智能 / 边缘计算 / 数字孪生 <span class="tag">AI</span><span class="tag">边缘</span><span class="tag">数字孪生</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 1.3.5 人工智能 -->
+    <div class="sub-section">
+      <div class="sub-title">1.3.5 人工智能（AI）<span class="p0-mark">高频</span></div>
+      <ul class="item-list">
+        <li><b>定义</b>：利用计算机或计算机控制的机器来模拟、延伸和扩展人类的智能和感知环境的能力，从而获取知识并使用知识获得最佳结果的理论、方法、技术及应用系统</li>
+        <li>1956年提出，历经半个多世纪发展；新一轮驱动力量：大数据、高性能计算、深度学习</li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">人工智能三大特点 <span class="mnemonic">人服感交学演</span></div>
+        <ul class="item-list">
+          <li><b>① 由人类设计，为人类服务</b>：本质为计算，基础为数据；以人为本</li>
+          <li><b>② 能感知环境，能产生反应，能与人交互，能与人互补</b>：借助传感器感知，通过多种方式人机交互</li>
+          <li><b>③ 有适应特性，有学习能力，有演化迭代，有连接扩展</b>：自适应调节参数/更新优化模型；与云、端、人、物数字化连接</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">人工智能关键技术（13项）<span class="p0-mark">高频</span> <span class="mnemonic">机自视知专人机思感行计分情大</span></div>
+        <table class="table-mini">
+          <tr><th style="width:20%">技术</th><th style="width:80%">核心内容</th></tr>
+          <tr><td><b>① 机器学习</b></td><td>自动将模型与数据匹配；分符号学习/网络学习；统计机器学习；<b>神经网络→深度学习</b></td></tr>
+          <tr><td><b>② 自然语言处理（NLP）</b></td><td>人机自然语言通信；核心问题：信息抽取、自动文摘/分词、识别转化；应用：机器翻译、语义理解、问答系统</td></tr>
+          <tr><td><b>③ 计算机视觉（CV）</b></td><td>模仿人类视觉系统；自动驾驶、机器人、智能医疗；端到端AI算法</td></tr>
+          <tr><td><b>④ 知识图谱</b></td><td>结构化语义知识库，节点+边的图数据结构；用于反欺诈、不一致性验证、组团欺诈</td></tr>
+          <tr><td><b>⑤ 专家系统</b></td><td>6部分：<b>人机交互界面、知识库、推理机、解释器、综合数据库、知识获取</b> <span class="mnemonic">人知推解综知</span></td></tr>
+          <tr><td><b>⑥ 人机交互（HCI）</b></td><td>人到计算机+计算机到人；包括基本/图形/语音/情感/体感/脑机交互</td></tr>
+          <tr><td><b>⑦ 机器思维</b></td><td>模拟人类思维功能；推理、搜索、规划</td></tr>
+          <tr><td><b>⑧ 机器感知</b></td><td>机器获取外界信息主要途径；机器视觉、模式识别、自然语言处理</td></tr>
+          <tr><td><b>⑨ 机器行为</b></td><td>智能机器作用于外界环境；智能控制、智能制造</td></tr>
+          <tr><td><b>⑩ 计算智能</b></td><td>基于仿生学；神经计算、进化计算、模糊计算</td></tr>
+          <tr><td><b>⑪ 分布智能</b></td><td>分布式问题求解、多代理系统</td></tr>
+          <tr><td><b>⑫ 人工心理和人工情感</b></td><td>心理和情感影响认知，影响思维</td></tr>
+          <tr><td><b>⑬ 大模型</b></td><td>模型参数数量庞大；数百万到数十亿参数；深度神经网络构建</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">人工智能五大发展趋势 <span class="mnemonic">人自交产社</span></div>
+        <ul class="item-list">
+          <li><b>① 向人机混合智能发展</b>：将人的作用或认知模型引入AI系统</li>
+          <li><b>② 向自主智能系统发展</b>：从"人工+智能"转向减少人工干预的自主智能</li>
+          <li><b>③ 加速与其他学科领域交叉渗透</b>：与计算机、数学、认知、神经、社会科学融合</li>
+          <li><b>④ 产业将蓬勃发展</b>："人工智能+X"创新模式；进入普惠型智能社会</li>
+          <li><b>⑤ 社会学将提上议程</b>：制定完善AI法律法规，发展友好AI</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 1.3.6 边缘计算 -->
+    <div class="sub-section">
+      <div class="sub-title">1.3.6 边缘计算（EC）<span class="p0-mark">高频</span></div>
+      <ul class="item-list">
+        <li><b>类比</b>：<span class="key-point">章鱼</span>用"腿"解决问题（60%神经元在腿上，40%在脑部）—— 类比边缘计算将数据处理下放到网络边缘节点</li>
+        <li><b>定义</b>：将主要处理和数据存储放在网络边缘节点的分布式计算形式；在靠近物或数据源头的网络边缘侧，融合网络、计算、存储、应用核心能力的开放平台</li>
+        <li><b>业务本质</b>：云计算在数据中心之外汇聚节点的延伸和演进；以"<span class="key-point">边云协同</span>"和"<span class="key-point">边缘智能</span>"为核心能力发展方向</li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">边缘计算四大特点 <span class="mnemonic">联数约分</span></div>
+        <table class="table-mini">
+          <tr><th style="width:18%">特点</th><th style="width:82%">核心内容</th></tr>
+          <tr><td><b>① 联接性</b></td><td>边缘计算的基础；需具备丰富联接功能（网络接口/协议/拓扑/部署/管理）</td></tr>
+          <tr><td><b>② 数据第一入口</b></td><td>物理世界到数字世界的桥梁；拥有大量、实时、完整的数据</td></tr>
+          <tr><td><b>③ 约束性</b></td><td>适配工业现场恶劣条件（防电磁/防尘/防爆/抗振动等）；功耗/成本/空间要求高</td></tr>
+          <tr><td><b>④ 分布性</b></td><td>天然具备分布式特征；支持分布式计算/存储/资源调度/智能/安全</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">边缘计算 CROSS 价值 <span class="p0-mark">P0</span> <span class="mnemonic">连实优智安</span></div>
+        <ul class="item-list">
+          <li><b>C</b>onnection（联接）、<b>R</b>eal-time（实时）、<b>O</b>ptimization（优化）、<b>S</b>mart（智能）、<b>S</b>ecurity（安全）</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">关键技术一：边云协同 <span class="p0-mark">高频</span></div>
+        <ul class="item-list">
+          <li><b>云计算</b>擅长：全局性、非实时、长周期大数据处理与分析；长周期维护、业务决策支撑</li>
+          <li><b>边缘计算</b>擅长：局部性、实时、短周期数据处理；本地业务实时智能化决策与执行</li>
+          <li><b>关系</b>：不是替代关系，而是<b>互补协同关系</b></li>
+          <li>边云协同涉及 EC-IaaS、EC-PaaS、EC-SaaS 各层面全面协同</li>
+        </ul>
+        <table class="table-mini">
+          <tr><th style="width:20%">六类协同</th><th style="width:80%">内容</th></tr>
+          <tr><td><b>资源协同</b></td><td>边缘节点和云端计算/存储/网络资源协同</td></tr>
+          <tr><td><b>数据协同</b></td><td>边缘采集数据与云端大数据协同</td></tr>
+          <tr><td><b>智能协同</b></td><td>边缘智能模型与云端训练协同</td></tr>
+          <tr><td><b>应用管理协同</b></td><td>应用在边云间部署、迁移、弹性扩缩容</td></tr>
+          <tr><td><b>业务管理协同</b></td><td>业务规则/策略的统一管理</td></tr>
+          <tr><td><b>服务协同</b></td><td>边云服务能力编排与对外服务</td></tr>
+        </table>
+        <div class="note-box">🔑 边云6协同口诀：<b>资数智应业服</b>。</div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">关键技术二：边缘计算的安全</div>
+        <ul class="item-list">
+          <li>边缘安全4项价值：①提供可信基础设施；②为边缘应用提供可信赖安全服务；③保障安全的设备接入和协议转换；④提供安全可信的网络及覆盖</li>
+        </ul>
+      </div>
+      <div class="note-box">🔑 <b>应用场景</b>：智慧园区（海量连接/实时采集/本地自治）、视频监控（图像识别/智能存储/边云协同）、工业物联网（OPCUA over TSN/可编程控制器/图像识别/边缘安全）。</div>
+    </div>
+    <!-- 1.3.7 数字孪生 -->
+    <div class="sub-section">
+      <div class="sub-title">1.3.7 数字孪生 <span class="p0-mark">高频</span></div>
+      <ul class="item-list">
+        <li><b>定义</b>：现有的或将有的物理实体对象的数字模型，通过实测、仿真和数据分析来<b>实时感知、诊断和预测</b>物理实体对象的状态，通过优化和指令来<b>调控</b>物理实体对象的行为</li>
+        <li><b>定位</b>：第四次工业革命的通用目的技术和核心技术体系；支撑万物互联的综合技术体系；数字经济发展的基础；未来智能时代的信息基础设施</li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">数字孪生三项核心技术 <span class="p0-mark">P0必背</span> <span class="mnemonic">建仿线</span></div>
+        <table class="table-mini">
+          <tr><th style="width:22%">技术</th><th style="width:78%">核心内容</th></tr>
+          <tr><td><b>① 建模</b></td><td>将人们对物理世界的理解进行简化和模型化；<span class="key-point">创建数字孪生的源头和核心技术</span>；"数字化"阶段核心</td></tr>
+          <tr><td><b>② 仿真</b></td><td>验证和确认建模理解的正确性和有效性；将确定性规律和完整机理的模型转化成软件来模拟物理世界</td></tr>
+          <tr><td><b>③ 基于数据融合的数字线程</b></td><td>支持多视图模型间的协同</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">数字孪生技术体系</div>
+        <ul class="item-list">
+          <li><b>顶层框架技术</b>：基于模型的系统工程（<b>MBSE</b>）</li>
+          <li><b>底层伴生技术</b>：物联网</li>
+          <li><b>外围使能技术</b>：云计算、机器学习、大数据、区块链</li>
+          <li><b>其他技术</b>：VR/AR/MR、数字线程、MBSE、雾计算、边缘计算</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">数字孪生发展四阶段 <span class="mnemonic">备产领深</span></div>
+        <table class="table-mini">
+          <tr><th style="width:22%">阶段</th><th style="width:22%">时间</th><th style="width:56%">特征</th></tr>
+          <tr><td><b>① 技术准备期</b></td><td>1960 - 21世纪初</td><td>CAD/CAE建模仿真、传统系统工程等预先技术准备</td></tr>
+          <tr><td><b>② 概念产生期</b></td><td>2002 - 2010</td><td>数字孪生模型出现和英文术语名称确定；仿真驱动设计、MBSE先进设计范式</td></tr>
+          <tr><td><b>③ 领先应用期</b></td><td>2010 - 2020</td><td>NASA、美国军方、GE等航空航天国防军工领先应用；ISO/IEC/IEEE开始标准化</td></tr>
+          <tr><td><b>④ 深度开发期</b></td><td>2020 - 2030</td><td>深度开发和大规模扩展应用；从智能制造向智慧城市、数字政府拓展</td></tr>
+        </table>
+      </div>
+      <div class="note-box">🔑 <b>典型应用4领域</b>：制造（研发设计/生产制造）、产业链（市场营销/供应链物流/维保服务）、城市（数字孪生城市）、战争（单体装备/战场综合应用）。<b>核心理念</b>：察。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 1.3.8 + 本章小结 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>1.3.8 新一代信息技术发展（新基建）+ 本章考察规律 <span class="tag3">新基建</span><span class="tag3">7领域</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">1.3.8 新一代信息技术发展 <span class="p0-mark">高频</span></div>
+      <ul class="item-list">
+        <li><b>新一代信息技术</b>不仅指信息技术的纵向升级，更主要的是指信息技术的<b>整体平台和产业的代际变迁</b></li>
+        <li>国家"十四五"规划九大战略性新兴产业中，<span class="key-point">新一代信息技术产业居于首位</span></li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">新基建七大领域 <span class="p0-mark">P0必背</span> <span class="mnemonic">5G特高充数智工</span></div>
+        <table class="table-mini">
+          <tr><th style="width:8%">序号</th><th style="width:42%">领域</th><th style="width:50%">说明</th></tr>
+          <tr><td>①</td><td><b>5G基建</b></td><td>第五代移动通信基础设施</td></tr>
+          <tr><td>②</td><td><b>特高压</b></td><td>电力传输基础设施</td></tr>
+          <tr><td>③</td><td><b>城际高速铁路和城际轨道交通</b></td><td>交通基础设施</td></tr>
+          <tr><td>④</td><td><b>新能源汽车充电桩</b></td><td>新能源汽车基础设施</td></tr>
+          <tr><td>⑤</td><td><b>大数据中心</b></td><td>算力基础设施</td></tr>
+          <tr><td>⑥</td><td><b>人工智能</b></td><td>新技术基础设施</td></tr>
+          <tr><td>⑦</td><td><b>工业互联网</b></td><td>通信网络基础设施</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">新基建三大分类 <span class="mnemonic">信融创</span></div>
+        <table class="table-mini">
+          <tr><th style="width:22%">分类</th><th style="width:78%">内容</th></tr>
+          <tr><td><b>① 信息基础设施</b></td><td>基于新一代信息技术演化生成；凸显"技术新"</td></tr>
+          <tr><td><b>② 融合基础设施</b></td><td>深度应用互联网、大数据、AI等技术支撑传统基础设施转型升级</td></tr>
+          <tr><td><b>③ 创新基础设施</b></td><td>支撑科学研究、技术开发、产品研制的具有公益属性的基础设施</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">信息基础设施三类 <span class="p0-mark">P0</span> <span class="mnemonic">通新算</span></div>
+        <ul class="item-list">
+          <li><b>① 通信网络基础设施</b>：5G、物联网、工业互联网、卫星互联网</li>
+          <li><b>② 新技术基础设施</b>：人工智能、云计算、区块链等</li>
+          <li><b>③ 算力基础设施</b>：数据中心、智能计算中心</li>
+        </ul>
+      </div>
+      <div class="note-box">🔑 <b>新一代信息技术4大趋势</b>：创新、智能、跨界、融合 <span class="mnemonic">创智跨融</span>。新一代信息技术7项：物联网、区块链、云计算、大数据、人工智能、边缘计算、数字孪生 <span class="mnemonic">物区云大智边数</span>。</div>
+    </div>
+    <!-- 本章小结 -->
+    <div class="sub-section">
+      <div class="sub-title">📋 本章考察规律总结</div>
+      <table class="table-mini">
+        <tr><th style="width:14%">优先级</th><th style="width:30%">考点</th><th style="width:56%">掌握要求</th></tr>
+        <tr><td>🔴P0</td><td>诺兰模型六阶段（前3=计算机时代，后3=信息时代）</td><td>必背顺序+各阶段特点+分界</td></tr>
+        <tr><td>🔴P0</td><td>信息系统生命周期5阶段+通用逻辑结构5层</td><td>必背顺序+对应软件阶段</td></tr>
+        <tr><td>🔴P0</td><td>OSI七层模型 + TCP/IP四层模型 + 对应关系</td><td>必背层次+协议</td></tr>
+        <tr><td>🔴P0</td><td>5G三大场景（eMBB/uRLLC/mMTC）</td><td>必背场景+应用领域</td></tr>
+        <tr><td>🔴P0</td><td>信息安全5属性 + 7技术 + 4访问控制</td><td>必背+场景判断+易混区分</td></tr>
+        <tr><td>🔴P0</td><td>物联网三层架构 + 区块链7特点3关键技术</td><td>必背+应用</td></tr>
+        <tr><td>🔴P0</td><td>云计算3服务类型(IaaS/PaaS/SaaS)+7特征</td><td>必背+层次对应</td></tr>
+        <tr><td>🔴P0</td><td>大数据4V特征 + 4技术架构</td><td>必背+区别（Hadoop/Spark/Storm）</td></tr>
+        <tr><td>🔴P0</td><td>新基建7领域 + 3分类 + 信息基础设施3类</td><td>必背</td></tr>
+        <tr><td>🟡P1</td><td>信息化9特征 + 5阶段 + 三步走</td><td>能识别+排序</td></tr>
+        <tr><td>🟡P1</td><td>SDN三层+三接口 + 数据仓库4部分+OLAP三类</td><td>会场景判断</td></tr>
+        <tr><td>🟡P1</td><td>AI 13关键技术 + 边缘计算4特点+CROSS+边云6协同</td><td>会分类+口诀</td></tr>
+        <tr><td>🟡P1</td><td>数字孪生3核心技术+4发展阶段</td><td>会排序+技术体系</td></tr>
+        <tr><td>🟢P2</td><td>ACID原则 + NoSQL四类 + DAS/NAS/SAN + 共识机制5种</td><td>了解能识别</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+</div><!-- container -->
+
+<!-- 口诀面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 10px 16px">
+  <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:17px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记·28条）</h3>
+    <div class="mnemonics-grid">
+      <div><b>信息化内涵4部分</b>：网产社效（网络/产业/社会/效用）</div>
+      <div><b>信息化6启示</b>：主体时空手途目</div>
+      <div><b>信息化9特征</b>：广深快量交处整安</div>
+      <div><b>信息化5阶段</b>：探实加全创</div>
+      <div><b>三步走</b>：2020先导→2025网络强国→中叶引领</div>
+      <div><b>信息系统8特征</b>：复动扩易实安可成</div>
+      <div><b>生命周期5阶段</b>：规分设施行（规划/分析/设计/实施/运维）</div>
+      <div><b>通用逻辑5层</b>：基资中业应（自底向上）</div>
+      <div><b>诺兰6阶段</b>：初传控集数成（前3=计算机时代，后3=信息时代）<span class="p0-mark">P0</span></div>
+      <div><b>冯·诺依曼5部分</b>：控运存入出（控制+运算→CPU）</div>
+      <div><b>软件分类</b>：系统(操数中) + 应用(专/通)</div>
+      <div><b>网络5功能</b>：通享集分均</div>
+      <div><b>OSI 7层</b>：物数网传会表应（自底向上）<span class="p0-mark">P0</span></div>
+      <div><b>TCP/IP 4层</b>：网网传应</div>
+      <div><b>网络性能6指标</b>：速带吞延往用</div>
+      <div><b>SDN 3层</b>：数控应 + 接口南北东（南向OpenFlow）</div>
+      <div><b>5G 3场景</b>：eMBB(宽带)/uRLLC(低时延)/mMTC(海量)<span class="p0-mark">P0</span></div>
+      <div><b>存储5架构</b>：介质网议构连</div>
+      <div><b>3种连接</b>：DAS(直连)/NAS(文件)/SAN(光纤高速)</div>
+      <div><b>3种数据模型</b>：层网关（层次+网状=格式化）</div>
+      <div><b>ACID四原则</b>：原一隔持（原子/一致/隔离/持久）</div>
+      <div><b>NoSQL四类</b>：键列文图</div>
+      <div><b>数据仓库4部分</b>：源存O前（数据源/存储管理/OLAP/前端）</div>
+      <div><b>OLAP三类</b>：R/M/H（ROLAP/MOLAP/HOLAP）</div>
+      <div><b>安全5属性</b>：保完可不可（保密/完整/可用/可控/不可否认）<span class="p0-mark">P0</span></div>
+      <div><b>安全4层次</b>：设数内行（设备/数据/内容/行为）</div>
+      <div><b>安全7技术</b>：身访入防网防数</div>
+      <div><b>4种访问控制</b>：DAC/RBAC/Rule-BAC/MAC</div>
+      <div><b>防火墙4部分</b>：服验包应（服务访问/验证/包过滤/应用网关）</div>
+      <div><b>防病毒6准则</b>：拒检控清恢替</div>
+      <div><b>加密</b>：对称DES(同密钥) vs 非对称RSA(公私钥)</div>
+      <div><b>UEBA 3层</b>：数算场</div>
+      <div><b>态势感知4技术</b>：汇评决视</div>
+      <div><b>物联网3层</b>：感网应（感知层识别采集/网络层中枢/应用层接口）<span class="p0-mark">P0</span></div>
+      <div><b>物联网3本质特点</b>：互识智</div>
+      <div><b>物联网产业6特点</b>：感异联管应经</div>
+      <div><b>应用系统5部分</b>：机感通中应</div>
+      <div><b>区块链7特点</b>：多边时智不开安</div>
+      <div><b>区块链3关键技术</b>：分加共（分布式账本/加密/共识）<span class="p0-mark">P0</span></div>
+      <div><b>共识机制5种</b>：PoW/PoS/DPoS/Paxos/PBFT</div>
+      <div><b>共识4维度</b>：合性资容</div>
+      <div><b>云3服务</b>：IaaS/PaaS/SaaS（基础/平台/软件）<span class="p0-mark">P0</span></div>
+      <div><b>云部署3类</b>：公私混</div>
+      <div><b>云7特征</b>：超扩虚可通廉灵</div>
+      <div><b>云4关键技术</b>：虚存多安</div>
+      <div><b>云4趋势</b>：创垂混生</div>
+      <div><b>大数据4V</b>：规多价速（Volume/Variety/Value/Velocity）<span class="p0-mark">P0</span></div>
+      <div><b>大数据4技术</b>：获处管服</div>
+      <div><b>分布式3系统</b>：Hadoop(离线复杂)/Spark(离线快速)/Storm(在线实时)</div>
+      <div><b>AI 3特点</b>：人服感交学演</div>
+      <div><b>AI 13关键技术</b>：机自视知专人机思感行计分情大</div>
+      <div><b>专家系统6部分</b>：人知推解综知</div>
+      <div><b>AI 5趋势</b>：人自交产社</div>
+      <div><b>边缘计算4特点</b>：联数约分</div>
+      <div><b>边缘CROSS</b>：连实优智安（Connection/Real-time/Optimization/Smart/Security）</div>
+      <div><b>边云6协同</b>：资数智应业服</div>
+      <div><b>数字孪生3核心</b>：建仿线（建模/仿真/数字线程）<span class="p0-mark">P0</span></div>
+      <div><b>数字孪生4阶段</b>：备产领深</div>
+      <div><b>新基建7领域</b>：5G特高充数智工<span class="p0-mark">P0</span></div>
+      <div><b>新基建3类</b>：信融创（信息/融合/创新）</div>
+      <div><b>信息基础设施3类</b>：通新算（通信网络/新技术/算力）</div>
+      <div><b>新一代信息技术7项</b>：物区云大智边数</div>
+      <div><b>4大趋势</b>：创智跨融（创新/智能/跨界/融合）</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">第1章 信息系统与信息技术发展 · 核心知识思维脑图 | 基于第2版教材原文提炼 | Ctrl+E 全展开 · Ctrl+C 全折叠</div>
+
+<script>
+function toggleBranch(header){header.classList.toggle('collapsed');var body=header.nextElementSibling;body.classList.toggle('collapsed')}
+function toggleAll(expand){
+  document.querySelectorAll('.branch-header').forEach(function(h){
+    if(expand){h.classList.remove('collapsed');h.nextElementSibling.classList.remove('collapsed')}
+    else{h.classList.add('collapsed');h.nextElementSibling.classList.add('collapsed')}
+  })
+}
+function toggleMnemonics(){
+  var btn=document.getElementById('btnHighlight');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m){
+    m.style.background=btn.classList.contains('active')?'#ffc107':'#fff3cd';
+    m.style.color=btn.classList.contains('active')?'#000':'#856404'
+  })
+}
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && e.key==='e'){e.preventDefault();toggleAll(true)}
+  if(e.ctrlKey && e.key==='c'){e.preventDefault();toggleAll(false)}
+})
+</script>
+
+</body>
+</html>

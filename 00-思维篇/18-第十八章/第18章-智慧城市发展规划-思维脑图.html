@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第18章 智慧城市发展规划 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.container{max-width:900px;margin:0 auto;padding:16px 10px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;margin-bottom:14px;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:12px 16px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 12px 14px}
+.branch-body.collapsed{display:none}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:4px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:4px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:4px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:4px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:4px solid #7d3c98}
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:3px solid #3498db}
+.item-list{list-style:none;padding-left:8px}
+.item-list li{font-size:14px;padding:3px 8px;line-height:1.8;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:4px;font-size:13px;font-weight:700;margin-left:5px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#f4ecf7;color:#7d3c98;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.key-point{color:#c0392b;font-weight:600}
+.exam-mark{display:inline-block;background:#ffe0b2;color:#e65100;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.p0-mark{display:inline-block;background:#fdedec;color:#c0392b;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;margin:0 3px}
+.table-mini{width:100%;font-size:14px;border-collapse:collapse;margin-top:6px}
+.table-mini th{background:#f8f9fa;padding:6px 8px;border:1px solid #e0e0e0;text-align:center;font-weight:700;font-size:13px}
+.table-mini td{padding:5px 8px;border:1px solid #e0e0e0;font-size:13px}
+.table-mini tr:nth-child(even){background:#fafafa}
+.note-box{background:#fff9e6;border-left:4px solid #f39c12;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:14px;color:#7d6608}
+.formula-box{background:#eaf2f8;border:2px solid #3498db;padding:10px 14px;margin:8px 0;border-radius:8px;font-size:14px;color:#1a5276;text-align:center}
+.footer{padding:18px 10px;text-align:center;color:#aaa;font-size:13px}
+.mnemonics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.mnemonics-grid div{background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:14px;border:1px solid #eee}
+.danger-mark{display:inline-block;background:#c0392b;color:#fff;padding:1px 5px;border-radius:3px;font-size:11px;font-weight:700}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🏙️ 第18章 智慧城市发展规划 · 核心知识思维脑图</h1>
+  <p>基于第2版教材 · 18.1~18.5 全节覆盖 · 五大焦点+三段案例</p>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <button onclick="toggleAll(true)">📖 全部展开</button>
+  <button onclick="toggleAll(false)">📕 全部折叠</button>
+  <button id="btnHighlight" onclick="toggleMnemonics()">🧠 高亮口诀</button>
+</div>
+
+<div class="container">
+
+<!-- ========== 18.1 发展整体环境 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>18.1 发展整体环境 <span class="tag">概念演进</span><span class="tag">四阶段</span><span class="tag">五级成熟度</span><span class="tag">宏观四环境</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 概念定义 -->
+    <div class="sub-section">
+      <div class="sub-title">智慧城市概念 <span class="mnemonic">智城起传传媒</span></div>
+      <ul class="item-list">
+        <li><b>起源</b>:智慧城市起源于<span class="key-point">传媒领域</span>,是"智慧地球"落实到区域的做法</li>
+        <li><b>2008年</b>:IBM首席执行官彭明盛提出"智慧地球"——<b>3I特征</b>:可感知(Instrumented)/互联互通(Interconnected)/更加智能(Intelligent)</li>
+        <li><b>本质</b>:以先进信息数字技术和多网融合为依托,以数字基础设施、智慧经济、智慧生活、智慧治理等为重要内容的城市发展<b>新模式和新形态</b></li>
+        <li><b>核心系统</b>:人/商业/运输/通信/水/能源等城市运行核心系统整合,把"智慧"嵌入系统和流程</li>
+      </ul>
+    </div>
+    <!-- 三种定义 -->
+    <div class="sub-section">
+      <div class="sub-title">三种代表性定义 <span class="p0-mark">P1</span><span class="mnemonic">IBM部委国标</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">来源</th><th style="width:54%">定义要点</th><th style="width:28%">关键词</th></tr>
+        <tr><td><b>IBM</b></td><td>运用ICT手段感测、分析、整合城市运行核心系统各项关键信息,对民生/环保/公共安全/城市服务/工商业活动等需求作出<b>智能响应</b></td><td>智能响应/生态系统</td></tr>
+        <tr><td><b>国家部委</b></td><td>住建部(2012):综合运用现代科学技术、整合信息资源、统筹业务应用系统的<b>新模式</b>;发改委(2014/2021):新一代信息技术促进规划/建设/管理/服务智慧化的新理念新模式</td><td>新模式/新型智慧城市</td></tr>
+        <tr><td><b>国家标准</b></td><td>GB/T 37043-2018《智慧城市术语》:有效整合各类城市管理系统,实现信息资源共享和业务协同,推动城市管理和服务智慧化,提高居民幸福感满意度,实现可持续发展的<b>创新型城市</b></td><td>创新型城市/可持续发展</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>易混区分</b>:IBM=智能响应(技术视角)｜部委=新模式(治理视角)｜国标=创新型城市(综合视角)。城市信息化的4方面:网络与信息资源建设/城市管理与运行/社会和社区综合服务/产业发展和经济运行。</div>
+    </div>
+    <!-- 发展历程 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 发展四阶段 <span class="p0-mark">P0必背</span><span class="mnemonic">初布转新</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">阶段</th><th style="width:20%">时间</th><th style="width:18%">名称</th><th style="width:48%">特征</th></tr>
+        <tr><td><b>第一阶段</b></td><td>1999-2008</td><td>初始形成期</td><td>数字工程建设(湖南/福建等省启动),降能减排目标驱动,为智慧城市初始形态积累基本经验</td></tr>
+        <tr><td><b>第二阶段</b></td><td>2009-2015</td><td>布局期</td><td>2011年第一批试点(深圳/武汉);2014年八部门《指导意见》顶层设计;2015年成立"新型智慧城市建设部际协调工作组"</td></tr>
+        <tr><td><b>第三阶段</b></td><td>2016-2018</td><td>新型转换期</td><td>"十三五"提出基础设施智能化/公共服务便利化/社会治理精细化;习近平提"分级分类推进"和<b>"三融五跨"</b>新理念</td></tr>
+        <tr><td><b>第四阶段</b></td><td>2020至今</td><td>数字化发展期</td><td>区块链+数字孪生+新基建推动;从"纵强横弱、数据不通"迈向"纵强横通、数据融通";三/四/五线城市及县域成新增长极</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>三融五跨</b>:技术融合/业务融合/数据融合 + 跨层级/跨地域/跨系统/跨部门/跨业务。第三阶段核心标志:新型智慧城市建设转换。</div>
+    </div>
+    <!-- 成熟度模型 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 成熟度模型 <span class="p0-mark">P0必背</span><span class="mnemonic">规管协优引</span></div>
+      <ul class="item-list">
+        <li><b>模型框架三部分</b>:成熟度等级 + 能力要素 + 成熟度分级特征</li>
+        <li><b>能力要素两类</b>:<span class="key-point">共性基础类</span>(贯穿全过程)+<span class="key-point">场景应用类</span>(应用场景落地)</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:15%">能力要素</th><th style="width:50%">能力域</th><th style="width:35%">说明</th></tr>
+        <tr><td><b>共性基础类</b></td><td>数字战略/全周期管理/ICT资源/数据/技术服务/信息安全</td><td>能力支撑,贯穿全过程</td></tr>
+        <tr><td><b>场景应用类</b></td><td>惠民服务/城市治理/生态宜居/产业发展</td><td>4大应用场景能力域</td></tr>
+      </table>
+      <table class="table-mini">
+        <tr><th style="width:14%">等级</th><th style="width:16%">名称</th><th style="width:70%">特征</th></tr>
+        <tr><td><b>一级</b></td><td>规划级</td><td>发展策划清晰,职责分工和工作机制明确,初步开展数据采集和应用</td></tr>
+        <tr><td><b>二级</b></td><td>管理级</td><td>战略/原则/目标/实施计划明确具体,基础设施智能化改造推进,多领域单项应用,实施全生命周期管理</td></tr>
+        <tr><td><b>三级</b></td><td>协同级</td><td>多业务/多层级/跨领域集成,信息资源共享交换,推动惠民/治理/宜居/产业融合创新,跨领域协同改进</td></tr>
+        <tr><td><b>四级</b></td><td>优化级</td><td>与城市发展深度融合,基于数据与知识模型实现精准化治理,数据要素价值挖掘活跃</td></tr>
+        <tr><td><b>五级</b></td><td>引领级</td><td>敏捷发展,物理/社会/信息空间融合演进,引领城市集群治理联动,形成高质量发展共同体</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>核心论断</b>:一至三级聚焦效率效能提升,强调信息(流程)自动化的<b>"体力替代"</b>;三至五级聚焦治理结构韧性改善,强调数据(模型)自动化的<b>"脑力替代"</b>。三级是过渡级别,强调知识沉淀和个性化特色能力建设。</div>
+    </div>
+    <!-- 宏观环境 -->
+    <div class="sub-section">
+      <div class="sub-title">宏观环境四方面 <span class="mnemonic">政经社技</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">环境</th><th style="width:86%">要点</th></tr>
+        <tr><td><b>政策环境</b></td><td>2015年习近平提出新型智慧城市理念;2017年十九大提出建设智慧社会;2023年《数字中国建设整体布局规划》——数字经济/数字政务/数字文化/数字社会</td></tr>
+        <tr><td><b>经济环境</b></td><td>数字经济地位稳固,以数字化知识和信息为关键生产要素,数字技术为核心驱动;数字产业化/产业数字化/数字化治理/数字价值化构建产业新生态</td></tr>
+        <tr><td><b>社会环境</b></td><td>第49次统计报告:网民规模超10亿,互联网普及率73.0%;即时通信/在线办公/网络支付/网购/外卖/网约车/在线医疗/在线教育成新常态</td></tr>
+        <tr><td><b>技术环境</b></td><td>5G/物联网/大数据/云计算/边缘计算/人工智能/数字孪生等技术环境持续优化,创造良好发展契机</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 18.2 发展关注焦点 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>18.2 发展关注焦点 <span class="tag">五大领域</span><span class="tag">治惠宜产协</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="note-box">🔑 <b>五大聚焦领域</b>:城市治理 / 惠民服务 / 生态宜居 / 产业发展 / 区域协同。基本原理演进:从提高工作效率→提高决策效能;从局部应用→综合创新;从强调管理规范→突出主动服务精准施策。</div>
+    <!-- 城市治理 -->
+    <div class="sub-section">
+      <div class="sub-title">18.2.1 城市治理 <span class="mnemonic">城应公基市政交</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">业务</th><th style="width:84%">核心要点</th></tr>
+        <tr><td><b>城市管理</b></td><td>涵盖公用设施/道路交通/市容环境/园林绿化/宣传广告/施工管理/街面秩序/突发事件;信息化+移动通信手段处理城管部件和事件</td></tr>
+        <tr><td><b>应急管理</b></td><td>"空天地海一体化"应急通信网络;绿色节能型高密度数据中心;应急管理云计算平台;智慧应急——监督/监测预警/指挥救援/灾情/统计/发布/灾后评估/社会动员</td></tr>
+        <tr><td><b>公共安全</b></td><td>城市高质量发展的"智慧防线";交通/视频监控/物联网公共安全网络;犯罪实时监控/预警/分析侦破系统</td></tr>
+        <tr><td><b>基层治理</b></td><td>基层政务办公自动化;部门协同治理智能化平台;基层数据治理创新;解决重复填报,为基层减负</td></tr>
+        <tr><td><b>市场监管</b></td><td>食品安全追溯/法人单位信息资源库/国家企业信用信息公示系统/12315平台一体化/广告智慧监管/网络市场交易监管/商品数据库</td></tr>
+        <tr><td><b>市政管理</b></td><td>物联网/云计算/大数据/GIS统一管控燃气/电力/供排水/热力/水利/综合管廊;感知/集中监控/诊断分析/远程运维/在线模拟</td></tr>
+        <tr><td><b>交通治理</b></td><td>智能交通解决方案;实时了解交通状况+模型预测分析+多部门协同集成;缓解拥堵/快速响应突发</td></tr>
+      </table>
+    </div>
+    <!-- 惠民服务 -->
+    <div class="sub-section">
+      <div class="sub-title">18.2.2 惠民服务 <span class="tag2">11项业务</span><span class="mnemonic">政交社医社教养就无停文</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">业务</th><th style="width:84%">核心要点</th></tr>
+        <tr><td><b>政务服务</b></td><td>全国一体化政务服务平台,<span class="key-point">"一网通办"</span>;移动端"掌上办、指尖办";电子证照(身份证/社保卡/驾驶证/行驶证/营业执照);"一企一档""一人一档"</td></tr>
+        <tr><td><b>交通服务</b></td><td>出行前/出行中/出行后全场景;违章处理/智慧停车/在途引导/资源共享/智能移动警务</td></tr>
+        <tr><td><b>社保服务</b></td><td>智能工作流/自动分派/电子档案/数据分析;网页/微信/自助终端多元渠道</td></tr>
+        <tr><td><b>医疗服务</b></td><td>电子病历+电子健康档案;数据深入医护工作站和一线临床;<b>互操作性至关重要</b>;最小数据集+标准化方法论</td></tr>
+        <tr><td><b>社区服务</b></td><td>智慧社区信息系统+移动应用服务;线上线下融合;数字社区服务圈/智慧家庭;无人物流配送进社区</td></tr>
+        <tr><td><b>教育服务</b></td><td>智慧校园/智慧教室;智慧教育云平台;云计算/大数据/物联网/移动互联/社交网络/AI/5G</td></tr>
+        <tr><td><b>养老服务</b></td><td>"互联网+养老服务";"菜单式"就近便捷养老服务;"子女网上下单、老人体验服务"</td></tr>
+        <tr><td><b>就业服务</b></td><td>就业信息资源库+就业信息平台;全国就业公共服务平台;公共招聘网和"就业在线"</td></tr>
+        <tr><td><b>无障碍服务</b></td><td>无障碍基础设施;为老年人/残疾人等特殊群体提供便利;居住/公共/交通/道路基础设施无障碍化</td></tr>
+        <tr><td><b>停车服务</b></td><td>无线通信/移动终端/GPS/GIS综合应用;停车位实时更新/查询/预订/导航一体化;解决人工成本高/出入口拥堵/管理难/利用率低</td></tr>
+        <tr><td><b>文体服务</b></td><td>8K投影/大数据可视化/智能楼宇/数据中心/工业自动化;文体场馆/智慧景区/博物馆/大型表演智慧化</td></tr>
+      </table>
+    </div>
+    <!-- 生态宜居 -->
+    <div class="sub-section">
+      <div class="sub-title">18.2.3 生态宜居 <span class="mnemonic">绿生能水园资</span></div>
+      <ul class="item-list">
+        <li><b>三方面体现</b>:①信息技术"低碳排强度、高减排能力"特性,推动"四高"向"绿色低碳高效"转变;②信息技术赋能传统行业(智能电网/智能建筑/智能物流);③智慧终端+大数据实时监测分析城市环境数据</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:16%">业务</th><th style="width:84%">核心要点</th></tr>
+        <tr><td><b>绿色低碳</b></td><td>生产:清洁技术改造/管理模式创新/AI+大数据+区块链赋能工业碳排实时监测;生活:数字政务/互联网医疗/在线教育/共享单车低碳生活新形态</td></tr>
+        <tr><td><b>生态环保</b></td><td>精准治污;<b>"天空地一体化"</b>生态环境监测网络(卫星遥感/无人机/地面台站);监测大数据分析支撑生态监管与风险预警防控</td></tr>
+        <tr><td><b>智慧能源</b></td><td>智能电网延伸拓展;数字化智能化技术覆盖煤炭和油气产供储销全链条;智能电厂/新能源储能并网/智能变电站/自愈配网/智能微网/氢电耦合/虚拟电厂等</td></tr>
+        <tr><td><b>智慧水利</b></td><td>数字化场景/智慧化模拟/精准化决策;数字孪生流域为核心;<span class="key-point">"四预"功能:预报、预警、预演、预案</span>;三级贯通数据底板</td></tr>
+        <tr><td><b>城市公园</b></td><td>"互联网+"思维+物联网/大数据/云计算/移动互联/信息智能终端;服务/管理/养护数字化表达;与游人互感互知互动</td></tr>
+        <tr><td><b>自然资源监管</b></td><td>山水林田湖草沙一体化保护;三维立体"一张图";政务审批一体化/业务管理一体化/监管决策一体化/综合调度一体化</td></tr>
+      </table>
+    </div>
+    <!-- 产业发展 -->
+    <div class="sub-section">
+      <div class="sub-title">18.2.4 产业发展 <span class="mnemonic">商物园金农行旅</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">业务</th><th style="width:84%">核心要点</th></tr>
+        <tr><td><b>智慧商圈</b></td><td>移动互联网/无线网络基础设施;物联网/大数据/云计算/AI/VR新技术;商圈大数据平台;Wi-Fi全覆盖;O2O新业态;车位查询/预订/共享</td></tr>
+        <tr><td><b>智慧物流</b></td><td>运输/仓储/配送/流通加工/包装/装卸数字化改造;补齐农村/冷链/应急/航空物流短板;5G/北斗/移动互联网/大数据/AI;智慧物流枢纽/园区/仓储基地/港口/数字仓库</td></tr>
+        <tr><td><b>智慧园区</b></td><td>智慧环境/智慧招商/智慧办公/智慧生活/智慧管理/智慧基础设施;创新化/生态化发展;"智慧制造"到"智慧服务"一条龙园区产业格局</td></tr>
+        <tr><td><b>智慧金融</b></td><td>前台:智能营销+智能客服;中台:智能投顾/投资/投保理赔;后台:智能风控+智慧运营;客户画像增强营销获客精准度;RPA提升效率</td></tr>
+        <tr><td><b>智慧农业</b></td><td>物联网/AI/区块链与农业生产经营深度融合;智慧种植/智慧畜牧/智慧渔业/智能农机/智慧园区/综合服务</td></tr>
+        <tr><td><b>智慧出行</b></td><td><b>"出行即服务"MaaS</b>理念;一体化出行服务平台;全链条/多方式/一站式;电子客票/无感化;城乡一体化客运;智能公交/城市轨道交通智能运营</td></tr>
+        <tr><td><b>智慧旅游</b></td><td>智慧旅游城市/景区/度假区/街区;沉浸式互动体验/虚拟展示/智慧导览;5G网络覆盖;数字化/智能化改造升级;网上旗舰店</td></tr>
+      </table>
+    </div>
+    <!-- 区域协同 -->
+    <div class="sub-section">
+      <div class="sub-title">18.2.5 区域协同 <span class="mnemonic">城群跨</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">业务</th><th style="width:82%">核心要点</th></tr>
+        <tr><td><b>城乡联动</b></td><td>城乡学校共同体/"县管校聘";紧密型县域医共体/"县聘乡用、乡聘村用";县乡村衔接养老服务网络;供水供气供热管网向乡村延伸;联结城乡的冷链物流/电商平台/农贸市场网络</td></tr>
+        <tr><td><b>城市群发展</b></td><td>统一标准/开放数据端口/互通公共应用平台;智能感知网络/智慧城市时空信息云平台/空间信息服务平台;智慧交通/能源/市政/社区;电子签名证书互认/电子支付系统直联互通</td></tr>
+        <tr><td><b>跨区域协同</b></td><td><b>利益分享机制</b>:联合共建、股份化运作、利益分成共享;<b>利益补偿机制</b>:财政转移支付/城市间补偿制度/城市协调发展专项资金;数字手段支撑跨域环境治理和产业链发展</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 18.3 发展规划要点 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>18.3 发展规划要点 <span class="tag">规划六要素</span><span class="tag">三网+三化</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 规划基本过程 -->
+    <div class="sub-section">
+      <div class="sub-title">规划基本过程 <span class="mnemonic">需总架实</span></div>
+      <ul class="item-list">
+        <li><b>需求分析</b>:城市发展战略与目标分析 + 城市现状调研分析</li>
+        <li><b>总体设计</b>:指导思想与基本原则 + 总体架构</li>
+        <li><b>架构设计</b>:主要任务和重点工程</li>
+        <li><b>实施路径设计</b>:保障措施</li>
+        <li><b>规划六要素</b>:①与国家城镇化/信息化规划结合 ②推进五化(公共服务便捷化/城市管理精细化/生活环境宜居化/基础设施智能化/网络安全长效化) ③战略层+操作层 ④多元主体需求 ⑤目标/问题/需求三导向 ⑥跨部门/跨领域/跨层级统筹</li>
+      </ul>
+    </div>
+    <!-- 承接城市战略 -->
+    <div class="sub-section">
+      <div class="sub-title">18.3.1 承接城市战略</div>
+      <ul class="item-list">
+        <li><b>城市战略</b>:对城市经济/社会/环境各领域的全局性、长期性、决定全局的连续性谋划和总体部署</li>
+        <li><b>规划体系</b>:发展规划 + 区域规划 + 空间规划 + 专项规划(智慧城市发展规划属于<b>专项规划</b>)</li>
+        <li><b>定位</b>:信息数字技术赋能城市治理能力和服务水平的<b>路径和方法的指引性和规范性文件</b></li>
+        <li><b>承接关系</b>:充分承接城市国民经济和社会发展五年规划、区域规划等上位规划</li>
+        <li><b>四方面基础条件</b>:数字政府/数字社会/数字经济/数字基础设施 → 设计战略框架/战略定位/战略举措</li>
+        <li><b>指导思想 vs 战略路径</b>:前者=宏观效果(大格局总括);后者=中观机制(战略落地)</li>
+      </ul>
+    </div>
+    <!-- 确立规划原则 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 18.3.2 五大规划原则 <span class="p0-mark">P0必背</span><span class="mnemonic">人技规多多</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">原则</th><th style="width:52%">核心内容</th><th style="width:30%">关键词</th></tr>
+        <tr><td><b>以人为本</b></td><td>以人民需求和体验为中心,基于用户画像的主动服务/全生命周期精准服务/综合聚类服务</td><td>用户体验/主动服务</td></tr>
+        <tr><td><b>技术赋能</b></td><td>运用新一代信息技术,依托城市数字底座,场景化解决方案激活数据业务价值</td><td>业务效率/数字底座</td></tr>
+        <tr><td><b>规则重构</b></td><td>体制机制优化和规则革命性创新,以数据有效流动化解城市复杂系统不确定性</td><td>资源配置/数据流动</td></tr>
+        <tr><td><b>多元创新</b></td><td>业务创新/产品创新/场景创新/商业模式创新,推动治理/产业/民生整体性转变</td><td>全局性转变</td></tr>
+        <tr><td><b>多方共建</b></td><td>政府引导/市场主导/全社会参与,共建共治共享的城市发展格局</td><td>城市竞争力/共建共治</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>三避免</b>:①避免空泛偏离方向 ②避免脱离实际缺乏操作性 ③避免疏漏缺失。某城市针对统筹不足/数据汇聚难/资金不足/体验感不强等问题,拟定:以人为本惠民利企/统筹规划集约建设/数字赋能融合创新/政府主导多元参与/自主可控保障安全。</div>
+    </div>
+    <!-- 明确目标愿景 -->
+    <div class="sub-section">
+      <div class="sub-title">18.3.3 明确目标愿景</div>
+      <ul class="item-list">
+        <li><b>两类目标</b>:形象目标 + 量化目标;分为<b>总体目标</b>和<b>具体目标</b>两部分</li>
+        <li><b>两期时间节点</b>:近期 + 中远期,应分别提出各期目标值</li>
+        <li><b>四类指标体系</b>:定性目标/定量目标/约束性指标/预期性指标</li>
+        <li><b>总体目标</b>(以近期为准):政务/经济/社会/文化/生态文明领域的宏观成效</li>
+        <li><b>具体目标</b>:分领域描述应取得的具体成效</li>
+        <li><b>中远期愿景</b>:较总体目标更为宏观</li>
+      </ul>
+    </div>
+    <!-- 业务与技术融合规划 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 18.3.4 业务与技术融合规划 <span class="p0-mark">P0必背</span><span class="mnemonic">三网+三化</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">数字政府规划 <span class="mnemonic">一网协同一网统管一网通办</span></div>
+        <table class="table-mini">
+          <tr><th style="width:16%">三网</th><th style="width:40%">定位</th><th style="width:44%">聚焦</th></tr>
+          <tr><td><b>一网协同</b></td><td>政府机关<b>内部</b>数字化</td><td>办公/办会/办事数字化;横向到边纵向到底政务办公统一门户;"一件事"集成改革;跨层级/跨地域/跨部门/跨系统/跨业务协同联动</td></tr>
+          <tr><td><b>一网统管</b></td><td>政府<b>对外治理</b>数字化</td><td>城市治理和社会治理难点堵点;大数据/AI/云计算/5G/物联网;精细化呈现/智能化分析/精准化预警;一网统管全域/统一指挥/统筹决策</td></tr>
+          <tr><td><b>一网通办</b></td><td>政府<b>对外服务</b>数字化</td><td>城市服务各领域;技术/业务流程/机制体制;政务服务/公共服务/社会服务渠道集聚融合;完备度/便捷度/成熟度;一站式综合服务</td></tr>
+        </table>
+        <div class="note-box">🔑 <b>数字政府</b>=用数据对话+用数据决策+用数据服务+用数据创新的现代化治理模式。一网协同=对内,一网统管=对外治理,一网通办=对外服务。</div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">数字社会规划</div>
+        <ul class="item-list">
+          <li><b>数字社会</b>:继农业社会/工业社会/信息社会之后的新社会形态;物理现实社会与数字虚拟社会高度融合</li>
+          <li><b>六大事项</b>:公共服务/教育/医疗/社会治理/数字乡村/便民服务</li>
+          <li><b>各规划聚焦</b>:公共服务→普惠化;教育→数字化战略;医疗→数字健康/互联网诊疗;社会治理→精准化;数字乡村→乡村产业/建设/治理;便民服务→数字生活智能化/智慧便民生活圈</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">⚡ 数字经济规划 <span class="p0-mark">P0必背</span><span class="mnemonic">产产业数数</span></div>
+        <table class="table-mini">
+          <tr><th style="width:18%">三化</th><th style="width:30%">定位</th><th style="width:52%">规划要点</th></tr>
+          <tr><td><b>数字产业化</b></td><td>数字经济发展的<b>基础</b></td><td>区域发展定位/产业战略定位/产业发展策略/重点项目策划/制定规划实施路径</td></tr>
+          <tr><td><b>产业数字化</b></td><td>数字经济的<b>主体</b></td><td>以产业互联网为主要方向;农业/制造业/服务业数字化升级;三步骤:制定战略→关键行动→保障条件</td></tr>
+          <tr><td><b>数据要素市场化</b></td><td>核心资产</td><td>四方面:技术研发产品开发/交易公共平台/市场化管理配置机制/监测评价体系;考虑数据安全和数据产权</td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 数字基础设施规划 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 18.3.5 数字基础设施规划 <span class="p0-mark">P0必背</span><span class="mnemonic">信融创</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">三类</th><th style="width:82%">内容</th></tr>
+        <tr><td><b>信息基础设施</b></td><td><b>"云网数智安端"六字</b>:云(政务云/行业云/公有云)/网(政务外网/行业专网/互联网/物联网/算力网)/数(一体化数据资源体系)/智(数字孪生/时空地理/物联感知/视频汇聚/AI)/安(网络和数据安全体系+商用密码)/端(智能感知终端)</td></tr>
+        <tr><td><b>融合基础设施</b></td><td>传统基础设施智能化改造;新型生产性设施(工业互联网/智慧交通物流/智慧能源)+新型社会性设施(智慧民生/环境资源/城市基础设施);智能化道路/交通监控/智慧灯杆/智能电网/充电桩/智能燃气</td></tr>
+        <tr><td><b>创新基础设施</b></td><td>支撑科学研究/技术开发/新产品新服务研制的公益属性设施;科技基础设施(国家实验室)/科教基础设施(前沿科学研究平台/产业创新共性平台)/产业技术创新基础设施(企业技术中心)</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>智慧灯杆</b>=融合基础设施典型代表(端设备融合于设施实体)。规划需结合城市实际需求,并非所有内容都要全部包括。</div>
+    </div>
+    <!-- 组织与保障体系规划 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 18.3.6 组织与保障体系规划 <span class="p0-mark">P1</span><span class="mnemonic">组市人信</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">四方面</th><th style="width:84%">核心要点</th></tr>
+        <tr><td><b>组织体系</b></td><td>复杂巨系统工程;主体:政府/社团/企业/群众;主要组织单位多为政府机构或城市建设投资公司/运营公司;5步骤:识别主体→定义责任分工→明确承担部门→明确其他组织→一体化融合</td></tr>
+        <tr><td><b>市场化生态</b></td><td>智慧城市需配备社会化运营;包括信息技术及服务业+信息数字技术驱动衍生的城市新业态(共享经济);覆盖模式革新/技术创新/管理创新;包含咨询/标准化/设计/研发/建设/运维/运营</td></tr>
+        <tr><td><b>人才队伍</b></td><td>广泛的人才链接(参与主体众多);5注意:主体组织人才容量/业务人员数字能力/领军标杆创新人才/IT人才业务融合/社会化智慧城市人才建设</td></tr>
+        <tr><td><b>信息安全</b></td><td>智慧城市系统复杂度超越智能制造;5注意:信息安全责任制/安全体系完整有效/终端安全(IoT/ICT)提高新高度/安全工具有效/网络行为和运维审计</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>核心论断</b>:组织与保障体系匮乏通常是城市智慧化发展不畅乃至失败的<b>主要原因</b>。组织体系<b>四切记</b>:不忽略其他组织/职责有效宣贯/责任到人/角色职责一体化融合。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 18.4 系统架构 ========== -->
+<div class="branch-card c4">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>18.4 系统架构 <span class="tag">七大架构</span><span class="tag">业应数技安标产</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="note-box">🔑 <b>总体架构七内容</b>:业务架构 + 数据架构 + 应用架构 + 技术架构 + 安全体系 + 标准体系 + 产业体系。多维角度:智慧应用/数据及服务融合/计算与存储/网络通信/物联感知/建设管理/安全保障/运维管理。</div>
+    <!-- 业务架构 -->
+    <div class="sub-section">
+      <div class="sub-title">18.4.1 业务架构</div>
+      <ul class="item-list">
+        <li><b>定义</b>:智慧城市建设的业务需求,根据城市战略定位和目标、经济与发展、自然和人文条件等因素,以业务为核心,识别并规划城市智慧化建设的核心业务场景</li>
+        <li><b>大逻辑</b>:社会/数字经济/数字政府 或 "五位一体"(经济建设/政治建设/文化建设/社会建设/生态文明建设)</li>
+        <li><b>五大业务领域</b>:民生服务/城市治理/产业发展/生态宜居/区域协同 + 建设运营体系 + 安全保障体系</li>
+        <li><b>地域特色</b>:业务架构设计应与城市特点相结合,特色业务有所侧重,根据实际需求适配/增添/删减</li>
+        <li><b>L1~L3三层业务架构</b>:对城市核心业务分层梳理,明确三层业务架构,对需要流程优化的业务形成三层流程架构</li>
+      </ul>
+    </div>
+    <!-- 应用架构 -->
+    <div class="sub-section">
+      <div class="sub-title">18.4.2 应用架构 <span class="mnemonic">五要点</span></div>
+      <ul class="item-list">
+        <li><b>定义</b>:以智慧城市各应用系统为重点服务内容的多层级、立体式智慧城市服务体系的结构以及关联关系</li>
+        <li><b>设计因素</b>:服务化 + 前中后台设计;基于总体业务架构,按照分层对应原则分析设计应用域、应用组</li>
+        <li><b>五要点</b>:①总体梳理城市应用系统(新建/升级改造) ②识别可重用或共用系统模块(跨部门统筹) ③设计重点信息系统功能 ④设计跨部门信息系统功能 ⑤设计应用系统/节点/数据交互关系</li>
+        <li><b>应用系统标注</b>:新建/改造/利旧识别和标注</li>
+      </ul>
+    </div>
+    <!-- 数据架构 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 18.4.3 数据架构 <span class="p0-mark">P1</span><span class="mnemonic">模分服</span></div>
+      <table class="table-mini">
+        <tr><th style="width:20%">三部分</th><th style="width:80%">内容</th></tr>
+        <tr><td><b>城市总体数据模型</b></td><td>面向城市级别建立的数据结构,包含各类基础库/主题库/专题库等</td></tr>
+        <tr><td><b>数据分布</b></td><td>城市级各类宏观数据:政府数据/社会数据/物联网数据/外部数据的宏观分布情况</td></tr>
+        <tr><td><b>数据服务</b></td><td>城市级数据服务:数据交换共享服务/数据开发开放服务/数据交易服务等</td></tr>
+      </table>
+      <ul class="item-list">
+        <li><b>识别</b>:智慧城市业务中依赖的数据/数据管理主体/数据提供方/数据需求方</li>
+        <li><b>共享交换</b>:充分考虑城市数据与国家/省/行业部门等主体进行数据共享和交换</li>
+        <li><b>四主体</b>:管理主体/企业主体/生活主体/第三方主体</li>
+      </ul>
+    </div>
+    <!-- 技术架构 -->
+    <div class="sub-section">
+      <div class="sub-title">⚡ 18.4.4 技术架构 <span class="p0-mark">P1</span><span class="mnemonic">感数平应</span></div>
+      <ul class="item-list">
+        <li><b>设计原则</b>:<span class="key-point">"集约建设、资源共享、适度超前"</span>;接口开放、面向服务</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:14%">层级</th><th style="width:86%">内容</th></tr>
+        <tr><td><b>感知层</b></td><td>面向城市各业务领域的物联感知体系/视频监控;交通/生态/水务/气象等领域</td></tr>
+        <tr><td><b>数据层</b></td><td>数据汇聚/清洗/分析/共享交换;为城市各业务系统运行提供数据资源保障</td></tr>
+        <tr><td><b>平台层</b></td><td>业务平台/技术平台;以共性平台为主;通过统筹集约方式建设服务各业务领域运行</td></tr>
+        <tr><td><b>应用层+展示层</b></td><td>直接面向用户的业务系统;民生服务/城市治理/产业发展/生态环保等</td></tr>
+      </table>
+    </div>
+    <!-- 其他内容 -->
+    <div class="sub-section">
+      <div class="sub-title">18.4.5 其他内容 <span class="mnemonic">规技管</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">体系</th><th style="width:84%">内容</th></tr>
+        <tr><td><b>安全体系</b></td><td>从<b>规则/技术/管理</b>三维度综合设计;规则=安全技术/安全管理规章制度与标准规范;技术=GB/T 34678-2017 ICT技术参考模型;管理=组织/管理制度/管理措施</td></tr>
+        <tr><td><b>标准体系</b></td><td><b>七维度</b>:总体基础性标准/支撑技术与平台标准/基础设施标准/建设与宜居标准/管理与服务标准/产业与经济标准/安全与保障标准;结合本地区特点,固化实践经验</td></tr>
+        <tr><td><b>产业体系</b></td><td>六角度梳理:基础设施服务商/信息技术服务商/系统集成商/公共服务平台企业/专业领域创新应用商/行业智慧化解决方案商;从创业服务/数据开放平台/创新资源链接/新技术研发应用设计创新体系</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 18.5 实践案例 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>18.5 实践案例 <span class="tag">三段式</span><span class="tag">两市架构对比</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="note-box">🔑 <b>三段式推进</b>:发展规划 → 建设实施 → 评估评价。智慧城市发展规划的价值和意义在实践中得到了认可。</div>
+    <!-- 案例一 -->
+    <div class="sub-section">
+      <div class="sub-title">18.5.1 某市数字政府和智慧城市发展规划 <span class="mnemonic">底中应门</span></div>
+      <ul class="item-list">
+        <li><b>定位</b>:该市在数字经济/数字政府/数字社会领域全国领先;政务服务100%可网办,99%以上事项"最多跑一次",数百项"秒报秒批"</li>
+        <li><b>总体目标</b>:打造数据驱动、一体协同、智能高效、安全可控的<b>自进化智能体</b>;支撑"四位一体"数字城市建设</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:16%">四层架构</th><th style="width:84%">内容</th></tr>
+        <tr><td><b>数字底座</b></td><td>全市一体化信息基础设施体系;全要素数字化/运行实时可视化/管理决策协同化智能化;与省政务云/政务网/政务大数据中心互联互通</td></tr>
+        <tr><td><b>智能中枢</b></td><td>共性支撑平台体系;支撑"三融五跨"全场景智慧应用迭代升级;数据中枢+能力中枢+业务中枢</td></tr>
+        <tr><td><b>智慧应用</b></td><td>基于数字底座、智能中枢平台,分级分类建设的智慧化应用系统</td></tr>
+        <tr><td><b>统一门户</b></td><td>面向群众/企业/党政机关工作人员等不同对象的入口和交互界面</td></tr>
+      </table>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">七项工作任务</div>
+        <table class="table-mini">
+          <tr><th style="width:24%">任务</th><th style="width:14%">工作任务</th><th style="width:14%">重点项目</th><th style="width:48%">核心内容</th></tr>
+          <tr><td><b>提升数字底座新能级</b></td><td>15项</td><td>10个</td><td>CIM基础平台/物联感知平台/"云网数"</td></tr>
+          <tr><td><b>构建智能中枢新体系</b></td><td>11项</td><td>5个</td><td>数据中枢/能力中枢/业务中枢;BIM/CIM/AI/区块链/统一身份认证</td></tr>
+          <tr><td><b>打造数字政府新优势</b></td><td>49项</td><td>38个</td><td>"一网通办"全市域通办;"一网统管"互联网+监管/公共信用信息;"一网协同"</td></tr>
+          <tr><td><b>绘就数字社会新图景</b></td><td>19项</td><td>11个</td><td>"民生七优":教育/医疗/养老/抚幼/就业/文体/助残</td></tr>
+          <tr><td><b>赋能数字经济新发展</b></td><td>7项</td><td>—</td><td>"上云用数赋智";5G示范标杆/AI应用高地/软件与信息服务集群</td></tr>
+          <tr><td><b>形成数字生态新格局</b></td><td>28项</td><td>2个</td><td>数据要素市场化配置改革试点;数据交易市场;网络安全保障;七大类标准</td></tr>
+          <tr><td><b>创新工作推进机制</b></td><td>—</td><td>—</td><td>决策咨询制度/建设管理运营/绩效评估/运维保障/数字化人才体系</td></tr>
+        </table>
+        <div class="note-box">🔑 <b>保障措施</b>:组织保障(领导小组会议/市区协同)+资金保障(市区两级财政共享/绩效评估/审计监管)+空间保障(纳入国土空间规划)+宣传引导。</div>
+      </div>
+    </div>
+    <!-- 案例二 -->
+    <div class="sub-section">
+      <div class="sub-title">18.5.2 某市智慧城市发展规划 <span class="mnemonic">基数平软</span></div>
+      <ul class="item-list">
+        <li><b>定位</b>:基于独特历史文化和自然资源;深化社会服务/城市治理/文化旅游数字化;存在问题:信息人才缺失/统筹力度不足/各业务领域水平参差不齐/安全保障体系不完善</li>
+        <li><b>总体目标</b>:建设"数字赋能、创泊持优"的数字城市;以数字化、智能化建设手段为两大抓手</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:16%">四层架构</th><th style="width:84%">内容</th></tr>
+        <tr><td><b>基础设施层</b></td><td>网络设施提升工程(高速宽带/视频传输网/政务外网/业务专网);雪亮工程;全市统一运行指挥中心;政务云及工业云平台</td></tr>
+        <tr><td><b>数据服务层</b></td><td>全市统一大数据中心;汇聚"人、事、地"数据;对接周边省市及国家;数据共享交换机制;AI/物联网/区块链智能化基础支撑</td></tr>
+        <tr><td><b>平台服务层</b></td><td>精细化网格治理体系(统一网格/队伍/流程/平台);项目管理体系;知识体系(图书馆/博物馆/档案馆);产业"云+链"工程</td></tr>
+        <tr><td><b>软件服务层</b></td><td>统一门户(门户网站/App/微信公众号);"互联网+政务"/交通/应急/司法/人社/环保/卫健/旅游服务迭代升级</td></tr>
+      </table>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">四项主要任务</div>
+        <ul class="item-list">
+          <li><b>1.构建数字孪生城市,引领政府数字转型</b>:大数据中心+数字孪生城市+城市数字画像;赋能产业数字价值;大数据思维广泛根植</li>
+          <li><b>2.务实可信数字基础,提升信息支撑水平</b>:集约化建设/统筹管理;整合政务网络(链路合一、多网共用);政务云平台;物联感知体系(雪亮工程);统一运行指挥中心;统一门户</li>
+          <li><b>3.优化创新治理能力,发挥数字杠杆价值</b>:"一网格、一队伍、一智能"综合治理体系;"一数、一网、一窗、一号、一码"的"一网通"政务服务联动体系</li>
+          <li><b>4.打造特色产业优势,繁荣城市经济发展</b>:产业"云+链"、文旅"域+端"、借力"路带圈";区块链金融信用体系;公有云服务;文旅数字化</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">⚡ 三阶段实施 <span class="p0-mark">P1</span><span class="mnemonic">基深融</span></div>
+        <table class="table-mini">
+          <tr><th style="width:18%">阶段</th><th style="width:82%">重点</th></tr>
+          <tr><td><b>①基础夯实阶段</b></td><td>基础网络设备/运行指挥中心/业务系统平台建设;已建系统和数据资源优化整合;跨部门跨行业数据资源共享;规范数据交换标准;推动标准规范和政策制定</td></tr>
+          <tr><td><b>②深化应用阶段</b></td><td>已建基础设施和智能应用完善;提升城市整体智能感知能力;扩大智能化应用范围和受用人群;全方位多维度社会管理与公共服务;大数据辅助政府决策;城市运行综合治理精细化;产业结构升级转型</td></tr>
+          <tr><td><b>③融合创新阶段</b></td><td>智能应用服务场景细化;贴近民众实际生活;大数据分析+AI描绘应用群体画像;精准化个性化智能服务;提升用户感受和满意度;打造充满温度的城市</td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 两案例对比 -->
+    <div class="sub-section">
+      <div class="sub-title">两案例架构对比 <span class="exam-mark">易混</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">维度</th><th style="width:41%">案例一(领先市)</th><th style="width:41%">案例二(发展中市)</th></tr>
+        <tr><td><b>架构分层</b></td><td>数字底座+智能中枢+智慧应用+统一门户(4层)</td><td>基础设施层+数据服务层+平台服务层+软件服务层(4层)</td></tr>
+        <tr><td><b>规划文件</b></td><td>《数字政府和智慧城市"十四五"发展规划》</td><td>《市数字城市顶层设计规划方案》</td></tr>
+        <tr><td><b>核心目标</b></td><td>自进化智能体;四位一体数字城市</td><td>数字赋能、创泊持优的数字城市</td></tr>
+        <tr><td><b>特色</b></td><td>三融五跨;三网(协同/统管/通办);民生七优</td><td>数字孪生城市;一网通(数/网/窗/号/码);云+链/域+端/路带圈</td></tr>
+        <tr><td><b>实施阶段</b></td><td>2025年+2035年两期目标</td><td>基础夯实→深化应用→融合创新三阶段</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 本章小结 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>📋 本章考察规律总结 · 18.1考阶段/成熟度 · 18.2考领域分类 · 18.3考规划原则/三网 · 18.4考架构层次 · 18.5考案例对比</span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <table class="table-mini">
+      <tr><th>优先级</th><th>考点</th><th>掌握要求</th></tr>
+      <tr><td>🔴P0</td><td>发展四阶段(初布转新)+三融五跨</td><td>必须背熟时间节点和特征</td></tr>
+      <tr><td>🔴P0</td><td>成熟度五级(规管协优引)+两类能力要素</td><td>必须能默写+区分特征</td></tr>
+      <tr><td>🔴P0</td><td>五大规划原则(人技规多多)</td><td>必须能默写+场景判断</td></tr>
+      <tr><td>🔴P0</td><td>数字政府三网(协同/统管/通办)+数字经济三化(产产业数数)</td><td>必须能默写区分</td></tr>
+      <tr><td>🔴P0</td><td>数字基础设施三类(信融创)+信息基础设施六字(云网数智安端)</td><td>必须能默写</td></tr>
+      <tr><td>🟡P1</td><td>五大聚焦领域+各领域业务分类(7+11+6+7+3)</td><td>会场景判断和分类</td></tr>
+      <tr><td>🟡P1</td><td>系统架构七内容+技术架构四层(感数平应)+数据架构三部分(模分服)</td><td>会层次区分</td></tr>
+      <tr><td>🟡P1</td><td>三种定义(IBM/部委/国标)+宏观四环境(政经社技)</td><td>会区分视角</td></tr>
+      <tr><td>🟢P2</td><td>两案例架构对比+三阶段实施(基深融)</td><td>了解即可</td></tr>
+    </table>
+  </div>
+</div>
+
+</div><!-- container -->
+
+<!-- 口诀面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 10px 16px">
+  <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:17px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总(一键速记·28条)</h3>
+    <div class="mnemonics-grid">
+      <div><b>智慧城市起源</b>:起源于传媒领域,是"智慧地球"落实到区域</div>
+      <div><b>3I特征</b>:Instrumented/Interconnected/Intelligent(可感知/互联/智能)</div>
+      <div><b>三种定义</b>:IBM(智能响应)/部委(新模式)/国标(创新型城市)</div>
+      <div><b>四阶段</b>:初布转新(初始形成/布局/新型转换/数字化发展)</div>
+      <div><b>三融五跨</b>:技业数 + 跨层级/跨地域/跨系统/跨部门/跨业务</div>
+      <div><b>五级成熟度</b>:规管协优引(规划/管理/协同/优化/引领)</div>
+      <div><b>两类能力要素</b>:共性基础类+场景应用类</div>
+      <div><b>共性基础6域</b>:数周I数技安(数字战略/全周期/ICT/数据/技术服务/信息安全)</div>
+      <div><b>场景应用4域</b>:惠治宜产(惠民/城市治理/生态宜居/产业发展)</div>
+      <div><b>体力vs脑力</b>:一至三级体力替代,三至五级脑力替代</div>
+      <div><b>宏观四环境</b>:政经社技(政策/经济/社会/技术)</div>
+      <div><b>五大焦点</b>:治惠宜产协(城市治理/惠民/生态宜居/产业/区域协同)</div>
+      <div><b>城市治理7业</b>:城应公基市政交(城管/应急/公共安全/基层/市场/市政/交通)</div>
+      <div><b>惠民服务11业</b>:政交社医社教养就无停文</div>
+      <div><b>生态宜居6业</b>:绿生能水园资(绿色低碳/生态环保/智慧能源/智慧水利/城市公园/自然资源监管)</div>
+      <div><b>产业发展7业</b>:商物园金农行旅(商圈/物流/园区/金融/农业/出行/旅游)</div>
+      <div><b>区域协同3业</b>:城群跨(城乡联动/城市群发展/跨区域协同)</div>
+      <div><b>水利四预</b>:预报/预警/预演/预案</div>
+      <div><b>5大规划原则</b>:人技规多多(以人为本/技术赋能/规则重构/多元创新/多方共建)</div>
+      <div><b>规划基本过程</b>:需总架实(需求分析→总体设计→架构设计→实施路径)</div>
+      <div><b>数字政府三网</b>:一网协同(对内)+一网统管(对外治理)+一网通办(对外服务)</div>
+      <div><b>数字经济三化</b>:产产业数数(数字产业化/产业数字化/数据要素市场化)</div>
+      <div><b>数字基础3类</b>:信融创(信息/融合/创新基础设施)</div>
+      <div><b>信息基础6字</b>:云网数智安端</div>
+      <div><b>组织保障4面</b>:组市人信(组织体系/市场化生态/人才队伍/信息安全)</div>
+      <div><b>系统架构7内容</b>:业应数技安标产(业务/应用/数据/技术/安全/标准/产业)</div>
+      <div><b>技术架构4层</b>:感数平应(感知/数据/平台/应用展示)</div>
+      <div><b>数据架构3部分</b>:模分服(数据模型/数据分布/数据服务)</div>
+      <div><b>安全3维度</b>:规技管(规则/技术/管理)</div>
+      <div><b>案例一架构4层</b>:底中应门(数字底座/智能中枢/智慧应用/统一门户)</div>
+      <div><b>案例二架构4层</b>:基数平软(基础设施/数据服务/平台服务/软件服务)</div>
+      <div><b>案例二3阶段</b>:基深融(基础夯实/深化应用/融合创新)</div>
+      <div><b>三段式推进</b>:发展规划→建设实施→评估评价</div>
+      <div><b>智慧城市定位</b>:专项规划;指引性和规范性文件</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">第18章 智慧城市发展规划 · 核心知识思维脑图 | 基于第2版教材 | Ctrl+E 全展开 · Ctrl+C 全折叠</div>
+
+<script>
+function toggleBranch(header){header.classList.toggle('collapsed');var body=header.nextElementSibling;body.classList.toggle('collapsed')}
+function toggleAll(expand){
+  document.querySelectorAll('.branch-header').forEach(function(h){
+    if(expand){h.classList.remove('collapsed');h.nextElementSibling.classList.remove('collapsed')}
+    else{h.classList.add('collapsed');h.nextElementSibling.classList.add('collapsed')}
+  })
+}
+function toggleMnemonics(){
+  var btn=document.getElementById('btnHighlight');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m){
+    m.style.background=btn.classList.contains('active')?'#ffc107':'#fff3cd';
+    m.style.color=btn.classList.contains('active')?'#000':'#856404'
+  })
+}
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && e.key==='e'){e.preventDefault();toggleAll(true)}
+  if(e.ctrlKey && e.key==='c'){e.preventDefault();toggleAll(false)}
+})
+</script>
+
+</body>
+</html>

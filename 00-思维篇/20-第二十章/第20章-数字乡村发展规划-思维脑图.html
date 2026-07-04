@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第20章 数字乡村发展规划 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.container{max-width:900px;margin:0 auto;padding:16px 10px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;margin-bottom:14px;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:12px 16px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-header.collapsed+.branch-body{display:none!important}
+.branch-body{padding:0 14px 12px 14px}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:4px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:4px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:4px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:4px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:4px solid #7d3c98}
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:3px solid #3498db}
+.item-list{list-style:none;padding-left:8px}
+.item-list li{font-size:14px;padding:3px 8px;line-height:1.8;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:4px;font-size:13px;font-weight:700;margin-left:5px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#f4ecf7;color:#7d3c98;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.key-point{color:#c0392b;font-weight:600}
+.exam-mark{display:inline-block;background:#ffe0b2;color:#e65100;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.p0-mark{display:inline-block;background:#fdedec;color:#c0392b;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;margin:0 3px}
+.table-mini{width:100%;font-size:14px;border-collapse:collapse;margin-top:6px}
+.table-mini th{background:#f8f9fa;padding:6px 8px;border:1px solid #e0e0e0;text-align:center;font-weight:700;font-size:13px}
+.table-mini td{padding:5px 8px;border:1px solid #e0e0e0;font-size:13px}
+.table-mini tr:nth-child(even){background:#fafafa}
+.note-box{background:#fff9e6;border-left:4px solid #f39c12;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:14px;color:#7d6608}
+.formula-box{background:#eaf2f8;border:2px solid #3498db;padding:10px 14px;margin:8px 0;border-radius:8px;font-size:14px;color:#1a5276;text-align:center}
+.footer{padding:18px 10px;text-align:center;color:#aaa;font-size:13px}
+.mnemonics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.mnemonics-grid div{background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:14px;border:1px solid #eee}
+.danger-mark{display:inline-block;background:#c0392b;color:#fff;padding:1px 5px;border-radius:3px;font-size:11px;font-weight:700}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌾 第20章 数字乡村发展规划 · 核心知识思维脑图</h1>
+  <p>基于第2版教材 · 20.1~20.5 全节覆盖 · 数字乡村建设核心知识点</p>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <button onclick="toggleAll(true)">📖 全部展开</button>
+  <button onclick="toggleAll(false)">📕 全部折叠</button>
+  <button id="btnHighlight" onclick="toggleMnemonics()">🧠 高亮口诀</button>
+</div>
+
+<div class="container">
+
+<!-- ========== 20.1 发展整体环境 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>20.1 发展整体环境 <span class="tag">政策引导</span><span class="tag">产业发展</span><span class="tag">标准体系</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 宏观政策与引导 -->
+    <div class="sub-section">
+      <div class="sub-title">20.1.1 宏观政策与引导 <span class="p0-mark">P0</span><span class="mnemonic">规谋试署建</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">国家政策5阶段 <span class="p0-mark">P0必背</span></div>
+        <table class="table-mini">
+          <tr><th style="width:15%">阶段</th><th style="width:25%">时间标志</th><th style="width:60%">核心内容</th></tr>
+          <tr><td><b>规划起步</b></td><td>2017-2018年</td><td>党的十九大提出乡村振兴+数字中国；2018中央一号文件提出数字乡村战略</td></tr>
+          <tr><td><b>谋篇布局</b></td><td>2019年</td><td>《数字乡村发展战略纲要》分阶段明确目标；数字农业农村发展规划（2019-2025）</td></tr>
+          <tr><td><b>试点推进</b></td><td>2020年</td><td>开展国家数字乡村试点，确定<span class="highlight">117个县市</span>为试点地区</td></tr>
+          <tr><td><b>全面部署</b></td><td>2021年</td><td>十四五规划部署；数字乡村建设指南1.0发布</td></tr>
+          <tr><td><b>加快建设</b></td><td>2022年及以后</td><td>数字乡村标准体系建设指南；党的二十大强调加快建设数字中国</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">地方政策 <span class="mnemonic">浙广豫赣</span></div>
+        <ul class="item-list">
+          <li><b>浙江</b>：2025年实现"三农"数据全面共享、互联互通</li>
+          <li><b>广东</b>：20户以上自然村光网深度覆盖，5G覆盖农村重点区域</li>
+          <li><b>河南</b>：加强信息基础设施、加快信息技术与农业融合</li>
+          <li><b>江西</b>：加快乡村信息基础设施、大力发展农村数字经济</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 产业发展驱动 -->
+    <div class="sub-section">
+      <div class="sub-title">20.1.2 产业发展驱动 <span class="p0-mark">P1</span><span class="mnemonic">基探普惠竞缺</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">5大发展现状</div>
+        <ul class="item-list">
+          <li><b>基础设施完善</b>：2022年农村网民3.08亿，农村互联网普及率61.9%</li>
+          <li><b>县域差异发展</b>：县委书记是乡村振兴"一线总指挥"，各县立足特色探索模式</li>
+          <li><b>数字普惠金融</b>：金融机构赋能乡村经济、乡村治理、乡村普惠服务三大领域</li>
+          <li><b>新业态涌现</b>：2022年全国农村网络零售额<span class="highlight">2.17万亿元</span>，农产品网络销售占比14.8%</li>
+          <li><b>人才欠缺</b>：既懂农业又熟悉信息技术的跨界复合型人才较少</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">3大问题挑战 <span class="mnemonic">不平标准人才</span></div>
+        <ul class="item-list">
+          <li><b>发展不平衡</b>：东部快中西部滞后，区域差距较大</li>
+          <li><b>标准化待完善</b>：需要统筹建设数字乡村标准体系</li>
+          <li><b>人才素养不足</b>：专业人才缺口大，村民数字技能有待提升</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 标准体系规范 -->
+    <div class="sub-section">
+      <div class="sub-title">20.1.3 标准体系规范 <span class="p0-mark">P1</span><span class="mnemonic">国际国外国内标</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">国外标准</div>
+        <ul class="item-list">
+          <li><b>ISO</b>：SAG SF智慧农业标准化战略咨询组（2021年成立）</li>
+          <li><b>ISO/TC 268</b>：社区可持续发展技术委员会，适用于不同类型社区和乡村</li>
+          <li><b>ITU-T SG 20</b>：物联网、智慧城市和社区研究组</li>
+          <li><b>美国</b>：IEEE Smart Village智慧乡村计划</li>
+          <li><b>英国</b>：BSI数字化战略顾问工作组（2021年）</li>
+          <li><b>日本</b>：农业技术信息服务全国联机网络，29个国立+381个地方机构联网</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">国内标准体系 <span class="mnemonic">国标行标地标</span></div>
+        <table class="table-mini">
+          <tr><th style="width:15%">标准类型</th><th style="width:85%">核心内容</th></tr>
+          <tr><td><b>国家标准</b></td><td>《数字乡村标准体系建设指南》（2022）；全国信息技术标准化技术委员数字乡村标准研究组（2022.7成立）</td></tr>
+          <tr><td><b>行业标准</b></td><td>NY/T系列：农业农村行业数据交换、地理信息服务接口、信息管理系统等</td></tr>
+          <tr><td><b>地方标准</b></td><td>湖北/陕西/四川成立农业标准化技术委员会；山东/湖北/鹤壁等地研制地方标准</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 20.2 发展关注焦点 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>20.2 发展关注焦点 <span class="tag">数字经济</span><span class="tag">数字服务</span><span class="tag">数字治理</span><span class="tag">数字生态</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 乡村数字经济 -->
+    <div class="sub-section">
+      <div class="sub-title">20.2.1 乡村数字经济 <span class="p0-mark">P0</span><span class="mnemonic">农电金业</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">1.农业数字化 <span class="mnemonic">基数产加特市溯</span></div>
+        <ul class="item-list">
+          <li><b>基础设施</b>：电信网络/广电网络+信息服务站（电商站/益农信息社）</li>
+          <li><b>数据资源</b>：基础地理/遥感/经营主体/耕地/渔业/投入品/市场交易数据</li>
+          <li><b>生产数字化</b>：种业/种植业/林草/畜牧业/渔业渔政五大领域</li>
+          <li><b>加工智能化</b>：智能车间+智能分级分拣+实时数据采集</li>
+          <li><b>特色产业监测</b>：全产业链数据采集+大数据可视化+特色产业"一张图"</li>
+          <li><b>市场监测</b>：实时采集价格/交易量+预警分析</li>
+          <li><b>质量追溯</b>：来源可追溯、流向可跟踪、风险可预警、产品可召回、责任可追究</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">2.乡村电子商务 <span class="mnemonic">数公培物溯</span></div>
+        <ul class="item-list">
+          <li><b>电商大数据</b>：汇聚整合展示电商数据，构建可视化模型</li>
+          <li><b>公共服务体系</b>：县级中心+村级服务站，线上线下多元化支持</li>
+          <li><b>电商培训</b>：面向从业者/大学生/基层干部，电商/直播/营销/数据洞察</li>
+          <li><b>物流信息</b>：开放共享物流信息平台</li>
+          <li><b>质量溯源</b>：一品一码，投入品统计+企业溯源</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">3.乡村普惠金融 <span class="mnemonic">便贷保</span></div>
+        <ul class="item-list">
+          <li><b>便捷金融服务</b>：自助终端+便民站点，金融/生活/民生三类服务</li>
+          <li><b>涉农信贷服务</b>：线上贷款+评估授信+免担保纯信用+最多跑一次</li>
+          <li><b>新型农业保险</b>：气象风险识别+AI+大数据，防灾减损</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">4.乡村新业态 <span class="mnemonic">文旅休民康</span></div>
+        <ul class="item-list">
+          <li><b>智慧文旅</b>：游前游中游后服务闭环，实时监控+数据分析</li>
+          <li><b>休闲农业</b>：观光/休闲/体验，休闲农场/认养农业/农业公园/共享农场</li>
+          <li><b>民宿经济</b>：乡村民居+主人参与+小型住宿设施</li>
+          <li><b>康养服务</b>：智能产品+信息系统，实时健康监测+远程医疗</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 乡村数字服务 -->
+    <div class="sub-section">
+      <div class="sub-title">20.2.2 乡村数字服务 <span class="p0-mark">P0</span><span class="mnemonic">政务医护</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">互联网+政务 <span class="mnemonic">下移个性</span></div>
+        <ul class="item-list">
+          <li><b>政务服务下移</b>：服务清单网络化+接件窗口前移到村庄+信息跑路代替群众跑腿</li>
+          <li><b>便捷个性化服务</b>：一站式一窗口+跨部门协同+大数据精准推送</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">互联网+医疗 <span class="mnemonic">基远</span></div>
+        <ul class="item-list">
+          <li><b>医疗机构信息化</b>：打通省市县村三级医疗机构信息渠道</li>
+          <li><b>乡村远程医疗</b>：远程会诊+辅助开药+远程指导教学</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">互联网+养老 <span class="mnemonic">居家村社医养保障辅助机构</span></div>
+        <ul class="item-list">
+          <li><b>居家养老服务</b>：智能家居+传感器+视频监控+健康管理</li>
+          <li><b>村社养老服务</b>：社交/文化/体育/医疗，智慧村社和互助网络</li>
+          <li><b>医养结合服务</b>：医疗和养老融合，一体化医养体系</li>
+          <li><b>保障与救助服务</b>：位置识别技术，失踪预防+求救服务</li>
+          <li><b>智慧辅助设施</b>：智能轮椅/助行器/感应系列</li>
+          <li><b>智慧养老机构</b>：管理老年人身心健康社交，提高服务质量</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 乡村数字治理 -->
+    <div class="sub-section">
+      <div class="sub-title">20.2.3 乡村数字治理 <span class="p0-mark">P0</span><span class="mnemonic">党综</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">智慧党建 <span class="mnemonic">管宣教</span></div>
+        <ul class="item-list">
+          <li><b>党务管理信息化</b>：线上线下协同，三会一课/主题党日线上开展</li>
+          <li><b>新媒体党建宣传</b>：网站/App/公众号/短视频宣传</li>
+          <li><b>党员网络教育</b>：电视/PC/移动端，对接学习强国平台</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">基层综合治理信息化 <span class="mnemonic">网社智体图码</span></div>
+        <ul class="item-list">
+          <li><b>基层网格化治理</b>：网信/党建/综治/公安/环保等多网格融合</li>
+          <li><b>社会治安综合治理</b>：数据挖掘/人像比对/智能预警/地理信息系统</li>
+          <li><b>综合治理智能化</b>：AI识别预警，代替人工巡逻，提升预测预警预防能力</li>
+          <li><b>一体化协同治理</b>：智能办公/村务管理/智慧党建/网格管理/公共服务整合</li>
+          <li><b>数字乡村一张图</b>：三维地理信息+多维地图数据，可视化展现乡村全貌</li>
+          <li><b>一村一户一码</b>：数字孪生身份技术，统一赋码+数据汇聚+一站式服务</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 乡村数字生态 -->
+    <div class="sub-section">
+      <div class="sub-title">20.2.4 乡村数字生态 <span class="p0-mark">P1</span><span class="mnemonic">农山人居水</span></div>
+      <ul class="item-list">
+        <li><b>农业生态环境监测</b>：土壤环境/氮磷流失/地膜残留/生物物种资源调查+外来入侵监测</li>
+        <li><b>山水林田湖草沙系统监测</b>：自然资源数据库+水环境/林草/耕地数字监测</li>
+        <li><b>农村人居环境监测</b>：垃圾收运/污水治理/村容村貌，高清视频+物联网+AI识别</li>
+        <li><b>农村饮用水源水质监测</b>：温度/色度/浊度/pH/电导率/溶解氧等在线自动监测</li>
+      </ul>
+    </div>
+    <!-- 文化资源数字化 -->
+    <div class="sub-section">
+      <div class="sub-title">20.2.5 文化资源数字化 <span class="p0-mark">P2</span><span class="mnemonic">博物馆文物非遗</span></div>
+      <ul class="item-list">
+        <li><b>农村数字博物馆</b>：挖掘梳理保存推广村落资源，网站/App/小程序展示</li>
+        <li><b>农村文物资源数字化</b>：数字化采集（图文/视频/3D）+数字化展示（故事化创作）</li>
+        <li><b>农村非物质文化遗产数字化</b>：口头文学/美术书法/音乐歌舞/戏剧曲艺/传统技艺等数字化记录</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 20.3 发展规划要点 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>20.3 发展规划要点 <span class="tag">数字基础</span><span class="tag">数字治理</span><span class="tag">教育一体化</span><span class="tag">数字经济</span><span class="tag">技术融合</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">20.3.1 加强乡村数字基础建设 <span class="p0-mark">P0</span><span class="mnemonic">交基</span></div>
+      <ul class="item-list">
+        <li><b>城乡交通一体化</b>：物理互联互通+信息数据互通融合；交通信息化+交通运输信息化</li>
+        <li><b>互联网基础设施</b>：拓展综合信息服务+智慧化应用；加大网络覆盖率和使用率</li>
+        <li><b>重点任务</b>：加速乡村智慧水利/交通/广电/电网/物流/农业基础设施建设</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">20.3.2 推动数字治理体系建设 <span class="p0-mark">P0</span><span class="mnemonic">公共服务精细人才</span></div>
+      <ul class="item-list">
+        <li><b>推进城乡公共服务一体化</b>：互联网+政务延伸到乡村；党务/财务/村务网上公开</li>
+        <li><b>提高治理体系精细化</b>：从经验治理→科技治理，人情治理→法治治理，事后→事前预防</li>
+        <li><b>注重数据人才建设</b>：加大数字乡村复合人才培养</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">20.3.3 加快城乡教育一体化建设 <span class="p0-mark">P1</span><span class="mnemonic">信息化平台育人才</span></div>
+      <ul class="item-list">
+        <li><b>推进乡村教育信息化</b>：硬件（数字校园）+软件（师资队伍+教学方式）；优质教育资源在线下沉</li>
+        <li><b>搭建乡村数字资源共享平台</b>：建立历史文化名镇名村"数字文物资源库""数字博物馆"</li>
+        <li><b>培育新型数字农民</b>：农民培训+专业化人才服务+大学生下乡</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">20.3.4 坚持数字经济发展为导向 <span class="p0-mark">P1</span><span class="mnemonic">渠道成果转化新业态</span></div>
+      <ul class="item-list">
+        <li><b>畅通资源进城下乡渠道</b>：优化城乡要素双向流动；资本下乡参与开发；优化营商环境</li>
+        <li><b>创新科技成果转化下乡机制</b>：加大研发投入；资源要素进入市场；发展专业化个性化定制化乡村特色产业</li>
+        <li><b>积极发展农村数字经济新业态</b>：加快发展农业农村电子商务；搭建农业大数据；拓展农产品销售市场</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">20.3.5 关键技术与应用深度融合 <span class="p0-mark">P0</span><span class="mnemonic">新基建感知智能安全</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">1.新型基础设施技术 <span class="mnemonic">5G无人机</span></div>
+        <ul class="item-list">
+          <li><b>5G移动通信</b>：智慧农场/智慧养殖/智慧林场；农场管理一键互联</li>
+          <li><b>无人机应用技术</b>：无人植保/灾情监测；农药喷洒/播种施肥/灌溉监测</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">2.信息感知技术 <span class="mnemonic">物空雷热</span></div>
+        <ul class="item-list">
+          <li><b>物联网技术</b>：乡村资源数字化管理+智能化生产+数字化运营服务</li>
+          <li><b>空天地一体化</b>：空（卫星）+天（遥感）+地（物联网）+人（统计）+网（数据）</li>
+          <li><b>雷视融合感知</b>：雷达+视频互补；低照度及恶劣天气全天候高精准感知</li>
+          <li><b>热成像监测</b>：红外辐射原理；畜牧体温+秸秆焚烧+森林火情监测</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">3.智能化应用技术 <span class="mnemonic">大数据区块编码孪生</span></div>
+        <ul class="item-list">
+          <li><b>大数据监测预警</b>：多源数据深度挖掘；乡村经济+生态+金融风控</li>
+          <li><b>区块链技术</b>：宅基地管理/产权交易/质量追溯/农村金融/农业供应链</li>
+          <li><b>农产品数字编码</b>：资源/主体/产品唯一数字身份标识；一码直达+亮码办事</li>
+          <li><b>全域数字孪生</b>：三维地理信息+遥感+物联网+大数据；以图管房+以房管人</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">4.数据安全共享技术 <span class="mnemonic">融合加密</span></div>
+        <ul class="item-list">
+          <li><b>多源多级数据融合</b>：异构数据融合级联；横向到边纵向到底的数据高速路网</li>
+          <li><b>数据链路传输与安全加密</b>：身份鉴别+通道加密+专线传输</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 20.4 信息系统架构设计 ========== -->
+<div class="branch-card c4">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>20.4 信息系统架构设计 <span class="tag">业务架构</span><span class="tag">总体架构</span><span class="tag">数据架构</span><span class="tag">运营架构</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">20.4.1 业务架构 <span class="p0-mark">P0</span><span class="mnemonic">农民农村农业</span></div>
+      <table class="table-mini">
+        <tr><th style="width:20%">业务领域</th><th style="width:80%">核心内容</th></tr>
+        <tr><td><b>乡村数字经济</b></td><td>农业生产数字化/农产品加工/市场监测/质量溯源/农村电商/普惠金融/农机服务/智慧旅游</td></tr>
+        <tr><td><b>乡村数字服务</b></td><td>互联网+教育/医疗/养老/金融/消防救援/劳务就业/数字素养/专家服务</td></tr>
+        <tr><td><b>乡村数字治理</b></td><td>智慧党建/基层治理/文化数字化/应急管理/公共卫生/村务管理</td></tr>
+        <tr><td><b>乡村数字生态</b></td><td>农业绿色生产/生态环境监测/山水林田湖草沙/人居环境/饮用水源监测</td></tr>
+      </table>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">20.4.2 总体架构 <span class="p0-mark">P0必背</span><span class="mnemonic">基础设施数据平台业务</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">架构层次</th><th style="width:82%">核心内容</th></tr>
+        <tr><td><b>基础设施</b></td><td>网络/信息服务/计算存储/感知接入基础设施</td></tr>
+        <tr><td><b>数据资源</b></td><td>基础数据库+专题数据库（生产/治理/生活）</td></tr>
+        <tr><td><b>平台支撑</b></td><td>统一认证/GIS引擎/区块链/智能决策</td></tr>
+        <tr><td><b>业务应用</b></td><td>乡村数字经济/数字服务/数字治理/数字生态</td></tr>
+        <tr><td><b>支撑体系</b></td><td>安全保障+运营管理+标准规范体系</td></tr>
+      </table>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">20.4.3 数据架构 <span class="p0-mark">P1</span><span class="mnemonic">基础专题主题</span></div>
+      <ul class="item-list">
+        <li><b>原则</b>：以用促建、共建共享</li>
+        <li><b>基础库</b>：人口/法人/信用/自然资源/地理空间库</li>
+        <li><b>部门专题库</b>：农业/农民/党建/政务/公安/文旅/气象/生态环境数据</li>
+        <li><b>主题库</b>：农业生产经营/乡村旅游/生态环境/政务服务/基层治理/电商/医疗/脱贫成果</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">20.4.4 运营与服务架构 <span class="p0-mark">P1</span><span class="mnemonic">主体对象保障安全</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">组成</th><th style="width:82%">核心内容</th></tr>
+        <tr><td><b>运营主体</b></td><td>县乡村三级管理人员+第三方运营公司</td></tr>
+        <tr><td><b>运营对象</b></td><td>基础设施/数据/系统/业务运营</td></tr>
+        <tr><td><b>运营服务保障</b></td><td>管理制度/业务规范+系统运维+部门协同</td></tr>
+        <tr><td><b>运营安全保障</b></td><td>物理/网络/数据/系统/应用安全+安全制度</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 20.5 建设实践案例 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>20.5 建设实践案例 <span class="p0-mark">P1</span><span class="exam-mark">理解应用</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <div class="sub-section">
+      <div class="sub-title">20.5.1 A县数字经济案例 <span class="tag2">浙江</span><span class="mnemonic">物联网大数据平台</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">总体架构5层</div>
+        <ul class="item-list">
+          <li><b>数据采集层</b>：物联网智能终端+智能农业设备</li>
+          <li><b>基础服务层</b>：云计算/云存储/云安全/容灾备份</li>
+          <li><b>数据中心层</b>：十大基础数据库+特色专题数据库</li>
+          <li><b>应用支撑层</b>：统一认证+GIS+区块链</li>
+          <li><b>业务应用层</b>：生产管理/品牌营销/行业监管/公共服务</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">4大业务平台</div>
+        <ul class="item-list">
+          <li><b>生产管理数字化</b>：农创智谷/智慧生产/物联网公共服务/智慧果园/数字工厂</li>
+          <li><b>品牌营销数字化</b>：产销一体化（供应一张图+市场一张图）</li>
+          <li><b>行业监管数字化</b>：土地流转/智慧农机/项目资金/农资监管</li>
+          <li><b>公共服务数字化</b>：数字农业综合体+溯源中国+智能专家+产业一张图</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sub-section">
+      <div class="sub-title">20.5.2 B市乡村钉治理案例 <span class="tag2">治理</span><span class="mnemonic">协同沟通组织数据</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">建设内容</div>
+        <ul class="item-list">
+          <li><b>最小管理单元</b>：以户为单位</li>
+          <li><b>五级管理架构</b>：县/乡镇/村/组/户</li>
+          <li><b>六大功能模块</b>：组织架构/数字党建/美丽乡村/本地生活/政务服务/数字经济</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">4大应用场景 <span class="mnemonic">民议信服</span></div>
+        <ul class="item-list">
+          <li><b>民情上报</b>：村民通讯录+全员群+有事找村里+书记信箱</li>
+          <li><b>村民议事</b>：24小时网上议事会；四务公开；积分激励</li>
+          <li><b>信息宣传</b>：公告+钉一下+有奖答题+数字文化礼堂</li>
+          <li><b>民生服务</b>：本地通讯录+网格预约+群收款+租客申报</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">5条经验 <span class="mnemonic">数据整体最多自治转变</span></div>
+        <ul class="item-list">
+          <li><b>激活数据富矿</b>：以户为单元沉淀数据；开放可拓展</li>
+          <li><b>整体智治思维</b>：市里共性+镇村个性；问题全流程解决</li>
+          <li><b>贯穿最多跑一次</b>：数据跑代替群众跑</li>
+          <li><b>调动群众积极性</b>：积分量化（美好账本）</li>
+          <li><b>经验治理向数据治理转变</b>：后台驾驶舱决策大脑</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 本章小结 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>📋 本章考察规律总结</span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <table class="table-mini">
+      <tr><th>优先级</th><th>考点</th><th>掌握要求</th></tr>
+      <tr><td>🔴P0</td><td>国家政策5阶段（规谋试署建）</td><td>必须背熟时间和核心内容</td></tr>
+      <tr><td>🔴P0</td><td>乡村数字经济4大方向（农电金业）</td><td>必须掌握每个方向的核心内容</td></tr>
+      <tr><td>🔴P0</td><td>总体架构4层次</td><td>必须能默写</td></tr>
+      <tr><td>🔴P0</td><td>关键技术4大类</td><td>必须了解主要技术应用</td></tr>
+      <tr><td>🟡P1</td><td>标准体系+数字生态+数据架构</td><td>会场景判断</td></tr>
+      <tr><td>🟢P2</td><td>文化资源数字化+新业态</td><td>了解即可</td></tr>
+    </table>
+  </div>
+</div>
+
+</div><!-- container -->
+
+<!-- 口诀面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 10px 16px">
+  <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:17px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记·30条）</h3>
+    <div class="mnemonics-grid">
+      <div><b>政策5阶段</b>：规谋试署建（规划起步/谋篇布局/试点推进/全面部署/加快建设）</div>
+      <div><b>发展现状5</b>：基探普惠竞缺（基础设施/县域探索/普惠金融/新业态/人才欠缺）</div>
+      <div><b>问题3</b>：不平标准人才</div>
+      <div><b>国外标准</b>：ISO/TC268/ITU/SAG/美国/英国/日本</div>
+      <div><b>国内标准3</b>：国标行标地标</div>
+      <div><b>数字经济4</b>：农电金业（农业数字化/电商/普惠金融/新业态）</div>
+      <div><b>农业数字化7</b>：基数产加特市溯</div>
+      <div><b>电子商务5</b>：数公培物溯</div>
+      <div><b>普惠金融3</b>：便贷保</div>
+      <div><b>新业态4</b>：文旅休民康（智慧文旅/休闲农业/民宿/康养）</div>
+      <div><b>数字服务3</b>：政务医护</div>
+      <div><b>互联网+养老6</b>：居家村社医养保障辅助机构</div>
+      <div><b>数字治理2</b>：党综（智慧党建/综合治理）</div>
+      <div><b>综合治理6</b>：网社智体图码</div>
+      <div><b>数字生态4</b>：农山人居水</div>
+      <div><b>文化数字化3</b>：博物馆文物非遗</div>
+      <div><b>规划要点5</b>：基治教经技（基础/治理/教育/经济/技术）</div>
+      <div><b>新技术2</b>：5G无人机</div>
+      <div><b>感知技术4</b>：物空雷热（物联网/空天地/雷视/热成像）</div>
+      <div><b>智能技术4</b>：大数据区块编码孪生</div>
+      <div><b>安全技术2</b>：融合加密</div>
+      <div><b>业务架构4</b>：农民农村农业（经济/服务/治理/生态）</div>
+      <div><b>总体架构4</b>：基础设施数据平台业务</div>
+      <div><b>数据架构3</b>：基础专题主题（基础库/专题库/主题库）</div>
+      <div><b>运营架构4</b>：主体对象保障安全</div>
+      <div><b>A县架构5</b>：采集基础数据中心应用</div>
+      <div><b>乡村钉4</b>：协同沟通组织数据</div>
+      <div><b>乡村钉场景4</b>：民议信服</div>
+      <div><b>乡村钉经验5</b>：数据整体最多自治转变</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">第20章 数字乡村发展规划 · 核心知识思维脑图 | 基于第2版教材 | Ctrl+E 全展开 · Ctrl+C 全折叠</div>
+
+<script>
+function toggleBranch(header){
+  header.classList.toggle('collapsed');
+  var body = header.nextElementSibling;
+  if(body){
+    body.classList.toggle('collapsed');
+  }
+}
+function toggleAll(expand){
+  document.querySelectorAll('.branch-header').forEach(function(h){
+    if(expand){
+      h.classList.remove('collapsed');
+      var body = h.nextElementSibling;
+      if(body){
+        body.classList.remove('collapsed');
+      }
+    }else{
+      h.classList.add('collapsed');
+      var body = h.nextElementSibling;
+      if(body){
+        body.classList.add('collapsed');
+      }
+    }
+  });
+}
+function toggleMnemonics(){
+  var btn = document.getElementById('btnHighlight');
+  btn.classList.toggle('active');
+  var highlight = btn.classList.contains('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m){
+    if(highlight){
+      m.style.background = '#ffc107';
+      m.style.color = '#000';
+      m.style.boxShadow = '0 0 8px rgba(255,193,7,0.6)';
+    }else{
+      m.style.background = '#fff3cd';
+      m.style.color = '#856404';
+      m.style.boxShadow = 'none';
+    }
+  });
+  // 滚动到口诀面板
+  if(highlight){
+    var panel = document.getElementById('mnemonicPanel');
+    if(panel){
+      panel.scrollIntoView({behavior:'smooth'});
+    }
+  }
+}
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && e.key === 'e'){e.preventDefault();toggleAll(true)}
+  if(e.ctrlKey && e.key === 'c'){e.preventDefault();toggleAll(false)}
+});
+// 默认全部展开
+window.addEventListener('DOMContentLoaded',function(){
+  toggleAll(true);
+});
+</script>
+
+</body>
+</html>

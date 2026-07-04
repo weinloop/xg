@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第2章 数字中国与数智化发展 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.container{max-width:900px;margin:0 auto;padding:16px 10px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;margin-bottom:14px;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:12px 16px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 12px 14px}
+.branch-body.collapsed{display:none}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:4px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:4px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:4px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:4px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:4px solid #7d3c98}
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:3px solid #3498db}
+.item-list{list-style:none;padding-left:8px}
+.item-list li{font-size:14px;padding:3px 8px;line-height:1.8;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:4px;font-size:13px;font-weight:700;margin-left:5px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#f4ecf7;color:#7d3c98;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.key-point{color:#c0392b;font-weight:600}
+.exam-mark{display:inline-block;background:#ffe0b2;color:#e65100;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.p0-mark{display:inline-block;background:#fdedec;color:#c0392b;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;margin:0 3px}
+.table-mini{width:100%;font-size:14px;border-collapse:collapse;margin-top:6px}
+.table-mini th{background:#f8f9fa;padding:6px 8px;border:1px solid #e0e0e0;text-align:center;font-weight:700;font-size:13px}
+.table-mini td{padding:5px 8px;border:1px solid #e0e0e0;font-size:13px}
+.table-mini tr:nth-child(even){background:#fafafa}
+.note-box{background:#fff9e6;border-left:4px solid #f39c12;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:14px;color:#7d6608}
+.formula-box{background:#eaf2f8;border:2px solid #3498db;padding:10px 14px;margin:8px 0;border-radius:8px;font-size:14px;color:#1a5276;text-align:center}
+.footer{padding:18px 10px;text-align:center;color:#aaa;font-size:13px}
+.mnemonics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.mnemonics-grid div{background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:14px;border:1px solid #eee}
+.danger-mark{display:inline-block;background:#c0392b;color:#fff;padding:1px 5px;border-radius:3px;font-size:11px;font-weight:700}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌐 第2章 数字中国与数智化发展 · 核心知识思维脑图</h1>
+  <p>基于第2版教材原文全节覆盖 · 2.1~2.7 核心考点提炼 · 自行归纳高频考点</p>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <button onclick="toggleAll(true)">📖 全部展开</button>
+  <button onclick="toggleAll(false)">📕 全部折叠</button>
+  <button id="btnHighlight" onclick="toggleMnemonics()">🧠 高亮口诀</button>
+</div>
+
+<div class="container">
+
+<!-- ========== 2.1 数字化转型 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>2.1 数字化转型 <span class="tag">定义</span><span class="tag">4驱动</span><span class="tag">GB/T 43439</span><span class="tag">5级成熟度</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 定义 -->
+    <div class="sub-section">
+      <div class="sub-title">数字化转型的定义 <span class="p0-mark">P0必背</span></div>
+      <ul class="item-list">
+        <li>建立在<span class="key-point">数字化转换、数字化升级</span>基础上，进一步触及组织核心业务，以新建一种业务模式为目标的高层次转型</li>
+        <li>开发数字化技术及支持能力以新建一个富有活力的数字化商业模式</li>
+        <li>不仅是对IT，而是对组织<span class="highlight">活动、流程、业务模式和员工能力</span>的方方面面进行重新定义</li>
+      </ul>
+    </div>
+    <!-- 驱动因素 -->
+    <div class="sub-section">
+      <div class="sub-title">2.1.1 驱动因素 <span class="p0-mark">P0</span><span class="mnemonic">产力要素传智</span></div>
+      <div class="note-box">🔑 <b>演进范式</b>：生产力飞跃 + 生产要素变化 + 信息传播效率突破 + 社会"智慧主体"规模扩容 → 促使生产关系创新变革 → 引发经济与民生深层发展</div>
+      <table class="table-mini">
+        <tr><th style="width:18%">驱动因素</th><th style="width:42%">核心内容</th><th style="width:40%">关键要点</th></tr>
+        <tr><td><b>1.生产力飞升</b><br>第四次科技革命</td><td>科学技术是第一生产力；四次科技革命对应四个科学范式</td><td>经验→理论→模拟→数据密集型范式</td></tr>
+        <tr><td><b>2.生产要素变化</b><br>数据要素诞生</td><td>数据与土地、劳动力、资本、技术并列的主要生产要素</td><td>信息化：智慧→知识→信息→数据（解构）；AI/区块链/大数据：数据→信息→知识→智慧（归集）</td></tr>
+        <tr><td><b>3.信息传播突破</b><br>社交网络新格局</td><td>社交网络信息传输4特征</td><td><span class="key-point">永生性、无限性、即时性、方向性</span></td></tr>
+        <tr><td><b>4.智慧主体规模</b><br>快速复制+智能+</td><td>新兴智慧主体=互联网账号/自动驾驶汽车/智能手机/智能机器人</td><td>可复制性、自我修炼、广泛连接、标准交互；劳动密集型消退，自然人聚焦"服务"领域</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>四种科学范式</b>（吉姆·格雷）：①经验范式（归纳为主，盲目观测）②理论范式（理论总结，理性概括）③模拟范式（数据模型，定量分析，计算机）④数据密集型范式（基于科学数据探索，由计算机实施一二三范式）<span class="mnemonic">经理模数</span></div>
+    </div>
+    <!-- 基本原理 -->
+    <div class="sub-section">
+      <div class="sub-title">2.1.2 基本原理 <span class="p0-mark">P0</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">传统发展视角4大问题 <span class="mnemonic">决变知需</span></div>
+        <ul class="item-list">
+          <li><b>决策瓶颈</b>：组织规模越大、行政层级越多，决策效率效能越易达瓶颈</li>
+          <li><b>变革制约</b>：变革受组织文化、人员技能、技术现状制约，太多变革一致性无法解决</li>
+          <li><b>知识资产流失</b>：传统知识体系（文档资料管理）易随人员流动而流失</li>
+          <li><b>需求响应延迟</b>：固化管理导致"简单可复制"，个性化需求延迟或放弃满足</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">数字组织运行参考框架 <span class="mnemonic">能调控</span></div>
+        <table class="table-mini">
+          <tr><th style="width:20%">要素</th><th style="width:50%">核心内容</th><th style="width:30%">关键词</th></tr>
+          <tr><td><b>1.能力因子定义<br>和数字化"封装"</b></td><td>把能力活动结构化定义，形成能力域/子域/项/分项/子项；向人员、技术、资源、数据、流程模块化"封装"</td><td>实现"智能+"</td></tr>
+          <tr><td><b>2.基于"互联网+"<br>的调度和决策</b></td><td>将知识经验数字化提炼为算法、模型、框架；让调度决策脱离"自然人"</td><td>4难点：业务融合/持续坚持/文化冲突/效果判别 <span class="mnemonic">业持文效</span></td></tr>
+          <tr><td><b>3.转型控制</b></td><td>数字化转型是持续过程，不能一蹴而就；借鉴信息化与工业化融合最佳实践</td><td>持续建设/优化/改进</td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 国家标准 -->
+    <div class="sub-section">
+      <div class="sub-title">2.1.3 数字化转型国家标准 GB/T 43439 <span class="p0-mark">P0必背</span></div>
+      <ul class="item-list">
+        <li>标准全称：<span class="key-point">《信息技术服务数字化转型成熟度模型与评估》</span></li>
+        <li>模型框架 = 成熟度等级 + 能力域 + 成熟度要求（能力域由能力子域构成）</li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">⚡ 7大能力域 <span class="mnemonic">组技数资产生服</span></div>
+        <table class="table-mini">
+          <tr><th style="width:18%">分类</th><th style="width:18%">能力域</th><th style="width:64%">能力子域</th></tr>
+          <tr><td rowspan="4"><b>基础能力<br>（前4个）</b></td><td><b>组织</b></td><td>组织建设/转型战略/流程管理/变革管理（4）</td></tr>
+          <tr><td><b>技术</b></td><td>研发管理/技术创新/信息安全（3）</td></tr>
+          <tr><td><b>数据</b></td><td>业务数据化/数据管理/数据资产/数据业务化（4）</td></tr>
+          <tr><td><b>资源</b></td><td>基础设施/应用支撑资源/资金/知识（4）</td></tr>
+          <tr><td rowspan="3"><b>业务转型<br>（后3个）</b></td><td><b>数字化运营</b></td><td>数字化营销/数字化财务/数字化供应链（3）</td></tr>
+          <tr><td><b>数字化生产</b></td><td>产品设计/工艺设计/计划调度/生产作业/质量管控/设备管理/仓储配送（7）</td></tr>
+          <tr><td><b>数字化服务</b></td><td>服务产品/服务能力/服务交付/服务运行（4）</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">⚡ 成熟度5级 <span class="p0-mark">P0必背</span><span class="mnemonic">意规总核生</span></div>
+        <table class="table-mini">
+          <tr><th style="width:12%">等级</th><th style="width:88%">特征</th></tr>
+          <tr><td><b>一级</b></td><td>具备<b>转型意识</b>，开始规划基础和条件，在运营/生产/服务等业务领域开展数字化转型探索工作</td></tr>
+          <tr><td><b>二级</b></td><td>对组织/技术/数据和资源进行<b>规划</b>，完成局部业务数据收集整合应用，初步具备基于数据的运营和优化能力</td></tr>
+          <tr><td><b>三级</b></td><td>具备<b>总体</b>规划并有序实施，完成关键业务系统集成和数据交互，实现基于数据的效率提升</td></tr>
+          <tr><td><b>四级</b></td><td>数据作为<b>核心</b>要素，构建算法和模型，为业务相关方提供数据智能体验</td></tr>
+          <tr><td><b>五级</b></td><td>基于数据持续推动优化创新，多要素融合，构建独特<b>生态</b>价值</td></tr>
+        </table>
+        <div class="note-box">🔑 <b>记忆要点</b>：一意识→二规划→三总体→四核心→五生态；四级关键="算法和模型"，五级关键="生态价值"</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 2.2 数字中国 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>2.2 数字中国 <span class="tag">2522框架</span><span class="tag">起源</span><span class="tag">2025/2035目标</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 起源与发展 -->
+    <div class="sub-section">
+      <div class="sub-title">2.2.1 起源与发展 <span class="exam-mark">高频</span></div>
+      <ul class="item-list">
+        <li><b>2015年12月16日</b>，第二届世界互联网大会（乌镇），习近平首次正式公开提出<span class="key-point">"数字中国"</span>概念，并发布建设纲领</li>
+        <li>《"十三五"国家信息化规划》提出"数字中国"具体发展目标</li>
+        <li>党的十九大将"数字中国"纳入报告，提出建设科技强国/质量强国/航天强国/网络强国/交通强国/数字中国/智慧社会</li>
+        <li>"十四五"规划和2035年远景目标纲要设立专篇部署"加快数字化发展建设数字中国"</li>
+        <li><b>2023年2月</b>，中共中央、国务院印发<span class="highlight">《数字中国建设整体布局规划》</span>，建设数字中国是数字时代推进中国式现代化的重要引擎</li>
+      </ul>
+    </div>
+    <!-- 内涵与外延 -->
+    <div class="sub-section">
+      <div class="sub-title">2.2.2 内涵与外延 <span class="p0-mark">P0</span></div>
+      <ul class="item-list">
+        <li>"数字中国"演变：学术界地理信息系统（纯学术）→ 地方信息化建设实践 → <span class="key-point">国家科技发展战略</span></li>
+        <li><b>"数字福建"</b>建设具有转折性意义，摆脱国外赋予的狭窄含义</li>
+        <li>2015年年底习近平重要讲话将"数字中国"提高到国家发展战略高度，成为中国数字化、信息化建设的里程碑</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:15%">时间节点</th><th style="width:85%">目标</th></tr>
+        <tr><td><b>到2025年</b></td><td>基本形成<span class="key-point">横向打通、纵向贯通、协调有力</span>的一体化推进格局，数字中国建设取得重要进展；数字基础设施高效联通，数据要素价值有效释放，数字经济质量效益大幅增强，政务数字化智能化水平明显提升，数字安全保障能力全面提升</td></tr>
+        <tr><td><b>到2035年</b></td><td>数字化发展水平<span class="key-point">进入世界前列</span>，数字中国建设取得重大成就；体系化布局更加科学完备，各领域数字化发展更加协调充分</td></tr>
+      </table>
+    </div>
+    <!-- 主要内容 2522 -->
+    <div class="sub-section">
+      <div class="sub-title">2.2.3 主要内容 · "2522"整体框架 <span class="p0-mark">P0必背</span><span class="mnemonic">二五二二</span></div>
+      <div class="formula-box">"<b>2522</b>"框架 = 2大基础 + 5位一体 + 2大能力 + 2个环境</div>
+      <table class="table-mini">
+        <tr><th style="width:15%">框架</th><th style="width:25%">名称</th><th style="width:60%">内容</th></tr>
+        <tr><td><b>2</b></td><td>两大基础</td><td>①数字基础设施（5G/千兆光网/IPv6/移动物联网/北斗/算力东西部协同）②数据资源体系（国家数据管理体制机制/公共数据汇聚/数据产权制度/数据资产计价/数据要素分配）</td></tr>
+        <tr><td><b>5</b></td><td>五位一体</td><td>数字技术与<b>经济、政治、文化、社会、生态文明</b>建设深度融合（数字经济/数字政务/数字文化/数字社会/数字生态文明）</td></tr>
+        <tr><td><b>2</b></td><td>两大能力</td><td>①数字技术创新体系（自立自强）②数字安全屏障（可信可控）</td></tr>
+        <tr><td><b>2</b></td><td>两个环境</td><td>①国内数字化发展环境（公平规范的数字治理生态）②国际数字化发展环境（开放共赢的国际合作格局）</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>五位一体记忆</b>：经济→政治→文化→社会→生态（<span class="mnemonic">经政文社生</span>）；对应数字经济的全面赋能</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 2.3 数字经济 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>2.3 数字经济 <span class="tag">技术经济范式</span><span class="tag">4部分构成</span><span class="tag">三化框架</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 定义 -->
+    <div class="sub-section">
+      <div class="sub-title">数字经济的定义 <span class="p0-mark">P0</span></div>
+      <ul class="item-list">
+        <li>数字经济是继<span class="key-point">农业经济、工业经济</span>之后的更高级经济形态</li>
+        <li>本质是一种新的<span class="highlight">技术经济范式</span>，建立在信息与通信技术重大突破基础上</li>
+        <li>以数字技术与实体经济融合驱动的产业梯次转型和经济创新发展为主引擎</li>
+      </ul>
+    </div>
+    <!-- 新技术经济范式 -->
+    <div class="sub-section">
+      <div class="sub-title">2.3.1 新技术经济范式 <span class="p0-mark">P1</span></div>
+      <ul class="item-list">
+        <li><b>1962年库恩</b>《科学革命的结构》首先定义"范式"</li>
+        <li><b>1982年多西</b>将"范式"引入技术创新，提出<b>技术范式</b>概念</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:18%">范式结构</th><th style="width:82%">核心内容</th></tr>
+        <tr><td><b>1.驱动力</b></td><td>智能技术群（云计算/大数据/AI/区块链/物联网/5G/VR·AR）→ 乘数效应 → 重构旧经济形成新经济</td></tr>
+        <tr><td><b>2.新结构</b></td><td>网络效应+用户规模经济；数据成为生产要素；自治化无人化运行；正递增效应</td></tr>
+        <tr><td><b>3.价值创造</b></td><td>新范式代替旧范式的本质是<b>价值观的转换</b>；数字经济创造全新价值，改变人们价值观念</td></tr>
+        <tr><td><b>4.经济增长</b></td><td>新技术→新经济→新价值→经济增长，形成<span class="key-point">正反馈闭环</span></td></tr>
+      </table>
+    </div>
+    <!-- 主要内容构成 -->
+    <div class="sub-section">
+      <div class="sub-title">2.3.2 主要内容构成 · 4部分 <span class="p0-mark">P0必背</span><span class="mnemonic">产产治值</span></div>
+      <div class="formula-box">数字经济 = <b>数字产业化</b>（基础部分）+ <b>产业数字化</b>（融合部分）+ <b>数字化治理</b> + <b>数据价值化</b></div>
+      <div class="note-box">🔑 <b>统计分类</b>（国家统计局2021）：数字产品制造业/数字产品服务业/数字技术应用业/数字要素驱动业（前4类=数字产业化）+ 数字化效率提升业（第5类=产业数字化）</div>
+      <!-- 数字产业化 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">1.数字产业化 <span class="mnemonic">云大物工区虚人</span></div>
+        <ul class="item-list">
+          <li>为产业数字化发展提供数字技术、产品、服务、基础设施和解决方案</li>
+          <li>包括：电子信息制造业、电信业、软件、信息技术、互联网行业</li>
+          <li>是数字经济的<span class="key-point">基础部分</span></li>
+        </ul>
+        <table class="table-mini">
+          <tr><th style="width:18%">发展重点</th><th style="width:82%">核心内容</th></tr>
+          <tr><td><b>云计算</b></td><td>云操作系统迭代；超大规模分布式存储、弹性计算、数据虚拟隔离；以<b>混合云</b>为重点</td></tr>
+          <tr><td><b>大数据</b></td><td>采集/清洗/存储/挖掘/分析/可视化算法；全生命周期产业体系</td></tr>
+          <tr><td><b>物联网</b></td><td>传感器/网络切片/高精度定位；云服务与边缘计算协同；车联网/医疗/家居物联网</td></tr>
+          <tr><td><b>工业互联网</b></td><td>标识解析体系/标准体系/安全管理体系；"工业互联网+智能制造"生态</td></tr>
+          <tr><td><b>区块链</b></td><td>智能合约/共识算法/加密算法/分布式系统；以<b>联盟链</b>为重点</td></tr>
+          <tr><td><b>人工智能</b></td><td>重点行业AI数据集；算法推理训练场景；智能医疗装备/运载工具/识别系统</td></tr>
+          <tr><td><b>虚拟现实和增强现实</b></td><td>三维图形生成/动态环境建模/实时动作捕捉/快速渲染处理</td></tr>
+        </table>
+      </div>
+      <!-- 产业数字化 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">2.产业数字化 <span class="p0-mark">P1</span></div>
+        <ul class="item-list">
+          <li>以<span class="key-point">数据为关键要素、价值释放为核心、数据赋能为主线</span></li>
+          <li>对产业链上下游的全要素数字化升级、转型和再造的过程</li>
+          <li>是数字经济和传统经济深度融合发展的<b>重要途径</b>，是必由之路和战略抉择</li>
+        </ul>
+        <div class="sub-section">
+          <div class="sub-title" style="border-left-color:#1e8449">⚡ 6大典型特征 <span class="mnemonic">工数内网台治</span></div>
+          <ul class="item-list">
+            <li>以数字科技变革<b>生产工具</b></li>
+            <li>以<b>数据资源</b>为关键生产要素</li>
+            <li>以数字内容重构<b>产品结构</b></li>
+            <li>以<b>信息网络</b>为市场配置纽带</li>
+            <li>以<b>服务平台</b>为产业生态载体</li>
+            <li>以<b>数字善治</b>为发展机制条件</li>
+          </ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-title" style="border-left-color:#1e8449">⚡ "六链融合" <span class="p0-mark">P1</span><span class="mnemonic">产创供要资政</span></div>
+          <ul class="item-list">
+            <li><b>产业链</b>（转型基础）+ <b>创新链</b>（对接融合）+ <b>供应链</b>（稳定协同）+ <b>要素链</b>（互联互动）+ <b>资金链</b>（良性循环）+ <b>政策链</b>（相互支撑）</li>
+            <li>实施层面：以科学技术为核心，发挥产业互联网效应，以大数据为主线、AI为驱动的"数据链"穿插联动</li>
+          </ul>
+        </div>
+      </div>
+      <!-- 数字化治理 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">3.数字化治理 <span class="p0-mark">P1</span></div>
+        <ul class="item-list">
+          <li>核心特征：全社会数据互通 + 数字化全面协同 + 跨部门流程再造</li>
+          <li>形成<span class="key-point">"用数据说话、用数据决策、用数据管理、用数据创新"</span>的治理机制</li>
+        </ul>
+        <div class="sub-section">
+          <div class="sub-title" style="border-left-color:#1e8449">3方面内涵 <span class="mnemonic">对运用对</span></div>
+          <ul class="item-list">
+            <li><b>对数据的治理</b>：治理对象扩大到数据要素；数据所有权/使用权/监管权/信息保护/数据安全</li>
+            <li><b>运用数字技术进行治理</b>：大数据/AI等技术为国家治理"数字赋能"，改进治理技术/手段/模式</li>
+            <li><b>对数字融合空间进行治理</b>：治理场域拓展到数字空间，适应数字融合世界的治理体系</li>
+          </ul>
+        </div>
+      </div>
+      <!-- 数据价值化 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">4.数据价值化 · "三化"框架 <span class="p0-mark">P0必背</span><span class="mnemonic">源资本</span></div>
+        <table class="table-mini">
+          <tr><th style="width:18%">阶段</th><th style="width:48%">含义</th><th style="width:34%">定位</th></tr>
+          <tr><td><b>1.数据资源化</b></td><td>使无序、混乱的原始数据成为有序、有使用价值的数据资源；通过采集/整理/聚合/分析，形成可采、可见、标准、互通、可信的高质量数据资源</td><td><span class="key-point">基础</span>（提升数据质量，形成使用价值）</td></tr>
+          <tr><td><b>2.数据资产化</b></td><td>数据通过流通交易给使用者或所有者带来经济利益的过程</td><td><span class="key-point">核心</span>（形成交换价值，初步实现价值）</td></tr>
+          <tr><td><b>3.数据资本化</b></td><td>数据信贷融资 + 数据证券化</td><td><span class="key-point">途径</span>（实现数据要素社会化配置）</td></tr>
+        </table>
+        <div class="note-box">🔑 <b>数据价值化环节</b>：数据采集、数据标准、数据确权、数据标注、数据定价、数据交易、数据流转、数据保护</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 2.4 数字政府 ========== -->
+<div class="branch-card c4">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>2.4 数字政府 <span class="tag">5特征</span><span class="tag">3关键词</span><span class="tag">一网通办/跨省通办/一网统管</span><span class="tag">7能力</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 定义 -->
+    <div class="sub-section">
+      <div class="sub-title">数字政府的定义 <span class="p0-mark">P0</span></div>
+      <ul class="item-list">
+        <li>以新一代信息技术为支撑，以<span class="key-point">"业务数据化、数据业务化"</span>为着力点</li>
+        <li>通过数据驱动重塑政务信息化<b>管理架构、业务架构和组织架构</b></li>
+        <li>形成<span class="highlight">"用数据决策、数据服务、数据创新"</span>的现代化治理模式</li>
+      </ul>
+    </div>
+    <!-- 数字新特征 -->
+    <div class="sub-section">
+      <div class="sub-title">2.4.1 数字新特征 <span class="p0-mark">P0必背</span><span class="mnemonic">协云智数动</span></div>
+      <table class="table-mini">
+        <tr><th style="width:15%">特征</th><th style="width:85%">核心内容</th></tr>
+        <tr><td><b>协同化</b></td><td>组织互联互通，实现跨层级、跨地域、跨部门、跨系统、跨业务的高效协同管理和服务</td></tr>
+        <tr><td><b>云端化</b></td><td>政务上云是政府数字化最基本的技术要求；促成由分散建设向集群/集约式建设演化</td></tr>
+        <tr><td><b>智能化</b></td><td>应对社会治理多元参与、治理环境复杂、治理内容多样化趋势的关键手段</td></tr>
+        <tr><td><b>数据化</b></td><td>建立在政务数据整合共享基础上的数字化转型，现阶段建设重点</td></tr>
+        <tr><td><b>动态化</b></td><td>数字政府是在数据驱动下动态发展和不断演进的过程</td></tr>
+      </table>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">⚡ 3大关键词 <span class="p0-mark">P0必背</span><span class="mnemonic">共享互通便利</span></div>
+        <ul class="item-list">
+          <li><b>共享</b>：推动政务数据共享，推进政务服务事项集成化办理；<span class="key-point">数字政府，数据先行</span></li>
+          <li><b>互通</b>：国家政务服务平台推动全面对接融合，打破地域阻隔与部门壁垒，实现线上线下融合互通</li>
+          <li><b>便利</b>：数字政府，<span class="key-point">利企便民</span>；根本目标是更好服务企业和群众</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 主要内容 -->
+    <div class="sub-section">
+      <div class="sub-title">2.4.2 主要内容 <span class="p0-mark">P0必背</span><span class="mnemonic">一跨一</span></div>
+      <div class="formula-box">数字政府三大内容 = <b>一网通办</b> + <b>跨省通办</b> + <b>一网统管</b></div>
+      <!-- 一网通办 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">1.一网通办</div>
+        <ul class="item-list">
+          <li>打通不同政府部门的信息系统，群众只需操作一个办事系统就能办成不同领域的事项</li>
+          <li>依托<b>一体化在线政务服务平台</b>，推动企业和群众线上办事只登录一次即可全网通办</li>
+          <li>与一窗式服务本质一致，均采用<span class="key-point">受办分离</span>模式</li>
+          <li>信息共享基础库：<b>自然人库、法人库、电子证照库</b></li>
+          <li>2020年国务院政府工作报告提出推动更多服务事项"一网通办"</li>
+        </ul>
+      </div>
+      <!-- 跨省通办 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">2.跨省通办 <span class="mnemonic">全代多</span></div>
+        <ul class="item-list">
+          <li>申请人在办理地之外的省市提出事项申请，或在本地提出办理其他省市事项的申请</li>
+          <li><b>2021年年底前</b>基本实现高频政务服务事项"跨省通办"</li>
+        </ul>
+        <table class="table-mini">
+          <tr><th style="width:18%">办理模式</th><th style="width:82%">特点</th></tr>
+          <tr><td><b>全程网办</b></td><td>政务服务平台提供申请受理、审查决定、颁证送达等全流程网上服务</td></tr>
+          <tr><td><b>代收代办</b></td><td>不改变原有办理事权，通过<b>"收办分离"</b>打破事项办理属地限制</td></tr>
+          <tr><td><b>多地联办</b></td><td>一地受理申请，业务系统与全国一体化政务服务平台互联互通，申请材料共享</td></tr>
+        </table>
+        <div class="note-box">🔑 <b>三方面内涵</b>：理念上=以群众和企业需求为导向；方法上=高效协同的方法路径；手段上=以数字化为技术支撑</div>
+      </div>
+      <!-- 一网统管 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">3.一网统管 <span class="mnemonic">网屏联预创</span></div>
+        <ul class="item-list">
+          <li>新型智慧城市推进城市治理体系和治理能力现代化的重要创新模式</li>
+          <li>围绕城市治理水平提升，针对民生诉求和城市事件，用实时在线数据和智能方法</li>
+          <li>在最低层级、最早时间以相对最小成本，解决最突出问题，取得最佳综合效应</li>
+        </ul>
+        <table class="table-mini">
+          <tr><th style="width:15%">重点</th><th style="width:85%">内容</th></tr>
+          <tr><td><b>一网</b></td><td>政务云、政务网和政务大数据中心等</td></tr>
+          <tr><td><b>一屏</b></td><td>整合多部门数据，将城市运行情况充分反映出来</td></tr>
+          <tr><td><b>联动</b></td><td>畅通各级指挥体系，为跨部门/跨区域/跨层级联勤联动提供快速响应</td></tr>
+          <tr><td><b>预警</b></td><td>基于多维、海量、全息数据汇集，实现城市运行体征全量、实时掌握和智能预警</td></tr>
+          <tr><td><b>创新</b></td><td>以管理需求带动智能化建设，以信息流、数据流推动业务流程全面优化和管理创新</td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 能力体系 -->
+    <div class="sub-section">
+      <div class="sub-title">2.4.3 能力体系 · 7大数字化履职能力 <span class="p0-mark">P1</span><span class="mnemonic">经市社公环运公</span></div>
+      <table class="table-mini">
+        <tr><th style="width:6%">序</th><th style="width:30%">能力</th><th style="width:64%">核心举措</th></tr>
+        <tr><td>1</td><td><b>经济调节</b>能力</td><td>强化经济运行大数据监测分析；宏观调控/经济社会发展分析/投资监督/财政预算/数字经济治理</td></tr>
+        <tr><td>2</td><td><b>市场监管</b>能力</td><td>大力推行智慧监管；建立全方位、多层次、立体化监管体系，事前事中事后全链条全领域监管</td></tr>
+        <tr><td>3</td><td><b>社会管理</b>能力</td><td>推动数字化治理模式创新；从单向管理转向双向互动、从线下转向线上线下融合</td></tr>
+        <tr><td>4</td><td><b>公共服务</b>能力</td><td>持续优化利企便民数字化服务；打造泛在可及的服务体系</td></tr>
+        <tr><td>5</td><td><b>生态环境保护</b>能力</td><td>强化动态感知和立体防控；提升生态环境承载力、国土空间开发适宜性</td></tr>
+        <tr><td>6</td><td><b>政务运行</b>效能</td><td>加快推进数字机关建设；提升辅助决策能力，建立健全大数据辅助科学决策机制</td></tr>
+        <tr><td>7</td><td><b>政务公开</b>水平</td><td>推进公开平台智能集约发展；分类分级、集中统一、共享共用、动态更新的政策文件库</td></tr>
+      </table>
+      <div class="note-box">🔑 来源：<b>2022年国务院《关于加强数字政府建设的指导意见》</b>，提出"构建协同高效的政府数字化履职能力体系"</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 2.5 数字社会 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>2.5 数字社会 <span class="tag">数字民生</span><span class="tag">智慧城市5能力</span><span class="tag">数字乡村10任务</span><span class="tag">数字生活</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 数字民生 -->
+    <div class="sub-section">
+      <div class="sub-title">2.5.1 数字民生 <span class="p0-mark">P0</span><span class="mnemonic">普赋利</span></div>
+      <ul class="item-list">
+        <li>将"人"与"公共服务"通过数字化方式全面连接，提升社会整体服务效率和水平</li>
+        <li>重点领域：<b>教育、医疗、养老、抚幼、就业、文体、助残</b></li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:15%">重点</th><th style="width:85%">核心内容</th></tr>
+        <tr><td><b>普惠</b></td><td>扩大民生保障覆盖范围，助力普惠型民生建设，解决民生资源配置不均衡问题</td></tr>
+        <tr><td><b>赋能</b></td><td>信息技术体系与民生深度融合，赋予民生建设新动能；"互联网+教育/养老/交通"等</td></tr>
+        <tr><td><b>利民</b></td><td>创新拓展公共服务场景，推动数字技术全面融入社会交往和日常生活，智慧化/便利化/人性化</td></tr>
+      </table>
+    </div>
+    <!-- 智慧城市 -->
+    <div class="sub-section">
+      <div class="sub-title">2.5.2 智慧城市 <span class="p0-mark">P0必背</span></div>
+      <ul class="item-list">
+        <li>定义：运用信息通信技术，有效整合各类城市管理系统，实现信息资源共享和业务协同，推动城市管理和服务智慧化</li>
+        <li>4大智慧城市群：<span class="key-point">京津冀、长三角、粤港澳、中西部</span></li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">⚡ 5大核心能力要素 <span class="p0-mark">P0必背</span><span class="mnemonic">数孪边多态</span></div>
+        <table class="table-mini">
+          <tr><th style="width:15%">能力要素</th><th style="width:85%">核心内容</th></tr>
+          <tr><td><b>数据治理</b></td><td>围绕数据这一新生产要素构建能力；数据责权利管控、全生命周期管理及开发利用</td></tr>
+          <tr><td><b>数字孪生</b></td><td>围绕现实世界与信息世界互动融合构建能力；社会孪生/城市孪生/设备孪生</td></tr>
+          <tr><td><b>边际决策</b></td><td>基于决策算法和信息应用构建能力；强化执行端决策能力，快速反应、高效决策</td></tr>
+          <tr><td><b>多元融合</b></td><td>强调社会关系和社会活动动态性及融合高效性；服务可编排和快速集成</td></tr>
+          <tr><td><b>态势感知</b></td><td>围绕社会状态本质反映及模拟预测构建能力；洞察可变因素与不可见因素影响</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">5位一体高质量发展 <span class="mnemonic">治民宜业神</span></div>
+        <ul class="item-list">
+          <li>城市治理 + 民生服务 + 生态宜居 + 产业经济 + 精神文明</li>
+          <li>智慧城市关注焦点转变：从信息化应用提高工作效率 → 通过数字关系计算提高<b>决策效能</b>；从局部应用 → 广泛互联互通下的综合应用创新；从强调管理体系 → 突出主动服务与精准施策</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 数字乡村 -->
+    <div class="sub-section">
+      <div class="sub-title">2.5.3 数字乡村 <span class="p0-mark">P1</span></div>
+      <ul class="item-list">
+        <li>定义：伴随网络化、信息化和数字化在农业农村经济社会发展中的应用，以及农民现代信息技能提高而内生的农业农村现代化发展和转型进程</li>
+        <li>既是<b>乡村振兴的战略方向</b>，也是建设<b>数字中国</b>的重要内容</li>
+        <li><b>2019年</b>中共中央办公厅、国务院办公厅印发《数字乡村发展战略纲要》</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:18%">时间节点</th><th style="width:82%">目标</th></tr>
+        <tr><td><b>到2035年</b></td><td>数字乡村建设取得长足进展；城乡"数字鸿沟"大幅缩小，农民数字化素养显著提升；农业农村现代化基本实现</td></tr>
+        <tr><td><b>21世纪中叶</b></td><td>全面建成数字乡村，助力乡村全面振兴，全面实现<b>农业强、农村美、农民富</b></td></tr>
+      </table>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">⚡ 10项重点任务 <span class="mnemonic">信经科绿文治惠扶城</span></div>
+        <ol class="item-list">
+          <li>加快乡村信息基础设施建设</li>
+          <li>发展农村数字经济</li>
+          <li>强化农业农村科技创新供给</li>
+          <li>建设智慧绿色乡村</li>
+          <li>繁荣发展乡村网络文化</li>
+          <li>推进乡村治理能力现代化</li>
+          <li>深化信息惠民服务</li>
+          <li>激发乡村振兴内生动力</li>
+          <li>推动网络扶贫向纵深发展</li>
+          <li>统筹推动城乡信息化融合发展</li>
+        </ol>
+      </div>
+    </div>
+    <!-- 数字生活 -->
+    <div class="sub-section">
+      <div class="sub-title">2.5.4 数字生活 <span class="mnemonic">工方内</span></div>
+      <table class="table-mini">
+        <tr><th style="width:20%">方面</th><th style="width:80%">核心内容</th></tr>
+        <tr><td><b>生活工具数字化</b></td><td>现代信息技术和产品成为重要生活工具；依据<b>摩尔定律</b>和<b>梅特卡夫定律</b>，成本下降价值增加</td></tr>
+        <tr><td><b>生活方式数字化</b></td><td>工作弹性化自主化；终身学习随时随地；网络购物跻身主流；人际交往范围无限扩大；数字家庭是未来趋势</td></tr>
+        <tr><td><b>生活内容数字化</b></td><td>工作内容以创造、处理、分配信息为主；学习内容个性化；信息成为重要消费内容；娱乐内容数字化</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 2.6 数字生态 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>2.6 数字生态 <span class="tag">数据要素市场</span><span class="tag">双重属性</span><span class="tag">网络安全5举措</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 数据要素市场 -->
+    <div class="sub-section">
+      <div class="sub-title">2.6.1 数据要素市场 <span class="p0-mark">P0必背</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">数据要素的双重属性 <span class="mnemonic">对象工具</span></div>
+        <ul class="item-list">
+          <li><b>劳动对象</b>：通过采集、加工、存储、流通、分析环节，具备价值和使用价值</li>
+          <li><b>劳动工具</b>：通过融合应用能够提升生产效能，促进生产力发展</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">数据要素市场定义与核心</div>
+        <ul class="item-list">
+          <li>定义：将尚未完全由市场配置的数据要素转向由市场配置的<b>动态过程</b></li>
+          <li>目的：形成以市场为根本调配机制，实现数据流动的价值或数据在流动中产生价值</li>
+          <li><span class="key-point">数据要素市场化配置是一种结果，而不是手段</span></li>
+          <li><b>数据流通是数据要素市场的核心环节</b></li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">6大环节及关注点 <span class="mnemonic">采存加流分用</span></div>
+        <table class="table-mini">
+          <tr><th style="width:18%">环节</th><th style="width:82%">关注点</th></tr>
+          <tr><td><b>数据采集</b></td><td>准确度和全面性</td></tr>
+          <tr><td><b>数据存储</b></td><td>安全性和调用实时性</td></tr>
+          <tr><td><b>数据加工</b></td><td>数据加工精度</td></tr>
+          <tr><td><b>数据流通</b></td><td><span class="key-point">核心环节</span>；保障所有者权利前提下合理合规流通</td></tr>
+          <tr><td><b>数据分析</b></td><td>数据深度分析挖掘</td></tr>
+          <tr><td><b>数据应用</b></td><td>作为要素在合理、充分应用中产生价值</td></tr>
+        </table>
+      </div>
+      <div class="note-box">🔑 <b>6大保障制度</b>：明确的数据产权 + 交易机制 + 定价机制 + 分配机制 + 监管机制 + 法律范围</div>
+    </div>
+    <!-- 网络安全保护 -->
+    <div class="sub-section">
+      <div class="sub-title">2.6.2 网络安全保护 <span class="p0-mark">P0必背</span><span class="mnemonic">法风基建教国</span></div>
+      <ul class="item-list">
+        <li>网络安全定义：网络系统的硬件、软件及其系统中的数据受到保护，不因偶然或恶意原因遭受破坏、更改、泄露，系统连续可靠正常运行，网络服务不中断</li>
+        <li>已上升为<span class="key-point">经济与社会乃至国家安全的战略问题</span></li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">法律法规体系</div>
+        <ul class="item-list">
+          <li><b>《中华人民共和国网络安全法》</b></li>
+          <li><b>《中华人民共和国数据安全法》</b></li>
+          <li><b>《中华人民共和国个人信息保护法》</b></li>
+          <li><b>《关键信息基础设施安全保护条例》</b></li>
+          <li><b>网络安全等级保护2.0</b>标准体系</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">⚡ 5大主要举措 <span class="p0-mark">P0必背</span></div>
+        <table class="table-mini">
+          <tr><th style="width:6%">序</th><th style="width:30%">举措</th><th style="width:64%">核心内容</th></tr>
+          <tr><td>1</td><td><b>健全法律法规<br>和制度标准</b></td><td>细化法律法规实施细则；完善配套标准规范体系；构建个人信息/重要领域数据资源/重要网络和信息系统安全保障体系</td></tr>
+          <tr><td>2</td><td><b>加强风险评估<br>和审查</b></td><td>强化新技术新应用安全评估管理；建立健全关键信息基础设施保护体系；提升安全防护和维护政治安全能力</td></tr>
+          <tr><td>3</td><td><b>加强网络安全<br>基础设施建设</b></td><td>提高网络安全综合治理能力；强化跨领域网络安全信息共享和工作协同；提升威胁发现/监测预警/应急指挥/攻击溯源能力</td></tr>
+          <tr><td>4</td><td><b>推动教育、技术、<br>产业融合发展</b></td><td>加强网络安全宣传教育和人才培养；强化关键技术创新；提升产业综合竞争力；形成人才培养/技术创新/产业发展的良好生态</td></tr>
+          <tr><td>5</td><td><b>加强国际交流<br>合作</b></td><td>积极参与网络安全、数据安全等国际规则和数字安全技术标准制定；深化人才培养/技术创新/应急响应/网络犯罪打击领域合作</td></tr>
+        </table>
+      </div>
+      <div class="note-box">🔑 <b>习近平总书记重要指示</b>：坚持网络安全<b>教育、技术、产业融合发展</b>，形成人才培养、技术创新、产业发展的良性生态</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 2.7 数智化发展 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>2.7 数智化发展 <span class="tag">四种范式</span><span class="tag">三元空间</span><span class="tag">数字营商环境5指标</span><span class="tag">新业态4方面</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 科学范式与科技革命 -->
+    <div class="sub-section">
+      <div class="sub-title">2.7.1 科学范式与科技革命 <span class="p0-mark">P0必背</span><span class="mnemonic">经理模数</span></div>
+      <div class="note-box">🔑 <b>吉姆·格雷"四种范式"</b>描述科学发现的历史演变，四范式相辅相成、并存不悖</div>
+      <table class="table-mini">
+        <tr><th style="width:15%">范式</th><th style="width:18%">名称</th><th style="width:67%">特征</th></tr>
+        <tr><td><b>第一范式</b></td><td>经验范式</td><td>起源于几千年前；基于对自然现象的直接观察，通过假设和实验获得科学发现；效率效能不高</td></tr>
+        <tr><td><b>第二范式</b></td><td>理论范式</td><td>以自然理论模型为特征；如17世纪牛顿运动定律、19世纪麦克斯韦电动力学方程；由经验观察、归纳推导得出</td></tr>
+        <tr><td><b>第三范式</b></td><td>模拟范式/仿真范式</td><td>20世纪随电子计算机发展产生；基于数值计算；在更广泛情形下求解</td></tr>
+        <tr><td><b>第四范式</b></td><td>数据密集型科学发现</td><td>21世纪初通过收集、存储和处理大量数据能力催生；<b>机器学习</b>是日益重要的组成部分</td></tr>
+      </table>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">数据驱动的社会研究范式</div>
+        <ul class="item-list">
+          <li>区别于传统以理论和模型为主导的研究范式</li>
+          <li>运用计算机科学技术设计的特定算法，从大规模社会数据中识别关键变量，发现变量关联性</li>
+          <li>计算社会科学：强调<span class="key-point">理论与数据并重的双向驱动</span>，并不排斥传统理论和模型检验</li>
+        </ul>
+      </div>
+      <div class="note-box">🔑 <b>习近平总书记</b>（2021年10月18日十九届中央政治局第三十四次集体学习）：发展数字经济是把握新一轮科技革命和产业变革新机遇的<b>战略选择</b>；要<b>不断做强做优做大我国数字经济</b>；人工智能是新一轮科技革命和产业变革的重要驱动力量</div>
+    </div>
+    <!-- 数字新空间 -->
+    <div class="sub-section">
+      <div class="sub-title">2.7.2 数字新空间 · 三元空间 <span class="p0-mark">P0必背</span><span class="mnemonic">物社数</span></div>
+      <div class="formula-box">二元空间（物理空间 + 社会空间）→ 三元空间（物理空间 + 社会空间 + <span class="highlight">数字空间</span>）</div>
+      <table class="table-mini">
+        <tr><th style="width:18%">空间</th><th style="width:82%">内涵</th></tr>
+        <tr><td><b>物理空间</b></td><td>数字网络技术与传感技术的融合拉开万物互联的大数据时代帷幕；人与环境高效信息交互产生海量、异构、动态数据集</td></tr>
+        <tr><td><b>社会空间</b></td><td>政府/企事业单位基于信息系统提升工作生活效率；社群使用信息平台开展社交、购物；社会行为快照以数据方式保存且持续活跃</td></tr>
+        <tr><td><b>数字空间</b></td><td>以大数据、云计算、人工智能等技术为依托；贯通虚拟与现实；链接物理空间和社会空间的<b>中介系统</b></td></tr>
+      </table>
+      <div class="note-box">🔑 <b>智慧城市=三元空间条件下城市的智慧化转型</b>：建立城市物理空间和社会空间到数字空间的映射，再通过数字空间反馈到物理空间和社会空间，进而优化城市系统</div>
+    </div>
+    <!-- 数字营商环境 -->
+    <div class="sub-section">
+      <div class="sub-title">2.7.3 数字营商环境 <span class="p0-mark">P0必背</span><span class="mnemonic">撑开准规创</span></div>
+      <ul class="item-list">
+        <li>2022年1月《"十四五"数字经济发展规划》提出要更加优化数字营商环境，加速弥合数字鸿沟</li>
+        <li>市场化、法治化、国际化、便利化的营商环境是经济社会高质量发展的重要因素</li>
+        <li><b>2021年12月</b>国家工业信息安全发展研究中心提出全球数字营商环境评价指标体系</li>
+      </ul>
+      <table class="table-mini">
+        <tr><th style="width:6%">序</th><th style="width:24%">一级指标</th><th style="width:70%">包含内容</th></tr>
+        <tr><td>1</td><td><b>数字支撑体系</b></td><td>普遍接入、智慧物流设施、电子支付设施</td></tr>
+        <tr><td>2</td><td><b>数据开发利用与安全</b></td><td>公共数据开放、数据安全</td></tr>
+        <tr><td>3</td><td><b>数字市场准入</b></td><td>数字经济业态市场准入、政务服务便利度</td></tr>
+        <tr><td>4</td><td><b>数字市场规则</b></td><td>平台企业责任、商户权利与责任、数字消费者保护</td></tr>
+        <tr><td>5</td><td><b>数字创新环境</b></td><td>数字创新生态、数字素养与技能、知识产权保护</td></tr>
+      </table>
+    </div>
+    <!-- 数智化新业态新模式 -->
+    <div class="sub-section">
+      <div class="sub-title">2.7.4 数智化新业态新模式 <span class="p0-mark">P1</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">15个重点方向（2020年7月《关于支持新业态新模式健康发展...的意见》）</div>
+        <ul class="item-list">
+          <li>融合化在线教育 / 互联网医疗 / 便捷化线上办公 / 数字化治理 / 产业平台化发展生态</li>
+          <li>传统企业数字化转型 / "虚拟"产业园和产业集群 / "无人经济" / 新个体自主就业</li>
+          <li>微经济"副业创新" / 灵活就业多点执业 / 共享生活新空间 / 共享生产新动力</li>
+          <li>生产资料共享新模式 / 数据要素流通新活力</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">⚡ 4方面环境优化 <span class="p0-mark">P0必背</span><span class="mnemonic">优协就资</span></div>
+        <table class="table-mini">
+          <tr><th style="width:6%">序</th><th style="width:30%">方面</th><th style="width:64%">核心内容</th></tr>
+          <tr><td>1</td><td><b>优化业态治理方式</b><br>激发市场创新能力</td><td>新业态对传统业态运行模式/流程深层次变革；传统"按行划片"管理方式制约线上线下融合；需探索适合的管理政策</td></tr>
+          <tr><td>2</td><td><b>加强数字化转型协同</b><br>提升数字化转型效益</td><td>中小微企业面临"转型是找死，不转是等死"困境；"不会转、不能转、不敢转"；需提升公共服务能力、培育转型生态</td></tr>
+          <tr><td>3</td><td><b>完善就业服务和保障</b><br>激活新型就业潜力</td><td>灵活就业对就业服务保障提出新要求；平台就业人员与平台间是灵活"合作"关系；探索适应新就业形态的权益保障政策</td></tr>
+          <tr><td>4</td><td><b>改革生产资料管理制度</b><br>提升要素利用效率</td><td>传统产权管理制度难适应数字化变革；推进所有权和使用权分离改革；激活数字化对实物生产资料倍增作用；完善数据资源共享开放流通交易制度</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 本章小结 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>📋 本章考察规律总结 · 2.1考定义/5级 · 2.2考2522 · 2.3考四部分/三化 · 2.4考5特征/三内容 · 2.7考四范式/三元空间</span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <table class="table-mini">
+      <tr><th style="width:12%">优先级</th><th style="width:30%">考点</th><th style="width:58%">掌握要求</th></tr>
+      <tr><td>🔴P0</td><td>数字化转型定义 + GB/T 43439 5级成熟度</td><td>必须背熟；一级到五级递进关系</td></tr>
+      <tr><td>🔴P0</td><td>数字中国"2522"整体框架</td><td>必须能默写：2基础+5一体+2能力+2环境</td></tr>
+      <tr><td>🔴P0</td><td>数字经济4部分构成 + 数据价值化"三化"框架</td><td>必须能默写+区分基础/核心/途径</td></tr>
+      <tr><td>🔴P0</td><td>数字政府5特征 + 3关键词 + 三大内容</td><td>必须能默写+场景判断</td></tr>
+      <tr><td>🔴P0</td><td>智慧城市5大核心能力要素</td><td>必须能默写+区分各要素内涵</td></tr>
+      <tr><td>🔴P0</td><td>四种科学范式 + 三元空间</td><td>必须能默写+对应代表人物/特征</td></tr>
+      <tr><td>🔴P0</td><td>数字营商环境5一级指标</td><td>必须能默写</td></tr>
+      <tr><td>🟡P1</td><td>4驱动因素 + 数字产业化7重点 + 6链融合</td><td>会场景判断和区分</td></tr>
+      <tr><td>🟡P1</td><td>跨省通办3模式 + 一网统管5重点 + 7能力</td><td>会场景判断和区分</td></tr>
+      <tr><td>🟡P1</td><td>网络安全5举措 + 新业态4方面</td><td>了解框架</td></tr>
+      <tr><td>🟢P2</td><td>数字乡村10任务 + 数字生活3方面</td><td>了解即可</td></tr>
+    </table>
+    <div class="note-box">🔑 <b>本章核心主线</b>：数字化转型（组织层）→ 数字中国（国家层·2522框架）→ 数字经济/数字政府/数字社会/数字生态（四大领域）→ 数智化发展（未来趋势·三元空间）。数字中国是总战略，数字经济是主引擎，数字政府是先导工程，数字社会是落脚点，数字生态是环境保障。</div>
+  </div>
+</div>
+
+</div><!-- container -->
+
+<!-- 口诀面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 10px 16px">
+  <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:17px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记·30条）</h3>
+    <div class="mnemonics-grid">
+      <div><b>4驱动因素</b>：产力要素传智（生产力/生产要素/信息传播/智慧主体）</div>
+      <div><b>四种科学范式</b>：经理模数（经验/理论/模拟/数据密集）</div>
+      <div><b>社交网络4特征</b>：永无即方（永生性/无限性/即时性/方向性）</div>
+      <div><b>传统4问题</b>：决变知需（决策瓶颈/变革制约/知识资产流失/需求响应延迟）</div>
+      <div><b>转型3要素</b>：能调控（能力因子封装/调度决策/转型控制）</div>
+      <div><b>调度决策4难点</b>：业持文效（业务融合/持续坚持/文化冲突/效果判别）</div>
+      <div><b>能力域7个</b>：组技数资产生服（组织/技术/数据/资源/数字化运营/生产/服务）</div>
+      <div><b>成熟度5级</b>：意规总核生（意识/规划/总体/核心/生态）<span class="p0-mark">P0</span></div>
+      <div><b>2522框架</b>：2基础+5一体+2能力+2环境<span class="p0-mark">P0</span></div>
+      <div><b>五位一体</b>：经政文社生（经济/政治/文化/社会/生态）</div>
+      <div><b>数字经济4部分</b>：产产治值（数字产业化/产业数字化/数字化治理/数据价值化）</div>
+      <div><b>数字产业化7重点</b>：云大物工区虚人（云计算/大数据/物联网/工业互联网/区块链/虚拟现实/人工智能）</div>
+      <div><b>产业数字化6特征</b>：工数内网台治（工具/数据/内容/网络/平台/善治）</div>
+      <div><b>六链融合</b>：产创供要资政（产业链/创新链/供应链/要素链/资金链/政策链）</div>
+      <div><b>数据价值化三化</b>：源资本（资源化=基础/资产化=核心/资本化=途径）<span class="p0-mark">P0</span></div>
+      <div><b>数字化治理3内涵</b>：对运用对（对数据/运用技术/对融合空间）</div>
+      <div><b>数字政府5特征</b>：协云智数动（协同化/云端化/智能化/数据化/动态化）<span class="p0-mark">P0</span></div>
+      <div><b>数字政府3关键词</b>：共享互通便利<span class="p0-mark">P0</span></div>
+      <div><b>数字政府3内容</b>：一网通办/跨省通办/一网统管<span class="p0-mark">P0</span></div>
+      <div><b>跨省通办3模式</b>：全代多（全程网办/代收代办/多地联办）</div>
+      <div><b>一网统管5重点</b>：网屏联预创（一网/一屏/联动/预警/创新）</div>
+      <div><b>数字政府7能力</b>：经市社公环运公（经济调节/市场监管/社会管理/公共服务/生态环保/政务运行/政务公开）</div>
+      <div><b>数字民生3重点</b>：普赋利（普惠/赋能/利民）</div>
+      <div><b>智慧城市5能力</b>：数孪边多态（数据治理/数字孪生/边际决策/多元融合/态势感知）<span class="p0-mark">P0</span></div>
+      <div><b>智慧城市5位一体</b>：治民宜业神（城市治理/民生服务/生态宜居/产业经济/精神文明）</div>
+      <div><b>数字乡村10任务</b>：信经科绿文治惠扶城</div>
+      <div><b>数字生活3方面</b>：工方内（工具/方式/内容）</div>
+      <div><b>数据要素6环节</b>：采存加流分用（采集/存储/加工/流通/分析/应用）</div>
+      <div><b>网络安全5举措</b>：法风基建教国（法律/风险评估/基础设施/教育技术产业/国际合作）<span class="p0-mark">P0</span></div>
+      <div><b>三元空间</b>：物社数（物理空间/社会空间/数字空间）<span class="p0-mark">P0</span></div>
+      <div><b>营商环境5指标</b>：撑开准规创（支撑体系/数据开发/市场准入/市场规则/创新环境）<span class="p0-mark">P0</span></div>
+      <div><b>新业态4方面</b>：优协就资（优化治理/协同转型/就业保障/生产资料）</div>
+      <div><b>数据要素双重属性</b>：对象工具（劳动对象+劳动工具）</div>
+      <div><b>数据流通</b>：数据要素市场的核心环节</div>
+      <div><b>数字政府定义</b>：业务数据化+数据业务化（着力点）</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">第2章 数字中国与数智化发展 · 核心知识思维脑图 | 基于第2版教材原文全节覆盖 | Ctrl+E 全展开 · Ctrl+C 全折叠</div>
+
+<script>
+function toggleBranch(header){header.classList.toggle('collapsed');var body=header.nextElementSibling;body.classList.toggle('collapsed')}
+function toggleAll(expand){
+  document.querySelectorAll('.branch-header').forEach(function(h){
+    if(expand){h.classList.remove('collapsed');h.nextElementSibling.classList.remove('collapsed')}
+    else{h.classList.add('collapsed');h.nextElementSibling.classList.add('collapsed')}
+  })
+}
+function toggleMnemonics(){
+  var btn=document.getElementById('btnHighlight');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m){
+    m.style.background=btn.classList.contains('active')?'#ffc107':'#fff3cd';
+    m.style.color=btn.classList.contains('active')?'#000':'#856404'
+  })
+}
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && e.key==='e'){e.preventDefault();toggleAll(true)}
+  if(e.ctrlKey && e.key==='c'){e.preventDefault();toggleAll(false)}
+})
+</script>
+
+</body>
+</html>

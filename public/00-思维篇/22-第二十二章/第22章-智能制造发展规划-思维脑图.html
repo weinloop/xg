@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第22章 智能制造发展规划 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.container{max-width:900px;margin:0 auto;padding:16px 10px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;margin-bottom:14px;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:12px 16px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 12px 14px}
+.branch-body.collapsed{display:none}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:4px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:4px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:4px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:4px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:4px solid #7d3c98}
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:3px solid #3498db}
+.item-list{list-style:none;padding-left:8px}
+.item-list li{font-size:14px;padding:3px 8px;line-height:1.8;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:4px;font-size:13px;font-weight:700;margin-left:5px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#f4ecf7;color:#7d3c98;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.key-point{color:#c0392b;font-weight:600}
+.exam-mark{display:inline-block;background:#ffe0b2;color:#e65100;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.p0-mark{display:inline-block;background:#fdedec;color:#c0392b;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;margin:0 3px}
+.table-mini{width:100%;font-size:14px;border-collapse:collapse;margin-top:6px}
+.table-mini th{background:#f8f9fa;padding:6px 8px;border:1px solid #e0e0e0;text-align:center;font-weight:700;font-size:13px}
+.table-mini td{padding:5px 8px;border:1px solid #e0e0e0;font-size:13px}
+.table-mini tr:nth-child(even){background:#fafafa}
+.note-box{background:#fff9e6;border-left:4px solid #f39c12;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:14px;color:#7d6608}
+.formula-box{background:#eaf2f8;border:2px solid #3498db;padding:10px 14px;margin:8px 0;border-radius:8px;font-size:14px;color:#1a5276;text-align:center}
+.footer{padding:18px 10px;text-align:center;color:#aaa;font-size:13px}
+.mnemonics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.mnemonics-grid div{background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:14px;border:1px solid #eee}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>第22章 智能制造发展规划 · 核心知识思维脑图</h1>
+  <p>基于第2版教材 · 22.1~22.6 全节覆盖 · 6大节 · 23小节</p>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <button onclick="toggleAll(true)">全部展开</button>
+  <button onclick="toggleAll(false)">全部折叠</button>
+  <button id="btnHighlight" onclick="toggleMnemonics()">高亮口诀</button>
+</div>
+
+<div class="container">
+
+<!-- ========== 卡片1: 22.1 发展整体环境 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>22.1 发展整体环境 <span class="tag">3阶段</span><span class="tag">6国战略</span><span class="tag">中国制造2025</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+
+    <!-- 22.1.1 发展演进与历程 -->
+    <div class="sub-section">
+      <div class="sub-title">22.1.1 发展演进与历程 <span class="mnemonic">人智信</span></div>
+      <table class="table-mini">
+        <tr><th style="width:12%">阶段</th><th style="width:22%">时期</th><th style="width:66%">核心特征</th></tr>
+        <tr><td><b>阶段一</b></td><td>20世纪80年代</td><td>人工智能在制造领域应用，<span class="highlight">智能制造概念首次提出</span>（怀特&布恩）</td></tr>
+        <tr><td><b>阶段二</b></td><td>20世纪90年代</td><td>智能制造技术(IMT)与智能制造系统(IMS)，日美欧共同发起"智能制造国际合作研究计划"</td></tr>
+        <tr><td><b>阶段三</b></td><td>21世纪以来</td><td>信息数字技术条件下，德国工业4.0（CPS虚拟网络-实体物理系统），各国"重返制造业"战略</td></tr>
+      </table>
+    </div>
+
+    <!-- 22.1.2 传统制造业的强化转型升级 -->
+    <div class="sub-section">
+      <div class="sub-title">22.1.2 传统制造业转型升级 <span class="mnemonic">体力→脑力</span></div>
+      <ul class="item-list">
+        <li><span class="highlight">中国是全球唯一全部工业门类齐全的国家</span>（39大类/151中类/525小类），但大而不强</li>
+        <li><b>自动化</b>：机器设备/系统在没有人或较少人直接参与下，按人的要求完成预期目标</li>
+        <li>智能制造是<span class="highlight">企业数字化转型在制造业的体现</span></li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">表22-1 传统制造 vs 智能制造 五维度对比</div>
+        <table class="table-mini">
+          <tr><th style="width:10%">维度</th><th style="width:42%">传统制造升级</th><th style="width:48%">智能制造转型</th></tr>
+          <tr><td><b>核心</b></td><td>面向规模化生产，提高效率</td><td>面向产品快速迭代/小批量/个性化定制</td></tr>
+          <tr><td><b>本质</b></td><td>固定边界，抑制干扰保质量成本</td><td>敏捷应对干扰，"制造即服务"</td></tr>
+          <tr><td><b>目的</b></td><td>机器换人、降本、提一致性</td><td>快速感知与及时处理多元复杂环境问题</td></tr>
+          <tr><td><b>发展理念</b></td><td>机械化/电气化/信息化 → "<b>体力替代</b>"</td><td>数据自动化/数据模型 → "<b>脑力替代</b>"</td></tr>
+          <tr><td><b>实现方法</b></td><td>技术锁定、工艺锁定、关键环节自动控制</td><td>智能化感知/人机交互/决策/执行 → 整体智能化</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- 22.1.3 信息数字技术突破发展 -->
+    <div class="sub-section">
+      <div class="sub-title">22.1.3 信息数字技术突破 <span class="tag2">四方面</span><span class="mnemonic">装信数融</span></div>
+      <ul class="item-list">
+        <li><b>(1)智能装备</b> — 数控机床、焊接机器人、AGV运输车、智能立体仓库等</li>
+        <li><b>(2)信息化建设</b> — <span class="highlight">从ERP+MES向基于工业互联网的MOM转变</span>，CRM→APS→ERP→MES/MOM→WMS→TMS→服务全覆盖</li>
+        <li><b>(3)数据开发利用</b> — 打通PLC控制系统，实时采集→数据分析模型→自主决策→执行调整</li>
+        <li><b>(4)多元信息技术融合</b> — 大数据/云计算/区块链/人工智能+深度学习/知识图谱，<span class="highlight">人机料法环测</span>全要素分析</li>
+      </ul>
+    </div>
+
+    <!-- 22.1.4 各国智能制造发展战略加速 -->
+    <div class="sub-section">
+      <div class="sub-title">22.1.4 各国发展战略 <span class="tag3">6国</span><span class="mnemonic">德美英法印韩</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">国家</th><th style="width:24%">战略名称</th><th style="width:60%">核心要点</th></tr>
+        <tr><td><b>德国</b></td><td>国家工业战略2030<br><small>(2019年)</small></td><td>三支柱：①支持突破性创新 ②关键领域大企业合并(打造龙头) ③国家参与机制(持战略企业股份)；目标：维护德国工业世界领先地位</td></tr>
+        <tr><td><b>美国</b></td><td>先进制造业美国领导力战略<br><small>(2018年)</small></td><td>三大任务：①发展推广新制造技术 ②教育培训匹配劳动力 ③扩大国内供应链能力；核心要素：<span class="highlight">技术、劳动力、供应链</span></td></tr>
+        <tr><td><b>英国</b></td><td>英国工业2050战略</td><td>核心观点：科技改变生产，"<span class="highlight">服务加再制造</span>"替代"制造后销售"；趋势：个性化低成本产品/生产重新分配/价值链数字化</td></tr>
+        <tr><td><b>法国</b></td><td>新工业法国I→II</td><td><span class="highlight">一个核心</span>（未来工业→数字制造/智能制造转型）+<span class="highlight">九大支点</span>（大数据/环保汽车/新能源/物流/医药/城市/物联网/宽带安全/智能电网）</td></tr>
+        <tr><td><b>印度</b></td><td>印度制造<br><small>(2014年)</small></td><td>五大任务（投资/创新/技能/产权/基建）+<span class="highlight">四大支柱"四新"</span>：新流程(去许可)/新基建(工业走廊)/新部门(军工开放)/新观念(政府服务企业)</td></tr>
+        <tr><td><b>韩国</b></td><td>未来增长动力落实计划<br><small>(2014年)</small></td><td><span class="highlight">九大战略产业</span>（智能汽车/5G/海洋工程/机器人/可穿戴/实感内容/健康管理/灾难安全/新能源）+<span class="highlight">四大基础产业</span>（半导体/大数据/复合材料/IoT）</td></tr>
+      </table>
+    </div>
+
+    <!-- 22.1.5 中国制造2025 -->
+    <div class="sub-section">
+      <div class="sub-title">22.1.5 《中国制造2025》 <span class="p0-mark">P0必背</span><span class="mnemonic">一四五九十</span></div>
+      <ul class="item-list">
+        <li><b>一个目标</b>：制造业大国→<span class="highlight">制造业强国</span></li>
+        <li><b>四大转变</b>：要素驱动→创新驱动 / 低成本优势→质量效益优势 / 粗放制造→绿色制造 / 生产型制造→<span class="highlight">服务型制造</span></li>
+        <li><b>五大方针</b>：<span class="highlight">创新驱动、质量为先、绿色发展、结构优化、人才为本</span></li>
+        <li><b>五大工程</b>：制造业创新中心建设工程 / 智能制造工程 / 工业强基工程 / 绿色制造工程 / 高端装备创新工程</li>
+        <li><b>九大战略任务</b> + <b>十大重点领域</b>：新一代信息技术/高档数控机床和机器人/航空航天装备/海洋工程装备/先进轨道交通装备/电力装备/农机装备/新材料/生物医药及高性能医疗器械</li>
+      </ul>
+      <div class="note-box"><b>十四五智能制造发展规划（2021年）</b>：<span class="highlight">工艺、装备为核心，数据为基础</span>，依托制造单元/车间/工厂/供应链/产业集群载体。到2025年规模以上企业<span class="highlight">基本普及数字化</span>，到2035年<span class="highlight">全面普及数字化</span>骨干企业基本实现智能转型。</div>
+    </div>
+
+    <!-- 22.1 口诀小结 -->
+    <div class="note-box">核心定义：IM=<span class="highlight">自感知、自学习、自决策、自执行、自适应</span>五自功能的新型生产方式。缩短周期/提效率质量/降成本能耗/促智能协同/个性定制新业态。</div>
+  </div>
+</div>
+
+<!-- ========== 卡片2: 22.2 发展关注焦点·上 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>22.2 发展关注焦点·上 <span class="tag">人才</span><span class="tag">研发设计</span><span class="tag">生产过程</span><span class="tag">设备管理</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+
+    <!-- 22.2.1 智能制造人才培养 -->
+    <div class="sub-section">
+      <div class="sub-title">22.2.1 人才培养 <span class="p0-mark">核心</span><span class="mnemonic">技应推领</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">四类人才需求</div>
+        <table class="table-mini">
+          <tr><th style="width:16%">人才类型</th><th style="width:46%">定义</th><th style="width:38%">关键能力</th></tr>
+          <tr><td><b>技能人才</b></td><td>生产现场操作智能装备的技术工人</td><td>一专多能、MES报工、数控/机器人编程</td></tr>
+          <tr><td><b>应用人才</b></td><td>企业技术和管理骨干</td><td>CAD/CAM/CAE/EDA工具、ERP/MES信息系统</td></tr>
+          <tr><td><b>推进人才</b></td><td>推进智能制造的中坚力量</td><td>实施方法论、项目管理、数据治理、集成应用</td></tr>
+          <tr><td><b>领军人才</b></td><td>推进智能制造的领导者</td><td>丰富的智能制造经验、统筹规划、掌控落地</td></tr>
+        </table>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">培训体系三模块</div>
+        <ul class="item-list">
+          <li><b>规划管理模块</b>：成熟度模型/信息系统开发流程/敏捷项目管理/软件工厂</li>
+          <li><b>技术模块</b>：传统运维+数据采集治理建模/PLC/RPA/仿真工具</li>
+          <li><b>业务领域模块</b>：信息系统应用/业务流程梳理与规划</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">绩效考评与知识管理</div>
+        <ul class="item-list">
+          <li><b>绩效考评</b>：部门/班组/个人三级考核，或项目估值/团队贡献/个人评估</li>
+          <li><b>激励制度</b>：创新激励/专项竞赛/技术岗位补贴/讲师激励</li>
+          <li><b>知识管理四步</b><span class="mnemonic">结标固拓</span>：①结构化治理(异常归纳) → ②标准化固化(流程图/图片) → ③试点示范 → ④多维度拓展</li>
+          <li><b>知识管理核心</b>：<span class="highlight">隐性→显性→结构化→数字化→软件化→AI调用</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 22.2.2 数字化研发设计 -->
+    <div class="sub-section">
+      <div class="sub-title">22.2.2 数字化研发设计 <span class="mnemonic">三模全生</span></div>
+      <ul class="item-list">
+        <li><b>核心内容</b>：应用数字化三维设计与工艺设计软件进行产品/工艺设计与仿真，通过虚拟样机/数字化虚拟工厂验证优化</li>
+        <li><b>产品三维设计</b>：以三维模型为基础，通过PDM/PLM管理系统实现产品全生命周期管理</li>
+        <li><span class="highlight">MBD（基于模型的定义）</span>：使用一个集成化三维数字化实体模型表达完整产品定义信息，成为<span class="highlight">制造过程唯一依据</span></li>
+        <li><b>系统集成</b>：CAD/CAE/CAM/CAPP/ERP/SCM/CRM各系统间动态协同</li>
+      </ul>
+      <div class="note-box">传统模式痛点：二维图纸纸质保存，非结构化，难于跟踪设计参数执行情况，版本不一致，信息传递困难。数字化解决：三维模型+信息化系统+结构化图文档管理+MBD全过程协同。</div>
+    </div>
+
+    <!-- 22.2.3 生产过程智能化 -->
+    <div class="sub-section">
+      <div class="sub-title">22.2.3 生产过程智能化 <span class="p0-mark">4化</span><span class="mnemonic">柔数追透</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">特性</th><th style="width:40%">核心内容</th><th style="width:42%">关键手段</th></tr>
+        <tr><td><b>1.生产排程柔性化</b></td><td>集中排程、可视化调度，适应<span class="highlight">多品种小批量</span></td><td>APS高级计划与排产系统、多种算法</td></tr>
+        <tr><td><b>2.生产作业数字化</b></td><td>生产任务自动生成→MES终端接收→自动下发图纸/工艺/BOM</td><td>MES生产现场终端、流媒体工艺文件</td></tr>
+        <tr><td><b>3.过程质量可追溯</b></td><td>条码/二维码/RFID识别+传感器采集→SPC自动生成→<span class="highlight">全程追溯</span></td><td>数据采集控制系统、在线自动检测报警</td></tr>
+        <tr><td><b>4.生产管理透明化</b></td><td>可视化系统实时呈现生产数/品质状况/设备状况</td><td>报表/图表/看板直观展示</td></tr>
+      </table>
+    </div>
+
+    <!-- 22.2.4 设备管理智能化 -->
+    <div class="sub-section">
+      <div class="sub-title">22.2.4 设备管理智能化 <span class="p0-mark">5维</span><span class="mnemonic">维警效预全</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">1.设备数字化维保</div>
+        <ul class="item-list">
+          <li>每台设备唯一编码→设备码→扫码查档案/维修记录/文档</li>
+          <li>年度大保养/季度中保养/月度小保养→数字化点巡检</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">2.设备监控与故障分析</div>
+        <ul class="item-list">
+          <li>采集温度/速度/转速/电压/电流等参数，设定阈值监测</li>
+          <li>异常时通过知识库对比→自动报送检修工单→维修闭环管理</li>
+        </ul>
+      </div>
+      <div class="formula-box"><b>3.设备综合效率 OEE</b><br><span class="highlight">OEE = 稼动率 × 性能效率 × 合格率</span><br>（时间稼动率/性能效率/合格率三个关键要素）</div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">4.设备预测性维护(PM)</div>
+        <ul class="item-list">
+          <li>以<span class="highlight">设备状态</span>为依据维修，定期/连续监测与故障诊断</li>
+          <li>预测状态发展趋势→预先制定维修计划</li>
+          <li>需建立设备管理系统+故障知识积累+故障预测判定模型</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ========== 卡片3: 22.2 发展关注焦点·下 + 22.3 CMMM ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>22.2 关注焦点·下 + 22.3 CMMM <span class="tag">物流/安全/环保/能源</span><span class="tag">成熟度模型</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+
+    <!-- 22.2.5 智能物流 -->
+    <div class="sub-section">
+      <div class="sub-title">22.2.5 智能物流与仓储配送 <span class="mnemonic">入存拣优</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">功能</th><th style="width:84%">核心内容</th></tr>
+        <tr><td><b>出入库管理</b></td><td>移动端PDA扫码→物料信息自动采集上传WMS</td></tr>
+        <tr><td><b>库位管理</b></td><td>WMS制定分配库区库位、合规管理、按使用频次/分拣方法优化</td></tr>
+        <tr><td><b>快速拣货及时配送</b></td><td>WMS+PDA+按灯/声控拣货+AGV与MES集成→关键部件及时配送</td></tr>
+        <tr><td><b>仓储配送优化</b></td><td>AGV/RGV/立体仓库+WCS/WMS/MES集成→<span class="highlight">实时拉动物料配送</span>→最小库存高效配送</td></tr>
+      </table>
+    </div>
+
+    <!-- 22.2.6 智慧安全管理 -->
+    <div class="sub-section">
+      <div class="sub-title">22.2.6 智慧安全管理 <span class="tag2">三步</span><span class="mnemonic">测预闭环</span></div>
+      <ul class="item-list">
+        <li><b>安全监测</b> — 高风险区域/设备实时采集温度/浓度/压力指标，设定报警阈值，<span class="highlight">"人机环"</span>安全数据自动采集</li>
+        <li><b>安全预测</b> — 开发场景监控分析模型，风险源动态识别与预测，辅助安全决策</li>
+        <li><b>安全闭环管理</b> — 风险管理和应急管理知识库+一体化平台→报警联动→推送应急方案→智能化透明化</li>
+      </ul>
+      <div class="note-box">痛点：制度单一/管理滞后/安全隐患多/人员素质不高/教育培训空洞。目标：以物联网/定位服务/移动终端/大数据实现<span class="highlight">主动驱动闭环管控</span>。</div>
+    </div>
+
+    <!-- 22.2.7 智慧环保管理 -->
+    <div class="sub-section">
+      <div class="sub-title">22.2.7 智慧环保管理 <span class="tag3">三阶</span><span class="mnemonic">信警模</span></div>
+      <ul class="item-list">
+        <li><b>阶段一：环保管理信息化</b> — 源头治理→过程控制→末端削减，全过程环保数据采集，清洁生产到末端治理</li>
+        <li><b>阶段二：排放预警与预测</b> — 设定预警最优阈值，实时监控排放参数，大数据分析开展排放预测</li>
+        <li><b>阶段三：模型驱动排放优化</b> — 综合设备运行成本和指标评价，建立排放预警模型，自动生成治理方案，调整外排总量</li>
+      </ul>
+    </div>
+
+    <!-- 22.2.8 智慧能源管理 -->
+    <div class="sub-section">
+      <div class="sub-title">22.2.8 智慧能源管理 <span class="tag">四步</span><span class="mnemonic">采指联改</span></div>
+      <ul class="item-list">
+        <li><b>1.数据自动采集分析</b> — 加装智能电表/燃气/水表，4G/5G通信模块上传→能源管理系统平台可视化分析</li>
+        <li><b>2.指标精细化管理</b> — 建立<span class="highlight">设备/产线/企业三层</span>能耗指标体系（源头/关联/末端），能耗流动图谱+对标分析</li>
+        <li><b>3.高能耗设备智能联控</b> — 打通PLC控制系统，实时监控+智能排班+峰谷电价差异+发电曲线匹配→平衡能源管网</li>
+        <li><b>4.能效评估与节能改造</b> — 能耗数据积累对比+关键部件分析→空压机/冷冻机组/窑炉/照明等节能改造</li>
+      </ul>
+    </div>
+
+    <!-- ========== 22.3 能力成熟度模型 ========== -->
+    <div class="sub-section">
+      <div class="sub-title" style="border-left-color:#e67e22;font-size:16px;">22.3 能力成熟度模型 CMMM <span class="p0-mark">P0必背</span></div>
+
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">22.3.1 CMMM概览 <span class="mnemonic">人技资制</span></div>
+        <ul class="item-list">
+          <li>由工信部支持、中国电子技术标准化研究院牵头制定 GB/T 39116-2020 + GB/T 39117-2020</li>
+          <li><b>四要素</b>：<span class="highlight">人员</span>(组织战略+人员技能)、<span class="highlight">技术</span>(数据+集成+信息安全)、<span class="highlight">资源</span>(装备+网络)、<span class="highlight">制造</span>(设计+生产+物流+销售+服务，共13能力子域)</li>
+        </ul>
+        <div class="sub-section">
+          <div class="sub-title" style="border-left-color:#1e8449">⚡ 五级成熟度等级 <span class="p0-mark">P0必背</span><span class="mnemonic">规规集优引</span></div>
+          <table class="table-mini">
+            <tr><th style="width:14%">等级</th><th style="width:20%">名称</th><th style="width:66%">核心要求</th></tr>
+            <tr><td><b>一级</b></td><td>规划级</td><td>开始对智能制造基础和条件进行规划，对核心业务进行<span class="highlight">流程化</span>管理</td></tr>
+            <tr><td><b>二级</b></td><td>规范级</td><td>采用自动化/信息技术对核心装备和业务改造规范，实现<span class="highlight">单一业务</span>数据共享</td></tr>
+            <tr><td><b>三级</b></td><td>集成级</td><td>对装备/系统等开展<span class="highlight">集成</span>，实现跨业务间数据共享</td></tr>
+            <tr><td><b>四级</b></td><td>优化级</td><td>对人员/资源/制造等进行数据挖掘，形成知识/模型，实现<span class="highlight">精准预测和优化</span></td></tr>
+            <tr><td><b>五级</b></td><td>引领级</td><td>基于模型持续驱动业务优化和创新，实现<span class="highlight">产业链协同</span>并衍生新制造/商业模式</td></tr>
+          </table>
+        </div>
+        <div class="sub-section">
+          <div class="sub-title" style="border-left-color:#1e8449">价值体现</div>
+          <ul class="item-list">
+            <li><b>对制造企业</b>：了解现状→识别差距→明确目标→评价效果</li>
+            <li><b>对政府</b>：看数据→树标杆→立政策</li>
+            <li><b>对服务商</b>：明需求→找路径</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">22.3.2 CMMM应用 <span class="p0-mark">核心</span></div>
+        <div class="sub-section">
+          <div class="sub-title" style="border-left-color:#1e8449">整体能力建设 <span class="mnemonic">阶序深</span></div>
+          <ul class="item-list">
+            <li><b>核心理念</b>：<span class="highlight">木桶效应</span> — 各能力子域需均衡发展，短板决定企业瓶颈。安全环保弱于生产智能化会引发重大事故</li>
+            <li><b>1)阶段性建设</b>：不要一步到位，不同发展阶段有建设重点，逐级提升</li>
+            <li><b>2)有序性建设</b>：同一业务各等级间有关联性，先基础后提升。例：质量检验先关键工序检测→在线检测+自动判读→质量预测</li>
+            <li><b>3)纵深性建设</b>：同一业务智能化能力不断增强，从数据采集→异常监控→模型分析→动态优化</li>
+          </ul>
+        </div>
+        <div class="sub-section">
+          <div class="sub-title" style="border-left-color:#1e8449">制造新模式建设</div>
+          <ul class="item-list">
+            <li><span class="highlight">三级/集成级以上</span>：系统集成实现多品种柔性化生产，构建知识库实现多样化问题敏捷处理</li>
+            <li><span class="highlight">四级/五级</span>：将知识封装为分析模型，模型驱动代替人工判断决策，实现自动辅助决策和优化</li>
+            <li>企业产品结构单一/工艺简单 → 不需要高阶智能化 → 但也面临被效仿/超越风险</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ========== 卡片4: 22.4 发展规划要点 ========== -->
+<div class="branch-card c4">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>22.4 发展规划要点 <span class="tag">四原则</span><span class="tag">四活动</span><span class="tag">四管理</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+
+    <!-- 22.4.1 规划原则 -->
+    <div class="sub-section">
+      <div class="sub-title">22.4.1 规划原则 <span class="mnemonic">需投效全</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">原则</th><th style="width:84%">核心内容</th></tr>
+        <tr><td><b>需求驱动</b></td><td>针对企业实际生产/管理/经营需求制定，<span class="highlight">盲目上马容易失败</span></td></tr>
+        <tr><td><b>投入产出</b></td><td>从影响企业生存发展的问题入手，抓住关键环节，围绕核心竞争力</td></tr>
+        <tr><td><b>有效性</b></td><td>①正确性(充分利用资源与内外部环境匹配) ②可行性(适合实际需要，回答"<span class="highlight">要做什么/能做什么/该怎么做</span>")</td></tr>
+        <tr><td><b>全局性</b></td><td>从企业战略目标出发，面向产品生命周期，高层次的全局性分析</td></tr>
+      </table>
+    </div>
+
+    <!-- 22.4.2 规划活动要点 -->
+    <div class="sub-section">
+      <div class="sub-title">22.4.2 规划活动要点 <span class="p0-mark">P0</span><span class="mnemonic">诊均破才</span></div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">1.诊断评估</div>
+        <ul class="item-list">
+          <li>参考CMMM模型范围（组织战略/人员技能/生产作业/工艺设计等）</li>
+          <li>确保每个能力子域调研深度：信息系统现状+业务能力诊断</li>
+          <li>由低级向高级演进，<span class="highlight">找到当前成熟度水平+下一级定义</span>，细化需求</li>
+          <li>特殊领域可基于<span class="highlight">规范化→系统化→协同化→智能化→生态化</span>逻辑自定义</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">2.均衡部署</div>
+        <ul class="item-list">
+          <li>优先建设"<span class="highlight">短板</span>"部分（制约发展的主要因素）</li>
+          <li>无法解决短板→<span class="highlight">"裁剪"</span>(业务外包) 或 <span class="highlight">"避让"</span>(与集团协商驱动提升)</li>
+          <li>将"最长板"作为短期目标，"最长板+1等级"作为中长期目标</li>
+          <li>首次建设MES应<span class="highlight">裁剪</span>预测性功能，采用细化模块分期而非全模块部署</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">3.重点突破</div>
+        <ul class="item-list">
+          <li>企业每次升级的突破点基本一致（受基因/文化影响），<span class="highlight">不建议试图改变突破点</span></li>
+          <li><b>三种突破类型</b>：<span class="highlight">技术</span>(产品/工艺/IT突破)、<span class="highlight">管理</span>(方法/水平/业务流程变革)、<span class="highlight">模式</span>(柔性生产/数字营销新模式)</li>
+          <li>突破点能力超越其他能力子域<span class="highlight">最多一个等级</span></li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#c0392b">4.人才保障 <span class="mnemonic">团专培知素</span></div>
+        <ul class="item-list">
+          <li><b>统筹团队</b>：明确总体统筹团队，覆盖智能制造各领域，融入日常岗位职责</li>
+          <li><b>专业技术人员</b>：IT基础/数据分析/应用建设/编程调试/设备维护/系统维护</li>
+          <li><b>培训体系</b>：<span class="highlight">组织体系化+课程体系化+内容体系化</span></li>
+          <li><b>知识体系</b>：培育全员知识管理能力+知识管理制度和方法→数字化/软件化生成</li>
+          <li><b>数字素养</b>：<span class="highlight">结构化思维/信息技术理解/数据开发利用/数据洞察解决问题</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 22.4.3 规划管理要点 -->
+    <div class="sub-section">
+      <div class="sub-title">22.4.3 规划管理要点 <span class="mnemonic">多知目实</span></div>
+      <table class="table-mini">
+        <tr><th style="width:16%">要点</th><th style="width:84%">核心内容</th></tr>
+        <tr><td><b>1.多元参与</b></td><td>低成熟度企业→虚拟团队+最高负责人牵头；高成熟度企业→跨专业"军团"/"工作组"；可引入第三方但要避免规划"虚高"</td></tr>
+        <tr><td><b>2.知识传递</b></td><td>利用规划活动契机，跨领域知识交融传播；引入第三方时重视外部知识/技能/经验导入</td></tr>
+        <tr><td><b>3.目标控制</b></td><td>总目标避免空洞(如"世界一流")，应如"满足CMMM四级"；分项目标"<span class="highlight">做一看一</span>"(迈一步+观察理解下一步)</td></tr>
+        <tr><td><b>4.实践借鉴</b></td><td>四大原则：<span class="highlight">放大鉴小</span>(场景/局部借鉴)、背景分析(获取形成条件)、创新借鉴(不照搬照抄)、坚持自主(避免对最佳实践"迷恋")</td></tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ========== 卡片5: 22.5 + 22.6 + 考察总结 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>22.5 信息系统架构 + 22.6 建设实践案例 <span class="tag">总体/集成架构</span><span class="tag">实施路径</span><span class="tag">案例</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+
+    <!-- 22.5.1 总体架构 -->
+    <div class="sub-section">
+      <div class="sub-title">22.5.1 总体架构 <span class="mnemonic">生系智</span></div>
+      <ul class="item-list">
+        <li>三个维度：<span class="highlight">生命周期</span>、<span class="highlight">系统层级</span>、<span class="highlight">智能特征</span></li>
+      </ul>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">生命周期维度</div>
+        <ul class="item-list">
+          <li><b>设计</b>：构造/仿真/验证/优化研发活动</li>
+          <li><b>生产</b>：通过劳动创造物质资料</li>
+          <li><b>物流</b>：物品从供应地向接收地流动</li>
+          <li><b>销售</b>：产品从企业转移到客户</li>
+          <li><b>服务</b>：提供者与客户接触产生的结果（含回收）</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">系统层级维度</div>
+        <ul class="item-list">
+          <li>设备层 → 单元层 → 车间层 → 企业层 → 协同层</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">智能特征维度</div>
+        <ul class="item-list">
+          <li>资源要素 → 互联互通 → 融合共享 → 系统集成 → 新兴业态</li>
+        </ul>
+      </div>
+      <div class="formula-box"><b>三集成</b><br>纵向集成（设备层→协同层不同层面） + <span class="highlight">横向集成</span>（资源要素→新兴业态不同级别） + <span class="highlight">端到端集成</span>（设计→生产→物流→销售→服务）</div>
+    </div>
+
+    <!-- 22.5.2 集成架构 -->
+    <div class="sub-section">
+      <div class="sub-title">22.5.2 集成架构 <span class="mnemonic">决业执传设</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">层级</th><th style="width:32%">核心系统</th><th style="width:54%">功能描述</th></tr>
+        <tr><td><b>决策层</b></td><td>大数据/驾驶舱/数字孪生/AI</td><td>数据驱动决策体系，提高运营管理决策效率和准确性</td></tr>
+        <tr><td><b>业务层</b></td><td>CRM + PLM + ERP</td><td>业务和流程管理，<span class="highlight">订单到交付</span>数字化管理</td></tr>
+        <tr><td><b>执行层</b></td><td>MES/MOM + WMS + QMS</td><td>生产下发/数据采集/报工，生产全透明管理</td></tr>
+        <tr><td><b>传输层</b></td><td>工业互联网/IoT平台</td><td>数据通道，打通设备层与执行层，实现集成互通</td></tr>
+        <tr><td><b>设备层</b></td><td>自动化设备/数字化检测/AGV/立体仓库</td><td>智能制造底层基础设施</td></tr>
+      </table>
+    </div>
+
+    <!-- 22.5.3 实施路径 -->
+    <div class="sub-section">
+      <div class="sub-title">22.5.3 实施路径 <span class="mnemonic">全通智</span></div>
+      <ul class="item-list">
+        <li>第一阶段：<b>由缺到全</b> — 信息化系统从无到有全覆盖</li>
+        <li>第二阶段：<b>由全到通</b> — 各系统互联互通，数据融合流动</li>
+        <li>第三阶段：<b>由通到智</b> — 全面智能，数据驱动/自动决策/精准决策</li>
+        <li>五年建设典型KPI目标：<span class="highlight">生产效率↑ / 单位成本↓ / 能源利用率↑ / 不良率↓ / 交付周期↓</span></li>
+      </ul>
+    </div>
+
+    <!-- 22.6 建设实践案例 -->
+    <div class="sub-section">
+      <div class="sub-title" style="border-left-color:#e67e22;font-size:16px;">22.6 建设实践案例</div>
+
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">22.6.1 发动机智能制造案例 <span class="tag">A公司</span></div>
+        <ul class="item-list">
+          <li>行业：柴油发动机/重卡配套，三阶段建设（2010-2022）</li>
+          <li><b>六大建设方面</b>：
+            <br>①工厂规划设计数字化（设计效率↑30%规划成本↓5%）
+            <br>②生产线装备自动化智能化（缸体线自动化率78.33%，总装线28%）
+            <br>③生产过程数据采集分析可视化（RFID/DPM码+智能电表）
+            <br>④节能环保绿色制造（MQL微量润滑+冷试技术，CO2减少747178kg）
+            <br>⑤"互联网+"业务驱动集成应用（ERP/TDS/PDM/CAPP/MES）
+            <br>⑥互联网+工厂智造+智能服务（智慧App+DPM二维码→主动关怀）
+          </li>
+          <li><b>最终KPI成效</b>：运营成本↓20.8%、生产效率↑50.1%、研发周期↓38.5%、不良率↓53.9%、能源利用率↑56%</li>
+        </ul>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#7d3c98">22.6.2 电缆智能制造案例 <span class="tag">F公司</span></div>
+        <ul class="item-list">
+          <li>行业：电线电缆制造，生产和检测设备<span class="highlight">100%联网</span></li>
+          <li><b>八大建设方面</b>：
+            <br>①工厂仿真规划（三维建模→生产仿真→优化布局）
+            <br>②设备互联互通（环形光纤+星形以太网）
+            <br>③质量在线检测（挤塑机落料称重/测偏仪/测径仪/火花机联网）
+            <br>④智能物流（激光引导AGV+仓库管理信息化）
+            <br>⑤仿真排产（工业工程+精益生产+仿真排产结合）
+            <br>⑥系统集成（SCADA/ERP/MES/APS/WMS数据集成融合）
+            <br>⑦数字孪生技术（1:1工厂数字化"双胞胎"虚实联动）
+            <br>⑧虚拟现实技术（VR/3D沉浸式体验+虚拟审核优化）
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- container -->
+
+<!-- 口诀面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 10px 16px">
+  <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:17px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">核心记忆口诀汇总（一键速记·28条）</h3>
+    <div class="mnemonics-grid">
+      <div><b>IM五自功能</b>：「自感知自学习自决策自执行自适应」</div>
+      <div><b>发展三阶段</b>：「人智信」80年代AI制造→90年代IMT/IMS→21世纪信息数字</div>
+      <div><b>六国战略</b>：「德美英法印韩」</div>
+      <div><b>中国制造2025方针</b>：「创质绿结人」创新驱动/质量为先/绿色发展/结构优化/人才为本</div>
+      <div><b>四大转变</b>：「创质绿服」要素→创新、成本→质量、粗放→绿色、生产→服务</div>
+      <div><b>五大工程</b>：「创智工绿高」制造业创新中心/智能制造/工业强基/绿色制造/高端装备</div>
+      <div><b>十四五核心</b>：「工艺装备为核，数据为基」2025普及数字化</div>
+      <div><b>四类人才</b>：「技应推领」技能/应用/推进/领军</div>
+      <div><b>知识管理四步</b>：「结标固拓」结构化→标准化→固化→拓展</div>
+      <div><b>生产过程四化</b>：「柔数追透」排程柔性化/作业数字化/质量可追溯/管理透明化</div>
+      <div><b>设备管理五维</b>：「维警效预全」数字化维保/监控故障/OEE/预测性维护/全生命周期</div>
+      <div><b>OEE公式</b>：「OEE = 稼动率 × 性能效率 × 合格率」时间/性能/质量三要素</div>
+      <div><b>物流四功能</b>：「入存拣优」出入库/库位/拣货配送/优化</div>
+      <div><b>安全三步</b>：「测预闭环」监测→预测→闭环管理</div>
+      <div><b>环保三阶</b>：「信警模」信息化→预警预测→模型驱动排放优化</div>
+      <div><b>能源四步</b>：「采指联改」采集分析→指标精细化→智能联控→节能改造</div>
+      <div><b>CMMM四要素</b>：「人技资制」人员/技术/资源/制造</div>
+      <div><b>CMMM五等级</b>：「规规集优引」规划级/规范级/集成级/优化级/引领级</div>
+      <div><b>CMMM三维建设</b>：「阶序深」阶段性/有序性/纵深性</div>
+      <div><b>规划四原则</b>：「需投效全」需求驱动/投入产出/有效性/全局性</div>
+      <div><b>规划四活动</b>：「诊均破才」诊断评估/均衡部署/重点突破/人才保障</div>
+      <div><b>规划管理四要点</b>：「多知目实」多元参与/知识传递/目标控制/实践借鉴</div>
+      <div><b>人才保障五方面</b>：「团专培知素」统筹团队/专业人员/培训体系/知识体系/数字素养</div>
+      <div><b>总体架构三维度</b>：「生系智」生命周期/系统层级/智能特征</div>
+      <div><b>三集成</b>：「纵横端」纵向集成/横向集成/端到端集成</div>
+      <div><b>五层集成架构</b>：「决业执传设」决策层/业务层/执行层/传输层/设备层</div>
+      <div><b>实施路径三阶</b>：「全通智」由缺到全→由全到通→由通到智</div>
+      <div><b>核心论断</b>：「体力替代→脑力替代」传统机械化/电气化→智能制造数据驱动决策</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">第22章 智能制造发展规划 · 核心知识思维脑图 | 基于第2版教材 | Ctrl+E 全展开 · Ctrl+C 全折叠</div>
+
+<script>
+function toggleBranch(header){header.classList.toggle('collapsed');var body=header.nextElementSibling;body.classList.toggle('collapsed')}
+function toggleAll(expand){
+  document.querySelectorAll('.branch-header').forEach(function(h){
+    if(expand){h.classList.remove('collapsed');h.nextElementSibling.classList.remove('collapsed')}
+    else{h.classList.add('collapsed');h.nextElementSibling.classList.add('collapsed')}
+  })
+}
+function toggleMnemonics(){
+  var btn=document.getElementById('btnHighlight');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m){
+    m.style.background=btn.classList.contains('active')?'#ffc107':'#fff3cd';
+    m.style.color=btn.classList.contains('active')?'#000':'#856404'
+  })
+}
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && e.key==='e'){e.preventDefault();toggleAll(true)}
+  if(e.ctrlKey && e.key==='c'){e.preventDefault();toggleAll(false)}
+})
+</script>
+
+</body>
+</html>

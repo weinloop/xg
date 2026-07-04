@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>第19章 智慧园区发展规划 · 核心知识思维脑图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e8ecf1 100%);min-height:100vh;color:#2c3e50}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.toolbar{display:flex;justify-content:center;gap:8px;padding:10px 12px;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border:1px solid #d0d0d0;border-radius:6px;background:#fff;cursor:pointer;font-size:14px;transition:all .2s;white-space:nowrap;color:#555}
+.toolbar button:hover{background:#f0f4f8;border-color:#3498db;color:#3498db}
+.toolbar button.active{background:#3498db;color:#fff;border-color:#3498db}
+.container{max-width:900px;margin:0 auto;padding:16px 10px}
+.branch-card{border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);border:1px solid #e8e8e8;background:#fff;margin-bottom:14px;transition:all .2s}
+.branch-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.branch-header{padding:12px 16px;font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.branch-header .icon{font-size:14px;transition:transform .3s}
+.branch-header.collapsed .icon{transform:rotate(-90deg)}
+.branch-body{padding:0 14px 12px 14px}
+.branch-body.collapsed{display:none}
+.c1 .branch-header{background:#e8f4fd;color:#2471a3;border-left:4px solid #2471a3}
+.c2 .branch-header{background:#fef9e7;color:#b7950b;border-left:4px solid #b7950b}
+.c3 .branch-header{background:#eafaf1;color:#1e8449;border-left:4px solid #1e8449}
+.c4 .branch-header{background:#fdedec;color:#c0392b;border-left:4px solid #c0392b}
+.c5 .branch-header{background:#f4ecf7;color:#7d3c98;border-left:4px solid #7d3c98}
+.sub-section{margin-bottom:10px}
+.sub-title{font-weight:700;font-size:15px;color:#555;padding:5px 10px;background:#f8f9fa;border-radius:4px;margin-bottom:6px;border-left:3px solid #3498db}
+.item-list{list-style:none;padding-left:8px}
+.item-list li{font-size:14px;padding:3px 8px;line-height:1.8;position:relative;color:#444}
+.item-list li:before{content:"·";color:#3498db;font-weight:700;margin-right:6px}
+.mnemonic{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:4px;font-size:13px;font-weight:700;margin-left:5px}
+.highlight{color:#c0392b;font-weight:600}
+.tag{display:inline-block;background:#e8f4fd;color:#2471a3;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag2{display:inline-block;background:#eafaf1;color:#1e8449;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.tag3{display:inline-block;background:#f4ecf7;color:#7d3c98;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.key-point{color:#c0392b;font-weight:600}
+.exam-mark{display:inline-block;background:#ffe0b2;color:#e65100;padding:2px 6px;border-radius:3px;font-size:12px;margin:0 3px}
+.p0-mark{display:inline-block;background:#fdedec;color:#c0392b;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;margin:0 3px}
+.table-mini{width:100%;font-size:13px;border-collapse:collapse;margin-top:6px}
+.table-mini th{background:#f8f9fa;padding:6px 8px;border:1px solid #e0e0e0;text-align:center;font-weight:700;font-size:12px}
+.table-mini td{padding:5px 8px;border:1px solid #e0e0e0;font-size:13px}
+.table-mini tr:nth-child(even){background:#fafafa}
+.note-box{background:#fff9e6;border-left:4px solid #f39c12;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:13px;color:#7d6608}
+.formula-box{background:#eaf2f8;border:2px solid #3498db;padding:10px 14px;margin:8px 0;border-radius:8px;font-size:14px;color:#1a5276;text-align:center}
+.footer{padding:18px 10px;text-align:center;color:#aaa;font-size:13px}
+.mnemonics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.mnemonics-grid div{background:#f8f9fa;padding:10px 12px;border-radius:6px;font-size:13px;border:1px solid #eee}
+.danger-mark{display:inline-block;background:#c0392b;color:#fff;padding:1px 5px;border-radius:3px;font-size:11px;font-weight:700}
+@media print{.toolbar{display:none}.branch-body.collapsed{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🏭 第19章 智慧园区发展规划 · 核心知识思维脑图</h1>
+  <p>基于第2版教材全文 · 19.1~19.5 全节覆盖</p>
+</div>
+
+<div class="toolbar" id="toolbar">
+  <button onclick="toggleAll(true)">📖 全部展开</button>
+  <button onclick="toggleAll(false)">📕 全部折叠</button>
+  <button id="btnHighlight" onclick="toggleMnemonics()">🧠 高亮口诀</button>
+</div>
+
+<div class="container">
+
+<!-- ========== 19.1 发展整体环境 ========== -->
+<div class="branch-card c1">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>19.1 发展整体环境 <span class="tag">政策引导</span><span class="tag">发展现状</span><span class="tag">路径阶段</span><span class="tag">投融资</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 智慧园区定义 -->
+    <div class="sub-section">
+      <div class="sub-title">智慧园区定义 <span class="mnemonic">韧敏高绿</span></div>
+      <ul class="item-list">
+        <li>依托<span class="highlight">物联网、移动互联网、云计算、大数据、人工智能</span>等新一代信息技术</li>
+        <li>实现：设备设施智能化、运营管理高效化、产业服务便捷化、信息数据共享化、产业生态体系化、双碳发展科学化</li>
+        <li>赋能产业高质量发展，深化产业协同创新</li>
+        <li>打造具备<span class="key-point">韧性、敏捷、高效、绿色</span>特征的新型园区</li>
+      </ul>
+    </div>
+    <!-- 宏观政策 -->
+    <div class="sub-section">
+      <div class="sub-title">19.1.1 宏观政策与引导 <span class="p0-mark">P0</span><span class="mnemonic">十二十三五十四五</span></div>
+      <table class="table-mini">
+        <tr><th style="width:14%">年份</th><th style="width:32%">政策文件</th><th style="width:54%">核心内容</th></tr>
+        <tr><td><b>2012</b></td><td>国家高新区"十二五"规划</td><td>建设智慧园区，抓住三网融合和物联网机遇，提升研发生产物流效率</td></tr>
+        <tr><td><b>2017</b></td><td>国家高新区"十三五"规划</td><td>发展高科技、培育新产业，科技创新+制度创新双轮驱动</td></tr>
+        <tr><td><b>2020</b></td><td>国务院关于国家高新区高质量发展意见</td><td>加快产城融合，推进安全绿色智慧园区建设；国资委通知推进智慧办公、智慧园区建设</td></tr>
+        <tr><td><b>2022</b></td><td>"十四五"数字经济发展规划</td><td><span class="key-point">园区智慧化进入新阶段</span>，推动产业园区数字化转型，引导数字化基础设施建设</td></tr>
+      </table>
+    </div>
+    <!-- 发展现状 -->
+    <div class="sub-section">
+      <div class="sub-title">19.1.2 发展现状与路径</div>
+      <!-- 发展现状4方面 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">发展现状 <span class="mnemonic">区建投趋</span></div>
+        <ul class="item-list">
+          <li><b>区域分布</b>：东部沿海集聚、中部沿江联动、西部特色发展；环渤海/长三角/珠三角三大聚集区</li>
+          <li><b>建设特点</b>：开放共建共享、服务均等化、发展特色化（<span class="highlight">一园一案</span>）</li>
+          <li><b>发展趋势</b>：传统园区→智慧园区，低级→高级，单一→综合，注重服务平台和后期运营</li>
+          <li><b>投资模式</b>：园区管委会推动/运营商推动/厂商推动/<span class="key-point">专业第三方公司推动（最受推崇）</span></li>
+        </ul>
+      </div>
+      <!-- 主要问题 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">主要问题 <span class="p0-mark">P0</span><span class="mnemonic">规岛特安标</span></div>
+        <ul class="item-list">
+          <li><b>1.规划不足</b>：缺少长期完善规划，"重建设、轻应用"，未充分体现以人为本</li>
+          <li><b>2.数据孤岛</b>：政务数据分布不同部门，共享协同机制不健全；跨园区协同欠缺</li>
+          <li><b>3.千园一面</b>：缺乏特色，建设类型单一，未因地制宜，未做到以人为本</li>
+          <li><b>4.安全不强</b>：个人信息保护规则落后，网络安全形势严峻，监管挑战大</li>
+          <li><b>5.标准匮乏</b>：缺乏国家层面标准体系，信息采集/交换/开放/应用等基础标准有待制定</li>
+        </ul>
+      </div>
+      <!-- 路径阶段 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#2471a3">路径阶段（三阶段）<span class="p0-mark">P0必背</span><span class="mnemonic">单平全</span></div>
+        <table class="table-mini">
+          <tr><th style="width:16%">阶段</th><th style="width:30%">核心特征</th><th style="width:54%">典型应用</th></tr>
+          <tr><td><b>单项应用阶段</b></td><td>提升效率、体力替代</td><td>人脸识别闸机、安防监控、OA协同办公<br><span class="tag2">我国大多数园区处于此阶段</span></td></tr>
+          <tr><td><b>平台化发展阶段</b></td><td>业务融合创新、场景打通</td><td>一体化数字平台、数据融合挖掘、数据服务共享<br><span class="tag2">我国少量园区处于此阶段</span></td></tr>
+          <tr><td><b>全要素融合阶段</b></td><td>全要素聚合、全场景智慧</td><td>人工智能+数字孪生、自控制自学习自决策、运行最优化</td></tr>
+        </table>
+      </div>
+    </div>
+    <!-- 投融资模式 -->
+    <div class="sub-section">
+      <div class="sub-title">19.1.3 投融资模式 <span class="mnemonic">政平P</span></div>
+      <table class="table-mini">
+        <tr><th style="width:18%">模式</th><th style="width:82%">核心内容与适用范围</th></tr>
+        <tr><td><b>政府投资类</b></td><td>政府财政主导，所有权归政府；适用于前期投资大、无法带来明确商业价值的项目（政务服务/公共安全/政务管理等）</td></tr>
+        <tr><td><b>平台公司投资</b></td><td>平台公司自筹资金全领域投资；政府用财政专项基金购买年度服务，减轻一次性建设压力</td></tr>
+        <tr><td><b>政府和社会资本合作</b></td><td>PPP模式：吸引社会资本参与，解决政府财政投入不足；9种运作方式：O&M/MC/TOT/ROT/BOT/BOO/LOT/BLT/RC/DBFO</td></tr>
+      </table>
+      <div class="note-box">🔑 <b>PPP九种方式</b>：委托运营(O&M)·管理合同(MC)·转让运营移交(TOT)·改建运营移交(ROT)·建设运营移交(BOT)·建设拥有运营(BOO)·租赁运营移交(LOT)·建设租赁移交(BLT)·区域特许经营(RC)·设计建设融资运营(DBFO)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 19.2 发展关注焦点 ========== -->
+<div class="branch-card c2">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>19.2 发展关注焦点 <span class="tag">招引建设</span><span class="tag">经济监测</span><span class="tag">园区运行</span><span class="tag">公共安全</span><span class="tag">产城融合</span><span class="tag">绿色园区</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 招引建设 -->
+    <div class="sub-section">
+      <div class="sub-title">19.2.1 招引建设 <span class="mnemonic">招监赋</span></div>
+      <!-- 招商引资6方面 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">招商引资6方面 <span class="mnemonic">定目优价营运</span></div>
+        <ul class="item-list">
+          <li><b>产业定位</b>：城产研学相融相携，智能决策促进企业生态与园区公共资源互利共生</li>
+          <li><b>招商目标</b>：打破数据壁垒，产业定位智能双向匹配，提升招商效率</li>
+          <li><b>优惠政策</b>：惠政资源智能推送，撮合合作流程便利化</li>
+          <li><b>服务价格</b>：底层数据智能决策分析，提供适宜市场行情的价格参考</li>
+          <li><b>营销推广</b>：整合信息资源，为园区和企业提供双向撮合</li>
+          <li><b>便捷运营</b>：数字政府、全流程线上电子服务，运营数据可视化</li>
+        </ul>
+      </div>
+      <!-- 全程监管 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">全程监管2方面 <span class="mnemonic">信履</span></div>
+        <ul class="item-list">
+          <li><b>信用体系打造</b>："信用+园区"四大目标：企业信用大数据管理体系/信用金融服务管理体系/金融服务超市/新型监管服务体系</li>
+          <li><b>履约风险监测</b>：依托国家信用体系，引入区块链/大数据，打造电子履约/数字政府/金融超市等新产品</li>
+        </ul>
+      </div>
+      <!-- 资源赋能 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">资源赋能2方面 <span class="mnemonic">规分</span></div>
+        <ul class="item-list">
+          <li><b>园区资源规划</b>：识别资源优势不足、动态感知资源变化、及时发布传递资源信息</li>
+          <li><b>园区资源分配</b>：动态感知招引单位资源需求、及时调度分配；结合<span class="highlight">"碳达峰、碳中和"</span>打造零碳园区</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 经济监测 -->
+    <div class="sub-section">
+      <div class="sub-title">19.2.2 经济监测 <span class="mnemonic">画览</span></div>
+      <ul class="item-list">
+        <li><b>企业画像</b>：基于企业发展全生命周期（注册/开业/孵化/成长/成熟/拓展），打造多维画像（注册资本/经营范围/投资人/高管/信用评级/产业链等）</li>
+        <li><b>经营总览</b>：一图总览企业经营状况，接入物联终端数据，搭建企业信用评级模型，实现<span class="key-point">"风险预警、防控在先"</span></li>
+      </ul>
+    </div>
+    <!-- 园区运行 -->
+    <div class="sub-section">
+      <div class="sub-title">19.2.3 园区运行 <span class="p0-mark">P0</span><span class="mnemonic">管环务</span></div>
+      <!-- 智慧管理7方面 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">智慧管理7方面 <span class="mnemonic">设商物业合招生</span></div>
+        <ul class="item-list">
+          <li><b>设备管理</b>：实时监测空调/照明/电梯等，远程监控和故障诊断</li>
+          <li><b>商户管理</b>：租赁信息/合同管理/租金收支，自动化管理提高效率</li>
+          <li><b>物业管理</b>：维修保养/清洁卫生/安全巡检，自动化任务分配和工单管理</li>
+          <li><b>合同管理</b>：合同起止/租金支付，提醒通知避免损失</li>
+          <li><b>招商管理</b>：招商计划/进展，数据分析和报表功能</li>
+          <li><b>访客管理</b>：访客预约/登记，身份验证和通行控制</li>
+          <li><b>财务管理</b>：收支记录/费用管理，财务分析和报表功能</li>
+        </ul>
+      </div>
+      <!-- 智慧环保4方面 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">智慧环保4方面 <span class="mnemonic">监节废预</span></div>
+        <ul class="item-list">
+          <li><b>环境监测</b>：实时监测空气质量/噪音水平/水质等指标</li>
+          <li><b>节能减排</b>：监测管理能源消耗，优化能源使用，降低能源成本</li>
+          <li><b>废物管理</b>：废物分类/回收/处理，减少排放和环境污染</li>
+          <li><b>环境预警</b>：数据分析和模型预测，提前预警环境问题</li>
+        </ul>
+      </div>
+      <!-- 智慧水务3方面 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">智慧水务3方面 <span class="mnemonic">评治体</span></div>
+        <ul class="item-list">
+          <li><b>水资源环境评价预警</b>：利用水质在线实时监测数据，科学评价考核，实现预警</li>
+          <li><b>水资源环境数据治理</b>：全过程监测雨水/过滤池/蓄水池等设施，计算雨水综合利用率/净化率/排放率</li>
+          <li><b>水资源管控应急一体化</b>：基于水文/气象/GIS技术，建立集监测预警/模拟预报/业务管理/应急指挥于一体的能力</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 公共安全 -->
+    <div class="sub-section">
+      <div class="sub-title">19.2.4 公共安全 <span class="p0-mark">P0</span><span class="mnemonic">综安人车应</span></div>
+      <!-- 综合安全 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">综合安全3方面 <span class="mnemonic">周视巡</span></div>
+        <ul class="item-list">
+          <li><b>周界防范</b>：入侵报警系统+前端防区探测器（警戒/热成像/电子围栏/激光雷达），建立第一道防线</li>
+          <li><b>视频监控</b>：实时监控/录像回放/抓图/云台控制/语音对讲，提升安全防护和问题追溯效率</li>
+          <li><b>安全巡检</b>：视频/物联传感/5G单兵等设备，线下线上融合+AI辅助自动巡检，实现业务闭环</li>
+        </ul>
+      </div>
+      <!-- 安消一体 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">安消一体3方面 <span class="mnemonic">规警图</span></div>
+        <ul class="item-list">
+          <li><b>规范管理</b>：防火巡查/防火检查/值班值守/隐患管理/报警管理/消防台账</li>
+          <li><b>报警预警</b>：集中管控火灾报警/电气火灾/可燃气体/消防用水/充电桩等告警事件</li>
+          <li><b>消防一张图</b>：3D/GIS可视化呈现单位数据/建筑物数据/消防设施数据/设备报警数据</li>
+        </ul>
+      </div>
+      <!-- 人员管理 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">人员管理3方面 <span class="mnemonic">通访特</span></div>
+        <ul class="item-list">
+          <li><b>通行权限</b>：门禁/闸机/梯控等，依据工牌/二维码/身份证/指纹/人脸/虹膜等配置权限</li>
+          <li><b>访客管理</b>：HS和公众号线上预约/被访人邀约/访客审批等功能</li>
+          <li><b>特殊人员管理</b>：以人脸识别为核心，自动识别抓拍重点/陌生/高频人员，事前预防预警</li>
+        </ul>
+      </div>
+      <!-- 车辆管理 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">车辆管理3方面 <span class="mnemonic">进防轨</span></div>
+        <ul class="item-list">
+          <li><b>进出管理</b>：车牌识别，高度智能化，进出有据可查、可控</li>
+          <li><b>车辆防冲撞</b>：路障系统按需求起降，适用于高安全车辆进出场所</li>
+          <li><b>行驶轨迹</b>：GPS/北斗定位数据，GIS地图可视化路线，查询速度/报警/定位信息</li>
+        </ul>
+      </div>
+      <!-- 应急指挥 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#b7950b">应急指挥5方面 <span class="p0-mark">P0</span><span class="mnemonic">图判商会指</span></div>
+        <ul class="item-list">
+          <li><b>应急一张图</b>：集成GIS地图/地图定位/突发事件管理/风险隐患/应急力量/应急物资等</li>
+          <li><b>综合分析研判</b>：智能关联汇总事态信息，可视化展示突发事件动态/舆情动态/应急响应等</li>
+          <li><b>协同会商</b>：整合现场监控/单兵设备/移动终端/视频会议，实现多方协同综合研判</li>
+          <li><b>辅助决策</b>：多源数据融合/大数据关联分析/机器学习/案例推演，提出风险防护和应急处置建议</li>
+          <li><b>指挥调度</b>：资源需求分析模型，一键快速分发，指挥调度信息跟踪反馈</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 产城融合 -->
+    <div class="sub-section">
+      <div class="sub-title">19.2.5 产城融合 <span class="mnemonic">产配公交通</span></div>
+      <ul class="item-list">
+        <li><b>产业结构调整</b>：基于大数据/人工智能科学模拟产业发展方向，精准招商引资、精细政策制定、精确资源调度</li>
+        <li><b>生产经营配套</b>：云服务模式提供办公配套；"互联网+金融"驱动金融服务；一体化智慧能源实现梯级应用</li>
+        <li><b>公共生活配套</b>：4个层次——园区配套智能化/与城市资源融合/周边配套融合/一体化统筹规划</li>
+        <li><b>区域交通优化</b>：构建交通大数据，优化交通信号控制，研判交通供需，辅助道路建设/公交线网优化</li>
+        <li><b>精准集合营销</b>：4个层面——城市产业推介/园区集中展示/集合舆情治理/公共资讯精准推送</li>
+      </ul>
+    </div>
+    <!-- 绿色园区 -->
+    <div class="sub-section">
+      <div class="sub-title">19.2.6 绿色园区 <span class="p0-mark">P0</span><span class="mnemonic">产生交</span></div>
+      <div class="note-box">🔑 <b>零碳智慧园区根本途径</b>：控制碳源（能源/生产/交通/建筑/生活节能减排）+ 加大碳吸收（生态碳汇/碳捕捉封存）+ 建立碳交易市场 + 打造零碳操作系统</div>
+      <ul class="item-list">
+        <li><b>零碳生产</b>：优化产业链布局/工艺优化/电气化+清洁能源/负碳技术；钢铁/化工/有色金属/建材等行业重点发力</li>
+        <li><b>零碳建筑</b>：建筑全生命周期净零碳排放；<span class="highlight">内含碳排放</span>（材料生产运输+施工）+ <span class="highlight">运营碳排放</span>（暖通空调/生活热水/照明/电梯/燃气）</li>
+        <li><b>零碳交通</b>：新能源汽车为核心（交通工具电气化）+ 优先发展公共交通 + 完善智能交通体系 + 合理规划布局减少出行</li>
+      </ul>
+    </div>
+    <!-- 关键评价指标 -->
+    <div class="sub-section">
+      <div class="sub-title">19.2.7 关键评价指标 <span class="p0-mark">P0必背</span><span class="mnemonic">产组运产社绿安运信</span></div>
+      <div class="note-box">🔑 <b>十大评价指标</b>：产城融合/组织战略/运营管理/产业服务/社群服务/绿色环保/安全应急/运行管理/信息与应用（9大方向+信息与应用）</div>
+      <table class="table-mini">
+        <tr><th style="width:16%">指标类别</th><th style="width:84%">重点关注内容</th></tr>
+        <tr><td><b>产城融合</b></td><td>政务协同/专项治理/专项监督/政策应用/园区效能</td></tr>
+        <tr><td><b>组织战略</b></td><td>战略管理/数字能力/创新驱动</td></tr>
+        <tr><td><b>运营管理</b></td><td>招商管理/计划调度/财务管理/物业管理/人员管理/资产管理/知识管理/停车管理/满意度管理</td></tr>
+        <tr><td><b>产业服务</b></td><td>产业运行/营商环境/企业发展/数字经济/共享融合</td></tr>
+        <tr><td><b>社群服务</b></td><td>培训服务/就业服务/特殊帮扶/商业配套</td></tr>
+        <tr><td><b>绿色环保</b></td><td>环保管理/能源管理/双碳发展/绿色能源</td></tr>
+        <tr><td><b>安全应急</b></td><td>安全生产/防灾减灾/应急管理</td></tr>
+        <tr><td><b>运行管理</b></td><td>设施设备管理/绿化管理/施工管理/充电管理/事件管理/智慧照明/安防管理/消防管理/楼宇安全/公共卫生/治安联防</td></tr>
+        <tr><td><b>信息与应用</b></td><td>信息治理/数据治理/物联感知/网络传输/数据中心/计算资源/应用建设/数据部署/运行维护</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 19.3 发展规划要点 ========== -->
+<div class="branch-card c3">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>19.3 发展规划要点 <span class="tag">数智转型</span><span class="tag">可持续发展</span><span class="tag">技术创新</span><span class="tag">运维运营</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 数智化转型 -->
+    <div class="sub-section">
+      <div class="sub-title">19.3.1 数智化转型提升 <span class="p0-mark">P0</span><span class="mnemonic">基运平产</span></div>
+      <ul class="item-list">
+        <li><b>基础设施集约化</b>：统一设计/规划/建设；全光网络接入+5G全覆盖+NBIoT/LoRA物联网；<span class="highlight">"统一设计、统一规划、统一建设"</span>三统一原则</li>
+        <li><b>运营管理精细化</b>：统筹整合云端办公/政务协同/暖通空调/给排水/变配电/火灾报警/环保监测/视频监控等多元场景，实现系统信息交互/共享/联动</li>
+        <li><b>园区服务平台化</b>：围绕人才/技术/资金/市场/政策/服务需求，精准匹配要素端/需求端/供给端；建设产业数字化分析平台</li>
+        <li><b>产业发展数字化</b>：推动企业研发设计/生产制造/运营管理向云平台迁移；建设<span class="key-point">数字化车间/智能工厂</span></li>
+      </ul>
+    </div>
+    <!-- 建设发展可持续 -->
+    <div class="sub-section">
+      <div class="sub-title">19.3.2 建设发展可持续 <span class="mnemonic">管企数科创节</span></div>
+      <ul class="item-list">
+        <li><b>提升管理能力（效能园区）</b>：建设智慧园区运营中心，规建管一体化业务闭环；以<span class="highlight">数字孪生</span>为亮点</li>
+        <li><b>提升企业服务（凝聚企业）</b>：汇总企业数据，绘制产业链和产业网；优化营商环境</li>
+        <li><b>汇集园区数据（数据融合）</b>：三大数据来源——基础性数据/实时动态数据/互联网移动数据</li>
+        <li><b>加强科研创新（成果转化）</b>：科技创新+制度创新两个轮子一起转；不只注重建设网站和数据库</li>
+        <li><b>促进节能减排（低碳园区）</b>：产业优化/机制引导/零碳改造/数字赋能</li>
+      </ul>
+      <!-- 节能减排4方面 -->
+      <div class="sub-section">
+        <div class="sub-title" style="border-left-color:#1e8449">节能减排4方面 <span class="mnemonic">产机改数</span></div>
+        <ul class="item-list">
+          <li><b>产业优化</b>：淘汰一批/改造一批/引进一批；避免引入高耗能高污染高碳排放项目</li>
+          <li><b>机制引导</b>：建立健全专项工作推进机制；鼓励参与碳市场交易；制定财税激励政策</li>
+          <li><b>零碳改造</b>：推广新能源和可再生能源；对采暖/空调/热水/照明等设施节能改造；建立能源消耗和碳排放统计监测平台</li>
+          <li><b>数字赋能</b>：建设碳智慧管控大脑；建立资源能源平衡模型；实现信息化集中控制</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 技术与制度创新 -->
+    <div class="sub-section">
+      <div class="sub-title">19.3.3 技术与制度创新 <span class="mnemonic">数开特规</span></div>
+      <ul class="item-list">
+        <li><b>数字化改革</b>：打破固有思维，树立数字化理念；以数据驱动提升智能化决策水平</li>
+        <li><b>数据开放创新共享</b>：打破数据孤岛，创新信息管理机制；搭建园区统一数据共享平台</li>
+        <li><b>因地制宜发挥特色</b>：避免贪大求快；<span class="highlight">三阶段</span>——夯实基础/推广应用/全面建设</li>
+        <li><b>规范法律法规和制度设计</b>：加快个人信息保护立法/加强网络安全保障/加快出台相关法令</li>
+      </ul>
+    </div>
+    <!-- 运维与运营体系 -->
+    <div class="sub-section">
+      <div class="sub-title">19.3.4 运维与运营体系 <span class="p0-mark">P0</span><span class="mnemonic">组制考平</span></div>
+      <ul class="item-list">
+        <li><b>运维组织体系建设</b>：成立园区运营管理中心；从传统多点运维向<span class="key-point">统一运维管理</span>演进；改变被动运维，向智能运维推进</li>
+        <li><b>运维管理制度体系建设</b>：从管理/技术层面建立标准/制度/规范；<span class="highlight">"统一领导、按级负责、分工管理"</span></li>
+        <li><b>运维考核指标体系建设</b>：围绕交互质量/实施质量/结果质量建立多级指标；制成评价表</li>
+        <li><b>园区综合运维平台</b>：实现设备设施状态监测/运行维护全过程管理；通过检维修/预防性维护/预测性维修保证设备健康运行</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 19.4 信息系统架构 ========== -->
+<div class="branch-card c4">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>19.4 信息系统架构 <span class="tag">应用架构</span><span class="tag">数据架构</span><span class="tag">交互体系</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 应用架构 -->
+    <div class="sub-section">
+      <div class="sub-title">19.4.1 应用架构 <span class="mnemonic">安通设资耗能智</span></div>
+      <div class="note-box">🔑 <b>智能运营中心</b>：园区的报告中心/指挥中心/统一入口；实现可视/可管/可控</div>
+      <table class="table-mini">
+        <tr><th style="width:16%">应用系统</th><th style="width:84%">核心功能</th></tr>
+        <tr><td><b>综合安防</b></td><td>情境智能整体解决方案；安防系统集成融合传感器和数据采集子系统；实时动态数据信息和决策操作平台</td></tr>
+        <tr><td><b>便捷通行</b></td><td>人员出入管理；门禁/闸机/访客/一卡通系统打通联动；人员无感知进出/人流统计/人员轨迹查询</td></tr>
+        <tr><td><b>设施管理</b></td><td>实时查询设备运行数据；设施告警/数据信息实时展示；自动派发检修维护工单；移动端工单作业闭环</td></tr>
+        <tr><td><b>资产管理</b></td><td>RFID标签实现物品入库/库存盘点/储库全过程管理；档案/仓储/采购/维修/报废管理</td></tr>
+        <tr><td><b>能耗管理</b></td><td>采集公共用水/用电/用气/采暖能耗数据；指导节能降耗；提供专业指标和报表</td></tr>
+        <tr><td><b>环境管理</b></td><td>环境监测传感器数据收集整理分析；空气监测/水质监测/卫生管理（垃圾分类）</td></tr>
+        <tr><td><b>智能运营中心</b></td><td>GIS技术可视化动态管理；运营状态可视/业务分析和预警/辅助决策/执行；融合园区应用，统一用户入口</td></tr>
+      </table>
+    </div>
+    <!-- 数据架构 -->
+    <div class="sub-section">
+      <div class="sub-title">19.4.2 数据架构 <span class="mnemonic">湖库题</span></div>
+      <ul class="item-list">
+        <li>提供必要的数据湖/主题库/专题库（安防专题库/能耗专题库/轨迹库等）</li>
+        <li><b>向下</b>：提供已接入子系统应用的数据集成接口，转换源数据为结构化数据</li>
+        <li><b>向上</b>：提供数据服务/计算能力接口给智慧应用系统消费</li>
+        <li>数据架构体现园区<span class="key-point">数据使能</span>，主要负责完成异构子系统和业务应用系统的数据集中建模管理和使用</li>
+      </ul>
+    </div>
+    <!-- 交互体系 -->
+    <div class="sub-section">
+      <div class="sub-title">19.4.3 交互体系 <span class="mnemonic">门户渠</span></div>
+      <ul class="item-list">
+        <li><b>统一综合性门户</b>：技术层面实现统一用户管理/单点登录/多渠道接入/应用集成</li>
+        <li><b>管理门户分类</b>：<span class="highlight">外部门户</span>（面向互联网用户）+ <span class="highlight">内部门户</span>（面向企业/枢纽管理经营者/政府监督部门）</li>
+        <li><b>统一门户功能</b>：统一认证/单点登录/用户鉴权；根据用户级别和职能设定访问操作权限</li>
+        <li><b>移动端渠道</b>：园区App/微信公众号/微信小程序/微博/微视等官方渠道</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 19.5 建设实践案例 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>19.5 建设实践案例 <span class="tag2">产城融合案例</span><span class="tag2">科技园案例</span></span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <!-- 产城融合智慧园区案例 -->
+    <div class="sub-section">
+      <div class="sub-title">19.5.1 产城融合智慧园区案例 <span class="mnemonic">二三四</span></div>
+      <ul class="item-list">
+        <li><b>案例概况</b>：紧贴"以人为本"核心战略；打造"IoT物联平台+IoC决策运营平台中心+9大智慧园区服务体系+9个场景智慧解决方案"</li>
+        <li><b>2个所属空间</b>：物理空间 + 数字空间（一一映射，无缝交互对接）</li>
+        <li><b>3个建设目标</b>：<span class="key-point">安全可靠/绿色高效/业务创新</span></li>
+        <li><b>4个基本特征</b>：<span class="key-point">全面感知/泛在连接/主动服务/智能进化</span></li>
+        <li><b>5G应用</b>：13个场景实现5G部署（远程控制/在线检测/协同办公等）</li>
+        <li><b>"三区融合"新模式</b>：园区+社区+学区；产业/创业/生活/教育四大链条相互融合</li>
+      </ul>
+      <div class="note-box">🔑 <b>获奖情况</b>：国家双创示范基地/领军科创项目/智慧城市示范园区/产业升级示范项目；物业服务百强TOP50</div>
+    </div>
+    <!-- 科技园智慧园区案例 -->
+    <div class="sub-section">
+      <div class="sub-title">19.5.2 科技园智慧园区案例 <span class="mnemonic">一生两智三运</span></div>
+      <ul class="item-list">
+        <li><b>案例概况</b>：专注科技园区开发/产业生态运营；动态引进超800家创新企业；以华为/腾讯/云天励飞/微众银行/联发科等龙头企业为龙头</li>
+        <li><b>总体框架</b>：按照"一区多园""圈层梯度"理念，打造5.0版世界一流科技园区</li>
+        <li><b>数字平台</b>：统一业务与设备数据接入标准；部署产业生态资源大数据平台底座</li>
+        <li><b>智慧应用</b>：智慧安防/智慧能源/智慧通行/智慧停车等多项应用系统</li>
+        <li><b>物理孪生</b>：实现园区全域感知/全场景智慧的数字化管理与精细化治理</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 本章小结 ========== -->
+<div class="branch-card c5">
+  <div class="branch-header" onclick="toggleBranch(this)">
+    <span>📋 本章考察规律总结 · 19.1考政策阶段 · 19.2考评价指标 · 19.3考转型要点 · 19.4考应用架构 · 19.5考案例框架</span>
+    <span class="icon">▼</span>
+  </div>
+  <div class="branch-body">
+    <table class="table-mini">
+      <tr><th style="width:12%">优先级</th><th style="width:38%">考点</th><th style="width:50%">掌握要求</th></tr>
+      <tr><td>🔴P0</td><td>发展三阶段（单项应用/平台化发展/全要素融合）</td><td>必须能区分三阶段特征</td></tr>
+      <tr><td>🔴P0</td><td>十大关键评价指标（产组运产社绿安运信）</td><td>必须能默写10大指标名称</td></tr>
+      <tr><td>🔴P0</td><td>数智化转型四方面（基运平产）</td><td>必须能默写4方面内容</td></tr>
+      <tr><td>🔴P0</td><td>运维体系四建设（组制考平）</td><td>必须能区分4项建设内容</td></tr>
+      <tr><td>🟡P1</td><td>宏观政策4年份/主要问题5方面/智慧管理7方面/应急指挥5方面</td><td>会场景判断和区分</td></tr>
+      <tr><td>🟢P2</td><td>投融资3模式/智慧环保4方面/智慧水务3方面/应用架构7系统</td><td>了解即可</td></tr>
+    </table>
+  </div>
+</div>
+
+</div><!-- container -->
+
+<!-- 口诀面板 -->
+<div style="max-width:900px;margin:0 auto;padding:0 10px 16px">
+  <div style="background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08)" id="mnemonicPanel">
+    <h3 style="font-size:17px;color:#2c3e50;margin-bottom:12px;border-bottom:2px solid #3498db;padding-bottom:8px">🧠 核心记忆口诀汇总（一键速记·30条）</h3>
+    <div class="mnemonics-grid">
+      <div><b>智慧园区特征</b>：韧敏高绿（韧性/敏捷/高效/绿色）</div>
+      <div><b>宏观政策</b>：十二十三五十四五（2012/2017/2020/2022）</div>
+      <div><b>发展现状</b>：区建投趋（区域分布/建设特点/发展趋势/投资模式）</div>
+      <div><b>主要问题</b>：规岛特安标（规划不足/数据孤岛/千园一面/安全不强/标准匮乏）<span class="p0-mark">P0</span></div>
+      <div><b>发展三阶段</b>：单平全（单项应用/平台化发展/全要素融合）<span class="p0-mark">P0</span></div>
+      <div><b>投融资模式</b>：政平P（政府投资/平台公司/PPP）</div>
+      <div><b>招引建设</b>：招监赋（招商引资/全程监管/资源赋能）</div>
+      <div><b>招商引资6</b>：定目优价营运（产业定位/招商目标/优惠政策/服务价格/营销推广/便捷运营）</div>
+      <div><b>经济监测</b>：画览（企业画像/经营总览）</div>
+      <div><b>园区运行</b>：管环务（智慧管理/智慧环保/智慧水务）</div>
+      <div><b>智慧管理7</b>：设商物业合招生（设备/商户/物业/合同/招商/访客/财务）</div>
+      <div><b>智慧环保4</b>：监节废预（环境监测/节能减排/废物管理/环境预警）</div>
+      <div><b>智慧水务3</b>：评治体（评价预警/数据治理/管控应急一体化）</div>
+      <div><b>公共安全</b>：综安人车应（综合安全/安消一体/人员管理/车辆管理/应急指挥）</div>
+      <div><b>应急指挥5</b>：图判商会指（应急一张图/综合分析研判/协同会商/辅助决策/指挥调度）<span class="p0-mark">P0</span></div>
+      <div><b>绿色园区</b>：产生交（零碳生产/零碳建筑/零碳交通）</div>
+      <div><b>十大评价指标</b>：产组运产社绿安运信（产城融合/组织战略/运营管理/产业服务/社群服务/绿色环保/安全应急/运行管理/信息与应用）<span class="p0-mark">P0</span></div>
+      <div><b>数智化转型</b>：基运平产（基础设施集约化/运营管理精细化/园区服务平台化/产业发展数字化）<span class="p0-mark">P0</span></div>
+      <div><b>可持续发展</b>：管企数科创节（管理能力/企业服务/数据融合/科研创新/节能减排）</div>
+      <div><b>节能减排4</b>：产机改数（产业优化/机制引导/零碳改造/数字赋能）</div>
+      <div><b>技术创新</b>：数开特规（数字化改革/数据开放/因地制宜/规范法规）</div>
+      <div><b>运维体系4</b>：组制考平（组织体系/管理制度/考核指标/综合平台）<span class="p0-mark">P0</span></div>
+      <div><b>应用架构7</b>：安通设资耗能智（综合安防/便捷通行/设施管理/资产管理/能耗管理/环境管理/智能运营中心）</div>
+      <div><b>数据架构</b>：湖库题（数据湖/主题库专题库/数据处理）</div>
+      <div><b>交互体系</b>：门户渠（统一门户/多渠道/用户权限）</div>
+      <div><b>2-3-4框架</b>：2空间3目标4特征（物理+数字/安全可靠绿色高效业务创新/全面感知泛在连接主动服务智能进化）</div>
+      <div><b>零碳途径</b>：控吸交系（控制碳源/加大碳吸收/碳交易市场/零碳操作系统）</div>
+      <div><b>零碳生产4</b>：链工艺气化（产业链布局/工艺优化/电气化清洁能源/负碳技术）</div>
+      <div><b>PPP九方式</b>：委管转改建建租设（O&M/MC/TOT/ROT/BOT/BOO/LOT/BLT/DBFO）</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">第19章 智慧园区发展规划 · 核心知识思维脑图 | 基于第2版教材全文 | Ctrl+E 全展开 · Ctrl+C 全折叠</div>
+
+<script>
+function toggleBranch(header){header.classList.toggle('collapsed');var body=header.nextElementSibling;body.classList.toggle('collapsed')}
+function toggleAll(expand){
+  document.querySelectorAll('.branch-header').forEach(function(h){
+    if(expand){h.classList.remove('collapsed');h.nextElementSibling.classList.remove('collapsed')}
+    else{h.classList.add('collapsed');h.nextElementSibling.classList.add('collapsed')}
+  })
+}
+function toggleMnemonics(){
+  var btn=document.getElementById('btnHighlight');
+  btn.classList.toggle('active');
+  document.querySelectorAll('.mnemonic').forEach(function(m){
+    m.style.background=btn.classList.contains('active')?'#ffc107':'#fff3cd';
+    m.style.color=btn.classList.contains('active')?'#000':'#856404'
+  })
+}
+document.addEventListener('keydown',function(e){
+  if(e.ctrlKey && (e.key==='e'||e.key==='E')){e.preventDefault();toggleAll(true)}
+  if(e.ctrlKey && (e.key==='c'||e.key==='C')){e.preventDefault();toggleAll(false)}
+})
+</script>
+
+</body>
+</html>
