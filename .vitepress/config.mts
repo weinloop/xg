@@ -12,6 +12,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '思维篇', link: '/00-思维篇/' },
+      { text: '英语篇', link: '/08-英语篇/' },
       { text: '项目篇', link: '/11-项目篇/' },
       { text: '基础篇', link: '/01-基础篇/ch01-信息系统与信息技术发展' },
       { text: '方法篇', link: '/02-方法篇/' },
@@ -389,6 +390,7 @@ export default defineConfig({
           items: [
             { text: '专业英语备考', link: '/08-英语篇/' },
             { text: '专业英语备考指南', link: '/08-英语篇/专业英语备考指南' },
+            { text: '人事招聘精读（技术经理）', link: '/08-英语篇/HR-Recruitment-TechManager' },
           ]
         }
       ],
