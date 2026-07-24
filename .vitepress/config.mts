@@ -391,6 +391,8 @@ export default defineConfig({
             { text: '专业英语备考', link: '/08-英语篇/' },
             { text: '专业英语备考指南', link: '/08-英语篇/专业英语备考指南' },
             { text: '人事招聘精读（技术经理）', link: '/08-英语篇/HR-Recruitment-TechManager' },
+            { text: '人事招聘精读 v2（交互版）', link: '/08-英语篇/HR-Recruitment-TechManager-v2' },
+            { text: '办公运营精读 · 产品发布', link: '/08-英语篇/Office-Operations-ProductLaunch' },
           ]
         }
       ],
