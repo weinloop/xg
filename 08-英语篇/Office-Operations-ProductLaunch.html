@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Office Operations · Product Launch</title>
+<style>
+  :root {
+    --bg: #B5E3D9;
+    --bg-soft: #CCE9E0;
+    --text-main: #1F2A2A;
+    --text-zh: #6E7E7E;
+    --highlight: #2F9D8A;
+    --highlight-soft: #5BBAA6;
+    --bracket: #7DC9B5;
+    --card: rgba(255,255,255,0.32);
+    --switch-off: #C9D9D6;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    color: var(--text-main);
+    line-height: 1.75;
+    min-height: 100vh;
+    padding: 56px 24px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* Top toggle bar */
+  .toggle-bar {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 999px;
+    padding: 8px 14px 8px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-main);
+    border: 1px solid rgba(255,255,255,0.45);
+    box-shadow: 0 4px 16px rgba(31,42,42,0.08);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .toggle-bar:hover { background: rgba(255,255,255,0.45); }
+
+  .switch {
+    position: relative;
+    width: 38px;
+    height: 22px;
+    background: var(--switch-off);
+    border-radius: 11px;
+    transition: background 0.25s;
+  }
+
+  .switch::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    transition: left 0.25s;
+  }
+
+  .toggle-bar.on .switch { background: var(--highlight); }
+  .toggle-bar.on .switch::after { left: 19px; }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .header .eyebrow {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    color: var(--text-zh);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    letter-spacing: -0.2px;
+  }
+
+  .header .meta {
+    font-size: 13px;
+    color: var(--text-zh);
+  }
+
+  /* Paragraph block */
+  .block {
+    margin-bottom: 32px;
+  }
+
+  .en {
+    font-size: 16.5px;
+    color: var(--text-main);
+    line-height: 1.8;
+    margin: 0 0 14px;
+    font-weight: 400;
+  }
+
+  .zh {
+    font-size: 15px;
+    color: var(--text-zh);
+    line-height: 1.85;
+    margin: 0;
+    font-weight: 400;
+    max-height: 600px;
+    opacity: 1;
+    transition: max-height 0.35s ease, opacity 0.25s ease, margin 0.35s ease;
+    overflow: hidden;
+  }
+
+  .zh.hidden {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+  }
+
+  .hl {
+    color: var(--highlight);
+    text-decoration: underline;
+    text-decoration-color: var(--highlight);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+    font-weight: 500;
+  }
+
+  .bk {
+    color: var(--bracket);
+    font-weight: 500;
+  }
+
+  /* Standalone conclusion */
+  .conclusion {
+    margin-top: 48px;
+    padding-top: 28px;
+    border-top: 1px dashed rgba(31,42,42,0.15);
+  }
+
+  .conclusion .zh {
+    max-height: 600px;
+    opacity: 1;
+  }
+
+  .conclusion .zh.hidden {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 56px;
+    font-size: 12px;
+    color: var(--text-zh);
+    letter-spacing: 0.3px;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    body { padding: 48px 18px 48px; }
+    .header h1 { font-size: 21px; }
+    .en { font-size: 16px; }
+    .zh { font-size: 14.5px; }
+    .toggle-bar { top: 12px; right: 12px; font-size: 12px; padding: 7px 12px 7px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toggle-bar on" id="toggleBar" onclick="toggleZh()">
+  <span id="toggleLabel">中文翻译 · ON</span>
+  <div class="switch"></div>
+</div>
+
+<div class="container">
+
+  <div class="header">
+    <div class="eyebrow">Office Operations</div>
+    <h1>A Week Behind the Product Launch</h1>
+    <div class="meta">主题：办公运营类 · 适用读者：办公室经理</div>
+  </div>
+
+  <!-- Paragraph 1 -->
+  <div class="block">
+    <p class="en">
+      Daniel is the <span class="hl">office</span> <span class="hl">manager</span> at Veris Electronics, a mid-sized consumer tech company. Every morning, he opens his <span class="hl">email</span>, checks his <span class="hl">calendar</span>, and reviews the day's <span class="hl">schedule</span> before the <span class="hl">team</span> <span class="hl">meeting</span>. This week, the <span class="hl">agenda</span> is dominated by one thing: the upcoming <span class="hl">product launch</span>. He prints a progress <span class="hl">report</span> on the shared <span class="hl">computer</span>, makes a <span class="hl">copy</span> for each department head, and <span class="hl">update</span>s the <span class="hl">project</span> tracking <span class="hl">system</span>. On his desk, <span class="hl">stationery</span> is neatly arranged, every <span class="hl">document</span> filed in the <span class="hl">filing cabinet</span>, and the next <span class="hl">appointment</span> highlighted on screen.
+    </p>
+    <p class="zh">
+      丹尼尔是 Veris Electronics 的<span class="bk">【办公室】</span><span class="bk">【经理】</span>，一家中型消费科技公司。每天早上，他打开<span class="bk">【邮件】</span>，查看<span class="bk">【日历】</span>，在<span class="bk">【团队】</span><span class="bk">【会议】</span>前回顾当天<span class="bk">【日程】</span>。本周，<span class="bk">【议程】</span>只围绕一件事：即将到来的<span class="bk">【产品发布】</span>。他在共享<span class="bk">【电脑】</span>上打印一份进度<span class="bk">【报告】</span>，为每个部门负责人制作一份<span class="bk">【副本】</span>，并<span class="bk">【更新】</span><span class="bk">【项目】</span>追踪<span class="bk">【系统】</span>。桌面上，<span class="bk">【文具】</span>摆放整齐，每份<span class="bk">【文件】</span>都归入<span class="bk">【文件柜】</span>，下一个<span class="bk">【预约】</span>在屏幕上高亮显示。
+    </p>
+  </div>
+
+  <!-- Paragraph 2 -->
+  <div class="block">
+    <p class="en">
+      The company's annual <span class="hl">conference</span> is two weeks away, and the <span class="hl">deadline</span> for final preparations is Friday. Daniel handles <span class="hl">venue coordination</span> — booking the main hall, arranging <span class="hl">audio-visual equipment</span>, testing the <span class="hl">projector</span> and <span class="hl">microphone</span>, and confirming every <span class="hl">presentation slide</span>. He sits down with the <span class="hl">logistics</span> team for a <span class="hl">briefing</span> on the <span class="hl">supply chain</span> showcase, then reviews the <span class="hl">market analysis</span> the marketing team prepared. The product <span class="hl">catalog</span> is already at the <span class="hl">printer</span>, and a draft <span class="hl">brochure</span> sits on his desk awaiting final approval.
+    </p>
+    <p class="zh">
+      公司年度<span class="bk">【大会】</span>还有两周，最终准备的<span class="bk">【截止日期】</span>是周五。丹尼尔负责<span class="bk">【场地协调】</span>——预订主厅、安排<span class="bk">【视听设备】</span>、测试<span class="bk">【投影仪】</span>和<span class="bk">【麦克风】</span>，并确认每张<span class="bk">【演示幻灯片】</span>。他与<span class="bk">【物流】</span>团队坐下来开一个关于<span class="bk">【供应链】</span>展示的<span class="bk">【简报会】</span>，然后审阅市场团队准备的<span class="bk">【市场分析】</span>。产品<span class="bk">【目录】</span>已送<span class="bk">【打印机】</span>，桌上放着一份等待最终审批的<span class="bk">【宣传册】</span>草稿。
+    </p>
+  </div>
+
+  <!-- Paragraph 3 -->
+  <div class="block">
+    <p class="en">
+      Back at his desk, Daniel checks the <span class="hl">inventory management</span> dashboard. The <span class="hl">stock</span> of <span class="hl">office</span> supplies is running low, so he fills out a <span class="hl">purchase requisition</span> <span class="hl">form</span> to order more <span class="hl">stationery</span>, <span class="hl">printer</span> toner, and five <span class="hl">ergonomic chair</span>s for the new hires. He also arranges a <span class="hl">phone system</span> <span class="hl">update</span> for the sales floor. Every <span class="hl">expense</span> must be tracked against the quarterly <span class="hl">budget</span>, so he carefully <span class="hl">file</span>s each <span class="hl">receipt</span> and <span class="hl">invoice</span>, logs the <span class="hl">record</span>, and submits a <span class="hl">reimbursement</span> claim. When he spots an <span class="hl">invoice discrepancy</span> on the latest shipment, he <span class="hl">email</span>s the vendor immediately.
+    </p>
+    <p class="zh">
+      回到座位，丹尼尔查看<span class="bk">【库存管理】</span>仪表盘。<span class="bk">【办公室】</span>用品的<span class="bk">【库存】</span>快见底了，于是他填写一张<span class="bk">【采购申请】</span><span class="bk">【表格】</span>，订购更多<span class="bk">【文具】</span>、<span class="bk">【打印机】</span>碳粉和五把给新员工的<span class="bk">【人体工学椅】</span>。他还安排了销售楼层<span class="bk">【电话系统】</span>的<span class="bk">【更新】</span>。每笔<span class="bk">【费用】</span>都必须对照季度<span class="bk">【预算】</span>追踪，因此他仔细<span class="bk">【归档】</span>每张<span class="bk">【收据】</span>和<span class="bk">【发票】</span>，登记<span class="bk">【记录】</span>，并提交<span class="bk">【报销】</span>申请。当他发现最新一批货物的<span class="bk">【发票差异】</span>时，立即<span class="bk">【邮件】</span>联系了供应商。
+    </p>
+  </div>
+
+  <!-- Paragraph 4 -->
+  <div class="block">
+    <p class="en">
+      In the afternoon, Daniel drafts a <span class="hl">memo</span> outlining the new <span class="hl">safety guideline</span> and the <span class="hl">parking procedure</span> for <span class="hl">conference</span> day. He posts a <span class="hl">notice</span> on the company <span class="hl">intranet</span> and sends an <span class="hl">internal bulletin</span> to all staff. The company recently adopted an <span class="hl">environmental policy</span>, so he sets up a <span class="hl">waste management</span> station and pins a colorful <span class="hl">poster</span> near the recycling bins. He reminds everyone to wear their <span class="hl">ID card</span> and uploads the final event <span class="hl">schedule</span> to the <span class="hl">shared drive</span>.
+    </p>
+    <p class="zh">
+      下午，丹尼尔起草一份<span class="bk">【备忘录】</span>，概述新的<span class="bk">【安全准则】</span>和<span class="bk">【大会】</span>当天的<span class="bk">【停车流程】</span>。他在公司<span class="bk">【内网】</span>发布<span class="bk">【通知】</span>，并向全体员工发送<span class="bk">【内部公告】</span>。公司最近通过了<span class="bk">【环保政策】</span>，他因此设立了一个<span class="bk">【废物管理】</span>站，并在回收箱旁贴了一张彩色<span class="bk">【海报】</span>。他提醒所有人佩戴<span class="bk">【工卡】</span>，并将最终活动<span class="bk">【日程】</span>上传至<span class="bk">【共享盘】</span>。
+    </p>
+  </div>
+
+  <!-- Paragraph 5 -->
+  <div class="block">
+    <p class="en">
+      Before heading home, Daniel shreds a stack of outdated <span class="hl">document</span>s in the <span class="hl">shredder</span>, saves the approved <span class="hl">brochure proof</span> to the <span class="hl">shared drive</span>, and sends a quick <span class="hl">update</span> to his <span class="hl">manager</span>. The <span class="hl">office</span> falls quiet — the <span class="hl">printer</span> powers down, <span class="hl">computer</span> screens go dark, and the last <span class="hl">team</span> member leaves. Daniel knows that clean <span class="hl">record</span>s, organized <span class="hl">file</span>s, and a well-stocked <span class="hl">inventory</span> are the quiet backbone of every successful <span class="hl">product launch</span>.
+    </p>
+    <p class="zh">
+      下班前，丹尼尔把一沓过时的<span class="bk">【文件】</span>塞进<span class="bk">【碎纸机】</span>销毁，将已批准的<span class="bk">【宣传册校样】</span>保存到<span class="bk">【共享盘】</span>，并给<span class="bk">【经理】</span>发了一条简短的<span class="bk">【更新】</span>。<span class="bk">【办公室】</span>安静下来——<span class="bk">【打印机】</span>关机，<span class="bk">【电脑】</span>屏幕变暗，最后一名<span class="bk">【团队】</span>成员离开。丹尼尔深知，整洁的<span class="bk">【记录】</span>、井然有序的<span class="bk">【文件】</span>和充足<span class="bk">【库存】</span>是每一次成功<span class="bk">【产品发布】</span>背后无声的支柱。
+    </p>
+  </div>
+
+  <!-- Standalone Chinese conclusion -->
+  <div class="conclusion">
+    <p class="zh" style="max-width: 100%;">
+      丹尼尔常说，一间运转顺畅的办公室从不靠运气。每一张归档的收据、每一笔核对的发票、每一页准时送达的演示幻灯片，都是产品发布背后那些看不见的齿轮——安静，却不可或缺。
+    </p>
+  </div>
+
+  <div class="footer">
+    配套词汇表：bec.md &nbsp;·&nbsp; 主题：办公运营类 Office Operations &nbsp;·&nbsp; 整理日期：2026-07-24
+  </div>
+
+</div>
+
+<script>
+function toggleZh() {
+  const bar = document.getElementById('toggleBar');
+  const label = document.getElementById('toggleLabel');
+  const allZh = document.querySelectorAll('.zh');
+  const isOn = bar.classList.contains('on');
+
+  if (isOn) {
+    bar.classList.remove('on');
+    label.textContent = '中文翻译 · OFF';
+    allZh.forEach(p => p.classList.add('hidden'));
+  } else {
+    bar.classList.add('on');
+    label.textContent = '中文翻译 · ON';
+    allZh.forEach(p => p.classList.remove('hidden'));
+  }
+}
+</script>
+
+</body>
+</html>
