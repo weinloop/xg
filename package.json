@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "系统规划与管理师备考知识库",
   "scripts": {
-    "sync:mindmaps": "sh -c 'find 00-思维篇 -name \"*.html\" | while IFS= read -r f; do d=\"public/$(dirname \"$f\")\"; mkdir -p \"$d\" && cp \"$f\" \"public/$f\"; done'",
+    "sync:mindmaps": "sh -c 'find 00-思维篇 08-英语篇 -name \"*.html\" 2>/dev/null | while IFS= read -r f; do d=\"public/$(dirname \"$f\")\"; mkdir -p \"$d\" && cp \"$f\" \"public/$f\"; done'",
     "docs:dev": "npm run sync:mindmaps && vitepress dev",
     "docs:build": "npm run sync:mindmaps && vitepress build",
     "docs:preview": "vitepress preview"
