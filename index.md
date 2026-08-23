@@ -6,6 +6,9 @@ hero:
   tagline: 多知识
   actions:
     - theme: brand
+      text: 案例简版
+      link: /06-案例篇/案例简版/
+    - theme: brand
       text: 思维篇
       link: /00-思维篇/
     - theme: brand
@@ -31,6 +34,9 @@ hero:
       link: /学习卡片/
 
 features:
+  - title: ⚡ 案例简版
+    details: 按章节压缩提炼案例主线、口诀和核心要点，适合考前速记与高频回顾。
+    link: /06-案例篇/案例简版/
   - title: 🧠 思维篇
     details: 按教材章节呈现核心知识思维脑图，可视化梳理考点骨架与速记口诀，考前全局复习首选。
     link: /00-思维篇/
